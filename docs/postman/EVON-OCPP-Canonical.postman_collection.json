@@ -1,0 +1,273 @@
+{
+  "info": {
+    "_postman_id": "evon-ocpp-canonical-001",
+    "name": "EVON — OCPP Canonical API (/api/v1/ocpp)",
+    "description": "Canonical OCPP/SteVe surface owned by OcppOperationsController.\n\nSet collection variables:\n- baseUrl: e.g. http://127.0.0.1:8000\n- token: Sanctum bearer token (php artisan tinker → User::find(1)->createToken('postman')->plainTextToken)\n- chargingPointId: a CP id with charge_box_id set\n- connectorId: usually 1\n- transactionId: an OCPP transaction id from SteVe\n\nGrounded in tests/Feature/Ocpp/ — same FormRequest rules apply.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [{ "key": "token", "value": "{{token}}", "type": "string" }]
+  },
+  "variable": [
+    { "key": "baseUrl",         "value": "http://127.0.0.1:8000" },
+    { "key": "token",           "value": "" },
+    { "key": "chargingPointId", "value": "1" },
+    { "key": "connectorId",     "value": "1" },
+    { "key": "transactionId",   "value": "1" }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Accept", "value": "application/json" }],
+        "url": { "raw": "{{baseUrl}}/api/health", "host": ["{{baseUrl}}"], "path": ["api", "health"] }
+      }
+    },
+    {
+      "name": "Remote Start Transaction",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Accept", "value": "application/json" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"connectorId\": {{connectorId}},\n  \"ocppTag\": \"Open10Tag\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/ocpp/charging-points/{{chargingPointId}}/remote-start",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "ocpp", "charging-points", "{{chargingPointId}}", "remote-start"]
+        },
+        "description": "Required: connectorId (>=1), ocppTag (string, max 64).\nExpected 200 with status: ACCEPTED on success.\n422 if validation fails, 400 if CP has no charge_box_id, 503 if STEVE_API_URL unset."
+      }
+    },
+    {
+      "name": "Remote Stop Transaction",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Accept", "value": "application/json" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"transactionId\": {{transactionId}}\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/ocpp/charging-points/{{chargingPointId}}/remote-stop",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "ocpp", "charging-points", "{{chargingPointId}}", "remote-stop"]
+        },
+        "description": "transactionId is OPTIONAL at validation level but REQUIRED for multi-connector chargers — otherwise SteVe picks an active session on the chargeBoxId.\nReturns 200 with status: ACCEPTED on success."
+      }
+    },
+    {
+      "name": "Reset — Soft",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Accept", "value": "application/json" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": { "mode": "raw", "raw": "{\n  \"type\": \"Soft\"\n}" },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/ocpp/charging-points/{{chargingPointId}}/reset",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "ocpp", "charging-points", "{{chargingPointId}}", "reset"]
+        },
+        "description": "Graceful reboot. type must be exactly 'Soft' or 'Hard' (case-insensitive). Any other value returns 422 (pre-fix this silently downgraded to Soft — audit Bug #2)."
+      }
+    },
+    {
+      "name": "Reset — Hard (destructive)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Accept", "value": "application/json" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": { "mode": "raw", "raw": "{\n  \"type\": \"Hard\"\n}" },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/ocpp/charging-points/{{chargingPointId}}/reset",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "ocpp", "charging-points", "{{chargingPointId}}", "reset"]
+        },
+        "description": "⚠️ Reboots the charger immediately. Active sessions are interrupted. Only run against simulators / known-empty chargers."
+      }
+    },
+    {
+      "name": "Unlock Connector",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Accept", "value": "application/json" }],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/ocpp/charging-points/{{chargingPointId}}/connectors/{{connectorId}}/unlock",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "ocpp", "charging-points", "{{chargingPointId}}", "connectors", "{{connectorId}}", "unlock"]
+        },
+        "description": "Physically unlocks the connector if the charger supports it. No body required."
+      }
+    },
+    {
+      "name": "Change Availability — Charge Point",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Accept", "value": "application/json" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": { "mode": "raw", "raw": "{\n  \"type\": \"Operative\"\n}" },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/ocpp/charging-points/{{chargingPointId}}/availability",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "ocpp", "charging-points", "{{chargingPointId}}", "availability"]
+        },
+        "description": "type: Operative | Inoperative (case-insensitive). Applies to the whole charge point (all connectors)."
+      }
+    },
+    {
+      "name": "Change Availability — One Connector",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Accept", "value": "application/json" },
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": { "mode": "raw", "raw": "{\n  \"type\": \"Inoperative\"\n}" },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/ocpp/charging-points/{{chargingPointId}}/connectors/{{connectorId}}/availability",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "ocpp", "charging-points", "{{chargingPointId}}", "connectors", "{{connectorId}}", "availability"]
+        }
+      }
+    },
+    {
+      "name": "Connector Status",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Accept", "value": "application/json" }],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/charging-points/{{chargingPointId}}/connectors/{{connectorId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "v1", "charging-points", "{{chargingPointId}}", "connectors", "{{connectorId}}"]
+        },
+        "description": "Returns connector availability + live SteVe reachability check.\n400 with code: CONNECTION_ERROR when the charger is offline.\nPre-fix this could 500 due to missing import (audit Bug #5)."
+      }
+    },
+    {
+      "name": "Transactions — list",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Accept", "value": "application/json" }],
+        "url": {
+          "raw": "{{baseUrl}}/api/steve-transactions?type=ACTIVE&perPage=25",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "steve-transactions"],
+          "query": [
+            { "key": "type", "value": "ACTIVE" },
+            { "key": "perPage", "value": "25" }
+          ]
+        },
+        "description": "SteveTransactionFilterRequest validates: transactionPk, type (ACTIVE|COMPLETED|EVERYTHING), periodType, chargeBoxId, ocppIdTag, userId, from, to (after_or_equal:from), page, perPage (1..200).\n200 OK, 502 on SteVe upstream failure (was 200 before audit Bug #6)."
+      }
+    },
+    {
+      "name": "Transactions — active",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Accept", "value": "application/json" }],
+        "url": {
+          "raw": "{{baseUrl}}/api/steve-transactions/active",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "steve-transactions", "active"]
+        }
+      }
+    },
+    {
+      "name": "Transactions — statistics",
+      "request": {
+        "method": "GET",
+        "header": [{ "key": "Accept", "value": "application/json" }],
+        "url": {
+          "raw": "{{baseUrl}}/api/steve-transactions/statistics",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "steve-transactions", "statistics"]
+        }
+      }
+    },
+    {
+      "name": "ERROR CASES",
+      "item": [
+        {
+          "name": "401 — no token",
+          "request": {
+            "auth": { "type": "noauth" },
+            "method": "POST",
+            "header": [{ "key": "Accept", "value": "application/json" }],
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ocpp/charging-points/{{chargingPointId}}/remote-start",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "ocpp", "charging-points", "{{chargingPointId}}", "remote-start"]
+            },
+            "description": "Expected 401: {\"message\": \"Unauthenticated.\"}"
+          }
+        },
+        {
+          "name": "422 — empty body",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{}" },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ocpp/charging-points/{{chargingPointId}}/remote-start",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "ocpp", "charging-points", "{{chargingPointId}}", "remote-start"]
+            },
+            "description": "Validates BEFORE chargeBoxId check (audit Bug #1). Expected 422 with errors.{connectorId, ocppTag}."
+          }
+        },
+        {
+          "name": "422 — Reset invalid type",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"type\": \"Reboot\"\n}" },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ocpp/charging-points/{{chargingPointId}}/reset",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "ocpp", "charging-points", "{{chargingPointId}}", "reset"]
+            },
+            "description": "Audit Bug #2. Expected 422 'Le champ type est invalide.'"
+          }
+        },
+        {
+          "name": "503 — SteVe unconfigured",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Accept", "value": "application/json" },
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": { "mode": "raw", "raw": "{\n  \"connectorId\": 1,\n  \"ocppTag\": \"Open10Tag\"\n}" },
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/ocpp/charging-points/{{chargingPointId}}/remote-start",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "v1", "ocpp", "charging-points", "{{chargingPointId}}", "remote-start"]
+            },
+            "description": "When STEVE_API_URL is empty in .env. Expected 503 with code: steve_configuration_missing (audit fix P1.4)."
+          }
+        }
+      ]
+    }
+  ]
+}

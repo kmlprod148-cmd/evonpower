@@ -1,0 +1,1175 @@
+/**
+ * ========================================
+ * EVON MOBILE ENHANCED STYLES
+ * Design moderne et centré pour mobile
+ * Par un développeur Laravel Senior
+ * ========================================
+ */
+
+/* ========================================
+   1. MOBILE-FIRST BASE LAYOUT
+   ======================================== */
+
+/* Centrage et containment global pour mobile */
+@media (max-width: 1023px) {
+    /* Assurer que tout le contenu est centré et contenu */
+    body {
+        position: relative;
+        width: 100vw;
+        max-width: 100%;
+        overflow-x: hidden;
+        -webkit-text-size-adjust: 100%;
+    }
+
+    /* Container principal mobile - Centré parfaitement */
+    .evon-main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        max-width: 100%;
+        padding-bottom: 80px; /* Pour le bottom nav */
+        overflow-x: hidden;
+    }
+
+    /* Contenu - Centré avec padding amélioré */
+    .evon-content {
+        width: 100%;
+        max-width: 100vw;
+        padding: 20px 20px 28px 20px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        box-sizing: border-box;
+        gap: 16px;
+    }
+
+    /* Tous les enfants directs du contenu */
+    .evon-content > * {
+        width: 100%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+    }
+}
+
+/* ========================================
+   2. HEADER MOBILE - Design Moderne
+   ======================================== */
+
+@media (max-width: 1023px) {
+    .evon-header {
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        max-width: 100%;
+        padding: 14px 20px !important;
+        min-height: 72px !important;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(16px) saturate(200%);
+        -webkit-backdrop-filter: blur(16px) saturate(200%);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        z-index: 1000;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .dark .evon-header {
+        background: rgba(31, 41, 55, 0.98) !important;
+        border-bottom-color: rgba(255, 255, 255, 0.08);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Logo header mobile - Centré et agrandi */
+    .evon-header .logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        margin: 0 16px;
+        gap: 10px;
+    }
+
+    .evon-header .logo-container img {
+        height: 48px;
+        width: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+    }
+
+    .evon-header .logo-container span,
+    .evon-header .logo-text {
+        font-size: 20px;
+        font-weight: 800;
+        color: #2d8f56;
+        letter-spacing: -0.5px;
+    }
+
+    .dark .evon-header .logo-container span,
+    .dark .evon-header .logo-text {
+        color: #4acf7b;
+    }
+
+    /* Boutons header - Taille tactile améliorée */
+    .evon-header-button,
+    .evon-mobile-menu-btn {
+        width: 48px !important;
+        height: 48px !important;
+        min-width: 48px !important;
+        min-height: 48px !important;
+        border-radius: 14px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        padding: 0 !important;
+        background: rgba(74, 207, 123, 0.05);
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .dark .evon-header-button,
+    .dark .evon-mobile-menu-btn {
+        background: rgba(74, 207, 123, 0.1);
+    }
+
+    .evon-header-button:active,
+    .evon-mobile-menu-btn:active {
+        transform: scale(0.92);
+        background: rgba(74, 207, 123, 0.1);
+    }
+
+    .evon-header-utilities {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-shrink: 0;
+    }
+}
+
+/* ========================================
+   3. CARTES & CONTENEURS - Design Premium
+   ======================================== */
+
+@media (max-width: 1023px) {
+    /* Toutes les cartes ont un style cohérent avec padding amélioré */
+    .evon-stat-card,
+    .evon-chart-card,
+    .evon-table-container,
+    .evon-form-section,
+    .card,
+    .bg-white:not(.evon-header),
+    .dark .bg-gray-800:not(.evon-header) {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        border-radius: 18px !important;
+        padding: 20px !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+        border: 1px solid rgba(0, 0, 0, 0.05) !important;
+        overflow: hidden;
+        box-sizing: border-box;
+    }
+
+    .dark .evon-stat-card,
+    .dark .evon-chart-card,
+    .dark .evon-table-container,
+    .dark .evon-form-section,
+    .dark .card {
+        border-color: rgba(255, 255, 255, 0.08) !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    /* Stat cards - Grille optimisée mobile avec meilleurs espacements */
+    .evon-stats-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+        width: 100% !important;
+        margin-bottom: 24px !important;
+    }
+
+    /* Stat card - Design moderne */
+    .evon-stat-card {
+        display: flex;
+        flex-direction: column;
+        min-height: 120px;
+        position: relative;
+        background: linear-gradient(135deg, #ffffff 0%, #f9fafb 100%) !important;
+    }
+
+    .dark .evon-stat-card {
+        background: linear-gradient(135deg, #1f2937 0%, #111827 100%) !important;
+    }
+
+    .evon-stat-card:active {
+        transform: scale(0.98);
+        transition: transform 0.15s ease;
+    }
+
+    .evon-stat-card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+    }
+
+    .evon-stat-card-label {
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        color: #6b7280;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .dark .evon-stat-card-label {
+        color: #9ca3af;
+    }
+
+    .evon-stat-card-icon {
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 12px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background: linear-gradient(135deg, rgba(74, 207, 123, 0.2) 0%, rgba(74, 207, 123, 0.05) 100%) !important;
+    }
+
+    .evon-stat-card-icon svg {
+        width: 22px !important;
+        height: 22px !important;
+        color: #4acf7b !important;
+    }
+
+    .evon-stat-card-value {
+        font-size: 28px !important;
+        font-weight: 800 !important;
+        line-height: 1.2 !important;
+        color: #111827;
+        margin-bottom: 8px !important;
+    }
+
+    .dark .evon-stat-card-value {
+        color: #f9fafb;
+    }
+
+    .evon-stat-card-change {
+        font-size: 13px !important;
+        font-weight: 600 !important;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+}
+
+/* ========================================
+   4. GRILLES RESPONSIVE - 100% Centré
+   ======================================== */
+
+@media (max-width: 1023px) {
+    /* Toutes les grilles passent en colonne unique */
+    .grid,
+    .evon-form-grid,
+    .grid-cols-2,
+    .grid-cols-3,
+    .grid-cols-4,
+    .sm\:grid-cols-2,
+    .lg\:grid-cols-3,
+    .lg\:grid-cols-4 {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+
+    /* Grid items */
+    .grid > *,
+    .evon-form-grid > * {
+        grid-column: span 1 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* ========================================
+   5. FORMULAIRES - UX Mobile Parfaite
+   ======================================== */
+
+@media (max-width: 1023px) {
+    /* Tous les inputs */
+    .input-field,
+    .select-field,
+    .textarea-field,
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="url"],
+    input[type="search"],
+    input[type="date"],
+    select,
+    textarea {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 48px !important;
+        padding: 12px 16px !important;
+        font-size: 16px !important; /* Évite le zoom iOS */
+        border-radius: 12px !important;
+        border: 1px solid #e5e7eb !important;
+        background: #ffffff !important;
+        box-sizing: border-box;
+        transition: all 0.2s ease;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    .dark input,
+    .dark select,
+    .dark textarea {
+        background: #1f2937 !important;
+        border-color: #374151 !important;
+        color: #f9fafb !important;
+    }
+
+    textarea {
+        min-height: 120px !important;
+        height: auto !important;
+        resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+        outline: none !important;
+        border-color: #4acf7b !important;
+        box-shadow: 0 0 0 3px rgba(74, 207, 123, 0.1) !important;
+        transform: translateY(-1px);
+    }
+
+    /* Labels - Contraste amélioré */
+    label {
+        display: block;
+        font-size: 15px !important;
+        font-weight: 600 !important;
+        color: #1f2937;
+        margin-bottom: 10px !important;
+    }
+
+    .dark label {
+        color: #e5e7eb;
+    }
+
+    /* Form groups */
+    .form-group,
+    .mb-4,
+    .mb-6 {
+        margin-bottom: 20px !important;
+    }
+}
+
+/* ========================================
+   6. BOUTONS - Design System Mobile
+   ======================================== */
+
+@media (max-width: 1023px) {
+    /* Tous les boutons primaires */
+    .btn-primary,
+    .evon-empty-state-action,
+    button[type="submit"] {
+        width: 100% !important;
+        height: 52px !important;
+        min-height: 52px !important;
+        padding: 0 24px !important;
+        font-size: 16px !important;
+        font-weight: 700 !important;
+        border-radius: 14px !important;
+        background: linear-gradient(135deg, #4acf7b 0%, #3ab66a 100%) !important;
+        color: #ffffff !important;
+        border: none !important;
+        box-shadow: 0 4px 12px rgba(74, 207, 123, 0.3) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px;
+        cursor: pointer;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        -webkit-tap-highlight-color: transparent;
+        text-transform: none;
+        letter-spacing: 0;
+    }
+
+    .btn-primary:active,
+    button[type="submit"]:active {
+        transform: scale(0.97);
+        box-shadow: 0 2px 6px rgba(74, 207, 123, 0.3) !important;
+    }
+
+    .btn-primary:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        transform: none !important;
+    }
+
+    /* Boutons secondaires */
+    .btn-secondary {
+        width: 100% !important;
+        height: 52px !important;
+        padding: 0 24px !important;
+        font-size: 16px !important;
+        font-weight: 600 !important;
+        border-radius: 14px !important;
+        background: #ffffff !important;
+        color: #374151 !important;
+        border: 2px solid #e5e7eb !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 8px;
+        transition: all 0.2s ease;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .dark .btn-secondary {
+        background: #1f2937 !important;
+        color: #f9fafb !important;
+        border-color: #374151 !important;
+    }
+
+    .btn-secondary:active {
+        transform: scale(0.97);
+        background: #f9fafb !important;
+    }
+
+    /* Groupe de boutons */
+    .flex.gap-3,
+    .flex.gap-4,
+    .evon-form-actions {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        width: 100% !important;
+    }
+
+    .flex.gap-3 > *,
+    .flex.gap-4 > *,
+    .evon-form-actions > * {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+}
+
+/* ========================================
+   7. TABLES - Carte responsive mobile
+   ======================================== */
+
+@media (max-width: 1023px) {
+    .evon-table-wrapper {
+        width: 100%;
+        overflow: visible;
+        margin: 0;
+    }
+
+    .evon-table {
+        display: block;
+        width: 100%;
+    }
+
+    .evon-table thead {
+        display: none;
+    }
+
+    .evon-table tbody {
+        display: block;
+        width: 100%;
+    }
+
+    .evon-table tr {
+        display: block;
+        width: 100%;
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 16px;
+        margin-bottom: 12px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .dark .evon-table tr {
+        background: #1f2937;
+        border-color: #374151;
+    }
+
+    .evon-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+        border-bottom: 1px solid #f3f4f6;
+        text-align: right;
+    }
+
+    .dark .evon-table td {
+        border-bottom-color: #374151;
+    }
+
+    .evon-table td:last-child {
+        border-bottom: none;
+    }
+
+    .evon-table td::before {
+        content: attr(data-label);
+        font-weight: 700;
+        color: #6b7280;
+        text-align: left;
+        flex-shrink: 0;
+        margin-right: 12px;
+    }
+
+    .dark .evon-table td::before {
+        color: #9ca3af;
+    }
+}
+
+/* ========================================
+   8. BOTTOM NAVIGATION - Design iOS/Android
+   ======================================== */
+
+@media (max-width: 1023px) {
+    .evon-mobile-bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(16px) saturate(180%);
+        -webkit-backdrop-filter: blur(16px) saturate(180%);
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.06);
+        padding-bottom: env(safe-area-inset-bottom, 8px);
+        z-index: 999;
+    }
+
+    .dark .evon-mobile-bottom-nav {
+        background: rgba(31, 41, 55, 0.95);
+        border-top-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .evon-mobile-bottom-nav-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 8px 8px 4px 8px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .evon-mobile-bottom-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        padding: 8px 12px;
+        border-radius: 12px;
+        min-width: 64px;
+        max-width: 80px;
+        flex: 1;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        -webkit-tap-highlight-color: transparent;
+        position: relative;
+    }
+
+    .evon-mobile-bottom-nav-item:active {
+        transform: scale(0.92);
+        background: rgba(74, 207, 123, 0.1);
+    }
+
+    .evon-mobile-bottom-nav-item.active {
+        background: linear-gradient(135deg, #4acf7b 0%, #3ab56a 100%);
+        color: white;
+    }
+
+    .evon-mobile-bottom-nav-icon {
+        width: 24px;
+        height: 24px;
+        color: #6b7280;
+        transition: all 0.2s ease;
+    }
+
+    .evon-mobile-bottom-nav-item.active .evon-mobile-bottom-nav-icon {
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    .evon-mobile-bottom-nav-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: #6b7280;
+        text-align: center;
+        transition: all 0.2s ease;
+    }
+
+    .evon-mobile-bottom-nav-item.active .evon-mobile-bottom-nav-label {
+        color: white;
+        font-weight: 700;
+    }
+
+    /* FAB Button central */
+    .evon-mobile-bottom-nav-fab {
+        margin-top: -24px;
+    }
+
+    .evon-mobile-bottom-nav-fab-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, #4acf7b 0%, #3ab66a 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 24px rgba(74, 207, 123, 0.4);
+        transition: all 0.2s ease;
+    }
+
+    .evon-mobile-bottom-nav-fab-icon svg {
+        width: 28px;
+        height: 28px;
+        color: #ffffff;
+    }
+
+    .evon-mobile-bottom-nav-fab:active .evon-mobile-bottom-nav-fab-icon {
+        transform: scale(0.92);
+        box-shadow: 0 4px 12px rgba(74, 207, 123, 0.4);
+    }
+}
+
+/* ========================================
+   9. TYPOGRAPHIE MOBILE - Hiérarchie claire et lisible
+   ======================================== */
+
+@media (max-width: 1023px) {
+    /* Base typography - Taille augmentée pour lisibilité */
+    body {
+        font-size: 15px !important;
+        line-height: 1.6 !important;
+    }
+
+    /* Titres principaux */
+    h1,
+    .evon-page-title {
+        font-size: 26px !important;
+        font-weight: 800 !important;
+        line-height: 1.25 !important;
+        color: #111827;
+        margin-bottom: 10px !important;
+        letter-spacing: -0.5px;
+    }
+
+    .dark h1,
+    .dark .evon-page-title {
+        color: #f9fafb;
+    }
+
+    h2,
+    .evon-chart-title {
+        font-size: 22px !important;
+        font-weight: 700 !important;
+        line-height: 1.35 !important;
+        color: #1f2937;
+        margin-bottom: 14px !important;
+    }
+
+    .dark h2,
+    .dark .evon-chart-title {
+        color: #e5e7eb;
+    }
+
+    h3 {
+        font-size: 19px !important;
+        font-weight: 600 !important;
+        line-height: 1.4 !important;
+        color: #374151;
+        margin-bottom: 12px !important;
+    }
+
+    .dark h3 {
+        color: #d1d5db;
+    }
+
+    h4 {
+        font-size: 17px !important;
+        font-weight: 600 !important;
+        line-height: 1.45 !important;
+        color: #4b5563;
+        margin-bottom: 10px !important;
+    }
+
+    .dark h4 {
+        color: #d1d5db;
+    }
+
+    /* Paragraphes - Meilleur contraste et lisibilité */
+    p,
+    .evon-page-subtitle {
+        font-size: 16px !important;
+        line-height: 1.7 !important;
+        color: #4b5563;
+        margin-bottom: 14px !important;
+    }
+
+    .dark p,
+    .dark .evon-page-subtitle {
+        color: #9ca3af;
+    }
+
+    /* Texte small */
+    small,
+    .text-sm {
+        font-size: 14px !important;
+        line-height: 1.55 !important;
+    }
+
+    /* Labels et textes secondaires avec meilleur contraste */
+    .text-gray-500 {
+        color: #4b5563 !important;
+    }
+
+    .dark .text-gray-500 {
+        color: #9ca3af !important;
+    }
+
+    .text-gray-400 {
+        color: #6b7280 !important;
+    }
+
+    .dark .text-gray-400 {
+        color: #9ca3af !important;
+    }
+}
+
+/* ========================================
+   10. MODALS - Full screen mobile
+   ======================================== */
+
+@media (max-width: 1023px) {
+    .evon-modal-overlay {
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+    }
+
+    .evon-modal-wrapper {
+        padding: 0;
+        align-items: flex-end;
+    }
+
+    .evon-modal-panel {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        max-height: 90vh;
+        margin: 0 !important;
+        border-radius: 24px 24px 0 0 !important;
+        animation: slideUpModal 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes slideUpModal {
+        from {
+            transform: translateY(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .evon-modal-header {
+        padding: 20px !important;
+        border-bottom: 1px solid #e5e7eb;
+        position: relative;
+    }
+
+    .evon-modal-header::before {
+        content: '';
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 4px;
+        background: #d1d5db;
+        border-radius: 2px;
+    }
+
+    .evon-modal-body {
+        padding: 20px !important;
+        overflow-y: auto;
+        max-height: calc(90vh - 140px);
+    }
+
+    .evon-modal-footer {
+        padding: 16px 20px !important;
+        border-top: 1px solid #e5e7eb;
+        padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+    }
+}
+
+/* ========================================
+   11. ALERTS & NOTIFICATIONS
+   ======================================== */
+
+@media (max-width: 1023px) {
+    .evon-alert,
+    .evon-alert-success,
+    .evon-alert-warning,
+    .evon-alert-danger,
+    .evon-alert-info {
+        width: 100% !important;
+        margin: 0 0 16px 0 !important;
+        padding: 16px !important;
+        border-radius: 12px !important;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .evon-alert-icon {
+        flex-shrink: 0;
+        width: 22px !important;
+        height: 22px !important;
+    }
+
+    .evon-alert-content {
+        flex: 1;
+    }
+}
+
+/* ========================================
+   12. SIDEBAR MOBILE - Overlay Amélioré
+   ======================================== */
+
+@media (max-width: 1023px) {
+    .evon-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        height: 100dvh; /* Dynamic viewport height */
+        width: 280px !important;
+        max-width: 85vw !important;
+        z-index: 1001;
+        transform: translateX(-100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 2px 0 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .evon-sidebar.translate-x-0 {
+        transform: translateX(0) !important;
+    }
+
+    .evon-mobile-sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        z-index: 1000;
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Navigation items dans sidebar mobile */
+    .evon-nav-item {
+        min-height: 48px !important;
+        padding: 12px 16px !important;
+        border-radius: 10px !important;
+        margin-bottom: 4px !important;
+    }
+
+    .evon-nav-label {
+        font-size: 15px !important;
+        font-weight: 600 !important;
+    }
+
+    /* Active tab - white text on mobile */
+    .evon-nav-item-active,
+    .evon-nav-item-active .evon-nav-label,
+    .evon-nav-item-active .evon-nav-icon {
+        color: white !important;
+    }
+
+    .evon-nav-item-active .evon-nav-icon svg {
+        color: white !important;
+        stroke: white !important;
+    }
+
+    .dark .evon-nav-item-active,
+    .dark .evon-nav-item-active .evon-nav-label,
+    .dark .evon-nav-item-active .evon-nav-icon {
+        color: white !important;
+    }
+
+    .dark .evon-nav-item-active .evon-nav-icon svg {
+        color: white !important;
+        stroke: white !important;
+    }
+}
+
+/* ========================================
+   13. SAFE AREA - Support iPhone Notch
+   ======================================== */
+
+@supports (padding-top: env(safe-area-inset-top)) {
+    @media (max-width: 1023px) {
+        .evon-header {
+            padding-top: max(12px, env(safe-area-inset-top)) !important;
+        }
+
+        .evon-mobile-bottom-nav {
+            padding-bottom: max(8px, env(safe-area-inset-bottom)) !important;
+        }
+
+        .evon-sidebar {
+            padding-top: env(safe-area-inset-top, 0);
+        }
+
+        .evon-modal-footer {
+            padding-bottom: max(16px, calc(16px + env(safe-area-inset-bottom))) !important;
+        }
+    }
+}
+
+/* ========================================
+   14. ANIMATIONS - Micro-interactions
+   ======================================== */
+
+@media (max-width: 1023px) {
+    /* Fade in animation */
+    @keyframes fadeInContent {
+        from {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .evon-content > * {
+        animation: fadeInContent 0.4s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+    }
+
+    .evon-content > *:nth-child(1) { animation-delay: 0.05s; }
+    .evon-content > *:nth-child(2) { animation-delay: 0.1s; }
+    .evon-content > *:nth-child(3) { animation-delay: 0.15s; }
+    .evon-content > *:nth-child(4) { animation-delay: 0.2s; }
+
+    /* Ripple effect for buttons */
+    .btn-primary::after,
+    .btn-secondary::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
+    }
+
+    .btn-primary:active::after {
+        opacity: 0.2;
+        background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, transparent 70%);
+    }
+}
+
+/* ========================================
+   15. PERFORMANCE - GPU Acceleration
+   ======================================== */
+
+@media (max-width: 1023px) {
+    .evon-sidebar,
+    .evon-mobile-bottom-nav,
+    .evon-header,
+    .evon-modal-panel,
+    .btn-primary,
+    .btn-secondary,
+    .evon-nav-item {
+        will-change: transform;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        perspective: 1000px;
+        -webkit-perspective: 1000px;
+    }
+
+    /* Smooth scrolling optimized */
+    .evon-main,
+    .evon-modal-body,
+    .evon-sidebar-nav {
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+    }
+
+    /* Font rendering */
+    * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+}
+
+/* ========================================
+   16. LANDSCAPE MODE - Optimisations
+   ======================================== */
+
+@media (max-width: 1023px) and (orientation: landscape) {
+    .evon-header {
+        min-height: 52px !important;
+        padding: 8px 16px !important;
+    }
+
+    .evon-content {
+        padding: 12px 16px 16px 16px !important;
+    }
+
+    .evon-stat-card {
+        min-height: 100px !important;
+    }
+
+    .evon-mobile-bottom-nav {
+        padding: 6px 8px !important;
+    }
+
+    .evon-mobile-bottom-nav-fab {
+        margin-top: -20px;
+    }
+
+    h1, .evon-page-title {
+        font-size: 20px !important;
+    }
+}
+
+/* ========================================
+   17. EXTRA SMALL DEVICES (< 360px)
+   ======================================== */
+
+@media (max-width: 359px) {
+    .evon-content {
+        padding: 12px 12px 20px 12px !important;
+    }
+
+    .evon-stat-card-value {
+        font-size: 24px !important;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        height: 48px !important;
+        font-size: 15px !important;
+    }
+
+    .evon-mobile-bottom-nav-label {
+        font-size: 10px !important;
+    }
+
+    h1, .evon-page-title {
+        font-size: 22px !important;
+    }
+}
+
+/* ========================================
+   18. DARK MODE - Ajustements Mobile
+   ======================================== */
+
+@media (max-width: 1023px) {
+    .dark .evon-main {
+        background: #111827 !important;
+    }
+
+    .dark .evon-content {
+        background: #111827 !important;
+    }
+
+    .dark .btn-primary {
+        box-shadow: 0 4px 12px rgba(74, 207, 123, 0.2) !important;
+    }
+
+    .dark .evon-modal-header::before {
+        background: #4b5563;
+    }
+}
+
+/* ========================================
+   19. ACCESSIBILITÉ - Standards WCAG
+   ======================================== */
+
+@media (max-width: 1023px) {
+    /* Focus visible pour navigation clavier */
+    *:focus-visible {
+        outline: 3px solid #4acf7b !important;
+        outline-offset: 2px !important;
+    }
+
+    /* Améliorer le contraste des liens */
+    a {
+        color: #4acf7b;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    a:active {
+        opacity: 0.7;
+    }
+
+    /* Zone tactile minimum 44x44px */
+    button,
+    a,
+    input[type="checkbox"],
+    input[type="radio"] {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+/* ========================================
+   20. PRINT - Optimisation impression
+   ======================================== */
+
+@media print {
+    .evon-header,
+    .evon-sidebar,
+    .evon-mobile-bottom-nav,
+    .btn-primary,
+    .btn-secondary {
+        display: none !important;
+    }
+
+    .evon-content {
+        padding: 0 !important;
+        max-width: 100% !important;
+    }
+
+    .evon-stat-card,
+    .evon-chart-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
+

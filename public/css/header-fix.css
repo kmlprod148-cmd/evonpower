@@ -1,0 +1,93 @@
+/**
+ * EVON Header Buttons Fix
+ * Corrects sizing and cliquability of header elements
+ */
+
+/* Desktop Sizing (Improved) */
+.evon-header-button,
+.evon-header-avatar,
+.evon-mobile-menu-btn,
+.evon-desktop-sidebar-toggle {
+    width: 36px !important;
+    height: 36px !important;
+    min-width: 36px !important;
+    min-height: 36px !important;
+    padding: 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 10px !important;
+    transition: all 0.2s ease !important;
+}
+
+.evon-header-button svg,
+.evon-mobile-menu-btn svg,
+.evon-desktop-sidebar-toggle svg {
+    width: 20px !important;
+    height: 20px !important;
+}
+
+/* User profile button adaptation */
+#userMenuButton {
+    min-height: 36px !important;
+    padding-left: 8px !important;
+    padding-right: 12px !important;
+}
+
+/* Mobile Optimizations (< 640px) */
+@media (max-width: 640px) {
+    .evon-header {
+        padding: 8px 12px !important;
+        min-height: 56px !important;
+        z-index: 100 !important; /* Ensure header is above everything */
+    }
+
+    .evon-header-button,
+    .evon-header-avatar,
+    .evon-mobile-menu-btn,
+    #userMenuButton {
+        width: 44px !important;
+        height: 44px !important;
+        min-width: 44px !important;
+        min-height: 44px !important;
+        padding: 10px !important;
+        position: relative !important;
+        z-index: 120 !important;
+    }
+
+    .evon-header-button svg,
+    .evon-mobile-menu-btn svg {
+        width: 22px !important;
+        height: 22px !important;
+    }
+
+    .evon-header-utilities {
+        gap: 6px !important;
+        position: relative !important;
+        z-index: 110 !important;
+    }
+
+    /* Hide search on very small screens to avoid overflow */
+    @media (max-width: 400px) {
+        .evon-header-search {
+            display: none !important;
+        }
+    }
+}
+
+/* Ensure dropdowns are visible and well-positioned */
+.z-50 {
+    z-index: 9999 !important;
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+/* Pointer events fix */
+.evon-header-button,
+.evon-header-avatar,
+#userMenuButton {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}

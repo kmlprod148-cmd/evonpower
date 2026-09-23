@@ -1,0 +1,355 @@
+/**
+ * Micro-interactions and Enhanced Transitions
+ * Adds refined animations and interactive states to components
+ */
+
+/* ========================================
+   TRANSITION UTILITIES
+   ======================================== */
+
+/* Smooth transitions */
+.transition-smooth {
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-smooth-fast {
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-smooth-slow {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   HOVER LIFT EFFECTS
+   ======================================== */
+
+/* Card lift on hover */
+.hover-lift {
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.hover-lift:hover {
+    transform: translateY(-2px);
+}
+
+.hover-lift-sm:hover {
+    transform: translateY(-1px);
+}
+
+.hover-lift-lg:hover {
+    transform: translateY(-4px);
+}
+
+/* ========================================
+   SHADOW ENHANCEMENTS
+   ======================================== */
+
+/* Shadow transitions */
+.shadow-hover {
+    transition: box-shadow 0.2s ease-out;
+}
+
+.shadow-hover:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Colored shadows */
+.shadow-green-sm {
+    box-shadow: 0 1px 2px 0 rgba(74, 207, 123, 0.2);
+}
+
+.shadow-green {
+    box-shadow: 0 4px 6px -1px rgba(74, 207, 123, 0.1), 0 2px 4px -1px rgba(74, 207, 123, 0.06);
+}
+
+.shadow-green-lg {
+    box-shadow: 0 10px 15px -3px rgba(74, 207, 123, 0.1), 0 4px 6px -2px rgba(74, 207, 123, 0.05);
+}
+
+.dark .shadow-green-sm {
+    box-shadow: 0 1px 2px 0 rgba(74, 207, 123, 0.15);
+}
+
+.dark .shadow-green {
+    box-shadow: 0 4px 6px -1px rgba(74, 207, 123, 0.2), 0 2px 4px -1px rgba(74, 207, 123, 0.1);
+}
+
+.dark .shadow-green-lg {
+    box-shadow: 0 10px 15px -3px rgba(74, 207, 123, 0.2), 0 4px 6px -2px rgba(74, 207, 123, 0.1);
+}
+
+/* ========================================
+   FOCUS RING ENHANCEMENTS
+   ======================================== */
+
+/* Refined focus rings */
+.focus-ring-green {
+    @apply focus:outline-none focus:ring-2 focus:ring-green-500/40 focus:ring-offset-2;
+}
+
+.focus-ring-green-sm {
+    @apply focus:outline-none focus:ring-2 focus:ring-green-500/30 focus:ring-offset-1;
+}
+
+/* ========================================
+   BUTTON ENHANCEMENTS
+   ======================================== */
+
+/* Button press effect */
+.btn-press:active {
+    transform: scale(0.98);
+}
+
+/* Button glow effect on hover */
+.btn-glow:hover {
+    box-shadow: 0 0 20px rgba(74, 207, 123, 0.4);
+}
+
+/* ========================================
+   BORDER HOVER EFFECTS
+   ======================================== */
+
+/* Border color transition on hover */
+.border-hover {
+    transition: border-color 0.2s ease-out;
+}
+
+.border-hover-green:hover {
+    border-color: rgba(74, 207, 123, 0.5);
+}
+
+/* ========================================
+   BACKGROUND TRANSITIONS
+   ======================================== */
+
+/* Subtle background transitions */
+.bg-transition {
+    transition: background-color 0.2s ease-out;
+}
+
+/* ========================================
+   SCALE TRANSITIONS
+   ======================================== */
+
+/* Scale on hover */
+.scale-hover {
+    transition: transform 0.2s ease-out;
+}
+
+.scale-hover:hover {
+    transform: scale(1.02);
+}
+
+.scale-hover-sm:hover {
+    transform: scale(1.01);
+}
+
+/* ========================================
+   OPACITY TRANSITIONS
+   ======================================== */
+
+/* Opacity transitions */
+.opacity-transition {
+    transition: opacity 0.2s ease-out;
+}
+
+/* ========================================
+   ROTATE TRANSITIONS
+   ======================================== */
+
+/* Rotate on hover */
+.rotate-hover {
+    transition: transform 0.3s ease-out;
+}
+
+.rotate-hover:hover {
+    transform: rotate(3deg);
+}
+
+/* ========================================
+   INPUT ENHANCEMENTS
+   ======================================== */
+
+/* Input focus glow */
+.input-glow:focus {
+    box-shadow: 0 0 0 3px rgba(74, 207, 123, 0.15);
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+/* Subtle pulse for important elements */
+@keyframes subtle-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.85;
+    }
+}
+
+.animate-subtle-pulse {
+    animation: subtle-pulse 2s ease-in-out infinite;
+}
+
+/* Skeleton loading shimmer */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.animate-shimmer {
+    animation: shimmer 1.5s infinite;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+}
+
+.dark .animate-shimmer {
+    background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+    background-size: 200% 100%;
+}
+
+/* ========================================
+   INTERACTIVE STATES
+   ======================================== */
+
+/* All interactive elements */
+.interactive {
+    @apply transition-all duration-200 ease-out;
+}
+
+/* Interactive with hover lift */
+.interactive-lift {
+    @apply transition-all duration-200 ease-out;
+}
+
+.interactive-lift:hover {
+    @apply -translate-y-0.5 shadow-lg;
+}
+
+/* Interactive with focus ring */
+.interactive-focus {
+    @apply transition-all duration-200 ease-out;
+}
+
+.interactive-focus:focus {
+    @apply ring-2 ring-green-500/40 ring-offset-2;
+}
+
+/* ========================================
+   DARK MODE ADJUSTMENTS
+   ======================================== */
+
+.dark .dark\:border-hover-green:hover {
+    border-color: rgba(74, 207, 123, 0.3);
+}
+
+/* ========================================
+   RESPONSIVE HOVER (desktop only)
+   ======================================== */
+
+/* Only apply hover effects on devices with hover capability */
+@media (hover: hover) {
+    .hover\:effects-enabled:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+}
+
+/* ========================================
+   DISABLED STATES
+   ======================================== */
+
+.disabled-opacity {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+}
+
+/* ========================================
+   LOADING STATES
+   ======================================== */
+
+.loading-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ========================================
+   GRADIENT TEXT (for headings)
+   ======================================== */
+
+.text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #4acf7b 0%, #22c55e 100%);
+}
+
+.text-gradient-reverse {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #22c55e 0%, #4acf7b 100%);
+}
+
+.dark .text-gradient {
+    background-image: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+}
+
+.dark .text-gradient-reverse {
+    background-image: linear-gradient(135deg, #22c55e 0%, #4ade80 100%);
+}
+
+/* ========================================
+   GLASSMORPHISM
+   ======================================== */
+
+.glass {
+    @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-md;
+}
+
+.glass-light {
+    @apply bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm;
+}
+
+.glass-dark {
+    @apply bg-gray-900/80 dark:bg-gray-900/90 backdrop-blur-md;
+}
+
+/* ========================================
+   BORDER REFINEMENTS
+   ======================================== */
+
+/* Subtle borders */
+.border-subtle {
+    @apply border-gray-100 dark:border-gray-700;
+}
+
+.border-default {
+    @apply border-gray-200 dark:border-gray-600;
+}
+
+.border-accent {
+    @apply border-green-500/30 dark:border-green-500/20;
+}
+
+/* ========================================
+   INTERACTIVE LINK STATES
+   ======================================== */
+
+.link-transition {
+    @apply transition-colors duration-200;
+}
+
+.link-green {
+    @apply text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300;
+}
+
+/* ========================================
+   FOCUS VISIBLE
+   ======================================== */
+
+/* Better focus visible for accessibility */
+.focus-visible-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2;
+}

@@ -1,0 +1,424 @@
+/**
+ * Sidebar RTL Enhanced - Amélioration complète du sidebar pour RTL
+ * Gère parfaitement la direction droite-à-gauche pour l'arabe
+ */
+
+/* ========================================
+   RTL SIDEBAR POSITION
+   ======================================== */
+[dir="rtl"] .evon-sidebar {
+    left: auto;
+    right: 0;
+}
+
+[dir="rtl"] .evon-sidebar-collapsed {
+    transform: translateX(0) !important;
+}
+
+/* Mobile sidebar animation RTL */
+@media (max-width: 1024px) {
+    [dir="rtl"] .evon-sidebar:not(.translate-x-0) {
+        transform: translateX(100%) !important;
+    }
+}
+
+/* ========================================
+   LOGO RTL DIRECTION
+   ======================================== */
+[dir="rtl"] .evon-sidebar-logo a {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .evon-sidebar-logo .flex.flex-col {
+    text-align: right;
+    align-items: flex-end;
+}
+
+/* ========================================
+   NAVIGATION ITEMS RTL
+   ======================================== */
+[dir="rtl"] .evon-nav-item {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+[dir="rtl"] .evon-nav-icon {
+    margin-left: 0;
+    margin-right: 0.75rem;
+}
+
+[dir="rtl"] .evon-nav-label {
+    text-align: right;
+}
+
+/* ========================================
+   SECTION TITLES RTL
+   ======================================== */
+[dir="rtl"] .evon-nav-section-title {
+    text-align: right;
+    padding-right: 1rem;
+    padding-left: 0;
+}
+
+/* ========================================
+   BADGES RTL
+   ======================================== */
+[dir="rtl"] .evon-nav-badge {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+[dir="rtl"] .evon-nav-item.flex-row-reverse .evon-nav-badge {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+/* ========================================
+   TOOLTIPS RTL
+   ======================================== */
+[dir="rtl"] .evon-nav-item-tooltip {
+    left: auto;
+    right: 100%;
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+/* Tooltip arrow RTL */
+[dir="rtl"] .evon-nav-item-tooltip::before {
+    left: auto;
+    right: -6px;
+    border-right-color: transparent;
+    border-left-color: rgba(17, 24, 39, 0.95);
+}
+
+/* ========================================
+   COLLAPSED SIDEBAR RTL
+   ======================================== */
+[dir="rtl"] .evon-sidebar-collapsed .evon-nav-icon {
+    margin: 0 auto;
+}
+
+[dir="rtl"] .evon-sidebar-collapsed .evon-nav-label {
+    display: none;
+}
+
+/* ========================================
+   MOBILE HEADER RTL
+   ======================================== */
+[dir="rtl"] .evon-sidebar-mobile-header {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .evon-sidebar-mobile-header .flex.items-center.gap-2 {
+    flex-direction: row-reverse;
+}
+
+/* ========================================
+   SIDEBAR FOOTER RTL
+   ======================================== */
+[dir="rtl"] .evon-sidebar-footer {
+    direction: rtl;
+}
+
+[dir="rtl"] .evon-sidebar-footer .evon-nav-item {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+/* ========================================
+   ACTIVE STATES RTL
+   ======================================== */
+[dir="rtl"] .evon-nav-item-active::before {
+    left: auto;
+    right: 0;
+}
+
+/* ========================================
+   SCROLLBAR RTL
+   ======================================== */
+[dir="rtl"] .evon-sidebar::-webkit-scrollbar {
+    left: 0;
+    right: auto;
+}
+
+/* ========================================
+   ANIMATIONS RTL
+   ======================================== */
+[dir="rtl"] .evon-nav-item {
+    transition: all 0.2s ease;
+}
+
+[dir="rtl"] .evon-nav-item:hover {
+    transform: translateX(-2px);
+}
+
+[dir="rtl"] .evon-nav-item-active:hover {
+    transform: translateX(-2px);
+}
+
+/* ========================================
+   REDUCED SPACE DASHBOARD OPTIMIZATIONS
+   ======================================== */
+
+/* Sidebar compact mode */
+.evon-sidebar-compact {
+    width: 16rem; /* Réduit de 18rem à 16rem */
+}
+
+@media (min-width: 1024px) {
+    .evon-sidebar-compact {
+        width: 16rem;
+    }
+}
+
+/* Collapsed sidebar more compact */
+.evon-sidebar-collapsed {
+    width: 4.5rem; /* Réduit de 5rem à 4.5rem */
+}
+
+/* Navigation items spacing reduced */
+.evon-nav-item {
+    padding: 0.625rem 0.75rem; /* Réduit de 0.75rem 1rem */
+    margin-bottom: 0.125rem; /* Réduit l'espace entre items */
+}
+
+.evon-nav-section-title {
+    padding: 0.5rem 1rem 0.375rem; /* Réduit le padding vertical */
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+    font-size: 0.6875rem; /* Légèrement plus petit */
+}
+
+/* Logo spacing reduced */
+.evon-sidebar-logo {
+    padding: 1rem; /* Réduit de 1.5rem */
+    margin-top: 0 !important;
+    margin-bottom: 0.5rem; /* Réduit l'espace */
+}
+
+/* Footer spacing reduced */
+.evon-sidebar-footer {
+    padding: 0.75rem; /* Réduit de 1rem */
+    margin-top: auto;
+}
+
+/* ========================================
+   RESPONSIVE COMPACT MODE
+   ======================================== */
+@media (max-width: 1280px) {
+    .evon-sidebar:not(.evon-sidebar-collapsed) {
+        width: 15rem; /* Plus compact sur écrans moyens */
+    }
+    
+    .evon-nav-item {
+        padding: 0.5rem 0.625rem;
+        font-size: 0.875rem;
+    }
+    
+    .evon-nav-icon {
+        width: 1.125rem;
+        height: 1.125rem;
+    }
+}
+
+/* ========================================
+   ENERGY & CHARGING POINTS OPTIMIZATIONS
+   ======================================== */
+
+/* Cartes de statistiques plus compactes */
+.dashboard-stat-card {
+    padding: 1rem; /* Réduit de 1.5rem */
+}
+
+.dashboard-stat-card .stat-value {
+    font-size: 1.875rem; /* Réduit de 2.25rem */
+    line-height: 1.2;
+}
+
+.dashboard-stat-card .stat-label {
+    font-size: 0.8125rem; /* Légèrement plus petit */
+}
+
+/* Graphiques plus compacts */
+.dashboard-chart-container {
+    height: 280px; /* Réduit de 320px */
+}
+
+/* Grille plus dense */
+.dashboard-grid {
+    gap: 1rem; /* Réduit de 1.5rem */
+}
+
+/* ========================================
+   CHARGING POINTS CARDS COMPACT
+   ======================================== */
+.charging-point-card {
+    padding: 1rem;
+}
+
+.charging-point-card .card-header {
+    margin-bottom: 0.75rem;
+}
+
+.charging-point-card .card-body {
+    gap: 0.5rem;
+}
+
+/* Energy meters more compact */
+.energy-meter {
+    height: 6px; /* Réduit de 8px */
+    border-radius: 3px;
+}
+
+.energy-value {
+    font-size: 1.25rem; /* Réduit de 1.5rem */
+    font-weight: 700;
+}
+
+/* ========================================
+   DASHBOARD HEADER COMPACT
+   ======================================== */
+.dashboard-header {
+    padding: 1.25rem 0; /* Réduit de 1.5rem */
+}
+
+.dashboard-header h1 {
+    font-size: 1.875rem; /* Réduit de 2.25rem */
+    margin-bottom: 0.25rem;
+}
+
+.dashboard-header .subtitle {
+    font-size: 0.875rem;
+}
+
+/* Stats cards row spacing */
+.stats-cards-row {
+    gap: 0.875rem; /* Réduit de 1.25rem */
+}
+
+/* ========================================
+   TABLE OPTIMIZATIONS
+   ======================================== */
+.dashboard-table {
+    font-size: 0.875rem; /* Légèrement plus petit */
+}
+
+.dashboard-table th,
+.dashboard-table td {
+    padding: 0.625rem 0.75rem; /* Réduit le padding */
+}
+
+/* ========================================
+   MOBILE RESPONSIVE COMPACT
+   ======================================== */
+@media (max-width: 768px) {
+    .dashboard-stat-card {
+        padding: 0.875rem;
+    }
+    
+    .dashboard-stat-card .stat-value {
+        font-size: 1.5rem;
+    }
+    
+    .dashboard-chart-container {
+        height: 240px;
+    }
+    
+    .dashboard-grid {
+        gap: 0.75rem;
+    }
+}
+
+/* ========================================
+   DARK MODE OPTIMIZATIONS
+   ======================================== */
+.dark .evon-sidebar {
+    background: linear-gradient(180deg, #1a1f2e 0%, #111827 100%);
+}
+
+.dark .evon-nav-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.dark .evon-nav-item-active {
+    background: rgba(34, 197, 94, 0.35);
+    border-left-color: #34d399;
+    color: white !important;
+}
+
+.dark .evon-nav-item-active .evon-nav-label,
+.dark .evon-nav-item-active .evon-nav-icon,
+.dark .evon-nav-item-active .evon-nav-icon svg {
+    color: white !important;
+}
+
+[dir="rtl"].dark .evon-nav-item-active {
+    border-right-color: #34d399;
+    border-left-color: transparent;
+}
+
+/* ========================================
+   PERFORMANCE OPTIMIZATIONS
+   ======================================== */
+.evon-sidebar {
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+.evon-nav-item {
+    will-change: background-color, transform;
+}
+
+/* Transitions fluides */
+.evon-sidebar,
+.evon-nav-item,
+.evon-nav-icon,
+.evon-nav-label {
+    transition-duration: 0.2s;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   ACCESSIBILITY IMPROVEMENTS
+   ======================================== */
+.evon-nav-item:focus {
+    outline: 2px solid #34d399;
+    outline-offset: 2px;
+}
+
+.evon-nav-item:focus-visible {
+    outline: 2px solid #34d399;
+    outline-offset: 2px;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .evon-nav-item {
+        border: 1px solid currentColor;
+    }
+    
+    .evon-nav-item-active {
+        border-width: 2px;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .evon-sidebar,
+    .evon-nav-item,
+    .evon-nav-icon,
+    .evon-nav-label {
+        transition: none;
+    }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+@media print {
+    .evon-sidebar {
+        display: none;
+    }
+}
+

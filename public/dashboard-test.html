@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Dashboard EVON</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="min-h-screen p-8">
+    <div class="max-w-7xl mx-auto">
+        <!-- Header -->
+        <div class="bg-white rounded-3xl shadow-2xl p-8 mb-6">
+            <div class="flex items-center justify-between mb-6">
+                <div>
+                    <h1 class="text-4xl font-bold text-gray-900 mb-2">🔋 Dashboard EVON</h1>
+                    <p class="text-gray-600">Test des graphiques et visualisations</p>
+                </div>
+                <button onclick="location.reload()" class="px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all shadow-lg">
+                    🔄 Actualiser
+                </button>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div class="bg-gradient-to-br from-green-400 to-green-600 rounded-2xl p-6 text-white shadow-xl">
+                    <div class="text-sm opacity-90 mb-2">Total Recharges</div>
+                    <div class="text-4xl font-bold">1,250</div>
+                    <div class="text-sm opacity-75 mt-2">+12% ce mois</div>
+                </div>
+                <div class="bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl p-6 text-white shadow-xl">
+                    <div class="text-sm opacity-90 mb-2">Sessions Actives</div>
+                    <div class="text-4xl font-bold">8</div>
+                    <div class="text-sm opacity-75 mt-2">En cours maintenant</div>
+                </div>
+                <div class="bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl p-6 text-white shadow-xl">
+                    <div class="text-sm opacity-90 mb-2">Abonnements</div>
+                    <div class="text-4xl font-bold">45</div>
+                    <div class="text-sm opacity-75 mt-2">Actifs</div>
+                </div>
+                <div class="bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl p-6 text-white shadow-xl">
+                    <div class="text-sm opacity-90 mb-2">Bornes Actives</div>
+                    <div class="text-4xl font-bold">23</div>
+                    <div class="text-sm opacity-75 mt-2">Sur 30 installées</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Main Chart -->
+            <div class="lg:col-span-2 bg-white rounded-3xl shadow-2xl p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">📊 Sessions de Recharge</h2>
+                <div class="h-80">
+                    <canvas id="mainChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Side Charts -->
+            <div class="space-y-6">
+                <!-- Doughnut Chart -->
+                <div class="bg-white rounded-2xl shadow-xl p-6">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">🥧 Répartition</h3>
+                    <div class="h-64">
+                        <canvas id="doughnutChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Bar Chart -->
+                <div class="bg-white rounded-2xl shadow-xl p-6">
+                    <h3 class="text-lg font-bold text-gray-900 mb-4">📈 Performance</h3>
+                    <div class="h-48">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Charts -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+            <!-- Polar Chart -->
+            <div class="bg-white rounded-2xl shadow-xl p-6">
+                <h3 class="text-lg font-bold text-gray-900 mb-4">🎯 Zones</h3>
+                <div class="h-64">
+                    <canvas id="polarChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Radar Chart -->
+            <div class="bg-white rounded-2xl shadow-xl p-6">
+                <h3 class="text-lg font-bold text-gray-900 mb-4">🕸️ Métriques</h3>
+                <div class="h-64">
+                    <canvas id="radarChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Line Chart -->
+            <div class="bg-white rounded-2xl shadow-xl p-6">
+                <h3 class="text-lg font-bold text-gray-900 mb-4">📉 Tendance</h3>
+                <div class="h-64">
+                    <canvas id="lineChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status Message -->
+        <div class="mt-6 bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded-lg" role="alert">
+            <p class="font-bold">✅ Graphiques chargés avec succès!</p>
+            <p class="text-sm">Tous les graphiques Chart.js sont fonctionnels.</p>
+        </div>
+    </div>
+
+    <script>
+        // Configuration commune
+        Chart.defaults.font.family = "'Inter', 'system-ui', 'sans-serif'";
+        
+        // 1. Main Line Chart
+        const mainCtx = document.getElementById('mainChart').getContext('2d');
+        const gradient = mainCtx.createLinearGradient(0, 0, 0, 400);
+        gradient.addColorStop(0, 'rgba(59, 130, 246, 0.5)');
+        gradient.addColorStop(1, 'rgba(59, 130, 246, 0.0)');
+        
+        new Chart(mainCtx, {
+            type: 'line',
+            data: {
+                labels: ['00h', '03h', '06h', '09h', '12h', '15h', '18h', '21h'],
+                datasets: [{
+                    label: 'Sessions',
+                    data: [15, 8, 12, 25, 45, 38, 22, 18],
+                    borderColor: 'rgb(59, 130, 246)',
+                    backgroundColor: gradient,
+                    borderWidth: 3,
+                    tension: 0.4,
+                    fill: true,
+                    pointRadius: 5,
+                    pointHoverRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        padding: 12,
+                        cornerRadius: 8
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(0, 0, 0, 0.05)' }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // 2. Doughnut Chart
+        new Chart(document.getElementById('doughnutChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['En ligne', 'Maintenance', 'Hors ligne'],
+                datasets: [{
+                    data: [23, 5, 2],
+                    backgroundColor: [
+                        'rgba(34, 197, 94, 0.8)',
+                        'rgba(251, 191, 36, 0.8)',
+                        'rgba(239, 68, 68, 0.8)'
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { padding: 15, usePointStyle: true }
+                    }
+                }
+            }
+        });
+
+        // 3. Bar Chart
+        new Chart(document.getElementById('barChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven'],
+                datasets: [{
+                    label: 'kWh',
+                    data: [320, 450, 380, 520, 480],
+                    backgroundColor: 'rgba(147, 51, 234, 0.7)',
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, grid: { color: 'rgba(0, 0, 0, 0.05)' } },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // 4. Polar Chart
+        new Chart(document.getElementById('polarChart'), {
+            type: 'polarArea',
+            data: {
+                labels: ['Nord', 'Sud', 'Est', 'Ouest'],
+                datasets: [{
+                    data: [12, 19, 8, 15],
+                    backgroundColor: [
+                        'rgba(59, 130, 246, 0.7)',
+                        'rgba(34, 197, 94, 0.7)',
+                        'rgba(251, 191, 36, 0.7)',
+                        'rgba(147, 51, 234, 0.7)'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { padding: 10 } }
+                }
+            }
+        });
+
+        // 5. Radar Chart
+        new Chart(document.getElementById('radarChart'), {
+            type: 'radar',
+            data: {
+                labels: ['Vitesse', 'Fiabilité', 'Coût', 'Disponibilité', 'Support'],
+                datasets: [{
+                    label: 'Performance',
+                    data: [85, 92, 78, 95, 88],
+                    borderColor: 'rgb(59, 130, 246)',
+                    backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false }
+                },
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+
+        // 6. Line Chart (Trend)
+        new Chart(document.getElementById('lineChart'), {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun'],
+                datasets: [{
+                    label: 'Croissance',
+                    data: [320, 385, 420, 450, 480, 520],
+                    borderColor: 'rgb(34, 197, 94)',
+                    backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                    borderWidth: 3,
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, grid: { color: 'rgba(0, 0, 0, 0.05)' } },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        console.log('✅ Tous les graphiques ont été créés avec succès!');
+    </script>
+</body>
+</html>
+

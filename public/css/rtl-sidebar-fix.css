@@ -1,0 +1,368 @@
+/**
+ * ========================================
+ * RTL SIDEBAR FIX - Complete RTL Layout
+ * Sidebar à droite avec logo aligné correctement
+ * Version: 5.0 - FORCE RIGHT SIDEBAR & LOGO
+ * ========================================
+ */
+
+/* ========================================
+   1. MAIN LAYOUT - FORCE Sidebar à droite
+   ======================================== */
+
+/* Reset all flex directions and force sidebar right */
+[dir="rtl"] body,
+[dir="rtl"] .flex.h-screen,
+[dir="rtl"] body > div,
+[dir="rtl"] body > div > .flex {
+    direction: ltr !important;
+}
+
+/* Container principal - FORCE flex-row-reverse */
+[dir="rtl"] .flex.h-screen {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    width: 100% !important;
+}
+
+/* ========================================
+   2. SIDEBAR DESKTOP - Position statique à droite
+   ======================================== */
+
+@media (min-width: 1024px) {
+    [dir="rtl"] .evon-sidebar,
+    [dir="rtl"] aside.evon-sidebar,
+    [dir="rtl"] #main-sidebar {
+        position: relative !important;
+        transform: none !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        flex-shrink: 0 !important;
+        border-right: none !important;
+        border-left: 1px solid #e5e7eb !important;
+        box-shadow: -4px 0 6px -1px rgba(0, 0, 0, 0.05) !important;
+    }
+    
+    .dark [dir="rtl"] .evon-sidebar,
+    .dark [dir="rtl"] aside.evon-sidebar,
+    .dark [dir="rtl"] #main-sidebar {
+        border-left-color: #374151 !important;
+        box-shadow: -4px 0 6px -1px rgba(0, 0, 0, 0.2) !important;
+    }
+}
+
+/* ========================================
+   3. SIDEBAR MOBILE - Fixed à droite
+   ======================================== */
+
+@media (max-width: 1023px) {
+    [dir="rtl"] .evon-sidebar,
+    [dir="rtl"] aside.evon-sidebar,
+    [dir="rtl"] #main-sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        left: auto !important;
+        bottom: 0 !important;
+        z-index: 50 !important;
+        width: 280px !important;
+        max-width: 85vw !important;
+        border-right: none !important;
+        border-left: 1px solid #e5e7eb !important;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    
+    .dark [dir="rtl"] .evon-sidebar {
+        border-left-color: #374151 !important;
+    }
+    
+    /* Fermée - cachée à droite */
+    [dir="rtl"] .evon-sidebar:not(.translate-x-0),
+    [dir="rtl"] aside:not(.translate-x-0),
+    [dir="rtl"] #main-sidebar:not(.translate-x-0) {
+        transform: translateX(100%) !important;
+        visibility: hidden !important;
+    }
+    
+    /* Ouverte - visible */
+    [dir="rtl"] .evon-sidebar.translate-x-0,
+    [dir="rtl"] aside.translate-x-0,
+    [dir="rtl"] #main-sidebar.translate-x-0 {
+        transform: translateX(0) !important;
+        visibility: visible !important;
+    }
+}
+
+/* ========================================
+   4. LOGO SIDEBAR - FORCE Aligné à droite
+   ======================================== */
+
+/* Container logo - FORCE RTL - Logo in corner */
+[dir="rtl"] .evon-sidebar-logo {
+    direction: rtl !important;
+    text-align: right !important;
+    padding: 0.75rem !important;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: flex-start !important;
+}
+
+/* Lien logo - FORCE icône à droite, texte à gauche */
+[dir="rtl"] .evon-sidebar-logo a,
+[dir="rtl"] .evon-sidebar-logo > a,
+[dir="rtl"] .evon-sidebar .evon-sidebar-logo a {
+    display: flex !important;
+    flex-direction: row !important; /* Normal direction, RTL handles the rest */
+    align-items: center !important;
+    justify-content: flex-end !important; /* Align to right */
+    gap: 0.75rem !important;
+    width: 100% !important;
+    direction: rtl !important;
+}
+
+/* Logo image/icône - À DROITE */
+[dir="rtl"] .evon-sidebar-logo img,
+[dir="rtl"] .evon-sidebar-logo .h-14,
+[dir="rtl"] .evon-sidebar-logo .h-14.w-14,
+[dir="rtl"] .evon-sidebar-logo [class*="h-14"] {
+    flex-shrink: 0 !important;
+    order: -1 !important; /* Force first position (right in RTL) */
+}
+
+/* Texte du logo - À GAUCHE du logo */
+[dir="rtl"] .evon-sidebar-logo .flex.flex-col,
+[dir="rtl"] .evon-sidebar-logo div.flex.flex-col {
+    text-align: right !important;
+    align-items: flex-end !important;
+    order: 0 !important;
+}
+
+/* EVON text alignment */
+[dir="rtl"] .evon-sidebar-logo span {
+    text-align: right !important;
+    display: block !important;
+}
+
+/* Force logo link RTL */
+[dir="rtl"] .evon-logo-link {
+    flex-direction: row !important;
+    justify-content: flex-end !important;
+    direction: rtl !important;
+}
+
+[dir="rtl"] .evon-logo-link img,
+[dir="rtl"] .evon-logo-link > div:first-of-type {
+    margin-right: 0 !important;
+    margin-left: 0.75rem !important;
+}
+
+/* ========================================
+   5. MOBILE HEADER - Inversé
+   ======================================== */
+
+[dir="rtl"] .evon-sidebar-mobile-header {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 1rem !important;
+}
+
+[dir="rtl"] .evon-sidebar-mobile-header > .flex {
+    flex-direction: row-reverse !important;
+}
+
+[dir="rtl"] .evon-sidebar-close-btn {
+    order: 0 !important;
+}
+
+/* ========================================
+   6. NAVIGATION - Alignée à droite
+   ======================================== */
+
+[dir="rtl"] .evon-sidebar-nav {
+    direction: rtl !important;
+    text-align: right !important;
+    padding: 0.5rem 1rem !important;
+}
+
+/* Items de navigation */
+[dir="rtl"] .evon-nav-item {
+    display: flex !important;
+    flex-direction: row-reverse !important;
+    align-items: center !important;
+    text-align: right !important;
+    padding: 0.75rem !important;
+    gap: 0.75rem !important;
+}
+
+/* Icône à droite */
+[dir="rtl"] .evon-nav-icon-wrapper,
+[dir="rtl"] .evon-nav-item svg:first-child,
+[dir="rtl"] .evon-nav-item > svg {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    flex-shrink: 0 !important;
+}
+
+/* Label à gauche */
+[dir="rtl"] .evon-nav-label {
+    flex: 1 !important;
+    text-align: right !important;
+}
+
+/* Badge à gauche */
+[dir="rtl"] .evon-nav-badge {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+/* Barre active à droite */
+[dir="rtl"] .evon-nav-item::before {
+    left: auto !important;
+    right: 0 !important;
+}
+
+/* Section titles */
+[dir="rtl"] .evon-nav-section-title {
+    text-align: right !important;
+    direction: rtl !important;
+    padding-right: 0.75rem !important;
+}
+
+/* ========================================
+   7. SIDEBAR COLLAPSED - Centré
+   ======================================== */
+
+[dir="rtl"] .evon-sidebar-collapsed .evon-nav-item {
+    justify-content: center !important;
+    padding: 0.75rem !important;
+}
+
+[dir="rtl"] .evon-sidebar-collapsed .evon-sidebar-logo a {
+    justify-content: center !important;
+}
+
+/* ========================================
+   8. TOOLTIPS - À gauche de la sidebar
+   ======================================== */
+
+[dir="rtl"] .evon-nav-item-tooltip {
+    left: auto !important;
+    right: 100% !important;
+    margin-right: 0.75rem !important;
+    margin-left: 0 !important;
+}
+
+[dir="rtl"] .evon-nav-item-tooltip::before,
+[dir="rtl"] .evon-nav-item-tooltip::after {
+    left: auto !important;
+    right: -6px !important;
+    border-left-color: transparent !important;
+    border-right-color: currentColor !important;
+}
+
+/* ========================================
+   9. FOOTER SIDEBAR
+   ======================================== */
+
+[dir="rtl"] .evon-sidebar-footer {
+    direction: rtl !important;
+    text-align: right !important;
+    padding: 1rem !important;
+    border-top: 1px solid #e5e7eb !important;
+}
+
+.dark [dir="rtl"] .evon-sidebar-footer {
+    border-top-color: #374151 !important;
+}
+
+[dir="rtl"] .evon-sidebar-footer .evon-nav-item {
+    flex-direction: row-reverse !important;
+}
+
+/* ========================================
+   10. OVERLAY MOBILE
+   ======================================== */
+
+[dir="rtl"] .evon-mobile-sidebar-overlay {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 40 !important;
+}
+
+/* ========================================
+   11. MAIN CONTENT - Remplit l'espace restant
+   ======================================== */
+
+[dir="rtl"] .flex-1.flex.flex-col,
+[dir="rtl"] .flex.h-screen > .flex-1 {
+    flex: 1 !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* ========================================
+   12. PERFORMANCE & OVERFLOW
+   ======================================== */
+
+[dir="rtl"] html,
+[dir="rtl"] body {
+    overflow-x: hidden !important;
+}
+
+[dir="rtl"] .evon-sidebar {
+    will-change: transform !important;
+    backface-visibility: hidden !important;
+}
+
+/* ========================================
+   13. HEADER UTILITIES RTL - À gauche
+   ======================================== */
+
+[dir="rtl"] .evon-header-utilities {
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    order: 0 !important;
+}
+
+/* Header container - Inverser l'ordre */
+[dir="rtl"] .evon-header,
+[dir="rtl"] header,
+[dir="rtl"] .app-header {
+    direction: rtl !important;
+}
+
+[dir="rtl"] .evon-header > .flex,
+[dir="rtl"] .evon-header .flex.items-center.gap-4 {
+    flex-direction: row-reverse !important;
+}
+
+/* ========================================
+   14. PRINT MODE
+   ======================================== */
+
+@media print {
+    [dir="rtl"] .evon-sidebar {
+        display: none !important;
+    }
+}
+
+/* ========================================
+   14. ANIMATIONS HOVER & ACTIVE
+   ======================================== */
+
+[dir="rtl"] .evon-nav-item-active {
+    transform: translateX(-2px) !important;
+}
+
+[dir="rtl"] .evon-nav-item:hover {
+    transform: translateX(-2px) !important;
+}
+
+[dir="rtl"] .evon-nav-item:active {
+    transform: translateX(-1px) scale(0.98) !important;
+}

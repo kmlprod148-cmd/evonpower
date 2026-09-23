@@ -1,0 +1,592 @@
+/**
+ * Mobile Floating Widgets - Alternative à la Top Utility Bar
+ * Widgets flottants sur le côté pour mobile (FAB - Floating Action Buttons)
+ * Design moderne, ergonomique et accessible
+ */
+
+/* ========================================
+   FORCE HEADER VISIBILITY
+   ======================================== */
+
+/* Force header element visible */
+#evon-app-header {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 99999 !important;
+    position: sticky !important;
+    top: 0 !important;
+    width: 100% !important;
+}
+
+/* Force all header children visible */
+#evon-app-header > * {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Force Top Utility Bar (white header with language/theme/notifications) visible */
+.bg-white.dark\:bg-gray-800.border-b {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    z-index: 99998 !important;
+    position: sticky !important;
+    top: 0 !important;
+    width: 100% !important;
+}
+
+/* Force header utilities visibility */
+.evon-header-utilities {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Force language switcher, theme switcher, notifications visible */
+.evon-header-utilities > div {
+    display: flex !important;
+    visibility: visible !important;
+}
+
+/* ========================================
+   CONTENEUR DES WIDGETS FLOTTANTS
+   ======================================== */
+
+.evon-floating-widgets {
+    position: fixed;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: none; /* Masqué par défaut */
+    flex-direction: column;
+    gap: 0.75rem;
+    pointer-events: none;
+}
+
+/* Actif uniquement sur mobile */
+@media (max-width: 768px) {
+    .evon-floating-widgets {
+        display: flex;
+    }
+}
+
+/* Version RTL (Arabe) - À gauche */
+[dir="rtl"] .evon-floating-widgets {
+    right: auto;
+    left: 1rem;
+}
+
+/* Ajustement pour très petits écrans */
+@media (max-width: 375px) {
+    .evon-floating-widgets {
+        right: 0.5rem;
+        gap: 0.5rem;
+    }
+    
+    [dir="rtl"] .evon-floating-widgets {
+        left: 0.5rem;
+        right: auto;
+    }
+}
+
+/* ========================================
+   WIDGET FLOTTANT INDIVIDUEL
+   ======================================== */
+.evon-floating-widget {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4),
+                0 8px 24px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* États interactifs */
+.evon-floating-widget:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(102, 126, 234, 0.5),
+                0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.evon-floating-widget:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+/* Focus visible pour accessibilité */
+.evon-floating-widget:focus-visible {
+    outline: 3px solid #667eea;
+    outline-offset: 3px;
+}
+
+/* Icônes dans les widgets */
+.evon-floating-widget svg,
+.evon-floating-widget i {
+    width: 24px;
+    height: 24px;
+    color: white;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* ========================================
+   VARIANTES DE COULEURS PAR TYPE
+   ======================================== */
+
+/* Widget Recherche */
+.evon-floating-widget.widget-search {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.evon-floating-widget.widget-search:hover {
+    background: linear-gradient(135deg, #5568d3 0%, #653a8b 100%);
+}
+
+/* Widget Language */
+.evon-floating-widget.widget-language {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.evon-floating-widget.widget-language:hover {
+    background: linear-gradient(135deg, #e082ea 0%, #e4465b 100%);
+}
+
+/* Widget Theme (Dark Mode) */
+.evon-floating-widget.widget-theme {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.evon-floating-widget.widget-theme:hover {
+    background: linear-gradient(135deg, #3e9bed 0%, #00e1ed 100%);
+}
+
+/* Widget Notifications */
+.evon-floating-widget.widget-notifications {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.evon-floating-widget.widget-notifications:hover {
+    background: linear-gradient(135deg, #e95f89 0%, #edd02f 100%);
+}
+
+/* Widget User Menu */
+.evon-floating-widget.widget-user {
+    background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+}
+
+.evon-floating-widget.widget-user:hover {
+    background: linear-gradient(135deg, #1fbebf 0%, #220756 100%);
+}
+
+/* ========================================
+   BADGE DE NOTIFICATION
+   ======================================== */
+.evon-floating-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 20px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(255, 65, 108, 0.6),
+                0 0 0 3px rgba(255, 255, 255, 0.3);
+    animation: pulse-badge 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Version RTL */
+[dir="rtl"] .evon-floating-badge {
+    right: auto;
+    left: -4px;
+}
+
+@keyframes pulse-badge {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.9;
+    }
+}
+
+/* ========================================
+   LABEL TOOLTIP AU SURVOL
+   ======================================== */
+.evon-floating-widget::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%) translateX(10px);
+    background: rgba(17, 24, 39, 0.95);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Flèche du tooltip */
+.evon-floating-widget::after {
+    content: '';
+    position: absolute;
+    right: calc(100% + 4px);
+    top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-left-color: rgba(17, 24, 39, 0.95);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Afficher le tooltip au survol */
+.evon-floating-widget:hover::before {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+.evon-floating-widget:hover::after {
+    opacity: 1;
+}
+
+/* Version RTL du tooltip */
+[dir="rtl"] .evon-floating-widget::before {
+    right: auto;
+    left: calc(100% + 12px);
+    transform: translateY(-50%) translateX(-10px);
+}
+
+[dir="rtl"] .evon-floating-widget::after {
+    right: auto;
+    left: calc(100% + 4px);
+    border-left-color: transparent;
+    border-right-color: rgba(17, 24, 39, 0.95);
+}
+
+[dir="rtl"] .evon-floating-widget:hover::before {
+    transform: translateY(-50%) translateX(0);
+}
+
+/* ========================================
+   ANIMATIONS D'ENTRÉE
+   ======================================== */
+.evon-floating-widget {
+    animation: slideInRight 0.5s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+}
+
+.evon-floating-widget:nth-child(1) { animation-delay: 0.1s; }
+.evon-floating-widget:nth-child(2) { animation-delay: 0.2s; }
+.evon-floating-widget:nth-child(3) { animation-delay: 0.3s; }
+.evon-floating-widget:nth-child(4) { animation-delay: 0.4s; }
+.evon-floating-widget:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* Version RTL */
+[dir="rtl"] .evon-floating-widget {
+    animation-name: slideInLeft;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-100px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* ========================================
+   DROPDOWNS DEPUIS LES WIDGETS
+   ======================================== */
+.evon-floating-dropdown {
+    position: fixed;
+    right: 80px;
+    max-width: 320px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.9) translateX(20px);
+    transform-origin: right center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 99;
+    overflow: hidden;
+}
+
+.evon-floating-dropdown.active {
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(1) translateX(0);
+}
+
+/* Boutons langue - zone tactile optimisée pour mobile */
+.evon-floating-dropdown button[type="button"] {
+    min-height: 44px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    touch-action: manipulation;
+}
+
+/* Version RTL */
+[dir="rtl"] .evon-floating-dropdown {
+    right: auto;
+    left: 80px;
+    transform-origin: left center;
+}
+
+[dir="rtl"] .evon-floating-dropdown {
+    transform: scale(0.9) translateX(-20px);
+}
+
+[dir="rtl"] .evon-floating-dropdown.active {
+    transform: scale(1) translateX(0);
+}
+
+/* Dark mode pour dropdown */
+.dark .evon-floating-dropdown {
+    background: #1f2937;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   MODE COMPACT (Très petits écrans)
+   ======================================== */
+@media (max-width: 375px) {
+    .evon-floating-widget {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+    }
+    
+    .evon-floating-widget svg,
+    .evon-floating-widget i {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .evon-floating-badge {
+        min-width: 18px;
+        height: 18px;
+        font-size: 10px;
+    }
+}
+
+/* ========================================
+   SAFE AREAS (iPhone avec notch)
+   ======================================== */
+@supports (padding: max(0px)) {
+    .evon-floating-widgets {
+        right: max(1rem, env(safe-area-inset-right));
+    }
+    
+    [dir="rtl"] .evon-floating-widgets {
+        left: max(1rem, env(safe-area-inset-left));
+        right: auto;
+    }
+}
+
+/* ========================================
+   MODE PAYSAGE (Landscape)
+   ======================================== */
+@media (max-width: 768px) and (orientation: landscape) {
+    .evon-floating-widgets {
+        right: 0.5rem;
+        gap: 0.5rem;
+        transform: translateY(-50%) scale(0.9);
+    }
+    
+    [dir="rtl"] .evon-floating-widgets {
+        left: 0.5rem;
+        right: auto;
+    }
+    
+    .evon-floating-widget {
+        width: 48px;
+        height: 48px;
+    }
+}
+
+/* ========================================
+   ACCESSIBILITÉ
+   ======================================== */
+
+/* Contraste élevé */
+@media (prefers-contrast: high) {
+    .evon-floating-widget {
+        border: 3px solid white;
+    }
+    
+    .evon-floating-badge {
+        border: 2px solid white;
+    }
+}
+
+/* Réduction de mouvement */
+@media (prefers-reduced-motion: reduce) {
+    .evon-floating-widget {
+        animation: none;
+        transition: none;
+    }
+    
+    .evon-floating-badge {
+        animation: none;
+    }
+    
+    .evon-floating-dropdown {
+        transition: opacity 0.1s;
+    }
+}
+
+/* ========================================
+   MODE SOMBRE AMÉLIORÉ
+   ======================================== */
+.dark .evon-floating-widget {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6),
+                0 8px 24px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark .evon-floating-widget:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.7),
+                0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* ========================================
+   EFFET DE VAGUE AU TAP (Mobile)
+   ======================================== */
+.evon-floating-widget::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+.evon-floating-widget:active::before {
+    opacity: 1;
+    transform: scale(2);
+    transition: all 0s;
+}
+
+/* ========================================
+   ÉTAT DÉSACTIVÉ
+   ======================================== */
+.evon-floating-widget:disabled,
+.evon-floating-widget.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    filter: grayscale(50%);
+}
+
+/* ========================================
+   PERFORMANCE
+   ======================================== */
+.evon-floating-widget,
+.evon-floating-badge,
+.evon-floating-dropdown {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Désactiver will-change après animation */
+.evon-floating-widget:not(:hover):not(:active) {
+    will-change: auto;
+}
+
+/* ========================================
+   BOUTON TOGGLE POUR MASQUER/AFFICHER
+   ======================================== */
+.evon-floating-toggle {
+    position: fixed;
+    bottom: 5rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 101;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .evon-floating-toggle {
+        display: flex;
+    }
+}
+
+.evon-floating-toggle:active {
+    transform: scale(0.9);
+}
+
+.evon-floating-widgets.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-50%) translateX(100px);
+}
+
+[dir="rtl"] .evon-floating-widgets.hidden {
+    transform: translateY(-50%) translateX(-100px);
+}
+
+/* ========================================
+   RESPONSIVE FINAL
+   ======================================== */
+@media (min-width: 769px) {
+    /* Sur desktop, masquer complètement les widgets flottants */
+    .evon-floating-widgets,
+    .evon-floating-toggle {
+        display: none !important;
+    }
+}
+

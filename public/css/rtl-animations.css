@@ -1,0 +1,457 @@
+/**
+ * ========================================
+ * RTL ANIMATIONS - Optimized for Arabic
+ * Performance-focused animations & transitions
+ * Version: 1.0
+ * ========================================
+ */
+
+/* ========================================
+   1. CSS CUSTOM PROPERTIES FOR RTL
+   ======================================== */
+
+:root {
+    /* RTL Animation Directions */
+    --rtl-slide-in: translateX(100%);
+    --rtl-slide-out: translateX(-100%);
+    --rtl-slide-center: translateX(0);
+    
+    /* Animation Durations */
+    --rtl-duration-fast: 150ms;
+    --rtl-duration-normal: 250ms;
+    --rtl-duration-slow: 400ms;
+    
+    /* Easing Functions */
+    --rtl-ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --rtl-ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --rtl-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --rtl-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ========================================
+   2. SIDEBAR ANIMATIONS RTL
+   ======================================== */
+
+/* Sidebar slide from right */
+[dir="rtl"] .evon-sidebar {
+    transition: transform var(--rtl-duration-normal) var(--rtl-ease-out),
+                width var(--rtl-duration-normal) var(--rtl-ease-out);
+    will-change: transform, width;
+}
+
+/* Sidebar hidden state - slide to right */
+[dir="rtl"] .evon-sidebar.-translate-x-full,
+[dir="rtl"] .evon-sidebar[x-cloak] {
+    transform: translateX(100%) !important;
+}
+
+/* Sidebar visible state */
+[dir="rtl"] .evon-sidebar.translate-x-0 {
+    transform: translateX(0) !important;
+}
+
+/* Sidebar collapse animation RTL */
+[dir="rtl"] .evon-sidebar-collapsed {
+    transition: width var(--rtl-duration-normal) var(--rtl-ease-in-out);
+}
+
+/* ========================================
+   3. NAVIGATION ITEM ANIMATIONS RTL
+   ======================================== */
+
+[dir="rtl"] .evon-nav-item {
+    transition: background-color var(--rtl-duration-fast) var(--rtl-ease-out),
+                transform var(--rtl-duration-fast) var(--rtl-ease-out),
+                color var(--rtl-duration-fast) var(--rtl-ease-out);
+    will-change: background-color, transform;
+}
+
+/* Hover effect - slide left (opposite in RTL) */
+[dir="rtl"] .evon-nav-item:hover {
+    transform: translateX(-4px);
+}
+
+[dir="rtl"] .evon-nav-item:active {
+    transform: translateX(-2px) scale(0.98);
+}
+
+/* Active state indicator animation */
+[dir="rtl"] .evon-nav-item::before {
+    transition: transform var(--rtl-duration-fast) var(--rtl-ease-out),
+                opacity var(--rtl-duration-fast) var(--rtl-ease-out);
+    transform-origin: right center;
+}
+
+[dir="rtl"] .evon-nav-item-active::before {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+/* ========================================
+   4. TOOLTIP ANIMATIONS RTL
+   ======================================== */
+
+[dir="rtl"] .evon-nav-item-tooltip {
+    transition: opacity var(--rtl-duration-fast) var(--rtl-ease-out),
+                transform var(--rtl-duration-fast) var(--rtl-ease-out);
+    transform: translateX(8px);
+    opacity: 0;
+}
+
+[dir="rtl"] .evon-sidebar-collapsed .evon-nav-item:hover .evon-nav-item-tooltip {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* ========================================
+   5. DROPDOWN ANIMATIONS RTL
+   ======================================== */
+
+[dir="rtl"] .dropdown-menu,
+[dir="rtl"] [x-show].absolute {
+    transition: opacity var(--rtl-duration-fast) var(--rtl-ease-out),
+                transform var(--rtl-duration-fast) var(--rtl-ease-out);
+    transform-origin: top left;
+}
+
+/* Dropdown enter animation */
+[dir="rtl"] .dropdown-enter {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.95);
+}
+
+[dir="rtl"] .dropdown-enter-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Dropdown leave animation */
+[dir="rtl"] .dropdown-leave {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+[dir="rtl"] .dropdown-leave-active {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.95);
+}
+
+/* ========================================
+   6. MODAL ANIMATIONS RTL
+   ======================================== */
+
+[dir="rtl"] .evon-modal-overlay {
+    transition: opacity var(--rtl-duration-normal) var(--rtl-ease-out);
+}
+
+[dir="rtl"] .evon-modal-panel {
+    transition: opacity var(--rtl-duration-normal) var(--rtl-ease-out),
+                transform var(--rtl-duration-normal) var(--rtl-ease-out);
+    transform-origin: center center;
+}
+
+/* Modal slide from right in RTL */
+[dir="rtl"] .evon-modal-slide-enter {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+[dir="rtl"] .evon-modal-slide-enter-active {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* ========================================
+   7. CARD ANIMATIONS RTL
+   ======================================== */
+
+[dir="rtl"] .stat-card-premium,
+[dir="rtl"] .chart-card-premium,
+[dir="rtl"] .chart-card-white {
+    transition: transform var(--rtl-duration-fast) var(--rtl-ease-out),
+                box-shadow var(--rtl-duration-fast) var(--rtl-ease-out);
+    will-change: transform, box-shadow;
+}
+
+[dir="rtl"] .stat-card-premium:hover {
+    transform: translateY(-4px) translateX(2px);
+}
+
+/* ========================================
+   8. BUTTON ANIMATIONS RTL
+   ======================================== */
+
+[dir="rtl"] button,
+[dir="rtl"] .btn-primary,
+[dir="rtl"] .btn-secondary {
+    transition: background-color var(--rtl-duration-fast) var(--rtl-ease-out),
+                transform var(--rtl-duration-fast) var(--rtl-ease-out),
+                box-shadow var(--rtl-duration-fast) var(--rtl-ease-out);
+}
+
+[dir="rtl"] button:active,
+[dir="rtl"] .btn-primary:active,
+[dir="rtl"] .btn-secondary:active {
+    transform: scale(0.97);
+}
+
+/* ========================================
+   9. LOADING ANIMATIONS RTL
+   ======================================== */
+
+/* Spinner rotates in opposite direction */
+[dir="rtl"] .spinner,
+[dir="rtl"] .loading-spinner {
+    animation: rtl-spin 1s linear infinite;
+}
+
+@keyframes rtl-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+/* Skeleton loading - shimmer from right to left */
+[dir="rtl"] .skeleton {
+    background: linear-gradient(
+        -90deg,
+        #f1f5f9 25%,
+        #e2e8f0 50%,
+        #f1f5f9 75%
+    );
+    background-size: 200% 100%;
+    animation: rtl-shimmer 1.5s infinite;
+}
+
+@keyframes rtl-shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.dark [dir="rtl"] .skeleton {
+    background: linear-gradient(
+        -90deg,
+        #334155 25%,
+        #475569 50%,
+        #334155 75%
+    );
+    background-size: 200% 100%;
+}
+
+/* ========================================
+   10. PULSE ANIMATIONS RTL
+   ======================================== */
+
+[dir="rtl"] .live-dot,
+[dir="rtl"] .status-dot.active {
+    animation: rtl-pulse 2s infinite;
+}
+
+@keyframes rtl-pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.15);
+        opacity: 0.7;
+    }
+}
+
+/* ========================================
+   11. SLIDE ANIMATIONS RTL
+   ======================================== */
+
+/* Slide in from right */
+[dir="rtl"] .slide-in-right {
+    animation: rtl-slide-in-right var(--rtl-duration-normal) var(--rtl-ease-out) forwards;
+}
+
+@keyframes rtl-slide-in-right {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Slide out to right */
+[dir="rtl"] .slide-out-right {
+    animation: rtl-slide-out-right var(--rtl-duration-normal) var(--rtl-ease-in) forwards;
+}
+
+@keyframes rtl-slide-out-right {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Slide in from left (opposite in RTL) */
+[dir="rtl"] .slide-in-left {
+    animation: rtl-slide-in-left var(--rtl-duration-normal) var(--rtl-ease-out) forwards;
+}
+
+@keyframes rtl-slide-in-left {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   12. FADE ANIMATIONS RTL
+   ======================================== */
+
+[dir="rtl"] .fade-in {
+    animation: rtl-fade-in var(--rtl-duration-normal) var(--rtl-ease-out) forwards;
+}
+
+@keyframes rtl-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+[dir="rtl"] .fade-out {
+    animation: rtl-fade-out var(--rtl-duration-fast) var(--rtl-ease-in) forwards;
+}
+
+@keyframes rtl-fade-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+/* ========================================
+   13. SCALE ANIMATIONS RTL
+   ======================================== */
+
+[dir="rtl"] .scale-in {
+    animation: rtl-scale-in var(--rtl-duration-normal) var(--rtl-ease-out) forwards;
+}
+
+@keyframes rtl-scale-in {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ========================================
+   14. NOTIFICATION ANIMATIONS RTL
+   ======================================== */
+
+[dir="rtl"] .notification-badge {
+    animation: rtl-notification-bounce 0.5s var(--rtl-ease-bounce);
+}
+
+@keyframes rtl-notification-bounce {
+    0% { transform: scale(0); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* ========================================
+   15. REDUCED MOTION SUPPORT
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    [dir="rtl"] *,
+    [dir="rtl"] *::before,
+    [dir="rtl"] *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    [dir="rtl"] .evon-sidebar,
+    [dir="rtl"] .evon-nav-item,
+    [dir="rtl"] .dropdown-menu,
+    [dir="rtl"] .evon-modal-panel {
+        transition: none !important;
+    }
+    
+    [dir="rtl"] .live-dot,
+    [dir="rtl"] .status-dot.active,
+    [dir="rtl"] .spinner,
+    [dir="rtl"] .skeleton {
+        animation: none !important;
+    }
+}
+
+/* ========================================
+   16. PERFORMANCE OPTIMIZATIONS
+   ======================================== */
+
+/* GPU acceleration for animated elements */
+[dir="rtl"] .evon-sidebar,
+[dir="rtl"] .evon-nav-item,
+[dir="rtl"] .dropdown-menu,
+[dir="rtl"] .evon-modal-panel,
+[dir="rtl"] .stat-card-premium {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+}
+
+/* Optimize font rendering */
+[dir="rtl"] {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* ========================================
+   17. HIGH CONTRAST MODE
+   ======================================== */
+
+@media (prefers-contrast: high) {
+    [dir="rtl"] .evon-nav-item:focus {
+        outline: 3px solid currentColor;
+        outline-offset: 2px;
+    }
+    
+    [dir="rtl"] button:focus {
+        outline: 3px solid currentColor;
+        outline-offset: 2px;
+    }
+}
+
+/* ========================================
+   18. DARK MODE ANIMATION ADJUSTMENTS
+   ======================================== */
+
+.dark [dir="rtl"] .skeleton {
+    animation-duration: 2s;
+}
+
+.dark [dir="rtl"] .live-dot {
+    box-shadow: 0 0 0 0 rgba(74, 207, 123, 0.4);
+    animation: rtl-pulse-glow 2s infinite;
+}
+
+@keyframes rtl-pulse-glow {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(74, 207, 123, 0.4);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 0 8px rgba(74, 207, 123, 0);
+    }
+}

@@ -1,0 +1,1935 @@
+/* ========================================
+   EVON Dashboard Layout Styles
+   Styles spécifiques pour le layout du dashboard EVON
+   ======================================== */
+
+/* ========================================
+   0. GLOBAL OVERSCROLL PREVENTION
+   ======================================== */
+
+html, body {
+    overscroll-behavior: none;
+    overscroll-behavior-y: none;
+    overscroll-behavior-x: none;
+    -webkit-overflow-scrolling: auto;
+}
+
+/* Prevent pull-to-refresh on mobile */
+body {
+    overflow-x: hidden;
+}
+
+/* ========================================
+   0. ANTI-FOUC (Flash of Unstyled Content)
+   ======================================== */
+
+/* Hide sidebar on mobile until Alpine initializes - LTR */
+@media (max-width: 1023px) {
+    html:not([dir="rtl"]) .evon-sidebar:not(.translate-x-0) {
+        transform: translateX(-100%) !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+
+    html:not([dir="rtl"]) .evon-sidebar.translate-x-0 {
+        transform: translateX(0) !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Desktop sidebar always visible - LTR */
+@media (min-width: 1024px) {
+    html:not([dir="rtl"]) .evon-sidebar {
+        transform: translateX(0) !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: static !important;
+    }
+}
+
+/* ========================================
+   RTL ANTI-FOUC — prevents sidebar flash on Arabic
+   ======================================== */
+
+/* Hide RTL sidebar on mobile (slides from right, hidden right) */
+@media (max-width: 1023px) {
+    html[dir="rtl"] .evon-sidebar:not(.translate-x-0) {
+        transform: translateX(100%) !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        right: 0 !important;
+        left: auto !important;
+        position: fixed !important;
+    }
+
+    html[dir="rtl"] .evon-sidebar.translate-x-0 {
+        transform: translateX(0) !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        right: 0 !important;
+        left: auto !important;
+        position: fixed !important;
+    }
+}
+
+/* RTL Desktop sidebar always visible on the right */
+@media (min-width: 1024px) {
+    html[dir="rtl"] .evon-sidebar {
+        transform: translateX(0) !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        position: static !important;
+    }
+
+    /* RTL main layout: sidebar on right, content on left */
+    html[dir="rtl"] .flex.h-screen {
+        flex-direction: row-reverse !important;
+    }
+}
+
+/* Smooth transition only after page load */
+.sidebar-ready .evon-sidebar {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0s linear 0s,
+                opacity 0.3s ease;
+}
+
+/* When closing, delay visibility */
+.sidebar-ready .evon-sidebar:not(.translate-x-0) {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0s linear 0.3s,
+                opacity 0.3s ease;
+}
+
+/* ========================================
+   0.5 GLOBAL RESPONSIVE BASE
+   ======================================== */
+
+/* Prevent horizontal overflow globally */
+html, body {
+    @apply overflow-x-hidden;
+    @apply w-full;
+}
+
+/* Box-sizing for all elements */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Ensure images and media are responsive */
+img, video, iframe {
+    @apply max-w-full h-auto;
+}
+
+/* Prevent text from breaking layout */
+* {
+    @apply break-words;
+}
+
+/* ========================================
+   1. SIDEBAR STYLES
+   ======================================== */
+
+/* 
+   SIDEBAR TOGGLE SYSTEM - Professional Implementation
+   ====================================================
+   
+   Features:
+   - Smooth transitions with cubic-bezier easing
+   - Tooltips with backdrop blur for collapsed state
+   - Badge support in both expanded and collapsed modes
+   - Keyboard shortcut (Ctrl/Cmd + B)
+   - LocalStorage persistence
+   - Responsive: 20% width on desktop, overlay on mobile
+   - SVG icons always visible
+   - Performance optimized with will-change and backface-visibility
+   
+   States:
+   1. Expanded (default): 20vw width (240-320px), labels visible
+   2. Collapsed: 64px width, only icons visible with tooltips
+   
+   Usage:
+   - Click toggle button in header
+   - Use keyboard shortcut: Ctrl/Cmd + B
+   - State persists across sessions
+   
+   Customization:
+   - Adjust transition duration in .evon-sidebar
+   - Modify tooltip styles in .evon-nav-item-tooltip
+   - Change collapsed width in .evon-sidebar-collapsed
+*/
+
+/* Sidebar container - Increased width for better navigation */
+.evon-sidebar {
+    @apply h-full bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col shadow-lg lg:shadow-sm transition-all duration-300 ease-in-out;
+    will-change: transform, width;
+    /* Mobile: fixed width, Desktop: wider viewport percentage */
+    width: 240px; /* Mobile default - increased */
+    position: relative;
+}
+
+@media (min-width: 1024px) {
+    .evon-sidebar {
+        width: 18vw;
+        min-width: 240px;
+        max-width: 320px;
+    }
+    
+    /* Subtle hover indicator on desktop */
+    .evon-sidebar::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 3px;
+        height: 60px;
+        background: linear-gradient(to bottom, transparent, rgba(74, 207, 123, 0.3), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+    
+    .evon-sidebar:hover::after {
+        opacity: 1;
+    }
+}
+
+/* Sidebar collapsed on desktop - Slightly wider for better icon display */
+.evon-sidebar-collapsed {
+    @apply lg:w-16;
+}
+
+@media (min-width: 1024px) {
+    .evon-sidebar-collapsed {
+        width: 64px !important;
+        min-width: 64px;
+        max-width: 64px;
+    }
+}
+
+/* Desktop sidebar toggle button - Increased for better usability */
+.evon-desktop-sidebar-toggle {
+    @apply hidden lg:flex items-center justify-center w-8 h-8 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-eco-green-500 focus:ring-offset-1 transition-all duration-200;
+    position: relative;
+}
+
+.evon-desktop-sidebar-toggle:hover {
+    transform: scale(1.05);
+}
+
+.evon-desktop-sidebar-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Toggle button icon animation */
+.evon-desktop-sidebar-toggle svg {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tooltip for toggle button - Increased padding */
+.evon-toggle-tooltip {
+    @apply absolute left-full ml-2 px-3 py-1.5 bg-gray-900 dark:bg-gray-700 text-white text-sm rounded-lg shadow-lg whitespace-nowrap pointer-events-none opacity-0 transition-opacity duration-200 z-50;
+}
+
+.evon-desktop-sidebar-toggle:hover .evon-toggle-tooltip {
+    @apply opacity-100;
+}
+
+/* Sidebar logo section - Increased for better proportions */
+.evon-sidebar-logo {
+    @apply px-4 py-5 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-br from-eco-green-50 via-white to-eco-green-50 dark:from-gray-800 dark:via-gray-800 dark:to-gray-800;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Logo in collapsed state */
+.evon-sidebar-collapsed .evon-sidebar-logo {
+    min-height: 64px;
+    padding: 1rem 0.5rem;
+}
+
+/* Sidebar navigation - Increased padding */
+.evon-sidebar-nav {
+    @apply flex-1 px-4 py-5 overflow-y-auto;
+    scroll-behavior: smooth;
+}
+
+/* Collapsed sidebar navigation */
+.evon-sidebar-collapsed .evon-sidebar-nav {
+    @apply px-3;
+}
+
+.evon-sidebar-nav::-webkit-scrollbar {
+    width: 6px;
+}
+
+.evon-sidebar-nav::-webkit-scrollbar-track {
+    @apply bg-transparent;
+}
+
+.evon-sidebar-nav::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+    transition: background-color 0.2s ease;
+}
+
+.evon-sidebar-nav::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+}
+
+/* Scrollbar in collapsed mode */
+.evon-sidebar-collapsed .evon-sidebar-nav::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Sidebar footer - Increased padding */
+.evon-sidebar-footer {
+    @apply px-4 py-5 border-t border-gray-200 dark:border-gray-700;
+}
+
+/* Navigation item - Increased size for better visibility */
+.evon-nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 cursor-pointer relative overflow-hidden;
+    will-change: transform, background-color;
+}
+
+/* Center icons when sidebar is collapsed */
+.evon-sidebar-collapsed .evon-nav-item {
+    @apply justify-center px-3;
+    position: relative;
+}
+
+.evon-sidebar-collapsed .evon-sidebar-logo {
+    @apply justify-center px-2;
+}
+
+/* Professional Minimalist Sidebar Toggle Button */
+.evon-sidebar-header {
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dark .evon-sidebar-header {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+.evon-sidebar-toggle {
+    cursor: pointer;
+    border: none;
+    flex-shrink: 0;
+}
+
+.evon-sidebar-toggle:hover {
+    background: linear-gradient(135deg, #16a34a 0%, #15803d 100%) !important;
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.4) !important;
+}
+
+.evon-sidebar-toggle:active {
+    transform: scale(0.95) !important;
+}
+
+/* Dark mode toggle */
+.dark .evon-sidebar-toggle {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+    box-shadow: 0 2px 8px rgba(5, 150, 105, 0.35) !important;
+}
+
+.dark .evon-sidebar-toggle:hover {
+    background: linear-gradient(135deg, #047857 0%, #065f46 100%) !important;
+}
+
+/* RTL support for toggle button */
+[dir="rtl"] .evon-sidebar-toggle svg {
+    transform: scaleX(-1);
+}
+
+/* Collapsed state positioning */
+.evon-sidebar-collapsed .evon-sidebar-header {
+    justify-content: center;
+    padding: 0.5rem !important;
+}
+
+.evon-sidebar-collapsed .evon-sidebar-toggle {
+    position: fixed;
+    z-index: 9999;
+}
+
+/* Tooltip for collapsed sidebar items - Improved visibility */
+.evon-nav-item-tooltip {
+    @apply absolute left-full ml-3 px-4 py-2.5 bg-gray-900 dark:bg-gray-700 text-white text-sm rounded-lg shadow-lg whitespace-nowrap pointer-events-none opacity-0 z-50;
+    transform: translateX(-10px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    backdrop-filter: blur(8px);
+    background: rgba(31, 41, 55, 0.95);
+}
+
+.dark .evon-nav-item-tooltip {
+    background: rgba(55, 65, 81, 0.95);
+}
+
+.evon-sidebar-collapsed .evon-nav-item:hover .evon-nav-item-tooltip {
+    @apply opacity-100;
+    transform: translateX(0);
+}
+
+/* Tooltip arrow */
+.evon-nav-item-tooltip::before {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 8px;
+    height: 8px;
+    background: inherit;
+    border-radius: 2px;
+}
+
+/* Badge positioning in collapsed mode */
+.evon-sidebar-collapsed .evon-nav-badge {
+    @apply absolute -top-1 -right-1 scale-75;
+}
+
+/* Icon wrapper for better control - Increased for better visibility */
+.evon-nav-icon-wrapper {
+    @apply flex-shrink-0 flex items-center justify-center;
+    min-width: 20px;
+    min-height: 20px;
+}
+
+.evon-nav-item::before {
+    content: '';
+    @apply absolute left-0 top-0 bottom-0 w-1 bg-eco-green-500 transform -translate-x-full transition-transform duration-200;
+}
+
+.evon-nav-item-active {
+    @apply bg-eco-green-500 text-white shadow-lg shadow-eco-green-500/40;
+    transform: translateX(2px);
+}
+
+.evon-nav-item-active .evon-nav-label,
+.evon-nav-item-active .evon-nav-icon {
+    @apply text-white;
+}
+
+.evon-nav-item-active::before {
+    @apply translate-x-0;
+}
+
+.evon-nav-item-inactive {
+    @apply text-gray-700 dark:text-gray-200 hover:bg-eco-green-50 dark:hover:bg-eco-green-900/20 hover:text-eco-green-600 dark:hover:text-eco-green-400;
+}
+
+.evon-nav-item-inactive:hover {
+    transform: translateX(2px);
+}
+
+.evon-nav-item-inactive:hover::before {
+    @apply translate-x-0;
+}
+
+/* Add smooth transition on active state */
+.evon-nav-item:active {
+    transform: scale(0.98);
+}
+
+/* Navigation icon */
+.evon-nav-icon {
+    @apply flex-shrink-0 transition-all duration-200;
+}
+
+.evon-nav-icon-active {
+    @apply text-white;
+}
+
+.evon-nav-icon-inactive {
+    @apply text-gray-500;
+}
+
+.evon-nav-item:hover .evon-nav-icon-inactive {
+    @apply text-eco-green-500;
+}
+
+/* Icon hover effects */
+.evon-nav-item:hover .evon-nav-icon svg {
+    transform: scale(1.1);
+}
+
+.evon-nav-item-active .evon-nav-icon svg {
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+}
+
+/* Settings icon rotation on hover */
+.evon-nav-item:hover .evon-nav-icon svg[class*="lucide-settings"] {
+    animation: rotateSettings 0.6s ease-in-out;
+}
+
+@keyframes rotateSettings {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.1); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Navigation label */
+.evon-nav-label {
+    @apply truncate;
+    /* Additional protection */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Ensure label and tooltip never show at the same time */
+/* When sidebar is collapsed, hide all labels */
+.evon-sidebar-collapsed .evon-nav-label {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* When sidebar is expanded, hide all tooltips */
+.evon-sidebar:not(.evon-sidebar-collapsed) .evon-nav-item-tooltip {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
+/* Navigation badge - Increased for better visibility */
+.evon-nav-badge {
+    @apply px-2.5 py-1 text-xs font-semibold rounded-full transition-all duration-200;
+    min-width: 24px;
+    text-align: center;
+}
+
+/* Badge animation */
+@keyframes badgePulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.9;
+    }
+}
+
+.evon-nav-badge {
+    animation: badgePulse 2s ease-in-out infinite;
+}
+
+/* Navigation section title - Increased for better readability */
+.evon-nav-section-title {
+    @apply px-3 py-2 mt-4 first:mt-0 mb-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider;
+    /* Additional protection against duplication */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Prevent any pseudo-element duplication */
+.evon-nav-section-title::before,
+.evon-nav-section-title::after {
+    content: none !important;
+    display: none !important;
+}
+
+/* Hide section titles when sidebar is collapsed */
+.evon-sidebar-collapsed .evon-nav-section-title {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Add spacing between nav items in a section - Increased */
+.evon-sidebar-nav .evon-nav-item {
+    @apply mb-2;
+}
+
+/* ========================================
+   2. HEADER STYLES
+   ======================================== */
+
+/* Header container (67% of original size) */
+.evon-header {
+    @apply bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 px-2 sm:px-3 lg:px-4 py-1.5 sm:py-2 flex items-center justify-between sticky top-0 z-30 backdrop-blur-md bg-white/95 dark:bg-gray-800/95 shadow-sm transition-all duration-200;
+    min-height: 35px;
+    will-change: transform;
+}
+
+/* Header search */
+.evon-header-search {
+    @apply relative w-[160px] sm:w-[200px] lg:w-[240px];
+}
+
+.input-field {
+    @apply block w-full px-3 py-2 text-sm text-gray-900 bg-white border border-gray-300 rounded-md shadow-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-eco-green-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:focus:ring-offset-gray-900;
+}
+
+.evon-header-search-input {
+    @apply w-full px-3 py-1.5 border border-gray-300 dark:border-gray-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-eco-green-500 focus:border-transparent transition-all bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500 h-8 pl-9 pr-2 text-sm;
+}
+
+.evon-header-search-icon {
+    @apply absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none;
+}
+
+/* Header utilities */
+.evon-header-utilities {
+    @apply flex items-center gap-1 sm:gap-2;
+}
+
+/* Mobile Search Component - Hide on Desktop */
+.mobile-search-component {
+    display: flex;
+}
+
+@media (min-width: 768px) {
+    .mobile-search-component {
+        display: none !important;
+    }
+}
+
+/* Header button - Amélioration avec états actifs et désactivés (67% of original size) */
+.evon-header-button {
+    @apply w-5 h-5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center justify-center transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-eco-green-500 focus:ring-offset-1 cursor-pointer;
+    position: relative;
+}
+
+.evon-header-button:active {
+    @apply scale-95;
+}
+
+.evon-header-button:disabled,
+.evon-header-button[aria-disabled="true"] {
+    @apply opacity-50 cursor-not-allowed pointer-events-none;
+}
+
+/* État ouvert des dropdowns */
+.evon-header-button[aria-expanded="true"] {
+    @apply bg-gray-100 dark:bg-gray-700;
+}
+
+/* Amélioration visuelle au hover avec scale */
+.evon-header-button:hover:not(:disabled):not([aria-disabled="true"]) {
+    @apply transform scale-105;
+}
+
+/* État de chargement/busy */
+.evon-header-button[aria-busy="true"] {
+    @apply opacity-75 cursor-wait;
+}
+
+/* Animation de pulsation pour les boutons avec notifications */
+.evon-header-button.has-notification {
+    animation: buttonNotificationPulse 2s ease-in-out infinite;
+}
+
+@keyframes buttonNotificationPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(74, 207, 123, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(74, 207, 123, 0);
+    }
+}
+
+/* Badge de notification sur les boutons */
+.evon-notification-badge {
+    @apply absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500 ring-2 ring-white dark:ring-gray-800;
+    animation: badgePulse 2s ease-in-out infinite;
+}
+
+/* Icônes dans les boutons - Transition fluide */
+.evon-header-button svg {
+    @apply transition-all duration-200;
+}
+
+.evon-header-button:hover svg {
+    @apply transform scale-110;
+}
+
+/* Header user avatar (67% of original size) */
+.evon-header-avatar {
+    @apply w-5 h-5 rounded-lg flex items-center justify-center transition-colors duration-200 bg-gradient-to-br from-eco-green-500 to-eco-green-600 hover:from-eco-green-600 hover:to-eco-green-700 shadow-md focus:outline-none focus:ring-2 focus:ring-eco-green-500 focus:ring-offset-1 cursor-pointer;
+}
+
+.evon-header-avatar-text {
+    @apply text-[10px] font-semibold text-white;
+}
+
+/* Header dropdown */
+.dropdown {
+    @apply relative inline-block;
+}
+
+.dropdown-menu {
+    @apply absolute right-0 mt-2 w-56 origin-top-right rounded-lg bg-white dark:bg-gray-800 shadow-lg ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 dark:divide-gray-700 z-50;
+}
+
+.dropdown-item {
+    @apply flex items-center w-full px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-150 cursor-pointer;
+}
+
+/* ========================================
+   3. MAIN CONTENT AREA
+   ======================================== */
+
+/* Main container - 80% width on desktop */
+.evon-main {
+    @apply flex-1 overflow-y-auto bg-gray-50 dark:bg-gray-900 scrollbar-thin;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Desktop: main content area takes remaining space (80%) */
+@media (min-width: 1024px) {
+    .evon-main {
+        flex: 1;
+        width: auto;
+        max-width: none;
+    }
+    
+    /* When sidebar is collapsed, main expands */
+    body.sidebar-collapsed .evon-main {
+        flex: 1;
+        width: auto;
+    }
+}
+
+/* Large desktop optimization (≥1920px) - Optimized for wider screens */
+@media (min-width: 1920px) {
+    .evon-sidebar {
+        min-width: 280px;
+        max-width: 380px;
+    }
+    
+    .evon-content {
+        max-width: 1600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Extra large desktop (≥2560px) - Maximum content width */
+@media (min-width: 2560px) {
+    .evon-sidebar {
+        min-width: 320px;
+        max-width: 420px;
+    }
+    
+    .evon-content {
+        max-width: 2000px;
+    }
+}
+
+/* Content wrapper */
+.container-main {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+    /* Desktop: allow content to use available space */
+}
+
+.evon-content {
+    @apply w-full mx-auto;
+    @apply px-2 sm:px-3 lg:px-4;
+    @apply py-2 sm:py-3;
+    @apply min-w-0; /* Prevent flex overflow */
+    animation: fadeInContent 0.3s ease-out;
+    transition: max-width 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+/* Mobile: content takes full width */
+@media (max-width: 1023px) {
+    .evon-content {
+        max-width: 100% !important;
+        width: 100%;
+    }
+}
+
+/* Tablet landscape optimization */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .evon-content {
+        max-width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Desktop: content takes available space (increased for better use of space) */
+@media (min-width: 1024px) {
+    .evon-content {
+        max-width: 1400px; /* Increased for wider content area */
+        width: 100%;
+    }
+    
+    /* When sidebar is collapsed, content expands even more */
+    body.sidebar-collapsed .evon-content {
+        width: 100%;
+        max-width: 1600px; /* Increased for maximum space usage */
+    }
+}
+
+/* Desktop medium screens (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .evon-content {
+        padding-left: 0.67rem;
+        padding-right: 0.67rem;
+    }
+}
+
+/* Desktop large screens (1440px - 1919px) */
+@media (min-width: 1440px) and (max-width: 1919px) {
+    .evon-content {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* Ensure all direct children respect container width */
+.evon-content > * {
+    @apply max-w-full;
+}
+
+/* Content fade in animation */
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Page header (67% of original size) */
+.evon-page-header {
+    @apply mb-4 sm:mb-5;
+}
+
+.evon-page-title {
+    @apply text-base sm:text-xl font-bold text-gray-900 dark:text-white mb-1.5;
+}
+
+.evon-page-subtitle {
+    @apply text-sm text-gray-600 dark:text-gray-400;
+}
+
+/* Page actions */
+.evon-page-actions {
+    @apply flex flex-wrap items-center gap-3 mb-6;
+}
+
+/* ========================================
+   4. DASHBOARD WIDGETS
+   ======================================== */
+
+/* Stats grid (67% of original size) */
+.evon-stats-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-4 sm:mb-5;
+}
+
+/* Stagger animation for stats cards */
+.evon-stats-grid > * {
+    animation: fadeInUp 0.5s ease-out backwards;
+}
+
+.evon-stats-grid > *:nth-child(1) { animation-delay: 0.05s; }
+.evon-stats-grid > *:nth-child(2) { animation-delay: 0.1s; }
+.evon-stats-grid > *:nth-child(3) { animation-delay: 0.15s; }
+.evon-stats-grid > *:nth-child(4) { animation-delay: 0.2s; }
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stat card (67% of original size) */
+.evon-stat-card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 p-4 transition-all duration-300 relative overflow-hidden;
+}
+
+.evon-stat-card:hover {
+    @apply shadow-lg border-eco-green-200 dark:border-eco-green-800 -translate-y-1;
+}
+
+.evon-stat-card:hover .evon-stat-card-icon {
+    @apply scale-110 bg-eco-green-500/30;
+}
+
+.evon-stat-card-header {
+    @apply flex items-center justify-between mb-2;
+}
+
+.evon-stat-card-label {
+    @apply text-xs font-medium text-gray-600 dark:text-gray-400;
+}
+
+.evon-stat-card-icon {
+    @apply w-7 h-7 rounded-full bg-eco-green-500/20 flex items-center justify-center;
+}
+
+.evon-stat-card-value {
+    @apply text-xl font-bold text-gray-900 dark:text-white mb-1.5;
+}
+
+.evon-stat-card-change {
+    @apply flex items-center gap-1 text-sm;
+}
+
+.evon-stat-card-change-positive {
+    @apply text-green-600 dark:text-green-400;
+}
+
+.evon-stat-card-change-negative {
+    @apply text-red-600 dark:text-red-400;
+}
+
+/* Chart card (67% of original size) */
+.evon-chart-card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 p-4 transition-all duration-200 mb-4;
+}
+
+.evon-chart-header {
+    @apply flex items-center justify-between mb-4;
+}
+
+.evon-chart-title {
+    @apply text-base font-semibold text-gray-900 dark:text-white;
+}
+
+.evon-chart-filters {
+    @apply flex items-center gap-2;
+}
+
+.evon-chart-filter-button {
+    @apply px-3 py-1.5 text-sm rounded-lg border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors;
+}
+
+/* ========================================
+   5. DATA TABLE
+   ======================================== */
+
+/* Table container (67% of original size) */
+.evon-table-container {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 p-4 transition-all duration-200 overflow-hidden;
+}
+
+.evon-table-header {
+    @apply flex items-center justify-between mb-3;
+}
+
+.evon-table-title {
+    @apply text-base font-semibold text-gray-900 dark:text-white;
+}
+
+.evon-table-actions {
+    @apply flex items-center gap-2;
+}
+
+/* Table wrapper */
+.evon-table-wrapper {
+    @apply overflow-x-auto;
+}
+
+/* Table */
+.evon-table {
+    @apply w-full divide-y divide-gray-200 dark:divide-gray-700;
+}
+
+.evon-table-head {
+    @apply bg-gray-50 dark:bg-gray-900/50;
+}
+
+.evon-table-head-cell {
+    @apply px-4 py-2 text-left text-[10px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider;
+}
+
+.evon-table-body {
+    @apply bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700;
+}
+
+.evon-table-row {
+    @apply hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors;
+}
+
+.evon-table-cell {
+    @apply px-4 py-3 whitespace-nowrap text-xs text-gray-900 dark:text-gray-200;
+}
+
+/* Table pagination (67% of original size) */
+.evon-table-pagination {
+    @apply flex items-center justify-between px-3 py-2 border-t border-gray-200 dark:border-gray-700;
+}
+
+/* ========================================
+   6. FORMS
+   ======================================== */
+
+/* Form container */
+.evon-form {
+    @apply space-y-6;
+}
+
+/* Form section (67% of original size) */
+.evon-form-section {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 p-4 transition-all duration-200;
+}
+
+.evon-form-section-header {
+    @apply mb-4 pb-3 border-b border-gray-200 dark:border-gray-700;
+}
+
+.evon-form-section-title {
+    @apply text-base font-semibold text-gray-900 dark:text-white;
+}
+
+.evon-form-section-description {
+    @apply text-xs text-gray-600 dark:text-gray-400 mt-1;
+}
+
+/* Form grid (67% of original size) */
+.evon-form-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4;
+}
+
+.evon-form-grid-full {
+    @apply sm:col-span-2;
+}
+
+/* Form actions (67% of original size) */
+.evon-form-actions {
+    @apply flex items-center justify-end gap-2 pt-4;
+}
+
+/* ========================================
+   7. MODALS & DIALOGS
+   ======================================== */
+
+/* Modal overlay */
+.evon-modal-overlay {
+    @apply fixed inset-0 z-40 bg-gray-600 bg-opacity-75 backdrop-blur-sm transition-opacity;
+}
+
+/* Modal container */
+.evon-modal-container {
+    @apply fixed inset-0 z-50 overflow-y-auto;
+}
+
+.evon-modal-wrapper {
+    @apply flex min-h-screen items-center justify-center p-4;
+}
+
+/* Modal panel */
+.evon-modal-panel {
+    @apply relative bg-white dark:bg-gray-800 rounded-xl shadow-2xl max-w-lg w-full transform transition-all;
+}
+
+.evon-modal-header {
+    @apply flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700;
+}
+
+.evon-modal-title {
+    @apply text-xl font-semibold text-gray-900 dark:text-white;
+}
+
+.evon-modal-close {
+    @apply text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors;
+}
+
+.evon-modal-body {
+    @apply p-6;
+}
+
+.evon-modal-footer {
+    @apply flex items-center justify-end gap-3 p-6 border-t border-gray-200 dark:border-gray-700;
+}
+
+/* ========================================
+   8. ALERTS & NOTIFICATIONS
+   ======================================== */
+
+/* Alert container */
+.evon-alert {
+    @apply p-4 rounded-lg mb-4 flex items-start gap-3 animate-fade-in;
+}
+
+.evon-alert-icon {
+    @apply flex-shrink-0 w-5 h-5;
+}
+
+.evon-alert-content {
+    @apply flex-1;
+}
+
+.evon-alert-title {
+    @apply font-medium mb-1;
+}
+
+.evon-alert-message {
+    @apply text-sm;
+}
+
+.evon-alert-close {
+    @apply flex-shrink-0 ml-3 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 cursor-pointer;
+}
+
+/* Alert variants */
+.evon-alert-success {
+    @apply p-4 rounded-lg mb-4 flex items-start gap-3 animate-fade-in bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-400 border border-green-200 dark:border-green-800;
+}
+
+.evon-alert-warning {
+    @apply p-4 rounded-lg mb-4 flex items-start gap-3 animate-fade-in bg-yellow-50 dark:bg-yellow-900/20 text-yellow-800 dark:text-yellow-400 border border-yellow-200 dark:border-yellow-800;
+}
+
+.evon-alert-danger {
+    @apply p-4 rounded-lg mb-4 flex items-start gap-3 animate-fade-in bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-400 border border-red-200 dark:border-red-800;
+}
+
+.evon-alert-info {
+    @apply p-4 rounded-lg mb-4 flex items-start gap-3 animate-fade-in bg-blue-50 dark:bg-blue-900/20 text-blue-800 dark:text-blue-400 border border-blue-200 dark:border-blue-800;
+}
+
+/* Toast notification */
+.evon-toast {
+    @apply fixed bottom-4 right-4 z-50 bg-white dark:bg-gray-800 rounded-lg shadow-2xl border border-gray-200 dark:border-gray-700 p-4 max-w-md;
+    animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Notification badge */
+.evon-notification-badge {
+    @apply absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full ring-2 ring-white dark:ring-gray-800;
+}
+
+.evon-notification-count {
+    @apply absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs font-bold rounded-full flex items-center justify-center ring-2 ring-white dark:ring-gray-800;
+}
+
+/* ========================================
+   9. LOADING STATES
+   ======================================== */
+
+/* Loading overlay */
+.evon-loading-overlay {
+    @apply fixed inset-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm flex items-center justify-center;
+}
+
+.evon-loading-spinner {
+    @apply w-12 h-12 border-4 border-gray-200 dark:border-gray-700 border-t-eco-green-500 rounded-full animate-spin;
+}
+
+/* Skeleton loader */
+.evon-skeleton {
+    @apply animate-pulse bg-gray-200 dark:bg-gray-700 rounded;
+}
+
+.evon-skeleton-text {
+    @apply animate-pulse bg-gray-200 dark:bg-gray-700 rounded h-4 w-full mb-2;
+}
+
+.evon-skeleton-title {
+    @apply animate-pulse bg-gray-200 dark:bg-gray-700 rounded h-6 w-3/4 mb-4;
+}
+
+.evon-skeleton-avatar {
+    @apply animate-pulse bg-gray-200 dark:bg-gray-700 rounded w-12 h-12 rounded-full;
+}
+
+.evon-skeleton-button {
+    @apply animate-pulse bg-gray-200 dark:bg-gray-700 rounded h-10 w-24;
+}
+
+/* ========================================
+   10. EMPTY STATES
+   ======================================== */
+
+/* Empty state */
+.evon-empty-state {
+    @apply flex flex-col items-center justify-center py-12 px-4 text-center;
+}
+
+.evon-empty-state-icon {
+    @apply w-16 h-16 text-gray-400 dark:text-gray-600 mb-4;
+}
+
+.evon-empty-state-title {
+    @apply text-xl font-semibold text-gray-900 dark:text-white mb-2;
+}
+
+.evon-empty-state-description {
+    @apply text-gray-600 dark:text-gray-400 mb-6;
+}
+
+.evon-empty-state-action {
+    @apply bg-eco-green-500 hover:bg-eco-green-600 text-white font-medium py-2.5 px-6 rounded-lg transition-all duration-200 shadow-md shadow-eco-green-500/30 hover:shadow-lg hover:shadow-eco-green-500/40 focus:outline-none focus:ring-2 focus:ring-eco-green-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+/* ========================================
+   11. RESPONSIVE UTILITIES
+   ======================================== */
+
+/* Mobile menu button (67% of original size) */
+.evon-mobile-menu-btn {
+    @apply lg:hidden p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-eco-green-500 focus:ring-offset-1;
+}
+
+/* Mobile sidebar overlay */
+.evon-mobile-sidebar-overlay {
+    @apply fixed inset-0 z-40 bg-gray-600 bg-opacity-75 lg:hidden transition-opacity;
+}
+
+/* Hide on mobile */
+.evon-hide-mobile {
+    @apply hidden sm:flex;
+}
+
+/* Show only on mobile */
+.evon-show-mobile {
+    @apply sm:hidden;
+}
+
+/* ========================================
+   12. ACCESSIBILITY
+   ======================================== */
+
+/* Focus visible */
+.evon-focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-eco-green-500 focus:ring-offset-2;
+}
+
+/* Skip to content link */
+.evon-skip-link {
+    @apply sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-eco-green-500 focus:text-white focus:rounded-lg;
+}
+
+/* Screen reader only */
+.evon-sr-only {
+    @apply sr-only;
+}
+
+/* ========================================
+   13. MOBILE BOTTOM NAVIGATION
+   ======================================== */
+
+/* Bottom Navigation Bar (iOS/Android style) */
+.evon-mobile-bottom-nav {
+    @apply fixed bottom-0 left-0 right-0 z-40 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 lg:hidden;
+    padding-bottom: env(safe-area-inset-bottom, 0);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.evon-mobile-bottom-nav-content {
+    @apply flex items-center justify-around px-2 py-2;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.evon-mobile-bottom-nav-item {
+    @apply flex flex-col items-center justify-center gap-1 px-3 py-1.5 rounded-lg transition-all duration-200 flex-1 max-w-[80px];
+    -webkit-tap-highlight-color: transparent;
+}
+
+.evon-mobile-bottom-nav-item:active {
+    @apply scale-95;
+}
+
+.evon-mobile-bottom-nav-item.active {
+    @apply bg-eco-green-600 text-white;
+}
+
+.evon-mobile-bottom-nav-item.active .evon-mobile-bottom-nav-icon {
+    @apply text-white;
+}
+
+.evon-mobile-bottom-nav-icon {
+    @apply w-6 h-6 text-gray-500 dark:text-gray-400 transition-colors;
+}
+
+.evon-mobile-bottom-nav-label {
+    @apply text-[10px] font-medium text-gray-600 dark:text-gray-400 transition-colors;
+}
+
+.evon-mobile-bottom-nav-item.active .evon-mobile-bottom-nav-label {
+    @apply text-white font-semibold;
+}
+
+/* FAB (Floating Action Button) in center */
+.evon-mobile-bottom-nav-fab {
+    @apply relative -mt-6 flex-col;
+}
+
+.evon-mobile-bottom-nav-fab-icon {
+    @apply w-14 h-14 rounded-full bg-gradient-to-br from-eco-green-500 to-eco-green-600 flex items-center justify-center text-white shadow-lg shadow-eco-green-500/30;
+}
+
+.evon-mobile-bottom-nav-fab:active .evon-mobile-bottom-nav-fab-icon {
+    @apply scale-95;
+}
+
+/* ========================================
+   14. MOBILE SEARCH MODAL
+   ======================================== */
+
+.evon-mobile-search-modal {
+    @apply fixed inset-0 z-50 items-start justify-start lg:hidden;
+}
+
+.evon-mobile-search-backdrop {
+    @apply absolute inset-0 bg-gray-900/50 backdrop-blur-sm;
+}
+
+.evon-mobile-search-content {
+    @apply relative w-full h-full bg-white dark:bg-gray-900 flex flex-col;
+    animation: slideInFromTop 0.3s ease-out;
+}
+
+@keyframes slideInFromTop {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Search Header */
+.evon-mobile-search-header {
+    @apply flex items-center gap-3 px-4 py-3 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700;
+    padding-top: max(12px, env(safe-area-inset-top, 12px));
+}
+
+.evon-mobile-search-back {
+    @apply flex items-center justify-center w-10 h-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors;
+}
+
+.evon-mobile-search-input-wrapper {
+    @apply relative flex-1 flex items-center;
+}
+
+.evon-mobile-search-input-icon {
+    @apply absolute left-3 w-5 h-5 text-gray-400 pointer-events-none;
+}
+
+.evon-mobile-search-input {
+    @apply w-full h-11 pl-10 pr-10 bg-gray-100 dark:bg-gray-800 border-0 rounded-xl text-gray-900 dark:text-white placeholder:text-gray-400 focus:ring-2 focus:ring-eco-green-500 focus:bg-white dark:focus:bg-gray-700 transition-all;
+}
+
+.evon-mobile-search-clear {
+    @apply absolute right-3 flex items-center justify-center w-6 h-6 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300;
+}
+
+/* Search Results */
+.evon-mobile-search-results {
+    @apply flex-1 overflow-y-auto px-4 py-4;
+}
+
+.evon-mobile-search-section {
+    @apply mb-6;
+}
+
+.evon-mobile-search-section-title {
+    @apply text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3;
+}
+
+/* Quick Actions */
+.evon-mobile-search-quick-actions {
+    @apply grid grid-cols-2 gap-3;
+}
+
+.evon-mobile-search-quick-action {
+    @apply flex items-center gap-3 p-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-eco-green-500 transition-colors;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.evon-mobile-search-quick-action:active {
+    @apply scale-95;
+}
+
+.evon-mobile-search-quick-action-icon {
+    @apply flex items-center justify-center w-10 h-10 rounded-lg flex-shrink-0;
+}
+
+.evon-mobile-search-quick-action span {
+    @apply text-sm font-medium text-gray-900 dark:text-white;
+}
+
+.evon-mobile-search-recent {
+    @apply space-y-2;
+}
+
+/* ========================================
+   15. MOBILE RESPONSIVE FIXES & ENHANCEMENTS
+   ======================================== */
+
+@media (max-width: 640px) {
+    /* Add bottom padding to main content for bottom nav */
+    .evon-main {
+        @apply pb-20;
+    }
+    
+    /* User profile dropdown on mobile */
+    #userProfileDropdown {
+        @apply static;
+    }
+    
+    #userDropdownMenu {
+        @apply fixed right-2 left-2 mt-2 w-auto;
+        max-width: calc(100vw - 1rem);
+        max-height: calc(100vh - 200px);
+        overflow-y: auto;
+    }
+    
+    /* Adjust header utilities spacing on mobile */
+    .evon-header-utilities {
+        @apply gap-1;
+    }
+    
+    /* Touch-friendly buttons on mobile - Zone tactile 44x44px minimum */
+    .evon-header-button {
+        @apply w-10 h-10;
+        min-width: 44px;
+        min-height: 44px;
+        touch-action: manipulation; /* Empêche le double-tap zoom */
+        -webkit-tap-highlight-color: transparent; /* Retire le flash bleu sur iOS */
+    }
+    
+    /* Réduire l'effet scale sur mobile pour éviter les chevauchements */
+    .evon-header-button:hover:not(:disabled):not([aria-disabled="true"]) {
+        @apply transform scale-100;
+    }
+    
+    /* User menu items padding on mobile */
+    .dropdown-item {
+        @apply px-4 py-3;
+        min-height: 48px;
+    }
+    
+    /* Hide search bar on mobile (use modal instead) */
+    .evon-header-search {
+        @apply hidden;
+    }
+    
+    /* Reduce header padding on mobile but keep touch-friendly */
+    .evon-header {
+        @apply px-2 sm:px-3 py-1.5;
+        min-height: 48px;
+    }
+    
+    /* Reduce content padding on mobile */
+    .evon-content {
+        @apply px-2 sm:px-3 py-3 sm:py-4;
+        @apply w-full overflow-x-hidden;
+        max-width: 100% !important;
+    }
+    
+    /* Ensure buttons and forms don't overflow */
+    .evon-content button,
+    .evon-content input,
+    .evon-content select,
+    .evon-content textarea {
+        @apply max-w-full;
+    }
+    
+    /* Make tables responsive */
+    .evon-content table {
+        @apply w-full table-auto;
+    }
+    
+    /* Ensure cards stack properly */
+    .evon-content .grid {
+        @apply gap-3 sm:gap-4;
+    }
+    
+    /* Stats grid - 1 column on mobile */
+    .evon-stats-grid {
+        @apply grid-cols-1 gap-4;
+    }
+    
+    /* Stat card optimizations */
+    .evon-stat-card {
+        @apply p-5;
+    }
+    
+    .evon-stat-card-value {
+        @apply text-2xl;
+    }
+    
+    /* Page header optimizations */
+    .evon-page-header {
+        @apply mb-5;
+    }
+    
+    .evon-page-title {
+        @apply text-xl leading-tight;
+    }
+    
+    /* Page actions - stack on mobile */
+    .evon-page-actions {
+        @apply flex-col items-stretch gap-3;
+    }
+    
+    .evon-page-actions .btn-primary,
+    .evon-page-actions .btn-secondary {
+        @apply w-full justify-center;
+        min-height: 48px;
+    }
+    
+    /* Modal adjustments for better mobile UX */
+    .evon-modal-wrapper {
+        @apply p-0 items-end;
+    }
+    
+    .evon-modal-panel {
+        @apply rounded-t-3xl rounded-b-none max-w-none w-full m-0;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    
+    /* Alert adjustments */
+    .evon-alert {
+        @apply p-4 text-sm rounded-lg;
+    }
+    
+    /* Better touch feedback */
+    .evon-nav-item {
+        @apply py-3;
+        min-height: 48px;
+    }
+    
+    /* Improve form inputs on mobile */
+    .input-field,
+    .select-field,
+    .textarea-field {
+        font-size: 16px !important; /* Prevent zoom on iOS */
+        @apply py-3;
+    }
+    
+    /* Bottom safe area for devices with notch */
+    .evon-mobile-bottom-nav {
+        padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+    }
+}
+
+/* ========================================
+   16. RESPONSIVE TABLES
+   ======================================== */
+
+/* Horizontal scroll wrapper for tables on mobile */
+.evon-table-wrapper {
+    @apply overflow-x-auto -mx-4 sm:mx-0;
+}
+
+.evon-table-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.evon-table-wrapper::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+}
+
+.evon-table-wrapper::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+.evon-table-wrapper::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+}
+
+/* Table responsive - Card style on mobile */
+@media (max-width: 768px) {
+    .evon-table-responsive {
+        @apply block;
+    }
+    
+    .evon-table-responsive thead {
+        @apply hidden;
+    }
+    
+    .evon-table-responsive tbody {
+        @apply block;
+    }
+    
+    .evon-table-responsive tr {
+        @apply block mb-4 bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700;
+    }
+    
+    .evon-table-responsive td {
+        @apply block text-right py-2 px-0 border-b border-gray-100 dark:border-gray-700 last:border-b-0;
+    }
+    
+    .evon-table-responsive td::before {
+        content: attr(data-label);
+        @apply float-left font-semibold text-gray-600 dark:text-gray-400;
+    }
+}
+
+/* ========================================
+   17. MOBILE GESTURES & INTERACTIONS
+   ======================================== */
+
+/* Swipeable cards */
+.evon-swipeable-card {
+    @apply relative;
+    touch-action: pan-y;
+}
+
+/* Pull to refresh indicator */
+.evon-pull-to-refresh {
+    @apply absolute top-0 left-0 right-0 h-16 flex items-center justify-center bg-eco-green-50 dark:bg-eco-green-900/20;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-out;
+}
+
+.evon-pull-to-refresh.active {
+    transform: translateY(0);
+}
+
+/* Tap highlight removal for better UX */
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Better touch scrolling on iOS */
+.evon-main,
+.evon-sidebar-nav,
+.evon-mobile-search-results {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ========================================
+   18. MOBILE TYPOGRAPHY OPTIMIZATIONS
+   ======================================== */
+
+@media (max-width: 640px) {
+    /* Adjust font sizes for better readability on mobile */
+    body {
+        font-size: 14px;
+    }
+    
+    h1, .evon-page-title {
+        @apply text-xl leading-tight;
+    }
+    
+    h2 {
+        @apply text-lg leading-tight;
+    }
+    
+    h3, .evon-chart-title {
+        @apply text-base leading-tight;
+    }
+    
+    /* Button text sizes */
+    .btn-primary,
+    .btn-secondary {
+        @apply text-sm px-4 py-2.5;
+    }
+    
+    /* Form inputs on mobile */
+    .input-field {
+        @apply text-base; /* Prevent zoom on iOS */
+        font-size: 16px !important; /* Force 16px to prevent zoom */
+    }
+    
+    /* Table text */
+    .evon-table-cell {
+        @apply text-xs;
+    }
+}
+
+/* ========================================
+   19. MOBILE ANIMATIONS & TRANSITIONS
+   ======================================== */
+
+/* Slide in from bottom (for modals) */
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Fade in up (for cards) */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Scale in (for buttons) */
+@keyframes scaleIn {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.animate-slide-in-bottom {
+    animation: slideInFromBottom 0.3s ease-out;
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.3s ease-out;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.2s ease-out;
+}
+
+/* Stagger animation for list items */
+.evon-stats-grid > * {
+    animation: fadeInUp 0.4s ease-out;
+}
+
+.evon-stats-grid > *:nth-child(1) { animation-delay: 0.05s; }
+.evon-stats-grid > *:nth-child(2) { animation-delay: 0.1s; }
+.evon-stats-grid > *:nth-child(3) { animation-delay: 0.15s; }
+.evon-stats-grid > *:nth-child(4) { animation-delay: 0.2s; }
+
+/* ========================================
+   20. MOBILE SAFE AREA & NOTCH SUPPORT
+   ======================================== */
+
+/* Support for iPhone notch and Android nav bars */
+@supports (padding-top: env(safe-area-inset-top)) {
+    .evon-header {
+        padding-top: max(1rem, env(safe-area-inset-top, 1rem));
+    }
+    
+    .evon-sidebar-logo {
+        padding-top: max(1.5rem, env(safe-area-inset-top, 1.5rem));
+    }
+    
+    .evon-mobile-search-header {
+        padding-top: max(12px, env(safe-area-inset-top, 12px));
+    }
+    
+    .evon-mobile-bottom-nav {
+        padding-bottom: max(0.5rem, env(safe-area-inset-bottom, 0.5rem));
+    }
+}
+
+/* ========================================
+   21. LANDSCAPE MODE OPTIMIZATIONS
+   ======================================== */
+
+@media (max-height: 500px) and (orientation: landscape) {
+    /* Reduce padding in landscape mode */
+    .evon-content {
+        @apply py-2 px-3;
+        @apply overflow-x-hidden;
+        max-width: 100% !important;
+    }
+    
+    .evon-header {
+        @apply py-2 px-3;
+    }
+    
+    /* Compact cards in landscape */
+    .evon-content .grid {
+        @apply gap-2;
+    }
+    
+    /* Hide bottom nav in landscape if too cramped */
+    .evon-mobile-bottom-nav {
+        @apply hidden;
+    }
+    
+    /* Make sidebar narrower in landscape but keep it usable */
+    .evon-sidebar {
+        width: 64px;
+    }
+    
+    .evon-nav-label {
+        @apply hidden;
+    }
+}
+
+/* ========================================
+   Extra Small Screens (< 375px)
+   ======================================== */
+
+@media (max-width: 374px) {
+    .evon-content {
+        @apply px-2 py-3;
+        @apply overflow-x-hidden;
+        max-width: 100% !important;
+    }
+    
+    /* Make text smaller on very small screens */
+    .evon-content h1 {
+        @apply text-xl;
+    }
+    
+    .evon-content h2 {
+        @apply text-lg;
+    }
+    
+    .evon-content h3 {
+        @apply text-base;
+    }
+    
+    /* Stack buttons vertically */
+    .evon-content .flex {
+        @apply flex-col;
+    }
+    
+    /* Reduce padding on cards */
+    .evon-content .card,
+    .evon-content .bg-white,
+    .evon-content .bg-gray-800 {
+        @apply p-2;
+    }
+    
+    /* Make grids single column */
+    .evon-content .grid {
+        @apply grid-cols-1 gap-2;
+    }
+}
+
+/* ========================================
+   22. RESPONSIVE LAYOUT SYSTEM (20/80 Split)
+   ======================================== */
+
+/* 
+   Layout Strategy:
+   - Mobile (< 1024px): Sidebar overlay, content 100%
+   - Tablet (768px - 1023px): Sidebar overlay, content 100%
+   - Desktop (≥ 1024px): Sidebar 20%, Content 80%
+   - Large Desktop (≥ 1920px): Sidebar 20% (280-380px), Content centered max 1800px
+   - XL Desktop (≥ 2560px): Sidebar 20% (320-420px), Content centered max 2200px
+*/
+
+/* Base layout container */
+@media (min-width: 1024px) {
+    /* Ensure flex container distributes space correctly */
+    body > div > div.flex {
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+    
+    /* Sidebar: 20% width with constraints */
+    aside.evon-sidebar {
+        flex-shrink: 0;
+    }
+    
+    /* Main content: takes remaining 80% */
+    .evon-main {
+        flex-grow: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+}
+
+/* Smooth transitions for layout changes */
+.evon-sidebar,
+.evon-main,
+.evon-content {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Flash animation when toggling */
+@keyframes sidebarToggleFlash {
+    0% { opacity: 1; }
+    50% { opacity: 0.95; }
+    100% { opacity: 1; }
+}
+
+.evon-sidebar.toggling {
+    animation: sidebarToggleFlash 0.3s ease;
+}
+
+/* Prevent layout shift during toggle */
+.evon-sidebar * {
+    will-change: opacity, transform;
+}
+
+/* Optimize rendering performance */
+.evon-sidebar,
+.evon-nav-item,
+.evon-nav-label,
+.evon-nav-icon {
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   23. PRINT STYLES
+   ======================================== */
+
+@media print {
+    /* Hide non-essential elements when printing */
+    .evon-sidebar,
+    .evon-header,
+    .evon-mobile-menu-btn,
+    .evon-mobile-bottom-nav,
+    .btn-primary,
+    .btn-secondary,
+    .evon-page-actions {
+        @apply hidden;
+    }
+    
+    /* Optimize content for print */
+    .evon-main {
+        @apply p-0 m-0 pb-0;
+    }
+    
+    .card {
+        @apply shadow-none border border-gray-300;
+    }
+    
+    /* Expand tables for print */
+    .evon-table-wrapper {
+        @apply overflow-visible;
+    }
+}
+
+/* Global background override */
+.bg-white {
+    --tw-bg-opacity: 1;
+    background-color: rgba(74, 207, 123, 0.1);
+}
+

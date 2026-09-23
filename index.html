@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirection vers la page de connexion</title>
+    <meta http-equiv="refresh" content="0;url=/public/login">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            color: #333;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 5px solid #2c3e50;
+            border-bottom-color: transparent;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+            margin: 20px 0;
+        }
+        @keyframes rotation {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            background-color: #3498db;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        a:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Redirection en cours...</h1>
+        <p>Vous allez être redirigé automatiquement vers la page de connexion.</p>
+        <span class="loader"></span>
+        <p>Si la redirection ne fonctionne pas, veuillez cliquer sur le lien ci-dessous :</p>
+        <a href="/public/login">Accéder à la page de connexion</a>
+    </div>
+
+    <script>
+        // JavaScript redirect as a fallback
+        window.onload = function() {
+            setTimeout(function() {
+                window.location.href = "/public/login";
+            }, 1000); // small delay to show the loading animation
+        };
+    </script>
+</body>
+</html>

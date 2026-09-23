@@ -1,0 +1,1608 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EVON — Simulateur Intelligent OCPP 1.6J</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-darker: #080c14;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-input: #0f172a;
+            --border-color: #334155;
+            --border-focus: #38bdf8;
+            
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            
+            --color-primary: #0ea5e9;
+            --color-primary-hover: #0284c7;
+            --color-success: #10b981;
+            --color-warning: #f59e0b;
+            --color-danger: #ef4444;
+            --color-purple: #a855f7;
+            
+            --shadow-premium: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 1px 1px rgba(255, 255, 255, 0.05) inset;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-darker);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1600px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            gap: 24px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-success));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 20px;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.4);
+        }
+
+        .logo-text h1 {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            background: linear-gradient(to right, #fff, var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-text span {
+            font-size: 11px;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+        }
+
+        .status-badge-top {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 9999px;
+            font-size: 13px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--color-danger);
+            box-shadow: 0 0 10px var(--color-danger);
+        }
+
+        .status-dot.connected {
+            background-color: var(--color-success);
+            box-shadow: 0 0 10px var(--color-success);
+        }
+
+        .status-dot.connecting {
+            background-color: var(--color-warning);
+            box-shadow: 0 0 10px var(--color-warning);
+            animation: pulse 1s infinite alternate;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        /* Layout Grid */
+        .workspace-grid {
+            display: grid;
+            grid-template-columns: 450px 1fr;
+            gap: 24px;
+            flex-grow: 1;
+        }
+
+        @media (max-width: 1200px) {
+            .workspace-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Cards and Components */
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow-premium);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 14px;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Form Controls */
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-group label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            width: 100%;
+        }
+
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            background-color: var(--bg-input);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 10px 14px;
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        input[type="text"]:focus, input[type="number"]:focus, select:focus {
+            outline: none;
+            border-color: var(--border-focus);
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+        }
+
+        /* Buttons */
+        .btn {
+            background-color: var(--color-primary);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            background-color: var(--color-primary-hover);
+        }
+
+        .btn-success {
+            background-color: var(--color-success);
+        }
+
+        .btn-success:hover {
+            background-color: #059669;
+        }
+
+        .btn-danger {
+            background-color: var(--color-danger);
+        }
+
+        .btn-danger:hover {
+            background-color: #dc2626;
+        }
+
+        .btn-warning {
+            background-color: var(--color-warning);
+        }
+
+        .btn-warning:hover {
+            background-color: #d97706;
+        }
+
+        .btn-secondary {
+            background-color: #334155;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #475569;
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Visual Virtual Charger Screen */
+        .charger-screen {
+            background: linear-gradient(135deg, #0b1329, #050814);
+            border: 4px solid #1e293b;
+            border-radius: 12px;
+            padding: 16px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.8), 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .charger-screen::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), transparent);
+            pointer-events: none;
+        }
+
+        .charger-screen-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-muted);
+            border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+            padding-bottom: 6px;
+        }
+
+        .charger-status-text {
+            font-size: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #94a3b8;
+            text-shadow: 0 0 10px rgba(148, 163, 184, 0.2);
+        }
+
+        .status-AVAILABLE .charger-status-text { color: var(--color-success); text-shadow: 0 0 10px rgba(16, 185, 129, 0.4); }
+        .status-PREPARING .charger-status-text { color: var(--color-warning); text-shadow: 0 0 10px rgba(245, 158, 11, 0.4); }
+        .status-CHARGING .charger-status-text { color: var(--color-primary); text-shadow: 0 0 10px rgba(14, 165, 233, 0.4); }
+        .status-FINISHING .charger-status-text { color: var(--color-purple); text-shadow: 0 0 10px rgba(168, 85, 247, 0.4); }
+        .status-FAULTED .charger-status-text { color: var(--color-danger); text-shadow: 0 0 10px rgba(239, 68, 68, 0.4); }
+        .status-UNAVAILABLE .charger-status-text { color: var(--text-muted); }
+
+        .charger-screen-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 4px;
+        }
+
+        .charger-stat-box {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid rgba(51, 65, 85, 0.3);
+            border-radius: 8px;
+            padding: 8px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .charger-stat-label {
+            font-size: 9px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .charger-stat-val {
+            font-size: 16px;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-primary);
+        }
+
+        .charger-battery-sim {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 6px;
+            background: rgba(15, 23, 42, 0.4);
+            border-radius: 8px;
+            padding: 10px;
+            border: 1px solid rgba(51, 65, 85, 0.3);
+        }
+
+        .battery-container {
+            flex-grow: 1;
+            height: 14px;
+            background-color: #0f172a;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            position: relative;
+            padding: 1px;
+            overflow: hidden;
+        }
+
+        .battery-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--color-success), #34d399);
+            border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+
+        .charging-indicator {
+            color: var(--color-primary);
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-weight: bold;
+            animation: flash 1s infinite alternate;
+        }
+
+        @keyframes flash {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        /* Action Grid */
+        .actions-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        /* Console and Logging */
+        .console-container {
+            display: flex;
+            flex-direction: column;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            box-shadow: var(--shadow-premium);
+            overflow: hidden;
+            height: 100%;
+            min-height: 500px;
+        }
+
+        .console-header {
+            background-color: #0f172a;
+            padding: 12px 24px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .console-title {
+            font-size: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-primary);
+        }
+
+        .console-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .console-log {
+            flex-grow: 1;
+            background-color: #070a13;
+            padding: 16px;
+            overflow-y: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            height: 500px;
+        }
+
+        .log-entry {
+            border-left: 3px solid var(--border-color);
+            padding-left: 12px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            animation: fadeIn 0.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .log-entry.sent {
+            border-left-color: var(--color-primary);
+            background: rgba(14, 165, 233, 0.03);
+        }
+
+        .log-entry.received {
+            border-left-color: var(--color-purple);
+            background: rgba(168, 85, 247, 0.03);
+        }
+
+        .log-entry.info {
+            border-left-color: var(--color-success);
+            background: rgba(16, 185, 129, 0.03);
+        }
+
+        .log-entry.error {
+            border-left-color: var(--color-danger);
+            background: rgba(239, 68, 68, 0.05);
+        }
+
+        .log-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 4px;
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        .log-type {
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .log-entry.sent .log-type { color: var(--color-primary); }
+        .log-entry.received .log-type { color: var(--color-purple); }
+        .log-entry.info .log-type { color: var(--color-success); }
+        .log-entry.error .log-type { color: var(--color-danger); }
+
+        .log-time {
+            color: var(--text-muted);
+        }
+
+        .log-action {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .log-payload {
+            white-space: pre-wrap;
+            margin-top: 4px;
+            color: #cbd5e1;
+            background-color: rgba(15, 23, 42, 0.6);
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            max-height: 250px;
+            overflow-y: auto;
+        }
+
+        /* Collapsible items */
+        .collapsible {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .collapsible::before {
+            content: '▼ ';
+            font-size: 9px;
+            color: var(--text-muted);
+        }
+
+        .collapsible.collapsed::before {
+            content: '▶ ';
+        }
+
+        .collapsible.collapsed + .log-payload {
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--text-muted);
+            font-size: 12px;
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
+        }
+
+        /* Quick fill config badge */
+        .quick-badge {
+            background-color: rgba(51, 65, 85, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 2px 6px;
+            font-size: 11px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .quick-badge:hover {
+            background-color: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        .quick-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo-area">
+                <div class="logo-icon">⚡</div>
+                <div class="logo-text">
+                    <h1>EVON OCPP Simulator</h1>
+                    <span>Simulateur Client OCPP 1.6J</span>
+                </div>
+            </div>
+            <div class="status-badge-top">
+                <div class="status-dot" id="connectionDot"></div>
+                <span id="connectionText" class="mono font-bold">Déconnecté</span>
+            </div>
+        </header>
+
+        <div class="workspace-grid">
+            <!-- Left Panel: Controls & Virtual Screen -->
+            <div style="display: flex; flex-direction: column; gap: 24px;">
+                <!-- Connection config -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">🔌 Paramètres de Connexion</h2>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="wsUrl">URL WebSocket OCPP 1.6J</label>
+                        <input type="text" id="wsUrl" placeholder="ws://[IP]:[PORT]/steve/websocket/CentralSystemService/" value="ws://158.69.27.239:8180/steve/websocket/CentralSystemService/">
+                        <div class="quick-container">
+                            <span class="quick-badge" onclick="fillUrl('ws://158.69.27.239:8180/steve/websocket/CentralSystemService/')">SteVe Staging IP</span>
+                            <span class="quick-badge" onclick="fillUrl('ws://localhost:8180/steve/websocket/CentralSystemService/')">localhost:8180</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="chargeBoxId">Identifiant Borne (chargeBoxId)</label>
+                        <input type="text" id="chargeBoxId" placeholder="e.g. CP-TEST-01" value="CP-TEST-01">
+                        <div class="quick-container">
+                            <span class="quick-badge" onclick="fillId('CP-TEST-01')">CP-TEST-01</span>
+                            <span class="quick-badge" onclick="fillId('CP-EVON-01')">CP-EVON-01</span>
+                            <span class="quick-badge" onclick="fillId('BORNE-PREMIUM-01')">BORNE-PREMIUM-01</span>
+                        </div>
+                    </div>
+
+                    <div class="actions-grid">
+                        <button id="connectBtn" class="btn btn-success" onclick="connect()">Se Connecter</button>
+                        <button id="disconnectBtn" class="btn btn-danger" onclick="disconnect()" disabled>Déconnecter</button>
+                    </div>
+                </div>
+
+                <!-- Simulator Virtual Charger State Screen -->
+                <div class="card" id="virtualScreenCard">
+                    <div class="card-header">
+                        <h2 class="card-title">📺 Écran Virtuel de la Borne</h2>
+                    </div>
+
+                    <div class="charger-screen status-UNAVAILABLE" id="screenEl">
+                        <div class="charger-screen-header">
+                            <span id="screenIdText">ID: CP-TEST-01</span>
+                            <span id="screenTimeText">12:00:00</span>
+                        </div>
+                        <div class="charger-status-text" id="screenStatusText">HORS LIGNE</div>
+                        
+                        <div class="charger-screen-stats">
+                            <div class="charger-stat-box">
+                                <span class="charger-stat-label">Puissance</span>
+                                <span class="charger-stat-val" id="screenPowerText">0.0 kW</span>
+                            </div>
+                            <div class="charger-stat-box">
+                                <span class="charger-stat-label">Énergie Débitée</span>
+                                <span class="charger-stat-val" id="screenEnergyText">0.00 kWh</span>
+                            </div>
+                        </div>
+
+                        <div class="charger-battery-sim" id="batteryContainer" style="display: none;">
+                            <div class="charger-stat-label">Batterie Véhicule</div>
+                            <div class="battery-container">
+                                <div class="battery-fill" id="batteryFill"></div>
+                            </div>
+                            <span class="charger-stat-val" id="batteryPercentText" style="font-size: 13px;">0%</span>
+                            <div class="charging-indicator" id="chargingIndicator" style="display: none;">⚡</div>
+                        </div>
+                    </div>
+
+                    <!-- Charger Status control dropdown -->
+                    <div class="form-group">
+                        <label for="connectorStatus">Forcer Statut du Connecteur</label>
+                        <select id="connectorStatus" onchange="changeConnectorStatus()" disabled>
+                            <option value="Available">Available (Disponible)</option>
+                            <option value="Preparing">Preparing (Préparation/Branché)</option>
+                            <option value="Charging">Charging (En charge)</option>
+                            <option value="SuspendedEVSE">SuspendedEVSE</option>
+                            <option value="SuspendedEV">SuspendedEV</option>
+                            <option value="Finishing">Finishing (Fin de charge)</option>
+                            <option value="Reserved">Reserved</option>
+                            <option value="Unavailable">Unavailable</option>
+                            <option value="Faulted">Faulted (En Panne)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Simulation core triggers -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">⚡ Commandes Manuelles OCPP</h2>
+                    </div>
+
+                    <div class="actions-grid">
+                        <button class="btn btn-secondary sim-cmd" onclick="sendBootNotification()" disabled>BootNotification</button>
+                        <button class="btn btn-secondary sim-cmd" onclick="sendHeartbeat()" disabled>Heartbeat</button>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 10px; border-top: 1px dashed var(--border-color); padding-top: 14px;">
+                        <label for="idTag">Badge RFID / idTag</label>
+                        <input type="text" id="idTag" placeholder="e.g. Open10Tag" value="Open10Tag">
+                        <div class="quick-container">
+                            <span class="quick-badge" onclick="fillTag('Open10Tag')">Open10Tag</span>
+                            <span class="quick-badge" onclick="fillTag('EVONTEST')">EVONTEST</span>
+                        </div>
+                    </div>
+
+                    <div class="actions-grid">
+                        <button class="btn btn-secondary sim-cmd" onclick="sendAuthorize()" disabled>Authorize Tag</button>
+                        <button class="btn btn-secondary sim-cmd btn-success" id="startTxBtn" onclick="startTransaction()" disabled>Start Transaction</button>
+                    </div>
+
+                    <button class="btn btn-danger sim-cmd" id="stopTxBtn" onclick="stopTransaction()" disabled>Stop Transaction</button>
+                </div>
+            </div>
+
+            <!-- Right Panel: Console & OCPP Message Logs -->
+            <div class="console-container">
+                <div class="console-header">
+                    <div class="console-title">
+                        <span style="font-size: 18px;">💻</span> Console OCPP 1.6J Live
+                    </div>
+                    <div class="console-actions">
+                        <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 12px;" onclick="clearConsole()">Vider la Console</button>
+                    </div>
+                </div>
+                <div class="console-log" id="consoleLog">
+                    <!-- Log entries append here -->
+                    <div class="log-entry info">
+                        <div class="log-header">
+                            <span class="log-type">Système</span>
+                            <span class="log-time" id="initTime">12:00:00</span>
+                        </div>
+                        <div class="log-action">Simulateur Initialisé</div>
+                        <div class="log-payload">Prêt pour la simulation. Renseignez l'URL et le chargeBoxId, puis cliquez sur "Se Connecter".
+
+Pour que le simulateur reçoive des commandes de démarrage à distance de l'application Laravel EVON, assurez-vous que :
+1. La borne est enregistrée (provisionnée) dans SteVe avec l'identifiant exact (chargeBoxId).
+2. L'URL WebSocket se termine exactement par le même chargeBoxId.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            EVON · Ocpp 1.6J WebSocket Simulator Module · Powered by Laravel & SteVe Rest Integration
+        </footer>
+    </div>
+
+    <script>
+        let ws = null;
+        let msgIdCounter = 1000;
+        let autoHeartbeatInterval = null;
+        let meterValueInterval = null;
+        let transactionId = null;
+        let activeIdTag = null;
+        let currentMeterValue = 0; // en Wh
+        let batterySoc = 0;
+        let currentStatus = "Unavailable";
+        
+        // Configuration
+        const HEARTBEAT_INTERVAL_MS = 60000; // 60s
+        const METER_INTERVAL_MS = 10000; // 10s (pour simuler rapidement la consommation)
+        
+        // Init time
+        document.getElementById('initTime').innerText = new Date().toLocaleTimeString();
+        updateScreenTime();
+        setInterval(updateScreenTime, 1000);
+
+        function updateScreenTime() {
+            document.getElementById('screenTimeText').innerText = new Date().toLocaleTimeString();
+        }
+
+        // Quick fills
+        function fillUrl(url) {
+            document.getElementById('wsUrl').value = url;
+            logInfo("URL configurée : " + url);
+        }
+
+        function fillId(id) {
+            document.getElementById('chargeBoxId').value = id;
+            document.getElementById('screenIdText').innerText = "ID: " + id;
+            logInfo("chargeBoxId configuré : " + id);
+        }
+
+        function fillTag(tag) {
+            document.getElementById('idTag').value = tag;
+            logInfo("RFID Tag configuré : " + tag);
+        }
+
+        // Web socket connection
+        function connect() {
+            const baseUrl = document.getElementById('wsUrl').value.trim();
+            const chargeBoxId = document.getElementById('chargeBoxId').value.trim();
+            
+            if (!baseUrl || !chargeBoxId) {
+                alert("Veuillez saisir l'URL WebSocket et le chargeBoxId.");
+                return;
+            }
+
+            // --- DEVIATION / MIXED CONTENT SAFEGUARD ---
+            if (window.location.protocol === 'https:' && baseUrl.toLowerCase().startsWith('ws://')) {
+                logError("Erreur de Contenu Mixte : Impossible d'initier un WebSocket non sécurisé (ws://) depuis une page HTTPS.");
+                logWarning("💡 SOLUTIONS POSSIBLES :");
+                logWarning("1. Accédez au simulateur via HTTP non sécurisé en remplaçant 'https://' par 'http://' dans votre barre d'adresse.");
+                logWarning("2. Ou lancez et accédez au simulateur depuis votre environnement local (ex: http://localhost/ocpp-simulator.html ou http://127.0.0.1:8000/ocpp-simulator.html).");
+                logWarning("3. Ou si SteVe supporte SSL/TLS, changez le protocole de l'URL du WebSocket en 'wss://'.");
+                
+                alert("🔒 Erreur de sécurité du navigateur (Mixed Content) :\n\nImpossible d'initier une connexion WebSocket non sécurisée (ws://) depuis cette page chargée en HTTPS.\n\n👉 SOLUTIONS :\n- Ouvrez cette page via HTTP simple (remplacez https:// par http:// dans l'URL de votre navigateur).\n- Ou utilisez une URL locale comme http://localhost/ocpp-simulator.html\n- Ou utilisez wss:// (si configuré sur votre serveur SteVe).");
+                
+                handleDisconnectCleanup();
+                return;
+            }
+
+            const fullUrl = baseUrl.endsWith('/') ? (baseUrl + chargeBoxId) : (baseUrl + '/' + chargeBoxId);
+            
+            logInfo(`Tentative de connexion à : ${fullUrl}...`);
+            
+            document.getElementById('connectBtn').disabled = true;
+            setConnectionState('connecting');
+
+            try {
+                // IMPORTANT: le protocole 'ocpp1.6' est obligatoire pour SteVe
+                ws = new WebSocket(fullUrl, ['ocpp1.6']);
+                
+                ws.onopen = function() {
+                    logSuccess("Connexion WebSocket établie avec succès !");
+                    setConnectionState('connected');
+                    enableControls(true);
+                    
+                    // Mettre à jour l'écran virtuel
+                    updateScreenStatus('AVAILABLE');
+                    
+                    // Envoyer un BootNotification automatique
+                    sendBootNotification();
+                    
+                    // Lancer l'Auto-Heartbeat
+                    startAutoHeartbeat();
+                };
+
+                ws.onclose = function(event) {
+                    logError(`Connexion WebSocket fermée (Code: ${event.code}, Raison: ${event.reason || 'Aucune raison spécifiée'})`);
+                    handleDisconnectCleanup();
+                };
+
+                ws.onerror = function(err) {
+                    logError("Erreur de connexion WebSocket.");
+                    console.error("WS error: ", err);
+                };
+
+                ws.onmessage = function(event) {
+                    handleIncomingMessage(event.data);
+                };
+
+            } catch (error) {
+                logError("Erreur fatale lors de la création de la WebSocket : " + error.message);
+                handleDisconnectCleanup();
+            }
+        }
+
+        function disconnect() {
+            if (ws) {
+                logInfo("Fermeture manuelle de la connexion...");
+                ws.close();
+            }
+        }
+
+        function handleDisconnectCleanup() {
+            ws = null;
+            setConnectionState('disconnected');
+            enableControls(false);
+            stopAutoHeartbeat();
+            stopMeterValuesSimulation();
+            updateScreenStatus('UNAVAILABLE');
+            
+            transactionId = null;
+            activeIdTag = null;
+            document.getElementById('virtualScreenCard').className = "card";
+        }
+
+        function setConnectionState(state) {
+            const dot = document.getElementById('connectionDot');
+            const text = document.getElementById('connectionText');
+            const connectBtn = document.getElementById('connectBtn');
+            const disconnectBtn = document.getElementById('disconnectBtn');
+
+            dot.className = "status-dot";
+            
+            if (state === 'connected') {
+                dot.classList.add('connected');
+                text.innerText = "Connecté (OCPP 1.6J)";
+                text.style.color = "var(--color-success)";
+                connectBtn.disabled = true;
+                disconnectBtn.disabled = false;
+            } else if (state === 'connecting') {
+                dot.classList.add('connecting');
+                text.innerText = "Connexion en cours...";
+                text.style.color = "var(--color-warning)";
+                connectBtn.disabled = true;
+                disconnectBtn.disabled = true;
+            } else {
+                text.innerText = "Déconnecté";
+                text.style.color = "var(--color-danger)";
+                connectBtn.disabled = false;
+                disconnectBtn.disabled = true;
+            }
+        }
+
+        function enableControls(enabled) {
+            // Enable status dropdown & command buttons
+            document.getElementById('connectorStatus').disabled = !enabled;
+            
+            const cmds = document.querySelectorAll('.sim-cmd');
+            cmds.forEach(btn => {
+                btn.disabled = !enabled;
+            });
+
+            // Adjust start/stop button context
+            if (enabled) {
+                if (transactionId !== null) {
+                    document.getElementById('startTxBtn').disabled = true;
+                    document.getElementById('stopTxBtn').disabled = false;
+                } else {
+                    document.getElementById('startTxBtn').disabled = false;
+                    document.getElementById('stopTxBtn').disabled = true;
+                }
+            }
+        }
+
+        // --- OCPP MESSAGING CORE ---
+
+        function generateMsgId() {
+            msgIdCounter++;
+            return "msg_" + msgIdCounter + "_" + Date.now();
+        }
+
+        function sendOcppCall(action, payload) {
+            if (!ws || ws.readyState !== WebSocket.OPEN) {
+                logError(`Impossible d'envoyer l'appel [${action}]: WebSocket non connectée.`);
+                return null;
+            }
+
+            const msgId = generateMsgId();
+            const message = [2, msgId, action, payload];
+            const rawMessage = JSON.stringify(message);
+
+            ws.send(rawMessage);
+            logOcppMessage('sent', action, msgId, payload);
+            return msgId;
+        }
+
+        function sendOcppResult(msgId, payload) {
+            if (!ws || ws.readyState !== WebSocket.OPEN) {
+                return;
+            }
+            const message = [3, msgId, payload];
+            ws.send(JSON.stringify(message));
+            logOcppMessage('sent', 'CallResult', msgId, payload);
+        }
+
+        function sendOcppError(msgId, errorCode, errorDescription, errorDetails = {}) {
+            if (!ws || ws.readyState !== WebSocket.OPEN) {
+                return;
+            }
+            const message = [4, msgId, errorCode, errorDescription, errorDetails];
+            ws.send(JSON.stringify(message));
+            logOcppMessage('sent', `CallError (${errorCode})`, msgId, { errorDescription, errorDetails });
+        }
+
+        // --- INCOMING OCPP HANDLER ---
+
+        function handleIncomingMessage(rawData) {
+            let message;
+            try {
+                message = JSON.parse(rawData);
+            } catch (err) {
+                logError("Erreur de parsing JSON sur message reçu : " + rawData);
+                return;
+            }
+
+            const msgType = message[0];
+            const msgId = message[1];
+
+            if (msgType === 2) {
+                // CALL reçu du Central System
+                const action = message[2];
+                const payload = message[3];
+                logOcppMessage('received', action, msgId, payload);
+                handleCentralSystemCall(action, msgId, payload);
+            } else if (msgType === 3) {
+                // CALL RESULT reçu (réponse à nos requêtes)
+                const payload = message[2];
+                logOcppMessage('received', 'CallResult', msgId, payload);
+                handleCentralSystemResult(msgId, payload);
+            } else if (msgType === 4) {
+                // CALL ERROR reçu
+                const errorCode = message[2];
+                const errorDescription = message[3];
+                const errorDetails = message[4];
+                logOcppMessage('received', `CallError (${errorCode})`, msgId, { errorDescription, errorDetails });
+            }
+        }
+
+        // Gestion des appels entrants (SteVe -> Borne)
+        function handleCentralSystemCall(action, msgId, payload) {
+            switch (action) {
+                case 'RemoteStartTransaction':
+                    handleRemoteStart(msgId, payload);
+                    break;
+                case 'RemoteStopTransaction':
+                    handleRemoteStop(msgId, payload);
+                    break;
+                case 'UnlockConnector':
+                    handleUnlockConnector(msgId, payload);
+                    break;
+                case 'Reset':
+                    handleReset(msgId, payload);
+                    break;
+                case 'ChangeAvailability':
+                    handleChangeAvailability(msgId, payload);
+                    break;
+                case 'GetConfiguration':
+                    handleGetConfiguration(msgId, payload);
+                    break;
+                case 'ChangeConfiguration':
+                    handleChangeConfiguration(msgId, payload);
+                    break;
+                case 'ClearCache':
+                    handleClearCache(msgId, payload);
+                    break;
+                default:
+                    logWarning(`Action '${action}' non supportée par le simulateur, réponse par défaut envoyée.`);
+                    sendOcppError(msgId, 'NotImplemented', `L'action '${action}' n'est pas supportée.`);
+            }
+        }
+
+        // Gestion des réponses à nos requêtes (Borne -> SteVe)
+        // Utile pour capturer l'ID de transaction généré par SteVe
+        let pendingRequests = {}; // Associe msgId à l'action correspondante
+
+        function handleCentralSystemResult(msgId, payload) {
+            const pending = pendingRequests[msgId];
+            if (!pending) return;
+
+            const action = pending.action;
+            const originalPayload = pending.payload;
+            delete pendingRequests[msgId];
+
+            if (action === 'StartTransaction') {
+                if (payload.idTagInfo && payload.idTagInfo.status === 'Accepted') {
+                    transactionId = payload.transactionId;
+                    logSuccess(`Transaction démarrée officiellement par SteVe ! ID Transaction : ${transactionId}`);
+                    
+                    // Activer simulation de charge
+                    updateScreenStatus('CHARGING');
+                    startMeterValuesSimulation();
+                    
+                    // Ajuster les boutons manuels
+                    enableControls(true);
+                } else {
+                    logError("StartTransaction REJETÉ par SteVe.");
+                    updateScreenStatus('AVAILABLE');
+                    activeIdTag = null;
+                }
+            } else if (action === 'StopTransaction') {
+                logSuccess("Transaction arrêtée officiellement par SteVe.");
+                transactionId = null;
+                activeIdTag = null;
+                stopMeterValuesSimulation();
+                updateScreenStatus('AVAILABLE');
+                enableControls(true);
+            } else if (action === 'BootNotification') {
+                if (payload.status === 'Accepted') {
+                    logSuccess("Borne enregistrée et acceptée par SteVe !");
+                } else {
+                    logError(`SteVe a refusé la borne (Statut: ${payload.status})`);
+                    updateScreenStatus('FAULTED');
+                }
+            } else if (action === 'Authorize') {
+                if (payload.idTagInfo && payload.idTagInfo.status === 'Accepted') {
+                    logSuccess(`Badge RFID Autorisé : Expire le ${payload.idTagInfo.expiryDate || 'N/A'}`);
+                } else {
+                    logWarning(`Badge RFID Refusé/Bloqué par le serveur. Statut : ${payload.idTagInfo ? payload.idTagInfo.status : 'Inconnu'}`);
+                }
+            }
+        }
+
+        // --- SPECIFIC INCOMING OCPP ACTIONS ---
+
+        function handleRemoteStart(msgId, payload) {
+            const requestedTag = payload.idTag;
+            const connector = payload.connectorId || 1;
+
+            logInfo(`[REMOTE START] Demande de démarrage reçue. Tag: ${requestedTag}, Connecteur: ${connector}`);
+
+            if (transactionId !== null) {
+                logWarning("Une transaction est déjà en cours. Rejet du RemoteStart.");
+                sendOcppResult(msgId, { status: "Rejected" });
+                return;
+            }
+
+            // Répondre immédiatement par ACCEPTED
+            sendOcppResult(msgId, { status: "Accepted" });
+            
+            // Simuler la séquence de branchement physique de la voiture
+            updateScreenStatus('PREPARING');
+            activeIdTag = requestedTag;
+            document.getElementById('idTag').value = requestedTag;
+            
+            logInfo("Simule le branchement du véhicule... (Attente de 2 secondes avant StartTransaction)");
+            
+            setTimeout(() => {
+                if (ws && ws.readyState === WebSocket.OPEN) {
+                    sendStartTransactionInternal(connector, requestedTag);
+                }
+            }, 2000);
+        }
+
+        function handleRemoteStop(msgId, payload) {
+            const targetTxId = payload.transactionId;
+            logInfo(`[REMOTE STOP] Demande d'arrêt reçue pour Transaction ID : ${targetTxId}`);
+
+            if (transactionId === null) {
+                logWarning("Aucune transaction en cours. Réponse Accepted mais aucune action possible.");
+                sendOcppResult(msgId, { status: "Accepted" });
+                return;
+            }
+
+            if (Number(transactionId) !== Number(targetTxId)) {
+                logWarning(`ID Transaction en cours (${transactionId}) ne correspond pas à l'ID demandé (${targetTxId}). Rejet.`);
+                sendOcppResult(msgId, { status: "Rejected" });
+                return;
+            }
+
+            // Répondre par ACCEPTED
+            sendOcppResult(msgId, { status: "Accepted" });
+            
+            // Lancer l'arrêt de la transaction
+            logInfo("Arrêt de la charge suite à la commande à distance...");
+            updateScreenStatus('FINISHING');
+            
+            setTimeout(() => {
+                sendStopTransactionInternal('Remote');
+            }, 1000);
+        }
+
+        function handleUnlockConnector(msgId, payload) {
+            logInfo(`[UNLOCK] Demande de déverrouillage du connecteur ${payload.connectorId}`);
+            
+            if (currentStatus === 'Charging') {
+                logWarning("Le connecteur est en charge active. Impossible de déverrouiller.");
+                sendOcppResult(msgId, { status: "UnlockFailed" });
+                return;
+            }
+
+            sendOcppResult(msgId, { status: "Unlocked" });
+            logSuccess("Connecteur déverrouillé !");
+            updateScreenStatus('AVAILABLE');
+        }
+
+        function handleReset(msgId, payload) {
+            const resetType = payload.type || 'Soft';
+            logInfo(`[RESET] Commande de réinitialisation reçue (${resetType})`);
+
+            // Répondre Accepted
+            sendOcppResult(msgId, { status: "Accepted" });
+
+            logWarning(`Redémarrage de la borne (${resetType}) dans 2 secondes...`);
+            
+            setTimeout(() => {
+                disconnect();
+                setTimeout(() => {
+                    logInfo("Simulation du démarrage après Reset...");
+                    connect();
+                }, 2000);
+            }, 1500);
+        }
+
+        function handleChangeAvailability(msgId, payload) {
+            const type = payload.type; // Operative ou Inoperative
+            logInfo(`[AVAILABILITY] Changement de disponibilité demandé : ${type}`);
+
+            sendOcppResult(msgId, { status: "Accepted" });
+
+            if (type === 'Inoperative') {
+                updateScreenStatus('UNAVAILABLE');
+            } else {
+                updateScreenStatus('AVAILABLE');
+            }
+        }
+
+        function handleGetConfiguration(msgId, payload) {
+            logInfo("[GET CONFIG] Demande de lecture de configuration");
+            // Réponse simulée avec quelques clés standard
+            sendOcppResult(msgId, {
+                configurationKey: [
+                    { key: "HeartBeatInterval", readonly: false, value: (HEARTBEAT_INTERVAL_MS / 1000).toString() },
+                    { key: "MeterValueSampleInterval", readonly: false, value: (METER_INTERVAL_MS / 1000).toString() },
+                    { key: "ChargeProfileMaxStackLevel", readonly: true, value: "5" }
+                ]
+            });
+        }
+
+        function handleChangeConfiguration(msgId, payload) {
+            logInfo(`[CHANGE CONFIG] Modification de la configuration : ${payload.key} = ${payload.value}`);
+            sendOcppResult(msgId, { status: "Accepted" });
+        }
+
+        function handleClearCache(msgId, payload) {
+            logInfo("[CLEAR CACHE] Vidage du cache d'autorisation demandé");
+            sendOcppResult(msgId, { status: "Accepted" });
+        }
+
+        // --- OUTGOING OCPP SENDER INSTRUCTIONS ---
+
+        function sendBootNotification() {
+            sendOcppCall('BootNotification', {
+                chargePointVendor: "EVON-Sim",
+                chargePointModel: "EVON-Premium-2026",
+                chargePointSerialNumber: "EVSIM987654321",
+                chargeBoxSerialNumber: "EVSIM987654321",
+                firmwareVersion: "1.0.0",
+                iccid: "SIM-CARD-883394",
+                imsi: "IMSI-889838271",
+                meterType: "EVON-Meter",
+                meterSerialNumber: "METSIM98765"
+            });
+            // Modifier le statut local à disponible après le boot
+            updateScreenStatus('AVAILABLE');
+        }
+
+        function sendHeartbeat() {
+            sendOcppCall('Heartbeat', {});
+        }
+
+        function startAutoHeartbeat() {
+            stopAutoHeartbeat();
+            autoHeartbeatInterval = setInterval(() => {
+                if (ws && ws.readyState === WebSocket.OPEN) {
+                    sendHeartbeat();
+                }
+            }, HEARTBEAT_INTERVAL_MS);
+        }
+
+        function stopAutoHeartbeat() {
+            if (autoHeartbeatInterval) {
+                clearInterval(autoHeartbeatInterval);
+                autoHeartbeatInterval = null;
+            }
+        }
+
+        function sendAuthorize() {
+            const tag = document.getElementById('idTag').value.trim();
+            if (!tag) {
+                alert("Veuillez saisir un tag RFID.");
+                return;
+            }
+            sendOcppCall('Authorize', { idTag: tag });
+        }
+
+        function startTransaction() {
+            const tag = document.getElementById('idTag').value.trim();
+            if (!tag) {
+                alert("Veuillez saisir un tag RFID.");
+                return;
+            }
+            
+            // Simuler le branchement
+            updateScreenStatus('PREPARING');
+            
+            setTimeout(() => {
+                sendStartTransactionInternal(1, tag);
+            }, 1000);
+        }
+
+        function sendStartTransactionInternal(connectorId, tag) {
+            activeIdTag = tag;
+            currentMeterValue = 0; // Réinitialiser le compteur de charge
+            batterySoc = 10 + Math.floor(Math.random() * 20); // Démarrer entre 10% et 30% de charge
+            
+            const payload = {
+                connectorId: connectorId,
+                idTag: tag,
+                meterStart: currentMeterValue,
+                timestamp: new Date().toISOString()
+            };
+
+            const msgId = sendOcppCall('StartTransaction', payload);
+            if (msgId) {
+                pendingRequests[msgId] = { action: 'StartTransaction', payload: payload };
+            }
+        }
+
+        function stopTransaction() {
+            if (transactionId === null) {
+                alert("Aucune transaction active à arrêter.");
+                return;
+            }
+            updateScreenStatus('FINISHING');
+            setTimeout(() => {
+                sendStopTransactionInternal('Local');
+            }, 1000);
+        }
+
+        function sendStopTransactionInternal(reason) {
+            const payload = {
+                meterStop: Math.round(currentMeterValue),
+                timestamp: new Date().toISOString(),
+                transactionId: Number(transactionId),
+                reason: reason || 'Local',
+                transactionData: []
+            };
+
+            const msgId = sendOcppCall('StopTransaction', payload);
+            if (msgId) {
+                pendingRequests[msgId] = { action: 'StopTransaction', payload: payload };
+            }
+        }
+
+        function sendMeterValues() {
+            if (transactionId === null) return;
+
+            // Simuler la consommation d'énergie
+            // Une borne charge en moyenne de 11kW ou 22kW.
+            // 11kW = 11000 Wh par heure. Toutes les 10s (METER_INTERVAL_MS), cela représente :
+            // 11000 Wh / 360 (cycles de 10s dans 1 heure) = ~30 Wh par cycle.
+            const energyGained = 30 + Math.floor(Math.random() * 10);
+            currentMeterValue += energyGained;
+            
+            // Faire grimper le SOC de la batterie
+            if (batterySoc < 100) {
+                batterySoc += Math.random() > 0.5 ? 1 : 0;
+                if (batterySoc > 100) batterySoc = 100;
+                
+                // Si la batterie atteint 100%, simuler l'arrêt automatique par la voiture
+                if (batterySoc === 100) {
+                    logInfo("Batterie du véhicule chargée à 100%. Arrêt automatique de la charge.");
+                    updateScreenStatus('FINISHING');
+                    setTimeout(() => {
+                        sendStopTransactionInternal('EVDisconnected');
+                    }, 2000);
+                    return;
+                }
+            }
+
+            // Mettre à jour l'écran virtuel
+            updateVirtualScreenStats();
+
+            const payload = {
+                connectorId: 1,
+                transactionId: Number(transactionId),
+                meterValue: [
+                    {
+                        timestamp: new Date().toISOString(),
+                        sampledValue: [
+                            {
+                                value: Math.round(currentMeterValue).toString(),
+                                context: "Sample.Periodic",
+                                format: "Raw",
+                                measurand: "Energy.Active.Import.Register",
+                                location: "Outlet",
+                                unit: "Wh"
+                            },
+                            {
+                                value: batterySoc.toString(),
+                                context: "Sample.Periodic",
+                                format: "Raw",
+                                measurand: "SoC",
+                                location: "EV",
+                                unit: "%"
+                            }
+                        ]
+                    }
+                ]
+            };
+
+            sendOcppCall('MeterValues', payload);
+        }
+
+        function startMeterValuesSimulation() {
+            stopMeterValuesSimulation();
+            
+            // Première mise à jour instantanée
+            updateVirtualScreenStats();
+            document.getElementById('batteryContainer').style.display = "flex";
+            document.getElementById('chargingIndicator').style.display = "block";
+
+            meterValueInterval = setInterval(() => {
+                sendMeterValues();
+            }, METER_INTERVAL_MS);
+        }
+
+        function stopMeterValuesSimulation() {
+            if (meterValueInterval) {
+                clearInterval(meterValueInterval);
+                meterValueInterval = null;
+            }
+            document.getElementById('chargingIndicator').style.display = "none";
+        }
+
+        // --- CONSOLE & UI HELPERS ---
+
+        function changeConnectorStatus() {
+            const select = document.getElementById('connectorStatus');
+            const newStatus = select.value;
+            updateScreenStatus(newStatus.toUpperCase());
+        }
+
+        function updateScreenStatus(ocppStatus) {
+            currentStatus = ocppStatus.charAt(0).toUpperCase() + ocppStatus.slice(1).toLowerCase();
+            
+            const screen = document.getElementById('screenEl');
+            const statusText = document.getElementById('screenStatusText');
+            const dropdown = document.getElementById('connectorStatus');
+            
+            // Clean up old status classes
+            screen.className = "charger-screen";
+            screen.classList.add("status-" + ocppStatus);
+            
+            statusText.innerText = translateOcppStatus(ocppStatus);
+            dropdown.value = currentStatus;
+
+            // Envoyer un StatusNotification à SteVe si connecté
+            if (ws && ws.readyState === WebSocket.OPEN) {
+                sendOcppCall('StatusNotification', {
+                    connectorId: 1,
+                    errorCode: "NoError",
+                    info: "",
+                    status: currentStatus,
+                    timestamp: new Date().toISOString(),
+                    vendorId: "",
+                    vendorErrorCode: ""
+                });
+            }
+
+            // Modifier les styles visuels de la carte
+            const card = document.getElementById('virtualScreenCard');
+            card.className = "card";
+            if (ocppStatus === 'CHARGING') {
+                card.style.borderColor = "var(--color-primary)";
+            } else if (ocppStatus === 'AVAILABLE') {
+                card.style.borderColor = "var(--color-success)";
+            } else if (ocppStatus === 'PREPARING') {
+                card.style.borderColor = "var(--color-warning)";
+            } else if (ocppStatus === 'FAULTED') {
+                card.style.borderColor = "var(--color-danger)";
+            } else {
+                card.style.borderColor = "var(--border-color)";
+            }
+
+            updateVirtualScreenStats();
+        }
+
+        function translateOcppStatus(status) {
+            switch (status) {
+                case 'AVAILABLE': return "DISPONIBLE";
+                case 'PREPARING': return "PRÉPARATION...";
+                case 'CHARGING': return "CHARGE ACTIVE";
+                case 'FINISHING': return "ARRÊT EN COURS";
+                case 'FAULTED': return "EN PANNE ⚠️";
+                case 'UNAVAILABLE': return "HORS SERVICE";
+                case 'SUSPENDEDEVSE': return "CHARGEMENT SUSPENDU (EVSE)";
+                case 'SUSPENDEDEV': return "CHARGEMENT SUSPENDU (EV)";
+                default: return status;
+            }
+        }
+
+        function updateVirtualScreenStats() {
+            const powerVal = document.getElementById('screenPowerText');
+            const energyVal = document.getElementById('screenEnergyText');
+            const batteryFill = document.getElementById('batteryFill');
+            const batteryPercent = document.getElementById('batteryPercentText');
+            const batteryBox = document.getElementById('batteryContainer');
+
+            if (currentStatus === 'Charging') {
+                powerVal.innerText = "11.2 kW";
+                energyVal.innerText = (currentMeterValue / 1000).toFixed(2) + " kWh";
+                batteryFill.style.width = batterySoc + "%";
+                batteryPercent.innerText = batterySoc + "%";
+                batteryBox.style.display = "flex";
+            } else if (currentStatus === 'Preparing') {
+                powerVal.innerText = "0.0 kW";
+                energyVal.innerText = "0.00 kWh";
+                batteryFill.style.width = batterySoc + "%";
+                batteryPercent.innerText = batterySoc + "%";
+                batteryBox.style.display = "flex";
+            } else if (currentStatus === 'Finishing') {
+                powerVal.innerText = "0.0 kW";
+                energyVal.innerText = (currentMeterValue / 1000).toFixed(2) + " kWh";
+                batteryBox.style.display = "flex";
+            } else {
+                powerVal.innerText = "0.0 kW";
+                energyVal.innerText = "0.00 kWh";
+                batteryBox.style.display = "none";
+            }
+        }
+
+        // --- CONSOLE LOGGER ---
+
+        function logOcppMessage(type, action, msgId, payload) {
+            const logEl = document.getElementById('consoleLog');
+            
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            
+            const header = document.createElement('div');
+            header.className = 'log-header';
+            
+            const typeSpan = document.createElement('span');
+            typeSpan.className = 'log-type';
+            typeSpan.innerText = type === 'sent' ? `➜ OCPP Envoyé [id: ${msgId}]` : `⬅ OCPP Reçu [id: ${msgId}]`;
+            
+            const timeSpan = document.createElement('span');
+            timeSpan.className = 'log-time';
+            timeSpan.innerText = new Date().toLocaleTimeString();
+            
+            header.appendChild(typeSpan);
+            header.appendChild(timeSpan);
+            
+            const actionEl = document.createElement('div');
+            actionEl.className = 'log-action collapsible';
+            actionEl.innerText = action;
+            
+            // Toggle collapse on click
+            actionEl.onclick = function() {
+                this.classList.toggle('collapsed');
+            };
+            
+            const payloadEl = document.createElement('pre');
+            payloadEl.className = 'log-payload';
+            payloadEl.innerText = JSON.stringify(payload, null, 2);
+            
+            entry.appendChild(header);
+            entry.appendChild(actionEl);
+            entry.appendChild(payloadEl);
+            
+            logEl.appendChild(entry);
+            logEl.scrollTop = logEl.scrollHeight;
+        }
+
+        function logInfo(message) {
+            logSysEntry('Système', 'info', message);
+        }
+
+        function logSuccess(message) {
+            logSysEntry('Succès', 'info', message, 'var(--color-success)');
+        }
+
+        function logWarning(message) {
+            logSysEntry('Attention', 'error', message, 'var(--color-warning)');
+        }
+
+        function logError(message) {
+            logSysEntry('Erreur', 'error', message);
+        }
+
+        function logSysEntry(label, cssClass, message, customColor = null) {
+            const logEl = document.getElementById('consoleLog');
+            
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${cssClass}`;
+            if (customColor) {
+                entry.style.borderLeftColor = customColor;
+            }
+            
+            const header = document.createElement('div');
+            header.className = 'log-header';
+            
+            const typeSpan = document.createElement('span');
+            typeSpan.className = 'log-type';
+            typeSpan.innerText = label;
+            if (customColor) {
+                typeSpan.style.color = customColor;
+            }
+            
+            const timeSpan = document.createElement('span');
+            timeSpan.className = 'log-time';
+            timeSpan.innerText = new Date().toLocaleTimeString();
+            
+            header.appendChild(typeSpan);
+            header.appendChild(timeSpan);
+            
+            const contentEl = document.createElement('div');
+            contentEl.className = 'log-action';
+            contentEl.innerText = message;
+            
+            entry.appendChild(header);
+            entry.appendChild(contentEl);
+            
+            logEl.appendChild(entry);
+            logEl.scrollTop = logEl.scrollHeight;
+        }
+
+        function clearConsole() {
+            const logEl = document.getElementById('consoleLog');
+            logEl.innerHTML = '';
+            logInfo("Console vidée.");
+        }
+    </script>
+</body>
+</html>

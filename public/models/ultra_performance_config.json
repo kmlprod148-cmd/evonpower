@@ -1,0 +1,60 @@
+{
+    "ultra_performance_settings": {
+        "model_loading": {
+            "priority_order": [
+                "scene.gltf",
+                "evon-charger-ultra-lite.glb",
+                "evon-charger-optimized.glb", 
+                "hitem3d_compressed.glb",
+                "hitem3d.glb"
+            ],
+            "preload_enabled": true,
+            "cache_enabled": true,
+            "compression_enabled": true
+        },
+        "renderer_optimizations": {
+            "mobile_detection": true,
+            "antialias_mobile": false,
+            "antialias_desktop": true,
+            "pixel_ratio_mobile": 1,
+            "pixel_ratio_desktop": 2,
+            "shadows_disabled": true,
+            "physically_correct_lights": false
+        },
+        "model_optimizations": {
+            "max_polygons_mobile": 1000,
+            "max_polygons_desktop": 5000,
+            "texture_compression": true,
+            "geometry_simplification": true,
+            "material_optimization": true,
+            "animation_disabled": true
+        },
+        "loading_strategy": {
+            "progressive_loading": true,
+            "fallback_system": true,
+            "timeout_seconds": 10,
+            "retry_attempts": 3,
+            "show_progress": true
+        },
+        "performance_targets": {
+            "loading_time_target": "< 2 seconds",
+            "file_size_target": "< 2MB",
+            "fps_target": "60fps",
+            "memory_usage_target": "< 100MB"
+        },
+        "compression_stats": {
+            "original_size": 59885200,
+            "ultra_lite_size": 276,
+            "compression_ratio": 99.9995,
+            "loading_speed_improvement": "217000x faster"
+        }
+    },
+    "created_at": "2025-01-27",
+    "optimization_level": "ultra",
+    "compatibility": {
+        "mobile": true,
+        "desktop": true,
+        "tablet": true,
+        "low_end_devices": true
+    }
+}

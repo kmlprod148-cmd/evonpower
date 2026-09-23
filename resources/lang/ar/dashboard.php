@@ -1,0 +1,242 @@
+<?php
+
+return [
+    // لوحة التحكم
+    'dashboard' => 'لوحة التحكم',
+    'welcome' => 'مرحباً',
+    'welcome_message' => 'مرحباً بك في لوحة التحكم',
+    'overview' => 'نظرة عامة',
+    'statistics' => 'إحصائيات',
+    'quick_actions' => 'إجراءات سريعة',
+    'recent_activity' => 'النشاط الأخير',
+    'notifications' => 'الإشعارات',
+    'no_notifications' => 'لا توجد إشعارات',
+    'view_all' => 'عرض الكل',
+    'mark_all_read' => 'تحديد الكل كمقروء',
+    
+    // الإحصائيات
+    'total_charging_points' => 'إجمالي نقاط الشحن',
+    'active_charging_points' => 'نقاط الشحن النشطة',
+    'total_sessions' => 'إجمالي الجلسات',
+    'total_revenue' => 'إجمالي الإيرادات',
+    'today_sessions' => 'جلسات اليوم',
+    'today_revenue' => 'إيرادات اليوم',
+    'monthly_sessions' => 'الجلسات الشهرية',
+    'monthly_revenue' => 'الإيرادات الشهرية',
+    'yearly_sessions' => 'الجلسات السنوية',
+    'yearly_revenue' => 'الإيرادات السنوية',
+    
+    // الرسوم البيانية
+    'sessions_chart' => 'رسم بياني للجلسات',
+    'revenue_chart' => 'رسم بياني للإيرادات',
+    'usage_chart' => 'رسم بياني للاستخدام',
+    'performance_chart' => 'رسم بياني للأداء',
+    
+    // الإجراءات السريعة
+    'add_charging_point' => 'إضافة نقطة شحن',
+    'start_charging' => 'بدء الشحن',
+    'view_reports' => 'عرض التقارير',
+    'manage_users' => 'إدارة المستخدمين',
+    'settings' => 'الإعدادات',
+    
+    // الحالة
+    'online' => 'متصل',
+    'offline' => 'غير متصل',
+    'maintenance' => 'صيانة',
+    'error' => 'خطأ',
+    'active' => 'نشط',
+    'inactive' => 'غير نشط',
+    'pending' => 'في الانتظار',
+    'completed' => 'مكتمل',
+    'cancelled' => 'ملغي',
+    
+    // الفترات الزمنية
+    'today' => 'اليوم',
+    'yesterday' => 'أمس',
+    'this_week' => 'هذا الأسبوع',
+    'last_week' => 'الأسبوع الماضي',
+    'this_month' => 'هذا الشهر',
+    'last_month' => 'الشهر الماضي',
+    'this_year' => 'هذا العام',
+    'last_year' => 'العام الماضي',
+    
+    // الرسائل
+    'no_data_available' => 'لا توجد بيانات متاحة',
+    'loading' => 'جاري التحميل...',
+    'refreshing' => 'جاري التحديث...',
+    
+    // المجموعات
+    'groups' => 'المجموعات',
+    'group' => 'المجموعة',
+    'add_group' => 'إضافة مجموعة',
+    'edit_group' => 'تعديل المجموعة',
+    'delete_group' => 'حذف المجموعة',
+    'group_name' => 'اسم المجموعة',
+    'group_description' => 'وصف المجموعة',
+    'group_members' => 'أعضاء المجموعة',
+    'group_permissions' => 'صلاحيات المجموعة',
+    
+    // نقاط الشحن
+    'charging_points' => 'نقاط الشحن',
+    'charging_point' => 'نقطة الشحن',
+    'add_charging_point' => 'إضافة نقطة شحن',
+    'edit_charging_point' => 'تعديل نقطة الشحن',
+    'delete_charging_point' => 'حذف نقطة الشحن',
+    'charging_point_name' => 'اسم نقطة الشحن',
+    'charging_point_location' => 'موقع نقطة الشحن',
+    'charging_point_status' => 'حالة نقطة الشحن',
+    'charging_point_type' => 'نوع نقطة الشحن',
+    'charging_point_power' => 'قوة نقطة الشحن',
+    'charging_point_connector' => 'موصل نقطة الشحن',
+    
+    // المستخدمين
+    'users' => 'المستخدمين',
+    'user' => 'المستخدم',
+    'add_user' => 'إضافة مستخدم',
+    'edit_user' => 'تعديل المستخدم',
+    'delete_user' => 'حذف المستخدم',
+    'user_name' => 'اسم المستخدم',
+    'user_email' => 'بريد المستخدم الإلكتروني',
+    'user_role' => 'دور المستخدم',
+    'user_status' => 'حالة المستخدم',
+    'user_permissions' => 'صلاحيات المستخدم',
+    
+    // التقارير
+    'reports' => 'التقارير',
+    'report' => 'التقرير',
+    'generate_report' => 'إنشاء تقرير',
+    'export_report' => 'تصدير التقرير',
+    'report_type' => 'نوع التقرير',
+    'report_period' => 'فترة التقرير',
+    'report_format' => 'تنسيق التقرير',
+    
+    // الإعدادات
+    'settings' => 'الإعدادات',
+    'general_settings' => 'الإعدادات العامة',
+    'user_settings' => 'إعدادات المستخدم',
+    'system_settings' => 'إعدادات النظام',
+    'notification_settings' => 'إعدادات الإشعارات',
+    'security_settings' => 'إعدادات الأمان',
+    'language_settings' => 'إعدادات اللغة',
+    'timezone_settings' => 'إعدادات المنطقة الزمنية',
+    
+    // الملف الشخصي
+    'profile' => 'الملف الشخصي',
+    'logout' => 'تسجيل الخروج',
+    'edit_profile' => 'تعديل الملف الشخصي',
+    'change_password' => 'تغيير كلمة المرور',
+    'profile_picture' => 'صورة الملف الشخصي',
+    'personal_information' => 'المعلومات الشخصية',
+    'contact_information' => 'معلومات الاتصال',
+    'preferences' => 'التفضيلات',
+    
+    // المساعدة
+    'help' => 'المساعدة',
+    'documentation' => 'الوثائق',
+    'support' => 'الدعم',
+    'contact_support' => 'اتصال بالدعم',
+    'faq' => 'الأسئلة الشائعة',
+    'tutorials' => 'الدروس التعليمية',
+    'video_guides' => 'أدلة الفيديو',
+    
+    // Enhanced Dashboard
+    'active_sessions' => 'الجلسات النشطة',
+    'charging_now' => 'قيد الشحن الآن',
+    'energy_today' => 'الطاقة الموزعة اليوم',
+    'sessions_completed' => 'جلسات مكتملة',
+    'vs_yesterday' => 'مقابل أمس',
+    'last_7_days' => 'آخر 7 أيام',
+    'status_distribution' => 'توزيع الحالات',
+    'active_charging' => 'الشحن النشط',
+    'live' => 'مباشر',
+    'no_active_charging' => 'لا توجد جلسات شحن نشطة',
+    'top_stations' => 'أفضل المحطات',
+    'sessions' => 'جلسات',
+    'recent_transactions' => 'المعاملات الأخيرة',
+    'charging_point' => 'نقطة الشحن',
+    'user' => 'المستخدم',
+    'energy' => 'الطاقة',
+    'duration' => 'المدة',
+    'amount' => 'المبلغ',
+    'date' => 'التاريخ',
+    'no_transactions' => 'لا توجد معاملات حديثة',
+    'refresh_failed' => 'فشل التحديث',
+    'data_updated' => 'تم تحديث البيانات',
+    'last_updated' => 'آخر تحديث',
+    
+    // Header enhancements
+    'online_points' => 'النقاط المتصلة',
+    'total' => 'الإجمالي',
+    'revenue' => 'الإيرادات',
+    'distributed' => 'موزعة',
+    'charging_points' => 'نقاط الشحن',
+    'reservations' => 'الحجوزات',
+    'transactions' => 'المعاملات',
+    'view_reservations' => 'عرض الحجوزات',
+    'realtime_overview' => 'نظرة عامة في الوقت الفعلي',
+    
+    // Dashboard Hero Section
+    'system_operational' => 'النظام يعمل بشكل طبيعي',
+    'evon_dashboard' => 'لوحة تحكم EVON',
+    'dashboard_description' => 'قم بإدارة محطات الشحن الكهربائية الخاصة بك في الوقت الفعلي مع رؤية كاملة لشبكتك',
+    'new_charging_point' => 'نقطة شحن جديدة',
+    'charges' => 'عمليات الشحن',
+    'percent_this_month' => ':percent هذا الشهر',
+    'in_progress' => 'قيد التقدم',
+    'consumption' => 'الاستهلاك',
+    'status' => 'الحالة',
+    
+    // Charts & Graphics
+    'trending_up' => 'الاتجاه الصاعد',
+    'trending_down' => 'الاتجاه النازل',
+    'performance' => 'الأداء',
+    'analytics' => 'التحليلات',
+    'overview_chart' => 'مخطط عام',
+    'distribution' => 'التوزيع',
+    'comparison' => 'المقارنة',
+    
+    // Navigation & Common Actions (Supplementary)
+    'home' => 'الرئيسية',
+    'search' => 'بحث',
+    'filter' => 'تصفية',
+    'sort' => 'ترتيب',
+    'export' => 'تصدير',
+    'import' => 'استيراد',
+    'create' => 'إنشاء',
+    'view' => 'عرض',
+    'edit' => 'تعديل',
+    'delete' => 'حذف',
+    'save' => 'حفظ',
+    'cancel' => 'إلغاء',
+    'confirm' => 'تأكيد',
+    'back' => 'رجوع',
+    'close' => 'إغلاق',
+    'yes' => 'نعم',
+    'no' => 'لا',
+    
+    // Operation Messages
+    'operation_successful' => 'نجحت العملية',
+    'operation_failed' => 'فشلت العملية',
+    'data_saved' => 'تم حفظ البيانات',
+    'data_deleted' => 'تم حذف البيانات',
+    'something_went_wrong' => 'حدث خطأ ما',
+    'try_again' => 'يرجى المحاولة مرة أخرى',
+    
+    // Additional Translations
+    'back_to_dashboard' => 'العودة إلى لوحة التحكم',
+    'charging_management' => 'إدارة الشحن',
+    'main_menu' => 'القائمة الرئيسية',
+    'language' => 'اللغة',
+    'change_language' => 'تغيير اللغة',
+    'select_language' => 'اختر اللغة',
+    'theme' => 'المظهر',
+    'toggle_theme' => 'تبديل المظهر',
+    'user_menu' => 'قائمة المستخدم',
+    
+    // Floating Widgets  
+    'search' => 'بحث',
+    'language' => 'اللغة',
+    'theme' => 'المظهر',
+    'notifications' => 'الإشعارات',
+    'user_menu' => 'قائمة المستخدم',
+];

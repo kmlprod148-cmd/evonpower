@@ -1,0 +1,25 @@
+{
+    "model_info": {
+        "name": "Evon Charger 3D Model",
+        "version": "1.0.0",
+        "format": "GLB",
+        "optimization_level": "high",
+        "compression_techniques": {
+            "zip_compression": 30.639784120283476,
+            "metadata_optimization": true,
+            "web_ready": true
+        }
+    },
+    "performance_tips": {
+        "use_lazy_loading": true,
+        "enable_level_of_detail": true,
+        "optimize_materials": true,
+        "reduce_polygons_on_mobile": true
+    },
+    "file_sizes": {
+        "original": 59885200,
+        "compressed": 59885200,
+        "zip_compressed": 41536504
+    },
+    "last_updated": "2025-08-31 02:16:18"
+}

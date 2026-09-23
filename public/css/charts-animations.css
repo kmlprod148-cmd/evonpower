@@ -1,0 +1,500 @@
+/**
+ * ========================================
+ * EVON Charts & Graphics Animations
+ * Beautiful SVG animations and transitions
+ * ========================================
+ */
+
+/* ========================================
+   1. WAVE ANIMATIONS
+   ======================================== */
+
+@keyframes wave-flow {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-20px);
+    }
+}
+
+@keyframes wave-pulse {
+    0%, 100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.02);
+    }
+}
+
+.wave-animated {
+    animation: wave-flow 2s linear infinite, wave-pulse 3s ease-in-out infinite;
+}
+
+/* ========================================
+   2. PROGRESS ANIMATIONS
+   ======================================== */
+
+@keyframes progress-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes progress-pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.05);
+    }
+}
+
+.progress-animated {
+    animation: progress-pulse 2s ease-in-out infinite;
+}
+
+/* ========================================
+   3. CHART ENTRANCE ANIMATIONS
+   ======================================== */
+
+@keyframes chart-slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes chart-slide-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes chart-scale-in {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.chart-enter {
+    animation: chart-slide-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.chart-enter-delayed {
+    opacity: 0;
+    animation: chart-slide-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+}
+
+/* ========================================
+   4. DATA POINT ANIMATIONS
+   ======================================== */
+
+@keyframes point-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes point-glow {
+    0%, 100% {
+        filter: brightness(1) drop-shadow(0 0 2px currentColor);
+    }
+    50% {
+        filter: brightness(1.2) drop-shadow(0 0 8px currentColor);
+    }
+}
+
+.data-point-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.data-point-hover:hover {
+    animation: point-bounce 0.6s ease-in-out, point-glow 1.5s ease-in-out infinite;
+}
+
+/* ========================================
+   5. BAR ANIMATIONS
+   ======================================== */
+
+@keyframes bar-grow {
+    from {
+        transform: scaleY(0);
+        transform-origin: bottom;
+    }
+    to {
+        transform: scaleY(1);
+        transform-origin: bottom;
+    }
+}
+
+@keyframes bar-shimmer {
+    0% {
+        background-position: -100% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.bar-animated {
+    animation: bar-grow 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.bar-shimmer {
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+    );
+    background-size: 200% 100%;
+    animation: bar-shimmer 2s ease-in-out infinite;
+}
+
+/* ========================================
+   6. DONUT/PIE ANIMATIONS
+   ======================================== */
+
+@keyframes donut-draw {
+    from {
+        stroke-dashoffset: 1000;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes donut-rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.donut-segment {
+    animation: donut-draw 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    transition: all 0.3s ease;
+}
+
+.donut-segment:hover {
+    filter: brightness(1.1) drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+    transform: scale(1.05);
+}
+
+/* ========================================
+   7. LINE CHART ANIMATIONS
+   ======================================== */
+
+@keyframes line-draw {
+    from {
+        stroke-dashoffset: 1000;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes line-pulse {
+    0%, 100% {
+        stroke-width: 2;
+        opacity: 1;
+    }
+    50% {
+        stroke-width: 3;
+        opacity: 0.8;
+    }
+}
+
+.line-path {
+    stroke-dasharray: 1000;
+    animation: line-draw 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.line-pulse {
+    animation: line-pulse 2s ease-in-out infinite;
+}
+
+/* ========================================
+   8. TOOLTIP ANIMATIONS
+   ======================================== */
+
+@keyframes tooltip-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-5px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.chart-tooltip {
+    animation: tooltip-fade-in 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================
+   9. GRADIENT ANIMATIONS
+   ======================================== */
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.gradient-animated {
+    background-size: 200% 200%;
+    animation: gradient-shift 4s ease infinite;
+}
+
+/* ========================================
+   10. NUMBER COUNTER ANIMATION
+   ======================================== */
+
+@keyframes number-pop {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.number-animated {
+    animation: number-pop 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   11. GLOW EFFECTS
+   ======================================== */
+
+@keyframes glow-pulse {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(74, 207, 123, 0.4),
+                    0 0 20px rgba(74, 207, 123, 0.2),
+                    0 0 30px rgba(74, 207, 123, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(74, 207, 123, 0.6),
+                    0 0 30px rgba(74, 207, 123, 0.4),
+                    0 0 45px rgba(74, 207, 123, 0.2);
+    }
+}
+
+.glow-animated {
+    animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* ========================================
+   12. LOADING ANIMATIONS
+   ======================================== */
+
+@keyframes chart-skeleton {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.chart-loading {
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    );
+    background-size: 200% 100%;
+    animation: chart-skeleton 1.5s ease-in-out infinite;
+}
+
+/* ========================================
+   13. RESPONSIVE ANIMATIONS
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ========================================
+   14. DARK MODE ADJUSTMENTS
+   ======================================== */
+
+.dark .chart-tooltip {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.dark .glow-animated {
+    animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.dark .chart-loading {
+    background: linear-gradient(
+        90deg,
+        #2d3748 25%,
+        #1a202c 50%,
+        #2d3748 75%
+    );
+    background-size: 200% 100%;
+    animation: chart-skeleton 1.5s ease-in-out infinite;
+}
+
+/* ========================================
+   15. INTERACTIVE STATES
+   ======================================== */
+
+.chart-interactive {
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chart-interactive:hover {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+}
+
+.chart-interactive:active {
+    transform: scale(0.98);
+}
+
+/* ========================================
+   16. STAGGER ANIMATIONS
+   ======================================== */
+
+.stagger-item {
+    opacity: 0;
+    animation: chart-slide-up 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-item:nth-child(4) { animation-delay: 0.4s; }
+.stagger-item:nth-child(5) { animation-delay: 0.5s; }
+.stagger-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* ========================================
+   17. 3D TRANSFORMS
+   ======================================== */
+
+@keyframes card-flip {
+    0% {
+        transform: perspective(1000px) rotateY(0);
+    }
+    50% {
+        transform: perspective(1000px) rotateY(90deg);
+    }
+    100% {
+        transform: perspective(1000px) rotateY(0);
+    }
+}
+
+.chart-card-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chart-card-3d:hover {
+    transform: perspective(1000px) rotateY(5deg) rotateX(5deg);
+}
+
+/* ========================================
+   18. PARTICLE EFFECTS
+   ======================================== */
+
+@keyframes particle-float {
+    0%, 100% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+    50% {
+        transform: translate(var(--tx, 50px), var(--ty, -100px));
+    }
+}
+
+.particle {
+    animation: particle-float 3s ease-in-out infinite;
+}
+
+/* ========================================
+   19. SMOOTH TRANSITIONS
+   ======================================== */
+
+.chart-transition-all {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chart-transition-transform {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.chart-transition-colors {
+    transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ========================================
+   20. UTILITY CLASSES
+   ======================================== */
+
+.chart-no-select {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+.chart-smooth-edges {
+    shape-rendering: geometricPrecision;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+

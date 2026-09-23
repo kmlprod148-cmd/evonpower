@@ -1,0 +1,843 @@
+body {
+    /* set the entire page background to white */
+    background-color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.reservation-option {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.reservation-option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s;
+}
+
+.reservation-option:hover::before {
+    left: 100%;
+}
+
+.reservation-option:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: #10b981;
+}
+
+.reservation-option.selected {
+    border-color: #10b981;
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+    transform: translateY(-2px);
+    animation: selectedPulse 0.6s ease-out;
+}
+
+@keyframes selectedPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Payment Methods Styles */
+.payment-method-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.payment-method-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border-color: #3b82f6;
+}
+
+.payment-method-card.selected {
+    border-color: #3b82f6;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+}
+
+.payment-method-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.payment-method-card.selected::before {
+    transform: scaleX(1);
+}
+
+.payment-method-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.payment-method-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.payment-method-info h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+.payment-method-info p {
+    color: #64748b;
+    margin: 0.25rem 0 0 0;
+    font-size: 0.9rem;
+}
+
+.payment-method-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.feature-badge {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.selected-indicator {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 24px;
+    height: 24px;
+    background: #3b82f6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.8rem;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s ease;
+}
+
+.payment-method-card.selected .selected-indicator {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Enhanced payment method card styles */
+.payment-method-card .payment-method-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.payment-method-card .payment-method-features span {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.375rem;
+}
+
+/* CMI specific styles */
+.payment-method-card[data-provider="cmi"]:hover {
+    border-color: #10b981;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+}
+
+.payment-method-card[data-provider="cmi"].selected {
+    border-color: #059669;
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+}
+
+/* Stripe specific styles */
+.payment-method-card[data-provider="stripe"]:hover {
+    border-color: #10b981;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+}
+
+.payment-method-card[data-provider="stripe"].selected {
+    border-color: #059669;
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+}
+
+.reservation-option.disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+    filter: grayscale(100%);
+    pointer-events: none;
+}
+
+.reservation-option.disabled:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: #e5e7eb;
+}
+
+.carousel-container {
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Styles supprimés - pas de créneaux horaires */
+
+/* Slider styles */
+.slider-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+}
+
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(59, 130, 246, 0.9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.slider-nav:hover {
+    background: rgba(59, 130, 246, 1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-nav.prev {
+    left: 10px;
+}
+
+.slider-nav.next {
+    right: 10px;
+}
+
+.slider-nav:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 8px;
+}
+
+.slider-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #d1d5db;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-dot.active {
+    background: #3b82f6;
+    transform: scale(1.2);
+}
+
+.step-indicator {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 8px;
+}
+
+.step {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #f3f4f6;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid #e5e7eb;
+}
+
+.step.active {
+    background: #3b82f6;
+    color: white;
+    border-color: #3b82f6;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+}
+
+.step.completed {
+    background: #10b981;
+    color: white;
+    border-color: #10b981;
+    box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);
+}
+
+/* Améliorations responsives */
+@media (max-width: 640px) {
+    .mobile-padding {
+        padding: 0.75rem;
+    }
+
+    .mobile-text-sm {
+        font-size: 0.875rem;
+    }
+
+    .mobile-text-lg {
+        font-size: 1.125rem;
+    }
+
+    .mobile-grid-1 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .mobile-grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .slider-nav {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+    .tablet-grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tablet-grid-3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+/* Améliorations supplémentaires pour la cohérence visuelle */
+.bg-gray-50 {
+    background-color: #f9fafb;
+    border: 1px solid #f3f4f6;
+}
+
+.bg-blue-50 {
+    background-color: #eff6ff;
+    border: 1px solid #dbeafe;
+}
+
+/* Amélioration des transitions */
+* {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Amélioration de la lisibilité */
+.text-gray-500 {
+    color: #6b7280;
+}
+
+.text-gray-600 {
+    color: #4b5563;
+}
+
+.text-gray-900 {
+    color: #111827;
+}
+/* Couleur mobile dynamique depuis le plan actif */
+:root {
+    --mobile-color: #3b82f6; /* Default value, will be overridden by JS */
+}
+
+/* Overrides non-invasifs pour appliquer la couleur mobile */
+.header-gradient { background: var(--mobile-color); }
+.slider-nav { background: var(--mobile-color); }
+.slider-nav:hover { background: var(--mobile-color); filter: brightness(0.9); }
+.slider-dot.active { background: var(--mobile-color); }
+.step.active { background: var(--mobile-color); border-color: var(--mobile-color); color: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.12); }
+.reservation-option:hover { border-color: var(--mobile-color); }
+.reservation-option.selected { border-color: var(--mobile-color); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+/* Styles supprimés - pas de créneaux horaires */
+
+/* Overrides Tailwind utilitaires locaux (limités à cette page) */
+.text-blue-600 { color: var(--mobile-color) !important; }
+.border-blue-200 { border-color: var(--mobile-color) !important; }
+.hover\:border-blue-500:hover { border-color: var(--mobile-color) !important; }
+.bg-blue-600 { background-color: var(--mobile-color) !important; }
+.hover\:bg-blue-700:hover { background-color: var(--mobile-color) !important; filter: brightness(0.9); }
+
+/* Time Picker Styles */
+.timepicker {
+    position: relative;
+    width: 100%;
+    display: block;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    font-family: "Roboto", sans-serif;
+    overflow: hidden;
+    transition: background 0.15s ease;
+}
+
+.timepicker.am {
+    background: white;
+}
+
+.timepicker.pm {
+    background: #ff5b38;
+}
+
+.timepicker-container-outer {
+    width: 100%;
+    max-width: 700px;
+    float: left;
+    display: block;
+    padding: 40px 30px 30px;
+    position: relative;
+    top: 50px;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.15s ease;
+}
+
+.timepicker-container-inner {
+    width: 100%;
+    height: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    position: relative;
+    display: block;
+}
+
+.timeline-container {
+    display: block;
+    float: left;
+    position: relative;
+    width: 100%;
+    height: 36px;
+}
+
+.current-time {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    top: -25px;
+    left: -20px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.current-time::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    background: #ff6e40;
+    transition: all 0.15s ease;
+    transform: rotate(45deg);
+    border-radius: 20px 20px 3px 20px;
+    z-index: -1;
+    top: 0;
+}
+
+.actual-time {
+    color: white;
+    line-height: 40px;
+    font-size: 12px;
+    text-align: center;
+    transition: all 0.15s ease;
+}
+
+.timeline {
+    display: block;
+    z-index: 1;
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+}
+
+.timeline::after {
+    left: auto;
+    right: -1px;
+}
+
+.hours-container {
+    display: block;
+    z-index: 0;
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    top: 31px;
+    left: 1px;
+}
+
+.hour-mark {
+    width: 2px;
+    display: block;
+    float: left;
+    height: 4px;
+    background: #ff5b38;
+    position: relative;
+    margin-left: calc((100% / 12) - 2px);
+    transition: background 0.15s ease;
+}
+
+.hour-mark:nth-child(3n) {
+    height: 6px;
+    top: -1px;
+}
+
+.display-time {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 0 10px;
+}
+
+.decrement-time,
+.increment-time {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    background: #f3f4f6;
+    transition: all 0.15s ease;
+}
+
+.decrement-time:hover,
+.increment-time:hover {
+    background: #e5e7eb;
+}
+
+.decrement-time {
+    left: 0;
+    text-align: left;
+}
+
+.increment-time {
+    right: 0;
+    text-align: right;
+}
+
+.increment-time path,
+.decrement-time path {
+    transition: all 0.15s ease;
+}
+
+.time {
+    width: calc(100% - 48px);
+    position: relative;
+    left: 24px;
+    height: 36px;
+}
+
+.time-input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #374151;
+}
+
+.formatted-time {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #374151;
+    pointer-events: none;
+}
+
+.time-active .formatted-time {
+    display: none;
+}
+
+.am-pm-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.am-pm-button {
+    width: calc(50% - 5px);
+    height: 36px;
+    line-height: 36px;
+    background: #2196f3;
+    text-align: center;
+    color: white;
+    border-radius: 4px;
+    float: left;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.am-pm-button:first-child {
+    background: #ff5b38;
+    color: white;
+}
+
+.am-pm-button:last-child {
+    background: white;
+    color: #ff5b38;
+    margin-left: 10px;
+}
+
+.am-pm-button:hover {
+    opacity: 0.8;
+}
+
+/* Duration Button Styles */
+.duration-btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.duration-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.duration-btn:active::after {
+    width: 200px;
+    height: 200px;
+}
+
+.duration-btn:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+    border-color: #10b981;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+}
+
+.duration-btn.selected {
+    border-color: var(--mobile-color);
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+    transform: translateY(-2px);
+    animation: selectedBounce 0.5s ease-out;
+}
+
+@keyframes selectedBounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(-2px); }
+    40% { transform: translateY(-6px); }
+    60% { transform: translateY(-4px); }
+}
+
+.duration-btn.disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+    filter: grayscale(100%);
+    pointer-events: none;
+}
+
+.duration-btn.disabled:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: #e5e7eb;
+}
+
+/* Missing selection highlight */
+.missing-selection {
+    animation: pulse-red 2s infinite;
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3) !important;
+}
+
+@keyframes pulse-red {
+    0%, 100% {
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(239, 68, 68, 0.1);
+    }
+}
+
+/* Cost calculation animations */
+.cost-update {
+    animation: costUpdate 0.6s ease-out;
+}
+
+@keyframes costUpdate {
+    0% {
+        transform: scale(1);
+        background-color: transparent;
+    }
+    50% {
+        transform: scale(1.02);
+        background-color: rgba(16, 185, 129, 0.1);
+    }
+    100% {
+        transform: scale(1);
+        background-color: transparent;
+    }
+}
+
+/* Loading states */
+.loading-shimmer {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+/* Success animation */
+.success-pulse {
+    animation: successPulse 0.8s ease-out;
+}
+
+@keyframes successPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+    }
+}
+
+/* Progressive disclosure */
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in {
+    animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Success alert text styling */
+.success-title {
+    color: #059669 !important;
+    font-weight: 700 !important;
+    font-size: 1.25rem !important;
+    text-shadow: 0 1px 2px rgba(5, 150, 105, 0.2);
+}
+
+.success-message {
+    color: #047857 !important;
+    font-weight: 500 !important;
+    line-height: 1.5 !important;
+    font-size: 1rem !important;
+}
+
+.success-body {
+    color: #065f46 !important;
+    font-size: 0.875rem !important;
+    line-height: 1.4 !important;
+}

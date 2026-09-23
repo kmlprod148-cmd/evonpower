@@ -1,0 +1,340 @@
+[22-Mar-2025 05:55:23 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Plan.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Plan.php on line 8
+[22-Mar-2025 05:55:23 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Integrator.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Integrator.php on line 9
+[22-Mar-2025 05:55:23 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/IntegratorProfile.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/IntegratorProfile.php on line 7
+[22-Mar-2025 05:55:23 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/PartnerProfile.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/PartnerProfile.php on line 7
+[22-Mar-2025 05:55:23 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Partner.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Partner.php on line 9
+[22-Mar-2025 05:55:23 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Transaction.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Transaction.php on line 8
+[22-Mar-2025 05:55:23 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/ApiKey.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/ApiKey.php on line 8
+[22-Mar-2025 05:55:24 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Recharge.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Recharge.php on line 8
+[22-Mar-2025 05:55:24 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Auth\User" not found in /home/evonpower/devcharge.evonpower.com/app/Models/User.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/User.php on line 10
+[22-Mar-2025 05:55:24 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/VateRate.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/VateRate.php on line 8
+[22-Mar-2025 05:55:24 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/StationGroup.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/StationGroup.php on line 7
+[22-Mar-2025 05:55:24 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/ChargingStation.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/ChargingStation.php on line 7
+[22-Mar-2025 05:55:24 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Subscription.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Subscription.php on line 8
+[22-Mar-2025 05:55:24 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Report.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Report.php on line 8
+[22-Mar-2025 05:55:24 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Group.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Group.php on line 8
+[22-Mar-2025 05:55:25 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Connector.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Connector.php on line 9
+[22-Mar-2025 05:55:25 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/RemoteControl.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/RemoteControl.php on line 8
+[22-Mar-2025 05:55:31 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Plan.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Plan.php on line 8
+[22-Mar-2025 05:55:31 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/PartnerProfile.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/PartnerProfile.php on line 7
+[22-Mar-2025 05:55:31 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Transaction.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Transaction.php on line 8
+[22-Mar-2025 05:55:31 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/IntegratorProfile.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/IntegratorProfile.php on line 7
+[22-Mar-2025 05:55:31 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/ChargingStation.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/ChargingStation.php on line 7
+[22-Mar-2025 05:55:31 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Integrator.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Integrator.php on line 9
+[22-Mar-2025 05:55:31 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/ApiKey.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/ApiKey.php on line 8
+[22-Mar-2025 05:55:32 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Partner.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Partner.php on line 9
+[22-Mar-2025 05:55:32 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/VateRate.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/VateRate.php on line 8
+[22-Mar-2025 05:55:33 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Recharge.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Recharge.php on line 8
+[22-Mar-2025 05:55:33 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Subscription.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Subscription.php on line 8
+[22-Mar-2025 05:55:33 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Report.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Report.php on line 8
+[22-Mar-2025 05:55:33 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/RemoteControl.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/RemoteControl.php on line 8
+[22-Mar-2025 05:55:33 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Group.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Group.php on line 8
+[22-Mar-2025 05:55:34 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/StationGroup.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/StationGroup.php on line 7
+[22-Mar-2025 05:55:36 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Connector.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Connector.php on line 9
+[22-Mar-2025 05:55:40 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/PartnerProfile.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/PartnerProfile.php on line 7
+[22-Mar-2025 05:55:40 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Plan.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Plan.php on line 8
+[22-Mar-2025 05:55:40 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Transaction.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Transaction.php on line 8
+[22-Mar-2025 05:55:40 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/IntegratorProfile.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/IntegratorProfile.php on line 7
+[22-Mar-2025 05:55:41 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/ApiKey.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/ApiKey.php on line 8
+[22-Mar-2025 05:55:41 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Integrator.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Integrator.php on line 9
+[22-Mar-2025 05:55:41 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Partner.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Partner.php on line 9
+[22-Mar-2025 05:55:41 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Report.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Report.php on line 8
+[22-Mar-2025 05:55:41 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/VateRate.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/VateRate.php on line 8
+[22-Mar-2025 05:55:42 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/ChargingStation.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/ChargingStation.php on line 7
+[22-Mar-2025 05:55:42 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Recharge.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Recharge.php on line 8
+[22-Mar-2025 05:55:43 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Subscription.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Subscription.php on line 8
+[22-Mar-2025 05:55:43 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/RemoteControl.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/RemoteControl.php on line 8
+[22-Mar-2025 05:55:43 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Group.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Group.php on line 8
+[22-Mar-2025 05:55:43 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/StationGroup.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/StationGroup.php on line 7
+[22-Mar-2025 05:55:45 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Connector.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Connector.php on line 9
+[22-Mar-2025 05:55:50 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Transaction.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Transaction.php on line 8
+[22-Mar-2025 05:55:50 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/PartnerProfile.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/PartnerProfile.php on line 7
+[22-Mar-2025 05:55:50 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Plan.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Plan.php on line 8
+[22-Mar-2025 05:55:50 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/IntegratorProfile.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/IntegratorProfile.php on line 7
+[22-Mar-2025 05:55:51 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Report.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Report.php on line 8
+[22-Mar-2025 05:55:52 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Integrator.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Integrator.php on line 9
+[22-Mar-2025 05:55:52 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/ApiKey.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/ApiKey.php on line 8
+[22-Mar-2025 05:55:52 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/VateRate.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/VateRate.php on line 8
+[22-Mar-2025 05:55:52 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Partner.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Partner.php on line 9
+[22-Mar-2025 05:55:52 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Recharge.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Recharge.php on line 8
+[22-Mar-2025 05:55:52 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/ChargingStation.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/ChargingStation.php on line 7
+[22-Mar-2025 05:55:53 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/RemoteControl.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/RemoteControl.php on line 8
+[22-Mar-2025 05:55:53 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/StationGroup.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/StationGroup.php on line 7
+[22-Mar-2025 05:55:53 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Subscription.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Subscription.php on line 8
+[22-Mar-2025 05:55:54 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Group.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Group.php on line 8
+[22-Mar-2025 05:55:57 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Connector.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Connector.php on line 9
+[22-Mar-2025 05:56:01 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Auth\User" not found in /home/evonpower/devcharge.evonpower.com/app/Models/User.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/User.php on line 10
+[22-Mar-2025 05:56:01 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Transaction.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Transaction.php on line 8
+[22-Mar-2025 05:56:02 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/PartnerProfile.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/PartnerProfile.php on line 7
+[22-Mar-2025 05:56:02 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Plan.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Plan.php on line 8
+[22-Mar-2025 05:56:02 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/IntegratorProfile.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/IntegratorProfile.php on line 7
+[22-Mar-2025 05:56:04 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Integrator.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Integrator.php on line 9
+[22-Mar-2025 05:56:04 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/VateRate.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/VateRate.php on line 8
+[22-Mar-2025 05:56:04 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Partner.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Partner.php on line 9
+[22-Mar-2025 05:56:05 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Recharge.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Recharge.php on line 8
+[22-Mar-2025 05:56:05 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Report.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Report.php on line 8
+[22-Mar-2025 05:56:05 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/ChargingStation.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/ChargingStation.php on line 7
+[22-Mar-2025 05:56:05 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/RemoteControl.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/RemoteControl.php on line 8
+[22-Mar-2025 05:56:05 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/StationGroup.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/StationGroup.php on line 7
+[22-Mar-2025 05:56:06 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/ApiKey.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/ApiKey.php on line 8
+[22-Mar-2025 05:56:06 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Subscription.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Subscription.php on line 8
+[22-Mar-2025 05:56:06 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Group.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Group.php on line 8
+[22-Mar-2025 05:56:10 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Auth\User" not found in /home/evonpower/devcharge.evonpower.com/app/Models/User.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/User.php on line 10
+[22-Mar-2025 05:56:21 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Auth\User" not found in /home/evonpower/devcharge.evonpower.com/app/Models/User.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/User.php on line 10
+[22-Mar-2025 05:56:33 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Foundation\Auth\User" not found in /home/evonpower/devcharge.evonpower.com/app/Models/User.php:10
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/User.php on line 10
+[22-Mar-2025 05:56:39 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Eloquent\Model" not found in /home/evonpower/devcharge.evonpower.com/app/Models/Connector.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Models/Connector.php on line 9

@@ -1,0 +1,15 @@
+# Placer ce fichier à la racine du projet
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+
+    # Collapse repeated /public/public/* into /public/*
+    RewriteCond %{REQUEST_URI} ^/public/public/(.+)$
+    RewriteRule ^public/public/(.+)$ /public/$1 [R=301,L]
+
+    # Serve everything through the public/ folder
+    RewriteCond %{REQUEST_URI} !^/public/
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>

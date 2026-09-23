@@ -1,0 +1,27 @@
+{
+    "renderer_settings": {
+        "antialias": false,
+        "powerPreference": "high-performance",
+        "stencil": false,
+        "depth": true,
+        "alpha": false
+    },
+    "model_settings": {
+        "max_polygons": 50000,
+        "texture_quality": "medium",
+        "enable_shadows": false,
+        "enable_animations": true,
+        "auto_rotate": true
+    },
+    "loading_settings": {
+        "lazy_load": true,
+        "progressive_loading": true,
+        "show_progress": true,
+        "timeout": 30000
+    },
+    "mobile_optimizations": {
+        "reduce_quality_on_mobile": true,
+        "disable_animations_on_mobile": false,
+        "lower_polygon_count": true
+    }
+}

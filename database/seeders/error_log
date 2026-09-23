@@ -1,0 +1,100 @@
+[22-Mar-2025 05:55:27 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/StationGroupSeeder.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/StationGroupSeeder.php on line 8
+[22-Mar-2025 05:55:27 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/ChargingPointSeeder.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/ChargingPointSeeder.php on line 8
+[22-Mar-2025 05:55:27 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/UserSeeder.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/UserSeeder.php on line 9
+[22-Mar-2025 05:55:28 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/TransactionSeeder.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/TransactionSeeder.php on line 8
+[22-Mar-2025 05:55:28 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/StationSeeder.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/StationSeeder.php on line 9
+[22-Mar-2025 05:55:35 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/UserSeeder.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/UserSeeder.php on line 9
+[22-Mar-2025 05:55:35 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/ChargingPointSeeder.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/ChargingPointSeeder.php on line 8
+[22-Mar-2025 05:55:35 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/StationGroupSeeder.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/StationGroupSeeder.php on line 8
+[22-Mar-2025 05:55:36 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/TransactionSeeder.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/TransactionSeeder.php on line 8
+[22-Mar-2025 05:55:37 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/StationSeeder.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/StationSeeder.php on line 9
+[22-Mar-2025 05:55:43 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/UserSeeder.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/UserSeeder.php on line 9
+[22-Mar-2025 05:55:43 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/StationGroupSeeder.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/StationGroupSeeder.php on line 8
+[22-Mar-2025 05:55:44 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/ChargingPointSeeder.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/ChargingPointSeeder.php on line 8
+[22-Mar-2025 05:55:46 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/StationSeeder.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/StationSeeder.php on line 9
+[22-Mar-2025 05:55:48 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/TransactionSeeder.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/TransactionSeeder.php on line 8
+[22-Mar-2025 05:55:53 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/UserSeeder.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/UserSeeder.php on line 9
+[22-Mar-2025 05:55:53 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/StationGroupSeeder.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/StationGroupSeeder.php on line 8
+[22-Mar-2025 05:55:54 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/ChargingPointSeeder.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/ChargingPointSeeder.php on line 8
+[22-Mar-2025 05:55:57 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/StationSeeder.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/StationSeeder.php on line 9
+[22-Mar-2025 05:55:58 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/TransactionSeeder.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/TransactionSeeder.php on line 8
+[22-Mar-2025 05:56:05 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/UserSeeder.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/UserSeeder.php on line 9
+[22-Mar-2025 05:56:05 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/StationGroupSeeder.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/StationGroupSeeder.php on line 8
+[22-Mar-2025 05:56:05 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/ChargingPointSeeder.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/ChargingPointSeeder.php on line 8
+[22-Mar-2025 05:56:09 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/StationSeeder.php:9
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/StationSeeder.php on line 9
+[22-Mar-2025 05:56:11 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Database\Seeder" not found in /home/evonpower/devcharge.evonpower.com/database/seeders/TransactionSeeder.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/database/seeders/TransactionSeeder.php on line 8

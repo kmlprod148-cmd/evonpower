@@ -1,0 +1,443 @@
+/* ========================================
+   EVON - Responsive & Mobile Styles
+   Optimisations pour tous les appareils
+   ======================================== */
+
+/* ========================================
+   1. MOBILE FIRST BASE STYLES
+   ======================================== */
+
+/* Touch-friendly tap targets (minimum 44x44px) */
+button,
+a,
+input[type="button"],
+input[type="submit"],
+.btn,
+.nav-item {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Prevent text size adjustment on mobile */
+html {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ========================================
+   2. MOBILE OPTIMIZATIONS (< 640px)
+   ======================================== */
+
+@media (max-width: 640px) {
+    /* Reduce padding on mobile */
+    .card,
+    .evon-stat-card,
+    .evon-table-container {
+        @apply p-4;
+    }
+    
+    /* Stack items vertically */
+    .evon-page-header {
+        @apply flex-col items-start;
+    }
+    
+    .evon-page-actions {
+        @apply w-full;
+    }
+    
+    /* Full width buttons on mobile */
+    .btn-primary,
+    .btn-secondary,
+    .btn-danger,
+    .btn-outline {
+        @apply w-full justify-center;
+    }
+    
+    /* Compact stats grid */
+    .evon-stats-grid {
+        @apply grid-cols-1 gap-4;
+    }
+    
+    /* Smaller text on mobile */
+    .evon-page-title {
+        @apply text-xl;
+    }
+    
+    .heading-1 {
+        @apply text-2xl;
+    }
+    
+    .heading-2 {
+        @apply text-xl;
+    }
+    
+    .heading-3 {
+        @apply text-lg;
+    }
+    
+    /* Table responsive adjustments */
+    .evon-table-cell {
+        @apply px-3 py-3 text-xs;
+    }
+    
+    .evon-table-head-cell {
+        @apply px-3 py-2 text-xs;
+    }
+    
+    /* Modal adjustments */
+    .evon-modal-panel {
+        @apply m-4;
+    }
+    
+    .evon-modal-body {
+        @apply p-4;
+    }
+    
+    /* Header search - hide on very small screens */
+    .evon-header-search {
+        @apply hidden;
+    }
+    
+    /* Sidebar full width on mobile when open */
+    aside.evon-sidebar {
+        @apply w-full max-w-xs;
+    }
+}
+
+/* ========================================
+   3. TABLET OPTIMIZATIONS (641px - 1023px)
+   ======================================== */
+
+@media (min-width: 641px) and (max-width: 1023px) {
+    /* 2 column grid for stats */
+    .evon-stats-grid {
+        @apply grid-cols-2 gap-5;
+    }
+    
+    /* Moderate text sizes */
+    .evon-page-title {
+        @apply text-2xl;
+    }
+    
+    /* Show search on tablet */
+    .evon-header-search {
+        @apply w-[200px];
+    }
+}
+
+/* ========================================
+   4. DESKTOP OPTIMIZATIONS (>= 1024px)
+   ======================================== */
+
+@media (min-width: 1024px) {
+    /* Full grid for stats */
+    .evon-stats-grid {
+        @apply grid-cols-4 gap-6;
+    }
+    
+    /* Sidebar visible by default */
+    aside.evon-sidebar {
+        @apply translate-x-0;
+    }
+    
+    /* Hide mobile menu button */
+    .evon-mobile-menu-btn {
+        @apply hidden;
+    }
+    
+    /* Full width search */
+    .evon-header-search {
+        @apply w-[300px];
+    }
+}
+
+/* ========================================
+   5. LARGE SCREENS (>= 1280px)
+   ======================================== */
+
+@media (min-width: 1280px) {
+    /* Wider content container */
+    .container-main {
+        max-width: 1280px;
+    }
+    
+    /* Larger spacing */
+    .section-spacing {
+        @apply py-12;
+    }
+}
+
+/* ========================================
+   6. EXTRA LARGE SCREENS (>= 1536px)
+   ======================================== */
+
+@media (min-width: 1536px) {
+    /* Even wider container */
+    .container-main {
+        max-width: 1400px;
+    }
+}
+
+/* ========================================
+   7. TOUCH DEVICE OPTIMIZATIONS
+   ======================================== */
+
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch devices */
+    .card-hover:hover {
+        @apply transform-none;
+    }
+    
+    /* Larger touch targets */
+    .evon-nav-item {
+        @apply py-3;
+    }
+    
+    .evon-header-button {
+        @apply w-11 h-11;
+    }
+    
+    /* Remove hover states on touch */
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .btn-danger:hover,
+    .btn-outline:hover {
+        @apply shadow-md;
+    }
+}
+
+/* ========================================
+   8. ORIENTATION SPECIFIC STYLES
+   ======================================== */
+
+/* Portrait orientation */
+@media (orientation: portrait) {
+    /* Stack cards vertically in portrait */
+    .evon-stats-grid {
+        @apply grid-cols-1 sm:grid-cols-2;
+    }
+}
+
+/* Landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    /* Reduce vertical padding in landscape */
+    .evon-sidebar-logo {
+        @apply py-3;
+    }
+    
+    .evon-header {
+        @apply py-2;
+    }
+    
+    .section-spacing {
+        @apply py-4;
+    }
+}
+
+/* ========================================
+   9. ACCESSIBILITY - REDUCED MOTION
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* ========================================
+   10. HIGH CONTRAST MODE
+   ======================================== */
+
+@media (prefers-contrast: high) {
+    /* Increase contrast for better readability */
+    .card,
+    .evon-stat-card,
+    .evon-table-container {
+        @apply border-2;
+    }
+    
+    .btn-primary,
+    .btn-secondary,
+    .btn-danger {
+        @apply border-2 border-current;
+    }
+}
+
+/* ========================================
+   11. PRINT STYLES
+   ======================================== */
+
+@media print {
+    /* Hide non-printable elements */
+    .evon-sidebar,
+    .evon-header,
+    .evon-mobile-menu-btn,
+    .btn-primary,
+    .btn-secondary,
+    .btn-danger,
+    .evon-page-actions,
+    .evon-header-utilities,
+    nav,
+    button {
+        display: none !important;
+    }
+    
+    /* Optimize for print */
+    body {
+        @apply bg-white text-black;
+    }
+    
+    .evon-main {
+        @apply p-0 m-0;
+    }
+    
+    .card,
+    .evon-stat-card,
+    .evon-table-container {
+        @apply shadow-none border border-gray-300 break-inside-avoid;
+        page-break-inside: avoid;
+    }
+    
+    /* Force light mode colors for print */
+    * {
+        color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    /* Expand all content */
+    details {
+        display: block !important;
+    }
+    
+    details > summary {
+        display: none;
+    }
+    
+    /* Show links */
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #666;
+    }
+}
+
+/* ========================================
+   12. SAFE AREA INSETS (for notched devices)
+   ======================================== */
+
+@supports (padding: max(0px)) {
+    body {
+        padding-left: max(0px, env(safe-area-inset-left));
+        padding-right: max(0px, env(safe-area-inset-right));
+    }
+    
+    .evon-header {
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+    }
+    
+    .evon-main {
+        padding-bottom: max(0px, env(safe-area-inset-bottom));
+    }
+}
+
+/* ========================================
+   13. CUSTOM SCROLLBAR (for webkit browsers)
+   ======================================== */
+
+/* Desktop scrollbars */
+@media (min-width: 1024px) {
+    .evon-main::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    .evon-main::-webkit-scrollbar-track {
+        @apply bg-gray-100 dark:bg-gray-800;
+    }
+    
+    .evon-main::-webkit-scrollbar-thumb {
+        @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+    }
+    
+    .evon-main::-webkit-scrollbar-thumb:hover {
+        @apply bg-gray-400 dark:bg-gray-500;
+    }
+}
+
+/* ========================================
+   14. MOBILE SPECIFIC UTILITIES
+   ======================================== */
+
+/* Prevent text selection on UI elements */
+.evon-header-button,
+.evon-nav-item,
+.btn {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Smooth font rendering on mobile */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Prevent pull-to-refresh on mobile */
+body {
+    overscroll-behavior-y: contain;
+}
+
+/* Fix for iOS Safari bottom bar */
+.evon-main {
+    min-height: -webkit-fill-available;
+}
+
+/* Prevent zoom on input focus (iOS) */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+select,
+textarea {
+    font-size: 16px;
+}
+
+/* ========================================
+   15. CONTAINER QUERIES (modern browsers)
+   ======================================== */
+
+@container (max-width: 400px) {
+    .evon-stat-card-value {
+        @apply text-2xl;
+    }
+}
+
+@container (min-width: 600px) {
+    .evon-form-grid {
+        @apply grid-cols-2;
+    }
+}
+
+/* ========================================
+   16. CLOAK UTILITY (hide until Alpine loads)
+   ======================================== */
+
+[x-cloak] {
+    display: none !important;
+}
+

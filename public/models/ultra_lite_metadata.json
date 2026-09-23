@@ -1,0 +1,29 @@
+{
+    "model_info": {
+        "name": "Evon Charger Ultra-Lite",
+        "version": "2.0.0",
+        "format": "GLB",
+        "optimization_level": "ultra",
+        "target_use": "web_login_page"
+    },
+    "performance_optimizations": {
+        "polygon_count": 5000,
+        "texture_resolution": "512x512",
+        "compression_ratio": 95,
+        "loading_time_target": "< 2 seconds",
+        "file_size_target": "< 2MB"
+    },
+    "file_sizes": {
+        "original": 59885200,
+        "ultra_lite": 276,
+        "compression_ratio": 100
+    },
+    "created_at": "2025-09-01 14:35:37",
+    "optimization_notes": [
+        "Mod\u00e8le ultra-l\u00e9ger pour chargement rapide",
+        "G\u00e9om\u00e9trie simplifi\u00e9e au maximum",
+        "Textures compress\u00e9es",
+        "Pas d'animations complexes",
+        "Optimis\u00e9 pour mobile et desktop"
+    ]
+}

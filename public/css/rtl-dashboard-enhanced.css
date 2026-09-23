@@ -1,0 +1,732 @@
+/**
+ * ========================================
+ * RTL DASHBOARD ENHANCED - Arabe Premium
+ * Support complet pour le dashboard EVON
+ * ========================================
+ * Version: 2.0
+ * Author: Senior Full Stack Developer
+ * Date: 2025
+ */
+
+/* ========================================
+   1. SIDEBAR RTL - Position et Direction
+   ======================================== */
+
+/* Sidebar principale - Position à droite en RTL */
+[dir="rtl"] .evon-sidebar {
+    left: auto !important;
+    right: 0 !important;
+    border-right: none !important;
+    border-left: 1px solid #e5e7eb !important;
+}
+
+[dir="rtl"] .dark .evon-sidebar {
+    border-left-color: #374151 !important;
+}
+
+/* Sidebar après effet (hover indicator) - Position inversée */
+@media (min-width: 1024px) {
+    [dir="rtl"] .evon-sidebar::after {
+        right: auto !important;
+        left: 0 !important;
+    }
+}
+
+/* Logo sidebar - Alignement RTL */
+[dir="rtl"] .evon-sidebar-logo {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .evon-sidebar-logo a {
+    flex-direction: row-reverse !important;
+}
+
+/* Texte du logo RTL */
+[dir="rtl"] .evon-sidebar-logo .flex-col {
+    text-align: right !important;
+}
+
+/* ========================================
+   2. NAVIGATION ITEMS RTL
+   ======================================== */
+
+/* Items de navigation - Direction RTL */
+[dir="rtl"] .evon-nav-item {
+    direction: rtl;
+    text-align: right;
+    flex-direction: row-reverse !important;
+}
+
+/* Barre active à droite au lieu de gauche */
+[dir="rtl"] .evon-nav-item::before {
+    left: auto !important;
+    right: 0 !important;
+    transform: translateX(100%) !important;
+}
+
+[dir="rtl"] .evon-nav-item-active::before {
+    transform: translateX(0) !important;
+}
+
+/* Hover effect - Déplacement inversé */
+[dir="rtl"] .evon-nav-item-active {
+    transform: translateX(-2px) !important;
+}
+
+[dir="rtl"] .evon-nav-item-inactive:hover {
+    transform: translateX(-2px) !important;
+}
+
+/* Icône de navigation - Marge inversée */
+[dir="rtl"] .evon-nav-icon-wrapper,
+[dir="rtl"] .evon-nav-icon {
+    margin-right: 0 !important;
+    margin-left: 12px !important;
+}
+
+/* Label navigation - Alignement à droite */
+[dir="rtl"] .evon-nav-label {
+    text-align: right !important;
+}
+
+/* ========================================
+   3. TOOLTIPS SIDEBAR RTL
+   ======================================== */
+
+/* Tooltip de navigation - Position à gauche en RTL */
+[dir="rtl"] .evon-nav-item-tooltip {
+    left: auto !important;
+    right: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 12px !important;
+    transform: translateX(10px) !important;
+}
+
+[dir="rtl"] .evon-sidebar-collapsed .evon-nav-item:hover .evon-nav-item-tooltip {
+    transform: translateX(0) !important;
+}
+
+/* Flèche du tooltip inversée */
+[dir="rtl"] .evon-nav-item-tooltip::before {
+    left: auto !important;
+    right: -4px !important;
+}
+
+/* Tooltip du bouton toggle */
+[dir="rtl"] .evon-toggle-tooltip {
+    left: auto !important;
+    right: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 8px !important;
+}
+
+/* ========================================
+   4. BADGES NAVIGATION RTL
+   ======================================== */
+
+/* Badge en mode collapsed - Position inversée */
+[dir="rtl"] .evon-sidebar-collapsed .evon-nav-badge {
+    right: auto !important;
+    left: -1px !important;
+}
+
+/* Badge en mode expanded */
+[dir="rtl"] .evon-nav-badge {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+/* ========================================
+   5. SECTION TITLES SIDEBAR RTL
+   ======================================== */
+
+/* Titres de section - Alignement RTL */
+[dir="rtl"] .evon-nav-section-title {
+    text-align: right !important;
+    direction: rtl;
+}
+
+/* ========================================
+   6. SIDEBAR MOBILE RTL
+   ======================================== */
+
+/* Overlay mobile - Reste centré */
+[dir="rtl"] .evon-mobile-sidebar-overlay {
+    left: 0;
+    right: 0;
+}
+
+/* Sidebar mobile - Glisse depuis la droite */
+[dir="rtl"] aside.-translate-x-full {
+    transform: translateX(100%) !important;
+}
+
+[dir="rtl"] aside.translate-x-0 {
+    transform: translateX(0) !important;
+}
+
+/* Mobile: Sidebar depuis la droite */
+@media (max-width: 1023px) {
+    [dir="rtl"] .evon-sidebar {
+        right: 0;
+        left: auto;
+    }
+}
+
+/* ========================================
+   7. HEADER RTL - App Header Component
+   ======================================== */
+
+/* Header principal - Direction RTL */
+[dir="rtl"] .bg-white.dark\:bg-gray-800.border-b {
+    direction: rtl;
+}
+
+/* Container header - Flex inversé */
+[dir="rtl"] #evon-app-header .flex {
+    flex-direction: row-reverse !important;
+}
+
+/* Bouton menu mobile - Position à droite */
+[dir="rtl"] #evon-app-header button {
+    margin-right: 0 !important;
+    margin-left: 12px !important;
+}
+
+/* Avatar et texte de bienvenue */
+[dir="rtl"] #evon-app-header .flex.items-center.gap-4 {
+    flex-direction: row-reverse !important;
+}
+
+/* Texte de bienvenue aligné à droite */
+[dir="rtl"] #evon-app-header h1,
+[dir="rtl"] #evon-app-header p {
+    text-align: right !important;
+}
+
+/* ========================================
+   8. BREADCRUMBS RTL
+   ======================================== */
+
+/* Breadcrumbs - Direction inversée */
+[dir="rtl"] nav.flex.items-center.gap-2 {
+    flex-direction: row-reverse !important;
+}
+
+/* Icône breadcrumb - Rotation */
+[dir="rtl"] nav.flex.items-center.gap-2 svg {
+    transform: scaleX(-1) !important;
+}
+
+/* ========================================
+   9. ACTIONS HEADER RTL
+   ======================================== */
+
+/* Actions à droite (gauche en RTL) */
+[dir="rtl"] .flex.flex-wrap.items-center.gap-3 {
+    flex-direction: row-reverse !important;
+}
+
+/* Boutons d'action - Contenu inversé */
+[dir="rtl"] button.flex.items-center.gap-2 {
+    flex-direction: row-reverse !important;
+}
+
+/* SVG dans les boutons */
+[dir="rtl"] button svg {
+    margin-right: 0 !important;
+    margin-left: 8px !important;
+}
+
+/* ========================================
+   10. DROPDOWNS RTL
+   ======================================== */
+
+/* Dropdown menu - Position inversée */
+[dir="rtl"] .absolute.right-0 {
+    right: auto !important;
+    left: 0 !important;
+}
+
+/* Items dropdown - Alignement RTL */
+[dir="rtl"] .dropdown-menu,
+[dir="rtl"] div[x-show="open"] {
+    text-align: right !important;
+    direction: rtl;
+}
+
+/* Icônes dans dropdown */
+[dir="rtl"] .dropdown-item svg,
+[dir="rtl"] a.flex.items-center.gap-3 svg {
+    margin-right: 0 !important;
+    margin-left: 12px !important;
+}
+
+/* User menu */
+[dir="rtl"] .px-4.py-3.border-b p {
+    text-align: right !important;
+}
+
+/* ========================================
+   11. STATS CARDS RTL
+   ======================================== */
+
+/* Grid de stats - Direction RTL */
+[dir="rtl"] .grid.grid-cols-2.lg\:grid-cols-4 {
+    direction: rtl;
+}
+
+/* Cards individuelles - Alignement RTL */
+[dir="rtl"] .bg-white\/10.backdrop-blur-md {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Header des cards */
+[dir="rtl"] .bg-white\/10.backdrop-blur-md .flex.items-center.justify-between {
+    flex-direction: row-reverse !important;
+}
+
+/* Icône stat - Marge inversée */
+[dir="rtl"] .bg-white\/10.backdrop-blur-md .flex.items-center.justify-between > div:first-child {
+    margin-right: 0 !important;
+    margin-left: 12px !important;
+}
+
+/* Texte des stats aligné à droite */
+[dir="rtl"] .bg-white\/10.backdrop-blur-md div {
+    text-align: right !important;
+}
+
+/* Valeurs et labels */
+[dir="rtl"] .text-3xl.font-bold,
+[dir="rtl"] .text-2xl.font-bold,
+[dir="rtl"] .text-white\/70 {
+    text-align: right !important;
+}
+
+/* ========================================
+   12. EVON-CONTENT RTL
+   ======================================== */
+
+/* Contenu principal - Direction RTL */
+[dir="rtl"] .evon-content {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Page header */
+[dir="rtl"] .evon-page-header {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .evon-page-title,
+[dir="rtl"] .evon-page-subtitle {
+    text-align: right !important;
+}
+
+/* ========================================
+   13. TABLES RTL
+   ======================================== */
+
+/* Table container */
+[dir="rtl"] .evon-table-container {
+    direction: rtl;
+}
+
+/* Table elle-même */
+[dir="rtl"] .evon-table {
+    direction: rtl;
+}
+
+/* Headers de table */
+[dir="rtl"] .evon-table-head-cell {
+    text-align: right !important;
+}
+
+/* Cells de table */
+[dir="rtl"] .evon-table-cell {
+    text-align: right !important;
+}
+
+/* Table responsive mobile */
+@media (max-width: 768px) {
+    [dir="rtl"] .evon-table-responsive td::before {
+        float: right !important;
+        margin-left: 12px !important;
+        margin-right: 0 !important;
+    }
+}
+
+/* ========================================
+   14. FORMS RTL
+   ======================================== */
+
+/* Form groups */
+[dir="rtl"] .evon-form-section {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Labels */
+[dir="rtl"] label {
+    text-align: right !important;
+    display: block;
+}
+
+/* Inputs */
+[dir="rtl"] input,
+[dir="rtl"] textarea,
+[dir="rtl"] select,
+[dir="rtl"] .input-field {
+    direction: rtl;
+    text-align: right !important;
+    padding-right: 16px !important;
+    padding-left: 16px !important;
+}
+
+/* Input icons - Position inversée */
+[dir="rtl"] .input-icon-left {
+    left: auto !important;
+    right: 12px !important;
+}
+
+[dir="rtl"] .input-icon-right {
+    right: auto !important;
+    left: 12px !important;
+}
+
+/* Form actions - Inversé */
+[dir="rtl"] .evon-form-actions {
+    flex-direction: row-reverse !important;
+    justify-content: flex-start !important;
+}
+
+/* ========================================
+   15. BUTTONS RTL
+   ======================================== */
+
+/* Boutons avec icônes - Contenu inversé */
+[dir="rtl"] .btn-primary,
+[dir="rtl"] .btn-secondary,
+[dir="rtl"] button {
+    flex-direction: row-reverse !important;
+}
+
+[dir="rtl"] button svg,
+[dir="rtl"] a svg {
+    margin-right: 0 !important;
+    margin-left: 8px !important;
+}
+
+/* Button groups */
+[dir="rtl"] .flex.gap-2,
+[dir="rtl"] .flex.gap-3,
+[dir="rtl"] .flex.gap-4 {
+    flex-direction: row-reverse !important;
+}
+
+/* ========================================
+   16. ALERTS RTL
+   ======================================== */
+
+/* Alerts - Direction RTL */
+[dir="rtl"] .evon-alert,
+[dir="rtl"] .evon-alert-success,
+[dir="rtl"] .evon-alert-warning,
+[dir="rtl"] .evon-alert-danger,
+[dir="rtl"] .evon-alert-info {
+    direction: rtl;
+    text-align: right;
+    flex-direction: row-reverse !important;
+}
+
+/* Icône alert - Marge inversée */
+[dir="rtl"] .evon-alert-icon {
+    margin-right: 0 !important;
+    margin-left: 12px !important;
+}
+
+/* Bouton fermeture */
+[dir="rtl"] .evon-alert-close {
+    margin-left: 0 !important;
+    margin-right: 12px !important;
+}
+
+/* ========================================
+   17. MODALS RTL
+   ======================================== */
+
+/* Modal panel */
+[dir="rtl"] .evon-modal-panel {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Modal header et footer */
+[dir="rtl"] .evon-modal-header,
+[dir="rtl"] .evon-modal-footer {
+    flex-direction: row-reverse !important;
+}
+
+/* Bouton fermeture modal */
+[dir="rtl"] .evon-modal-close {
+    left: 20px !important;
+    right: auto !important;
+}
+
+/* ========================================
+   18. CHARTS RTL
+   ======================================== */
+
+/* Chart card */
+[dir="rtl"] .evon-chart-card {
+    direction: rtl;
+}
+
+/* Chart header */
+[dir="rtl"] .evon-chart-header {
+    direction: rtl;
+    flex-direction: row-reverse !important;
+}
+
+/* Chart title */
+[dir="rtl"] .evon-chart-title {
+    text-align: right !important;
+}
+
+/* Canvas reste LTR pour le rendu correct */
+[dir="rtl"] canvas {
+    direction: ltr !important;
+}
+
+/* ========================================
+   19. MOBILE BOTTOM NAV RTL
+   ======================================== */
+
+/* Bottom navigation */
+[dir="rtl"] .evon-mobile-bottom-nav {
+    direction: rtl;
+}
+
+/* Bottom nav content */
+[dir="rtl"] .evon-mobile-bottom-nav-content {
+    flex-direction: row-reverse !important;
+}
+
+/* Items bottom nav */
+[dir="rtl"] .evon-mobile-bottom-nav-item {
+    direction: rtl;
+}
+
+/* ========================================
+   20. SPACING RTL UTILITIES
+   ======================================== */
+
+/* Gap utilities inversés */
+[dir="rtl"] .gap-1 > * + * { margin-left: 0; margin-right: 0.25rem; }
+[dir="rtl"] .gap-2 > * + * { margin-left: 0; margin-right: 0.5rem; }
+[dir="rtl"] .gap-3 > * + * { margin-left: 0; margin-right: 0.75rem; }
+[dir="rtl"] .gap-4 > * + * { margin-left: 0; margin-right: 1rem; }
+
+/* ========================================
+   21. ANIMATIONS RTL
+   ======================================== */
+
+/* Slide animations inversées */
+[dir="rtl"] .translate-x-full {
+    transform: translateX(-100%) !important;
+}
+
+[dir="rtl"] .-translate-x-full {
+    transform: translateX(100%) !important;
+}
+
+/* ========================================
+   22. POSITION RTL UTILITIES
+   ======================================== */
+
+/* Position utilities inversées */
+[dir="rtl"] .left-0 { left: auto !important; right: 0 !important; }
+[dir="rtl"] .left-4 { left: auto !important; right: 1rem !important; }
+[dir="rtl"] .left-auto { left: 0 !important; right: auto !important; }
+
+[dir="rtl"] .right-0 { right: auto !important; left: 0 !important; }
+[dir="rtl"] .right-4 { right: auto !important; left: 1rem !important; }
+[dir="rtl"] .right-auto { right: 0 !important; left: auto !important; }
+
+/* ========================================
+   23. BORDERS RTL
+   ======================================== */
+
+/* Border utilities inversées */
+[dir="rtl"] .border-l {
+    border-left: none !important;
+    border-right: 1px solid !important;
+}
+
+[dir="rtl"] .border-r {
+    border-right: none !important;
+    border-left: 1px solid !important;
+}
+
+/* ========================================
+   24. TEXT ALIGNMENT RTL
+   ======================================== */
+
+[dir="rtl"] .text-left { text-align: right !important; }
+[dir="rtl"] .text-right { text-align: left !important; }
+[dir="rtl"] .text-center { text-align: center !important; }
+
+/* ========================================
+   25. FLEXBOX RTL
+   ======================================== */
+
+[dir="rtl"] .flex-row {
+    flex-direction: row-reverse !important;
+}
+
+[dir="rtl"] .flex-row-reverse {
+    flex-direction: row !important;
+}
+
+[dir="rtl"] .justify-start {
+    justify-content: flex-end !important;
+}
+
+[dir="rtl"] .justify-end {
+    justify-content: flex-start !important;
+}
+
+/* ========================================
+   26. TYPOGRAPHY ARABE
+   ======================================== */
+
+/* Police arabe optimisée */
+[dir="rtl"] {
+    font-family: 'Tajawal', 'Cairo', 'Noto Sans Arabic', 'Arial', sans-serif;
+    font-feature-settings: "liga" 0;
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 1.4;
+}
+
+[dir="rtl"] p,
+[dir="rtl"] span,
+[dir="rtl"] div {
+    line-height: 1.6;
+}
+
+/* ========================================
+   27. ICONS RTL - Flip Select Icons
+   ======================================== */
+
+/* Flip certaines icônes en RTL */
+[dir="rtl"] svg[data-lucide="chevron-left"],
+[dir="rtl"] svg[data-lucide="chevron-right"],
+[dir="rtl"] svg[data-lucide="arrow-left"],
+[dir="rtl"] svg[data-lucide="arrow-right"] {
+    transform: scaleX(-1) !important;
+}
+
+/* Ne pas flipper certaines icônes */
+[dir="rtl"] .icon-no-flip,
+[dir="rtl"] [data-no-flip] {
+    transform: none !important;
+}
+
+/* ========================================
+   28. PAGINATION RTL
+   ======================================== */
+
+[dir="rtl"] .pagination {
+    flex-direction: row-reverse !important;
+}
+
+[dir="rtl"] .pagination svg {
+    transform: scaleX(-1) !important;
+}
+
+/* ========================================
+   29. MOBILE RESPONSIVE RTL
+   ======================================== */
+
+@media (max-width: 1023px) {
+    /* Mobile header RTL */
+    [dir="rtl"] .evon-header {
+        direction: rtl;
+    }
+    
+    /* Mobile content centré */
+    [dir="rtl"] .evon-content {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        text-align: right !important;
+    }
+    
+    /* Mobile sidebar depuis la droite */
+    [dir="rtl"] .evon-sidebar {
+        right: 0;
+        left: auto;
+    }
+    
+    [dir="rtl"] .evon-sidebar.-translate-x-full {
+        transform: translateX(100%) !important;
+    }
+}
+
+/* ========================================
+   30. PRINT RTL
+   ======================================== */
+
+@media print {
+    [dir="rtl"] {
+        direction: rtl;
+        text-align: right;
+    }
+    
+    [dir="rtl"] .evon-content {
+        width: 100%;
+        max-width: 100%;
+        text-align: right;
+    }
+}
+
+/* ========================================
+   31. ACCESSIBILITY RTL
+   ======================================== */
+
+/* Focus states en RTL */
+[dir="rtl"] .evon-focus-ring:focus {
+    outline-offset: 2px;
+}
+
+/* Skip link RTL */
+[dir="rtl"] .evon-skip-link:focus {
+    right: 16px !important;
+    left: auto !important;
+}
+
+/* ========================================
+   32. PERFORMANCE OPTIMIZATIONS
+   ======================================== */
+
+[dir="rtl"] * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   FIN DU FICHIER
+   ======================================== */
+

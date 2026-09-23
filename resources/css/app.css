@@ -1,0 +1,23 @@
+/* ========================================
+   EVON - Main Application Styles
+   Entry point pour tous les styles CSS
+   ======================================== */
+
+/* Import custom CSS files first (before Tailwind) */
+@import './evon-utilities.css';
+@import './evon-layout.css';
+@import './components.css';
+@import './responsive.css';
+@import './mobile-utilities.css';
+
+/* Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Alpine.js x-cloak - CRITICAL: Must be in components layer */
+@layer components {
+    [x-cloak] {
+        display: none !important;
+    }
+}

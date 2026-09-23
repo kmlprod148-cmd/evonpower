@@ -1,0 +1,583 @@
+/* Optimisations iPhone 14 Pro - Safe Areas */
+@supports (-webkit-touch-callout: none) {
+    .safe-area-top { 
+        padding-top: max(env(safe-area-inset-top), 44px); /* Notch + status bar */
+    }
+    .safe-area-bottom { 
+        padding-bottom: max(env(safe-area-inset-bottom), 34px); /* Home indicator */
+    }
+    .safe-area-left { 
+        padding-left: env(safe-area-inset-left); 
+    }
+    .safe-area-right { 
+        padding-right: env(safe-area-inset-right); 
+    }
+}
+
+/* Media Query spécifique iPhone 14 Pro */
+/* Portrait: 393px x 852px @3x */
+@media only screen 
+    and (device-width: 393px) 
+    and (device-height: 852px) 
+    and (-webkit-device-pixel-ratio: 3) {
+    
+    /* Support Dynamic Island et notch */
+    @supports (padding: max(0px)) {
+        .gradient-bg {
+            padding-top: max(0px, env(safe-area-inset-top));
+            padding-bottom: max(0px, env(safe-area-inset-bottom));
+        }
+    }
+    
+    /* Optimisations typographiques pour Retina */
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+    
+    /* Header optimisé pour notch */
+    .mobile-header {
+        padding-top: calc(env(safe-area-inset-top) + 1rem);
+        padding-bottom: 2rem;
+    }
+    
+    /* Titre optimisé */
+    .mobile-title {
+        font-size: 2.25rem;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        font-weight: 800;
+    }
+    
+    /* Animation 3D optimisée pour performance */
+    .charger-3d-container {
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        will-change: transform;
+    }
+    
+    /* Card optimisée */
+    .mobile-card {
+        margin: 0 1rem;
+        padding: 1.5rem;
+        border-radius: 28px;
+    }
+    
+    /* Boutons optimisés avec haptic feedback */
+    .mobile-button {
+        min-height: 52px;
+        padding: 16px 28px;
+        font-size: 17px;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Espacements optimisés */
+    .mobile-spacing {
+        padding: 1.5rem;
+    }
+    
+    /* Grid optimisée pour 393px */
+    .mobile-grid {
+        gap: 1rem;
+    }
+    
+    /* Animation fluide avec GPU acceleration */
+    .floating-card {
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+    }
+    
+    /* Performance: utiliser transform au lieu de top/left */
+    .charger-base {
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+    }
+    
+    /* Logo optimisé iPhone 14 Pro */
+    .app-logo-container {
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        will-change: transform;
+        animation: logoFadeIn 0.8s ease-out 0.2s both;
+    }
+    
+    @keyframes logoFadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(-10px) translateZ(0) scale(0.9);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0) translateZ(0) scale(1);
+        }
+    }
+    
+    /* Optimisation scroll pour iOS */
+    .gradient-bg {
+        -webkit-overflow-scrolling: touch;
+        overflow-y: auto;
+    }
+    
+    /* Désactiver le pull-to-refresh sur iOS */
+    body {
+        overscroll-behavior-y: contain;
+        -webkit-overscroll-behavior-y: contain;
+    }
+    
+    /* Amélioration du rendu des dégradés sur Retina */
+    .gradient-bg,
+    .success-card-enhanced {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* Landscape iPhone 14 Pro */
+@media only screen 
+    and (device-width: 852px) 
+    and (device-height: 393px) 
+    and (-webkit-device-pixel-ratio: 3)
+    and (orientation: landscape) {
+    
+    .mobile-header {
+        padding-top: calc(env(safe-area-inset-top) + 0.5rem);
+        padding-bottom: 1rem;
+    }
+    
+    .mobile-title {
+        font-size: 2rem;
+    }
+    
+    .mobile-card {
+        padding: 1.25rem;
+        margin: 0 1.5rem;
+    }
+}
+
+/* Design moderne et amélioré */
+.gradient-bg {
+    background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height pour iOS */
+    position: relative;
+    overflow-x: hidden;
+}
+
+.glass-effect {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Optimisation performance iOS */
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.floating-card {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* GPU acceleration pour iOS */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+.floating-card:hover {
+    transform: translateY(-5px) translateZ(0);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Touch feedback pour iOS */
+.floating-card:active {
+    transform: translateY(-2px) translateZ(0) scale(0.98);
+    transition: transform 0.1s ease;
+}
+
+.success-animation {
+    animation: successPulse 2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Optimisation GPU pour iOS */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    will-change: transform, opacity;
+}
+
+@keyframes successPulse {
+    0% {
+        transform: scale(0.8) translateZ(0);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05) translateZ(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) translateZ(0);
+        opacity: 1;
+    }
+}
+
+.checkmark {
+    animation: checkmarkDraw 1s ease-in-out 0.5s both;
+}
+
+@keyframes checkmarkDraw {
+    0% { stroke-dashoffset: 100; }
+    100% { stroke-dashoffset: 0; }
+}
+
+/* Améliorations mobiles - Design responsive optimisé */
+@media (max-width: 1024px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .floating-card {
+        margin: 0 0.5rem;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-optimized {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    
+    .touch-target {
+        min-height: 48px;
+        min-width: 48px;
+    }
+    
+    .mobile-card {
+        border-radius: 24px;
+        margin: 0 0.75rem;
+        padding: 1.25rem;
+    }
+    
+    .mobile-button {
+        padding: 16px 24px;
+        border-radius: 20px;
+        font-size: 16px;
+        font-weight: 600;
+        width: 100%;
+        margin-bottom: 0.75rem;
+    }
+    
+    .mobile-header {
+        padding: 1.5rem 1rem;
+        text-align: center;
+    }
+    
+    .mobile-title {
+        font-size: 2rem;
+        line-height: 1.2;
+        margin-bottom: 0.75rem;
+    }
+    
+    .mobile-subtitle {
+        font-size: 1.125rem;
+        line-height: 1.4;
+        margin-bottom: 1.5rem;
+    }
+    
+    .mobile-grid {
+        display: block;
+    }
+    
+    .mobile-grid > div {
+        margin-bottom: 1rem;
+    }
+    
+    .mobile-spacing {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-title {
+        font-size: 1.75rem;
+    }
+    
+    .mobile-subtitle {
+        font-size: 1rem;
+    }
+    
+    .mobile-card {
+        padding: 1rem;
+        margin: 0 0.5rem;
+    }
+    
+    .mobile-button {
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+    
+    .mobile-spacing {
+        padding: 0.75rem;
+    }
+}
+
+/* Animations d'entrée */
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.stagger-animation {
+    animation: fadeInUp 0.8s ease-out;
+    animation-delay: calc(var(--stagger-index) * 0.1s);
+    animation-fill-mode: both;
+}
+
+/* Success text styling - Version verte améliorée */
+.success-title-header {
+    color: #10b981 !important;
+    text-shadow: 0 2px 4px rgba(16, 185, 129, 0.4);
+    background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+}
+
+.success-message-header {
+    color: #d1fae5 !important;
+    font-weight: 500;
+    text-shadow: 0 1px 3px rgba(16, 185, 129, 0.3);
+    opacity: 0.95;
+}
+
+/* Enhanced success card styling */
+.success-card-enhanced {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border: 2px solid #bbf7d0;
+    box-shadow: 0 10px 25px rgba(5, 150, 105, 0.1);
+}
+
+.success-icon-enhanced {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    box-shadow: 0 8px 20px rgba(5, 150, 105, 0.3);
+}
+
+/* Améliorations tactiles et accessibilité mobile - iPhone 14 Pro optimisé */
+@media (max-width: 768px) {
+    .touch-target {
+        cursor: pointer;
+        -webkit-tap-highlight-color: rgba(16, 185, 129, 0.2);
+        transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        /* GPU acceleration */
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+        touch-action: manipulation;
+        -webkit-touch-callout: none;
+        user-select: none;
+        -webkit-user-select: none;
+    }
+    
+    .touch-target:active {
+        transform: scale(0.97) translateZ(0);
+    }
+    
+    .mobile-button {
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+        user-select: none;
+    }
+    
+    .mobile-button:active {
+        transform: scale(0.96) translateZ(0);
+        transition: transform 0.1s ease;
+    }
+    
+    /* Amélioration de la lisibilité sur mobile - iPhone 14 Pro Retina */
+    .mobile-optimized {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        font-feature-settings: "kern" 1;
+        font-kerning: normal;
+        /* Meilleur rendu sur écran Retina */
+        -webkit-text-size-adjust: 100%;
+    }
+    
+    /* Espacement optimisé pour les doigts - iPhone 14 Pro */
+    .mobile-spacing {
+        padding: 1.5rem;
+        /* Safe area pour contenu */
+        padding-left: max(1.5rem, env(safe-area-inset-left));
+        padding-right: max(1.5rem, env(safe-area-inset-right));
+    }
+    
+    /* Amélioration des contrastes pour mobile */
+    .success-title-header {
+        text-shadow: 0 2px 6px rgba(16, 185, 129, 0.5);
+    }
+    
+    .success-message-header {
+        text-shadow: 0 1px 4px rgba(16, 185, 129, 0.4);
+    }
+}
+
+/* Styles pour les très petits écrans */
+@media (max-width: 360px) {
+    .mobile-title {
+        font-size: 1.5rem;
+        line-height: 1.1;
+    }
+    
+    .mobile-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .mobile-card {
+        padding: 0.75rem;
+        margin: 0 0.25rem;
+    }
+    
+    .mobile-button {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+}
+
+/* Custom classes for Blade template refactoring */
+.logo-container-shadow {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+.logo-image-shadow {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.logo-container-transform {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+.header-padding-top {
+    padding-top: calc(env(safe-area-inset-top) * 0.5);
+}
+
+.header-font-size-clamp {
+    font-size: clamp(1rem, 4vw, 1.25rem);
+}
+
+.logo-image-shadow-small {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.success-title-clamp {
+    font-size: clamp(1.75rem, 5vw, 2rem);
+    line-height: 1.2;
+}
+
+.success-message-clamp {
+    font-size: clamp(1rem, 3vw, 1.125rem);
+}
+
+.reservation-details-gap {
+    gap: 1.25rem;
+}
+
+.reservation-card-radius {
+    border-radius: 20px;
+}
+
+.reservation-grid-gap {
+    gap: 1rem;
+}
+
+.min-h-32px {
+    min-height: 32px;
+}
+
+.estimated-cost-text {
+    font-size: clamp(1.75rem, 6vw, 2rem);
+    letter-spacing: -0.02em;
+}
+
+.estimated-cost-subtext {
+    font-size: clamp(0.875rem, 2.5vw, 0.9375rem);
+}
+
+.next-steps-gap {
+    gap: 0.875rem;
+}
+
+.min-w-28px {
+    min-width: 28px;
+}
+
+.min-h-28px {
+    min-height: 28px;
+}
+
+.action-buttons-gap {
+    gap: 0.875rem;
+}
+
+.button-min-height {
+    min-height: 52px;
+}
+
+.button-font-size {
+    font-size: 17px;
+}
+
+.button-letter-spacing {
+    letter-spacing: 0.01em;
+}
+
+.button-shadow-blue {
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+}
+
+.button-shadow-gray {
+    box-shadow: 0 4px 14px rgba(75, 85, 99, 0.4);
+}
+
+.home-button-min-height {
+    min-height: 44px;
+    font-size: 16px;
+}
+
+.additional-info-padding-bottom {
+    padding-bottom: max(2rem, env(safe-area-inset-bottom));
+}
+
+.additional-info-grid-gap {
+    gap: 1rem;
+}
+
+.additional-info-card-radius {
+    border-radius: 20px;
+}
+
+.additional-info-card-transition {
+    transition: transform 0.2s ease;
+}
+
+.icon-container-size {
+    width: 64px;
+    height: 64px;
+    min-width: 64px;
+    min-height: 64px;
+}

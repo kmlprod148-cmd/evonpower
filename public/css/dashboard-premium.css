@@ -1,0 +1,533 @@
+/**
+ * EVON Dashboard Premium Design
+ * Design moderne et riche avec animations et gradients
+ * Version: 2.0
+ */
+
+/* ========================================
+   Variables CSS Globales
+   ======================================== */
+:root {
+    --evon-primary: #4acf7b;
+    --evon-primary-dark: #3ab56a;
+    --evon-primary-light: #6fdc96;
+    --evon-secondary: #6366f1;
+    --evon-secondary-dark: #4f46e5;
+    --evon-accent: #f59e0b;
+    --evon-danger: #ef4444;
+    --evon-success: #10b981;
+    --evon-warning: #f59e0b;
+    --evon-info: #3b82f6;
+    
+    --evon-gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --evon-gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --evon-gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --evon-gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    --evon-gradient-5: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    
+    --evon-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --evon-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --evon-shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --evon-shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --evon-shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    
+    --evon-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --evon-transition-base: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    --evon-transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========================================
+   Container Principal Dashboard
+   ======================================== */
+.evon-dashboard-container {
+    padding: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .evon-dashboard-container {
+        padding: 1rem;
+    }
+}
+
+/* ========================================
+   Grille de Cartes Statistiques
+   ======================================== */
+.evon-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 640px) {
+    .evon-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+/* ========================================
+   Carte Statistique Premium
+   ======================================== */
+.evon-stat-card {
+    position: relative;
+    background: white;
+    border-radius: 1.25rem;
+    padding: 1.75rem;
+    box-shadow: var(--evon-shadow-md);
+    overflow: hidden;
+    transition: all var(--evon-transition-base);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.evon-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--evon-gradient-1);
+    transition: height var(--evon-transition-base);
+}
+
+.evon-stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--evon-shadow-xl);
+}
+
+.evon-stat-card:hover::before {
+    height: 100%;
+    opacity: 0.03;
+}
+
+/* Variants de couleur */
+.evon-stat-card.variant-primary::before {
+    background: var(--evon-gradient-1);
+}
+
+.evon-stat-card.variant-success::before {
+    background: var(--evon-gradient-4);
+}
+
+.evon-stat-card.variant-warning::before {
+    background: var(--evon-gradient-5);
+}
+
+.evon-stat-card.variant-info::before {
+    background: var(--evon-gradient-3);
+}
+
+.evon-stat-card.variant-danger::before {
+    background: var(--evon-gradient-2);
+}
+
+/* Header de la carte */
+.evon-stat-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.evon-stat-card-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--evon-gradient-1);
+    box-shadow: var(--evon-shadow-md);
+    transition: all var(--evon-transition-base);
+}
+
+.evon-stat-card:hover .evon-stat-card-icon {
+    transform: rotate(5deg) scale(1.1);
+    box-shadow: var(--evon-shadow-lg);
+}
+
+.evon-stat-card-icon svg {
+    width: 1.75rem;
+    height: 1.75rem;
+    color: white;
+}
+
+/* Badge de tendance */
+.evon-stat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.375rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: all var(--evon-transition-fast);
+}
+
+.evon-stat-badge.positive {
+    background: rgba(16, 185, 129, 0.1);
+    color: #059669;
+}
+
+.evon-stat-badge.negative {
+    background: rgba(239, 68, 68, 0.1);
+    color: #dc2626;
+}
+
+.evon-stat-badge svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* Contenu de la carte */
+.evon-stat-card-body {
+    position: relative;
+    z-index: 1;
+}
+
+.evon-stat-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.evon-stat-value {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(135deg, #111827 0%, #4b5563 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.evon-stat-description {
+    font-size: 0.875rem;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.evon-stat-description svg {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+}
+
+/* ========================================
+   Graphiques et Charts
+   ======================================== */
+.evon-chart-card {
+    background: white;
+    border-radius: 1.25rem;
+    padding: 2rem;
+    box-shadow: var(--evon-shadow-md);
+    margin-bottom: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.evon-chart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.evon-chart-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.evon-chart-subtitle {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+}
+
+.evon-chart-filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.evon-chart-filter-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid #e5e7eb;
+    background: white;
+    color: #6b7280;
+    cursor: pointer;
+    transition: all var(--evon-transition-fast);
+}
+
+.evon-chart-filter-btn:hover {
+    background: #f9fafb;
+    border-color: #d1d5db;
+}
+
+.evon-chart-filter-btn.active {
+    background: var(--evon-primary);
+    color: white;
+    border-color: var(--evon-primary);
+}
+
+/* ========================================
+   Tableau de Données
+   ======================================== */
+.evon-data-table-wrapper {
+    background: white;
+    border-radius: 1.25rem;
+    box-shadow: var(--evon-shadow-md);
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.evon-data-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.evon-data-table thead {
+    background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+}
+
+.evon-data-table th {
+    padding: 1rem 1.5rem;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.evon-data-table tbody tr {
+    transition: background-color var(--evon-transition-fast);
+}
+
+.evon-data-table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.evon-data-table td {
+    padding: 1rem 1.5rem;
+    font-size: 0.875rem;
+    color: #374151;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.evon-data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ========================================
+   Mode Sombre
+   ======================================== */
+@media (prefers-color-scheme: dark) {
+    .evon-stat-card {
+        background: #1f2937;
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .evon-stat-label {
+        color: #9ca3af;
+    }
+    
+    .evon-stat-value {
+        color: #f9fafb;
+        background: linear-gradient(135deg, #f9fafb 0%, #d1d5db 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .evon-stat-description {
+        color: #9ca3af;
+    }
+    
+    .evon-chart-card,
+    .evon-data-table-wrapper {
+        background: #1f2937;
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .evon-chart-title {
+        color: #f9fafb;
+    }
+    
+    .evon-chart-subtitle {
+        color: #9ca3af;
+    }
+    
+    .evon-chart-filter-btn {
+        background: #374151;
+        border-color: #4b5563;
+        color: #d1d5db;
+    }
+    
+    .evon-chart-filter-btn:hover {
+        background: #4b5563;
+    }
+    
+    .evon-data-table thead {
+        background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
+    }
+    
+    .evon-data-table th {
+        color: #d1d5db;
+        border-bottom-color: #4b5563;
+    }
+    
+    .evon-data-table td {
+        color: #e5e7eb;
+        border-bottom-color: #374151;
+    }
+    
+    .evon-data-table tbody tr:hover {
+        background-color: #374151;
+    }
+}
+
+/* ========================================
+   Animations
+   ======================================== */
+@keyframes evon-fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes evon-scale-in {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes evon-shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.evon-animate-fade-in-up {
+    animation: evon-fade-in-up 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.evon-animate-scale-in {
+    animation: evon-scale-in 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Délais d'animation pour effet en cascade */
+.evon-stat-card:nth-child(1) { animation-delay: 0ms; }
+.evon-stat-card:nth-child(2) { animation-delay: 100ms; }
+.evon-stat-card:nth-child(3) { animation-delay: 200ms; }
+.evon-stat-card:nth-child(4) { animation-delay: 300ms; }
+.evon-stat-card:nth-child(5) { animation-delay: 400ms; }
+.evon-stat-card:nth-child(6) { animation-delay: 500ms; }
+
+/* ========================================
+   Responsivité Mobile
+   ======================================== */
+@media (max-width: 768px) {
+    .evon-stat-card {
+        padding: 1.25rem;
+    }
+    
+    .evon-stat-card-icon {
+        width: 3rem;
+        height: 3rem;
+    }
+    
+    .evon-stat-card-icon svg {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    
+    .evon-stat-value {
+        font-size: 1.75rem;
+    }
+    
+    .evon-chart-card {
+        padding: 1.25rem;
+    }
+    
+    .evon-chart-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .evon-data-table th,
+    .evon-data-table td {
+        padding: 0.75rem 1rem;
+        font-size: 0.813rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .evon-dashboard-container {
+        padding: 0.75rem;
+    }
+    
+    .evon-stat-card {
+        padding: 1rem;
+        border-radius: 1rem;
+    }
+    
+    .evon-stat-value {
+        font-size: 1.5rem;
+    }
+}
+
+/* ========================================
+   Utilitaires
+   ======================================== */
+.evon-gradient-text {
+    background: var(--evon-gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.evon-glass-effect {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.evon-hover-glow {
+    transition: all var(--evon-transition-base);
+}
+
+.evon-hover-glow:hover {
+    box-shadow: 0 0 20px rgba(74, 207, 123, 0.4);
+}
+

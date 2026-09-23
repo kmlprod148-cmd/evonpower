@@ -1,0 +1,13 @@
+{
+    "original_file": "hitem3d.glb",
+    "optimized_file": "evon-charger-optimized.glb",
+    "original_size": 59885200,
+    "optimized_size": 59885200,
+    "compression_ratio": 0,
+    "optimization_date": "2025-08-31 02:13:47",
+    "optimization_notes": [
+        "Copie directe du mod\u00e8le original",
+        "Pr\u00eat pour l'int\u00e9gration web",
+        "Compatible avec Three.js GLTFLoader"
+    ]
+}

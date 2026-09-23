@@ -1,0 +1,781 @@
+[22-Mar-2025 02:42:07 UTC] PHP Fatal error:  Uncaught Error: Interface "Illuminate\Contracts\Routing\Registrar" not found in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Routing/Router.php:38
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/composer/ClassLoader.php(576): include()
+#1 /home/evonpower/devcharge.evonpower.com/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/home/evonpower...')
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Routing/RoutingServiceProvider.php(44): Composer\Autoload\ClassLoader->loadClass('Illuminate\\Rout...')
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(1010): Illuminate\Routing\RoutingServiceProvider->Illuminate\Routing\{closure}(Object(Illuminate\Foundation\Application), Array)
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(890): Illuminate\Container\Container->build(Object(Closure))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1078): Illuminate\Container\Container->resolve('router', Array, true)
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(821): Illuminate\Foundation\Application->resolve('router', Array)
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1058): Illuminate\Container\Container->make('router', Array)
+#8 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(1194): Illuminate\Foundation\Application->make('router')
+#9 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(1101): Illuminate\Container\Container->resolveClass(Object(ReflectionParameter))
+#10 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(1052): Illuminate\Container\Container->resolveDependencies(Array)
+#11 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(890): Illuminate\Container\Container->build('Illuminate\\Foun...')
+#12 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1078): Illuminate\Container\Container->resolve('Illuminate\\Foun...', Array, false)
+#13 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(334): Illuminate\Foundation\Application->resolve('Illuminate\\Foun...', Array, false)
+#14 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(1010): Illuminate\Container\Container->Illuminate\Container\{closure}(Object(Illuminate\Foundation\Application), Array)
+#15 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(890): Illuminate\Container\Container->build(Object(Closure))
+#16 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1078): Illuminate\Container\Container->resolve('Illuminate\\Cont...', Array, true)
+#17 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php(821): Illuminate\Foundation\Application->resolve('Illuminate\\Cont...', Array)
+#18 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1058): Illuminate\Container\Container->make('Illuminate\\Cont...', Array)
+#19 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1218): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#20 /home/evonpower/devcharge.evonpower.com/public/index.php(20): Illuminate\Foundation\Application->handleRequest(Object(Illuminate\Http\Request))
+#21 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Routing/Router.php on line 38
+[18-Apr-2025 12:24:57 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 262144 bytes) in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Application.php on line 1076
+[18-Apr-2025 19:59:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 19:59:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:01:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:01:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:03:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:03:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:05:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:05:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:07:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:07:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:09:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:09:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:11:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:11:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:13:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:13:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:15:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:15:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:17:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:17:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:19:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:19:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:21:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:21:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:23:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:23:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:25:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:25:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:27:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:27:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:29:13 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:29:13 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:31:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:31:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:33:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:33:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:35:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:35:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:37:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:37:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:39:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:39:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:41:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:41:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:43:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:43:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:45:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:45:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:47:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:47:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:49:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:49:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:51:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:51:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:53:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:53:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:55:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:55:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:57:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:57:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 20:59:13 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 20:59:13 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:01:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:01:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:03:13 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:03:13 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:05:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:05:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:06:31 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:06:31 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:06:32 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:06:32 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:06:46 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:06:46 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:07:04 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:07:04 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:07:05 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:07:05 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:07:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:07:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:07:12 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:07:12 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:07:29 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:07:29 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:24:30 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:24:30 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:33:53 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:33:53 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:33:56 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:33:56 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:33:58 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:33:58 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:34:03 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:34:03 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:35:38 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:35:38 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(ParseError))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(ParseError))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(ParseError))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:35:41 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:35:41 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(ParseError))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(ParseError))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(ParseError))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:38:11 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:38:11 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:38:13 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:38:13 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:38:15 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:38:15 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[18-Apr-2025 21:38:19 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Log/LogManager.php on line 637
+[18-Apr-2025 21:38:19 UTC] PHP Fatal error:  Uncaught RuntimeException: A facade root has not been set. in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php:358
+Stack trace:
+#0 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/RegisterErrorViewPaths.php(17): Illuminate\Support\Facades\Facade::__callStatic('replaceNamespac...', Array)
+#1 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(915): Illuminate\Foundation\Exceptions\RegisterErrorViewPaths->__invoke()
+#2 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(890): Illuminate\Foundation\Exceptions\Handler->registerErrorViewPaths()
+#3 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(815): Illuminate\Foundation\Exceptions\Handler->renderHttpException(Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#4 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(706): Illuminate\Foundation\Exceptions\Handler->prepareResponse(Object(Illuminate\Http\Request), Object(Symfony\Component\HttpKernel\Exception\HttpException))
+#5 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Exceptions/Handler.php(594): Illuminate\Foundation\Exceptions\Handler->renderExceptionResponse(Object(Illuminate\Http\Request), Object(Error))
+#6 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(575): Illuminate\Foundation\Exceptions\Handler->render(Object(Illuminate\Http\Request), Object(Error))
+#7 /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(149): Illuminate\Foundation\Http\Kernel->renderException(Object(Illuminate\Http\Request), Object(Error))
+#8 /home/evonpower/devcharge.evonpower.com/public/index.php(51): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#9 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php on line 358
+[19-Apr-2025 02:21:42 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 262144 bytes) in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 1010
+[19-Apr-2025 02:24:25 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 262144 bytes) in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 1010
+[19-Apr-2025 02:35:19 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 262144 bytes) in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 1010
+[19-Apr-2025 02:36:37 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 262144 bytes) in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 1010
+[19-Apr-2025 02:42:24 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 262144 bytes) in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 1010
+[19-Apr-2025 02:42:35 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 262144 bytes) in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 1010
+[19-Apr-2025 02:44:53 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 262144 bytes) in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 1010
+[19-Apr-2025 02:44:55 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 262144 bytes) in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 1010
+[19-Apr-2025 02:45:28 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 262144 bytes) in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 1010
+[19-Apr-2025 03:02:41 UTC] PHP Fatal error:  Cannot use Illuminate\Support\Facades\Log as Log because the name is already in use in /home/evonpower/devcharge.evonpower.com/app/Http/Controllers/ChargingPointOfferController.php on line 12
+[19-Apr-2025 03:06:23 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 262144 bytes) in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 1010
+[19-Apr-2025 03:06:28 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 262144 bytes) in /home/evonpower/devcharge.evonpower.com/vendor/laravel/framework/src/Illuminate/Container/Container.php on line 1010
+[19-Apr-2025 03:14:43 UTC] PHP Fatal error:  Namespace declaration statement has to be the very first statement or after any declare call in the script in /home/evonpower/devcharge.evonpower.com/app/Repositories/ChargingPointRepository.php on line 4

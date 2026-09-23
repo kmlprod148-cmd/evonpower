@@ -1,0 +1,24 @@
+{
+  "resources/css/app.css": {
+    "file": "assets/app-C7BHp30t.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/evon-layout.css": {
+    "file": "assets/evon-layout-CRsIlwAn.css",
+    "src": "resources/css/evon-layout.css",
+    "isEntry": true
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-l6J7_ZR2.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/business-profile-create.js": {
+    "file": "assets/business-profile-create-BdWWb-aA.js",
+    "name": "business-profile-create",
+    "src": "resources/js/business-profile-create.js",
+    "isEntry": true
+  }
+}

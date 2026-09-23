@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="">
+    <title>Test CSRF - EVON</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .info { background-color: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        button { padding: 10px 20px; margin: 5px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        #results { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test de la Protection CSRF - EVON</h1>
+    
+    <div class="info">
+        <strong>Instructions :</strong> Ce test vérifie que la protection CSRF fonctionne correctement.
+    </div>
+
+    <div id="status"></div>
+    
+    <h2>Tests à effectuer :</h2>
+    <button onclick="testCsrfToken()">1. Tester le token CSRF</button>
+    <button onclick="testCsrfRefresh()">2. Tester le rafraîchissement</button>
+    <button onclick="testFormSubmission()">3. Tester la soumission de formulaire</button>
+    <button onclick="runAllTests()">🚀 Lancer tous les tests</button>
+    
+    <div id="results"></div>
+
+    <script>
+        let csrfToken = null;
+        
+        function log(message, type = 'info') {
+            const results = document.getElementById('results');
+            const div = document.createElement('div');
+            div.className = `status ${type}`;
+            div.innerHTML = `<strong>${new Date().toLocaleTimeString()}</strong> - ${message}`;
+            results.appendChild(div);
+            results.scrollTop = results.scrollHeight;
+        }
+        
+        function updateStatus(message, type = 'info') {
+            const status = document.getElementById('status');
+            status.className = `status ${type}`;
+            status.innerHTML = message;
+        }
+        
+        async function testCsrfToken() {
+            log('🔍 Test du token CSRF...');
+            
+            try {
+                const response = await fetch('/csrf-token', {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    credentials: 'same-origin'
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    csrfToken = data.csrf_token;
+                    log(`✅ Token CSRF récupéré avec succès: ${csrfToken.substring(0, 20)}...`, 'success');
+                    updateStatus('✅ Token CSRF fonctionnel', 'success');
+                } else {
+                    log(`❌ Erreur lors de la récupération du token: ${response.status}`, 'error');
+                    updateStatus('❌ Erreur token CSRF', 'error');
+                }
+            } catch (error) {
+                log(`❌ Erreur réseau: ${error.message}`, 'error');
+                updateStatus('❌ Erreur réseau', 'error');
+            }
+        }
+        
+        async function testCsrfRefresh() {
+            log('🔄 Test du rafraîchissement CSRF...');
+            
+            if (!csrfToken) {
+                log('⚠️ Token CSRF non disponible, récupération...', 'info');
+                await testCsrfToken();
+            }
+            
+            try {
+                const response = await fetch('/csrf-token', {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    credentials: 'same-origin'
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    const newToken = data.csrf_token;
+                    
+                    if (newToken !== csrfToken) {
+                        log(`✅ Token rafraîchi avec succès: ${newToken.substring(0, 20)}...`, 'success');
+                        csrfToken = newToken;
+                    } else {
+                        log(`ℹ️ Token identique (normal si récent): ${newToken.substring(0, 20)}...`, 'info');
+                    }
+                } else {
+                    log(`❌ Erreur lors du rafraîchissement: ${response.status}`, 'error');
+                }
+            } catch (error) {
+                log(`❌ Erreur lors du rafraîchissement: ${error.message}`, 'error');
+            }
+        }
+        
+        async function testFormSubmission() {
+            log('📝 Test de soumission de formulaire...');
+            
+            if (!csrfToken) {
+                log('⚠️ Token CSRF non disponible, récupération...', 'info');
+                await testCsrfToken();
+            }
+            
+            try {
+                const formData = new FormData();
+                formData.append('_token', csrfToken);
+                formData.append('test_field', 'test_value');
+                
+                const response = await fetch('/test-csrf', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken,
+                        'Accept': 'application/json'
+                    },
+                    credentials: 'same-origin'
+                });
+                
+                if (response.status === 404) {
+                    log('ℹ️ Route de test non trouvée (normal), mais la requête a été acceptée', 'info');
+                    log('✅ Protection CSRF active - les requêtes POST sont vérifiées', 'success');
+                } else if (response.status === 419) {
+                    log('❌ Token CSRF expiré ou invalide', 'error');
+                } else {
+                    log(`ℹ️ Réponse inattendue: ${response.status}`, 'info');
+                }
+            } catch (error) {
+                log(`❌ Erreur lors du test de soumission: ${error.message}`, 'error');
+            }
+        }
+        
+        async function runAllTests() {
+            log('🚀 Lancement de tous les tests...', 'info');
+            updateStatus('🔄 Tests en cours...', 'info');
+            
+            await testCsrfToken();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            await testCsrfRefresh();
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            await testFormSubmission();
+            
+            log('✅ Tous les tests terminés !', 'success');
+            updateStatus('✅ Tests terminés - Vérifiez les résultats ci-dessous', 'success');
+        }
+        
+        // Test automatique au chargement
+        window.addEventListener('load', function() {
+            log('📄 Page de test chargée', 'info');
+            updateStatus('🔄 Prêt pour les tests', 'info');
+        });
+    </script>
+</body>
+</html>

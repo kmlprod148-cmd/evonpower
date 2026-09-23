@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Modèle 3D Optimisé</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <style>
+        body { margin: 0; background: #000; }
+        #container { width: 100vw; height: 100vh; }
+        .loading { 
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            color: white; 
+            font-family: Arial, sans-serif; 
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="loading" id="loading">Chargement du modèle 3D...</div>
+    </div>
+    
+    <script>
+        // Test simple du modèle optimisé
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById("container").appendChild(renderer.domElement);
+        
+        // Éclairage
+        const light = new THREE.AmbientLight(0xffffff, 0.6);
+        scene.add(light);
+        
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        directionalLight.position.set(10, 10, 5);
+        scene.add(directionalLight);
+        
+        camera.position.z = 5;
+        
+        // Charger le modèle optimisé
+        const loader = new THREE.GLTFLoader();
+        loader.load(
+            "evon-charger-optimized.glb",
+            function (gltf) {
+                const model = gltf.scene;
+                scene.add(model);
+                
+                // Centrer et redimensionner le modèle
+                const box = new THREE.Box3().setFromObject(model);
+                const center = box.getCenter(new THREE.Vector3());
+                const size = box.getSize(new THREE.Vector3());
+                
+                const maxDim = Math.max(size.x, size.y, size.z);
+                const scale = 3 / maxDim;
+                
+                model.scale.setScalar(scale);
+                model.position.sub(center.multiplyScalar(scale));
+                
+                // Masquer le chargement
+                document.getElementById("loading").style.display = "none";
+                
+                console.log("✅ Modèle 3D chargé avec succès!");
+            },
+            function (progress) {
+                const percent = Math.round((progress.loaded / progress.total) * 100);
+                document.getElementById("loading").textContent = `Chargement: ${percent}%`;
+            },
+            function (error) {
+                console.error("❌ Erreur de chargement:", error);
+                document.getElementById("loading").textContent = "Erreur de chargement du modèle";
+            }
+        );
+        
+        // Animation
+        function animate() {
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+        animate();
+        
+        // Gestion du redimensionnement
+        window.addEventListener("resize", () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>

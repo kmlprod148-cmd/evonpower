@@ -1,0 +1,455 @@
+/* ============================================
+   Support RTL Complet pour l'Arabe - EVON
+   ============================================ */
+
+/* Direction RTL générale */
+[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+/* ============================================
+   INVERSION DES MARGES (Margin)
+   ============================================ */
+[dir="rtl"] .ml-1 { margin-left: 0 !important; margin-right: 0.25rem !important; }
+[dir="rtl"] .ml-2 { margin-left: 0 !important; margin-right: 0.5rem !important; }
+[dir="rtl"] .ml-3 { margin-left: 0 !important; margin-right: 0.75rem !important; }
+[dir="rtl"] .ml-4 { margin-left: 0 !important; margin-right: 1rem !important; }
+[dir="rtl"] .ml-5 { margin-left: 0 !important; margin-right: 1.25rem !important; }
+[dir="rtl"] .ml-6 { margin-left: 0 !important; margin-right: 1.5rem !important; }
+[dir="rtl"] .ml-8 { margin-left: 0 !important; margin-right: 2rem !important; }
+[dir="rtl"] .ml-10 { margin-left: 0 !important; margin-right: 2.5rem !important; }
+[dir="rtl"] .ml-12 { margin-left: 0 !important; margin-right: 3rem !important; }
+
+[dir="rtl"] .mr-1 { margin-right: 0 !important; margin-left: 0.25rem !important; }
+[dir="rtl"] .mr-2 { margin-right: 0 !important; margin-left: 0.5rem !important; }
+[dir="rtl"] .mr-3 { margin-right: 0 !important; margin-left: 0.75rem !important; }
+[dir="rtl"] .mr-4 { margin-right: 0 !important; margin-left: 1rem !important; }
+[dir="rtl"] .mr-5 { margin-right: 0 !important; margin-left: 1.25rem !important; }
+[dir="rtl"] .mr-6 { margin-right: 0 !important; margin-left: 1.5rem !important; }
+[dir="rtl"] .mr-8 { margin-right: 0 !important; margin-left: 2rem !important; }
+[dir="rtl"] .mr-10 { margin-right: 0 !important; margin-left: 2.5rem !important; }
+[dir="rtl"] .mr-12 { margin-right: 0 !important; margin-left: 3rem !important; }
+
+[dir="rtl"] .ml-auto { margin-left: 0 !important; margin-right: auto !important; }
+[dir="rtl"] .mr-auto { margin-right: 0 !important; margin-left: auto !important; }
+
+/* ============================================
+   INVERSION DES PADDINGS
+   ============================================ */
+[dir="rtl"] .pl-1 { padding-left: 0 !important; padding-right: 0.25rem !important; }
+[dir="rtl"] .pl-2 { padding-left: 0 !important; padding-right: 0.5rem !important; }
+[dir="rtl"] .pl-3 { padding-left: 0 !important; padding-right: 0.75rem !important; }
+[dir="rtl"] .pl-4 { padding-left: 0 !important; padding-right: 1rem !important; }
+[dir="rtl"] .pl-5 { padding-left: 0 !important; padding-right: 1.25rem !important; }
+[dir="rtl"] .pl-6 { padding-left: 0 !important; padding-right: 1.5rem !important; }
+[dir="rtl"] .pl-8 { padding-left: 0 !important; padding-right: 2rem !important; }
+[dir="rtl"] .pl-10 { padding-left: 0 !important; padding-right: 2.5rem !important; }
+[dir="rtl"] .pl-12 { padding-left: 0 !important; padding-right: 3rem !important; }
+
+[dir="rtl"] .pr-1 { padding-right: 0 !important; padding-left: 0.25rem !important; }
+[dir="rtl"] .pr-2 { padding-right: 0 !important; padding-left: 0.5rem !important; }
+[dir="rtl"] .pr-3 { padding-right: 0 !important; padding-left: 0.75rem !important; }
+[dir="rtl"] .pr-4 { padding-right: 0 !important; padding-left: 1rem !important; }
+[dir="rtl"] .pr-5 { padding-right: 0 !important; padding-left: 1.25rem !important; }
+[dir="rtl"] .pr-6 { padding-right: 0 !important; padding-left: 1.5rem !important; }
+[dir="rtl"] .pr-8 { padding-right: 0 !important; padding-left: 2rem !important; }
+[dir="rtl"] .pr-10 { padding-right: 0 !important; padding-left: 2.5rem !important; }
+[dir="rtl"] .pr-12 { padding-right: 0 !important; padding-left: 3rem !important; }
+
+/* ============================================
+   INVERSION DES POSITIONS
+   ============================================ */
+[dir="rtl"] .left-0 { left: auto !important; right: 0 !important; }
+[dir="rtl"] .left-2 { left: auto !important; right: 0.5rem !important; }
+[dir="rtl"] .left-4 { left: auto !important; right: 1rem !important; }
+[dir="rtl"] .left-auto { left: 0 !important; right: auto !important; }
+
+[dir="rtl"] .right-0 { right: auto !important; left: 0 !important; }
+[dir="rtl"] .right-2 { right: auto !important; left: 0.5rem !important; }
+[dir="rtl"] .right-4 { right: auto !important; left: 1rem !important; }
+[dir="rtl"] .right-auto { right: 0 !important; left: auto !important; }
+
+/* ============================================
+   INVERSION DES BORDURES
+   ============================================ */
+[dir="rtl"] .border-l { border-left: none !important; border-right: 1px solid !important; }
+[dir="rtl"] .border-l-2 { border-left: none !important; border-right: 2px solid !important; }
+[dir="rtl"] .border-l-4 { border-left: none !important; border-right: 4px solid !important; }
+
+[dir="rtl"] .border-r { border-right: none !important; border-left: 1px solid !important; }
+[dir="rtl"] .border-r-2 { border-right: none !important; border-left: 2px solid !important; }
+[dir="rtl"] .border-r-4 { border-right: none !important; border-left: 4px solid !important; }
+
+/* ============================================
+   INVERSION DES BORDER-RADIUS
+   ============================================ */
+[dir="rtl"] .rounded-l { 
+    border-top-left-radius: 0 !important; 
+    border-bottom-left-radius: 0 !important; 
+    border-top-right-radius: 0.25rem !important; 
+    border-bottom-right-radius: 0.25rem !important; 
+}
+[dir="rtl"] .rounded-l-md { 
+    border-top-left-radius: 0 !important; 
+    border-bottom-left-radius: 0 !important; 
+    border-top-right-radius: 0.375rem !important; 
+    border-bottom-right-radius: 0.375rem !important; 
+}
+[dir="rtl"] .rounded-l-lg { 
+    border-top-left-radius: 0 !important; 
+    border-bottom-left-radius: 0 !important; 
+    border-top-right-radius: 0.5rem !important; 
+    border-bottom-right-radius: 0.5rem !important; 
+}
+
+[dir="rtl"] .rounded-r { 
+    border-top-right-radius: 0 !important; 
+    border-bottom-right-radius: 0 !important; 
+    border-top-left-radius: 0.25rem !important; 
+    border-bottom-left-radius: 0.25rem !important; 
+}
+[dir="rtl"] .rounded-r-md { 
+    border-top-right-radius: 0 !important; 
+    border-bottom-right-radius: 0 !important; 
+    border-top-left-radius: 0.375rem !important; 
+    border-bottom-left-radius: 0.375rem !important; 
+}
+[dir="rtl"] .rounded-r-lg { 
+    border-top-right-radius: 0 !important; 
+    border-bottom-right-radius: 0 !important; 
+    border-top-left-radius: 0.5rem !important; 
+    border-bottom-left-radius: 0.5rem !important; 
+}
+
+/* ============================================
+   INVERSION DES FLEXBOX
+   ============================================ */
+[dir="rtl"] .flex-row { flex-direction: row-reverse !important; }
+[dir="rtl"] .flex-row-reverse { flex-direction: row !important; }
+
+[dir="rtl"] .justify-start { justify-content: flex-end !important; }
+[dir="rtl"] .justify-end { justify-content: flex-start !important; }
+
+[dir="rtl"] .items-start { align-items: flex-end !important; }
+[dir="rtl"] .items-end { align-items: flex-start !important; }
+
+/* ============================================
+   INVERSION DES SPACES (Gap)
+   ============================================ */
+[dir="rtl"] .space-x-1 > * + * { margin-left: 0 !important; margin-right: 0.25rem !important; }
+[dir="rtl"] .space-x-2 > * + * { margin-left: 0 !important; margin-right: 0.5rem !important; }
+[dir="rtl"] .space-x-3 > * + * { margin-left: 0 !important; margin-right: 0.75rem !important; }
+[dir="rtl"] .space-x-4 > * + * { margin-left: 0 !important; margin-right: 1rem !important; }
+[dir="rtl"] .space-x-6 > * + * { margin-left: 0 !important; margin-right: 1.5rem !important; }
+[dir="rtl"] .space-x-8 > * + * { margin-left: 0 !important; margin-right: 2rem !important; }
+
+/* ============================================
+   INVERSION DU TEXT-ALIGN
+   ============================================ */
+[dir="rtl"] .text-left { text-align: right !important; }
+[dir="rtl"] .text-right { text-align: left !important; }
+
+/* ============================================
+   INVERSION DES FLOATS
+   ============================================ */
+[dir="rtl"] .float-left { float: right !important; }
+[dir="rtl"] .float-right { float: left !important; }
+
+/* ============================================
+   SIDEBAR RTL
+   ============================================ */
+[dir="rtl"] .sidebar,
+[dir="rtl"] aside {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Sidebar position - RTL */
+[dir="rtl"] aside.fixed {
+    left: auto !important;
+    right: 0 !important;
+}
+
+[dir="rtl"] aside.-translate-x-full {
+    transform: translateX(100%) !important;
+}
+
+[dir="rtl"] aside.translate-x-0 {
+    transform: translateX(0) !important;
+}
+
+/* Sidebar navigation items */
+[dir="rtl"] .sidebar nav a,
+[dir="rtl"] aside nav a {
+    text-align: right;
+    padding-right: 0.75rem;
+    padding-left: 0;
+}
+
+[dir="rtl"] .sidebar nav a svg,
+[dir="rtl"] aside nav a svg {
+    margin-right: 0;
+    margin-left: 0.75rem;
+}
+
+/* ============================================
+   FORMULAIRES RTL
+   ============================================ */
+[dir="rtl"] input,
+[dir="rtl"] textarea,
+[dir="rtl"] select {
+    text-align: right;
+    direction: rtl;
+}
+
+[dir="rtl"] .form-group,
+[dir="rtl"] .form-label {
+    text-align: right;
+}
+
+[dir="rtl"] .form-check,
+[dir="rtl"] .form-check-input {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+/* ============================================
+   TABLES RTL
+   ============================================ */
+[dir="rtl"] table {
+    direction: rtl;
+}
+
+[dir="rtl"] table th,
+[dir="rtl"] table td {
+    text-align: right;
+}
+
+[dir="rtl"] table th:first-child,
+[dir="rtl"] table td:first-child {
+    padding-right: 1rem;
+    padding-left: 0.75rem;
+}
+
+[dir="rtl"] table th:last-child,
+[dir="rtl"] table td:last-child {
+    padding-left: 1rem;
+    padding-right: 0.75rem;
+}
+
+/* ============================================
+   MODALES RTL
+   ============================================ */
+[dir="rtl"] .modal-header,
+[dir="rtl"] .modal-footer {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .modal-close {
+    left: 1rem;
+    right: auto;
+}
+
+/* ============================================
+   DROPDOWN MENUS RTL
+   ============================================ */
+[dir="rtl"] .dropdown-menu {
+    text-align: right;
+    left: auto !important;
+    right: 0 !important;
+}
+
+[dir="rtl"] .dropdown-menu-right {
+    left: 0 !important;
+    right: auto !important;
+}
+
+/* ============================================
+   BREADCRUMBS RTL
+   ============================================ */
+[dir="rtl"] .breadcrumb {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .breadcrumb-item + .breadcrumb-item::before {
+    content: "\\" !important;
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+/* ============================================
+   PAGINATION RTL
+   ============================================ */
+[dir="rtl"] .pagination {
+    flex-direction: row-reverse;
+    direction: rtl;
+}
+
+/* ============================================
+   ALERTES RTL
+   ============================================ */
+[dir="rtl"] .alert {
+    text-align: right;
+    padding-right: 1rem;
+    padding-left: 3rem;
+}
+
+[dir="rtl"] .alert .close {
+    left: 1rem;
+    right: auto;
+}
+
+/* ============================================
+   BADGES RTL
+   ============================================ */
+[dir="rtl"] .badge {
+    text-align: right;
+}
+
+/* ============================================
+   NAVIGATION TABS RTL
+   ============================================ */
+[dir="rtl"] .nav-tabs {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .tab-content {
+    text-align: right;
+}
+
+/* ============================================
+   CARDS RTL
+   ============================================ */
+[dir="rtl"] .card-header {
+    text-align: right;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+[dir="rtl"] .card-body {
+    text-align: right;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+/* ============================================
+   BUTTON GROUPS RTL
+   ============================================ */
+[dir="rtl"] .btn-group {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .btn-group .btn:first-child {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-right-radius: 0.375rem !important;
+    border-bottom-right-radius: 0.375rem !important;
+}
+
+[dir="rtl"] .btn-group .btn:last-child {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-top-left-radius: 0.375rem !important;
+    border-bottom-left-radius: 0.375rem !important;
+}
+
+/* ============================================
+   TOOLTIPS & POPOVERS RTL
+   ============================================ */
+[dir="rtl"] .tooltip {
+    text-align: right;
+}
+
+[dir="rtl"] .popover {
+    text-align: right;
+    direction: rtl;
+}
+
+/* ============================================
+   ACCORDIONS RTL
+   ============================================ */
+[dir="rtl"] .accordion-header {
+    text-align: right;
+    padding-right: 1rem;
+    padding-left: 0;
+}
+
+[dir="rtl"] .accordion-body {
+    text-align: right;
+    padding-right: 1rem;
+    padding-left: 0;
+}
+
+/* ============================================
+   PROGRESS BARS RTL
+   ============================================ */
+[dir="rtl"] .progress {
+    direction: rtl;
+}
+
+/* ============================================
+   TOASTS RTL
+   ============================================ */
+[dir="rtl"] .toast {
+    text-align: right;
+    direction: rtl;
+}
+
+[dir="rtl"] .toast-header {
+    flex-direction: row-reverse;
+}
+
+/* ============================================
+   OFFCANVAS RTL
+   ============================================ */
+[dir="rtl"] .offcanvas {
+    direction: rtl;
+    left: auto;
+    right: 0;
+}
+
+[dir="rtl"] .offcanvas-header {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .offcanvas-body {
+    text-align: right;
+}
+
+/* ============================================
+   ICONS RTL (Font Awesome)
+   ============================================ */
+[dir="rtl"] .fa-arrow-left::before { content: "\f061" !important; } /* arrow-right */
+[dir="rtl"] .fa-arrow-right::before { content: "\f060" !important; } /* arrow-left */
+[dir="rtl"] .fa-chevron-left::before { content: "\f054" !important; } /* chevron-right */
+[dir="rtl"] .fa-chevron-right::before { content: "\f053" !important; } /* chevron-left */
+[dir="rtl"] .fa-angle-left::before { content: "\f105" !important; } /* angle-right */
+[dir="rtl"] .fa-angle-right::before { content: "\f104" !important; } /* angle-left */
+
+/* ============================================
+   UTILITAIRES SPÉCIAUX
+   ============================================ */
+[dir="rtl"] .rtl-flip {
+    direction: rtl;
+}
+
+[dir="rtl"] .rtl-text-right {
+    text-align: right;
+}
+
+[dir="rtl"] .rtl-float-right {
+    float: right;
+}
+
+/* Classes pour forcer LTR dans un contexte RTL */
+[dir="rtl"] .force-ltr {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+/* Classes pour forcer RTL dans un contexte LTR */
+[dir="ltr"] .force-rtl {
+    direction: rtl !important;
+    text-align: right !important;
+}

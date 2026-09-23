@@ -1,0 +1,99 @@
+╔══════════════════════════════════════════════════════════════╗
+║   GUIDE DE DÉPLOIEMENT SIMPLE - FIX CHANGEMENT DE LANGUE     ║
+╚══════════════════════════════════════════════════════════════╝
+
+📦 FICHIERS À UPLOADER (2 fichiers seulement):
+
+1️⃣ FICHIER 1 (NOUVEAU - à créer sur le serveur):
+   Local:    c:\Users\kmlpr\Desktop\EVON\NEW-EVON-APP\resources\views\components\locale-url-fix-inline.blade.php
+   Serveur:  /home/evonpower/devcharge.evonpower.com/resources/views/components/locale-url-fix-inline.blade.php
+
+2️⃣ FICHIER 2 (EXISTANT - à remplacer):
+   Local:    c:\Users\kmlpr\Desktop\EVON\NEW-EVON-APP\resources\views\layouts\app.blade.php
+   Serveur:  /home/evonpower/devcharge.evonpower.com/resources/views/layouts/app.blade.php
+
+═══════════════════════════════════════════════════════════════
+
+🔧 ÉTAPES DE DÉPLOIEMENT:
+
+Étape 1: UPLOAD VIA FTP
+------------------------
+• Ouvrir FileZilla (ou votre client FTP)
+• Se connecter au serveur
+• Naviguer vers: /home/evonpower/devcharge.evonpower.com/resources/views/components/
+• Uploader: locale-url-fix-inline.blade.php
+• Naviguer vers: /home/evonpower/devcharge.evonpower.com/resources/views/layouts/
+• Uploader: app.blade.php (REMPLACER l'existant)
+
+Étape 2: VIDER LES CACHES (SSH)
+--------------------------------
+ssh evonpower@votre-serveur
+cd /home/evonpower/devcharge.evonpower.com
+php artisan view:clear
+php artisan cache:clear
+echo "✅ Caches vidés!"
+
+Étape 3: VÉRIFIER QUE LES FICHIERS SONT BIEN UPLOADÉS
+------------------------------------------------------
+grep "LOCALE-URL-FIX" resources/views/components/locale-url-fix-inline.blade.php
+
+➡️ Vous DEVEZ voir 6 lignes s'afficher
+➡️ Si rien ne s'affiche, le fichier n'est PAS sur le serveur!
+
+grep "locale-url-fix-inline" resources/views/layouts/app.blade.php
+
+➡️ Vous DEVEZ voir 1 ligne s'afficher  
+➡️ Si rien ne s'affiche, le fichier n'est PAS sur le serveur!
+
+═══════════════════════════════════════════════════════════════
+
+✅ TEST APRÈS DÉPLOIEMENT:
+
+1. Fermer COMPLÈTEMENT le navigateur
+2. Rouvrir le navigateur
+3. Appuyer sur F12 (ouvre la console)
+4. Aller sur: https://devcharge.evonpower.com
+5. Dans la console, vous DEVEZ voir:
+   ✓ [LOCALE-URL-FIX] Inline script loaded
+   ✓ [LOCALE-URL-FIX] Link interception active
+   ✓ [LOCALE-URL-FIX] Fetch interceptor active
+
+6. Si vous voyez ces 3 messages: SUCCESS!
+7. Sinon: Les fichiers ne sont pas uploadés correctement
+
+═══════════════════════════════════════════════════════════════
+
+🐛 DÉPANNAGE SI ÇA NE MARCHE PAS:
+
+Problème: Aucun message [LOCALE-URL-FIX] dans la console
+Solution: 
+  • Vérifier l'étape 3 (grep sur le serveur)
+  • Re-uploader les fichiers
+  • Re-vider les caches: php artisan view:clear
+
+Problème: Messages présents mais langue ne persiste pas
+Solution:
+  • Copier TOUS les messages de la console
+  • Me les envoyer pour analyse
+
+═══════════════════════════════════════════════════════════════
+
+📞 BESOIN D'AIDE?
+
+Envoyez-moi:
+1. Résultat de: grep "LOCALE-URL-FIX" resources/views/components/locale-url-fix-inline.blade.php
+2. Résultat de: grep "locale-url-fix-inline" resources/views/layouts/app.blade.php  
+3. Capture d'écran de la console JavaScript
+
+═══════════════════════════════════════════════════════════════
+
+🔌 STEVE (OCPP) - VARIABLES .ENV (REQUIS)
+
+Pour que les opérations OCPP (RemoteStart/RemoteStop) fonctionnent correctement, configurez:
+
+- STEVE_API_URL=...        (ex: http://HOST:8180)
+- STEVE_USERNAME=...       (Basic Auth)
+- STEVE_PASSWORD=...       (Basic Auth)
+- STEVE_TIMEOUT=30         (optionnel)
+- STEVE_DEFAULT_ID_TAG=... (optionnel, ex: Open10Tag)
+

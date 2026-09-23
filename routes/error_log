@@ -1,0 +1,60 @@
+[22-Mar-2025 04:56:38 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/evonpower/devcharge.evonpower.com/routes/auth.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/routes/auth.php on line 14
+[22-Mar-2025 04:56:38 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/evonpower/devcharge.evonpower.com/routes/web.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/routes/web.php on line 40
+[22-Mar-2025 04:56:38 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/evonpower/devcharge.evonpower.com/routes/console.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/routes/console.php on line 6
+[22-Mar-2025 04:56:46 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/evonpower/devcharge.evonpower.com/routes/auth.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/routes/auth.php on line 14
+[22-Mar-2025 04:56:47 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/evonpower/devcharge.evonpower.com/routes/console.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/routes/console.php on line 6
+[22-Mar-2025 04:56:47 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/evonpower/devcharge.evonpower.com/routes/web.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/routes/web.php on line 40
+[22-Mar-2025 04:56:56 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/evonpower/devcharge.evonpower.com/routes/auth.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/routes/auth.php on line 14
+[22-Mar-2025 04:56:56 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/evonpower/devcharge.evonpower.com/routes/web.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/routes/web.php on line 40
+[22-Mar-2025 04:56:56 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/evonpower/devcharge.evonpower.com/routes/console.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/routes/console.php on line 6
+[22-Mar-2025 04:57:06 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/evonpower/devcharge.evonpower.com/routes/auth.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/routes/auth.php on line 14
+[22-Mar-2025 04:57:06 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/evonpower/devcharge.evonpower.com/routes/web.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/routes/web.php on line 40
+[22-Mar-2025 04:57:08 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/evonpower/devcharge.evonpower.com/routes/console.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/routes/console.php on line 6
+[22-Mar-2025 04:57:18 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/evonpower/devcharge.evonpower.com/routes/auth.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/routes/auth.php on line 14
+[22-Mar-2025 04:57:19 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/evonpower/devcharge.evonpower.com/routes/web.php:40
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/routes/web.php on line 40
+[22-Mar-2025 04:57:20 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/evonpower/devcharge.evonpower.com/routes/console.php:6
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/routes/console.php on line 6

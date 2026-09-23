@@ -1,0 +1,390 @@
+/**
+ * ========================================
+ * RTL HEADER ENHANCEMENTS
+ * Support RTL amélioré pour le header de l'application
+ * ========================================
+ */
+
+/* ========================================
+   HEADER PRINCIPAL RTL
+   ======================================== */
+
+/* Top Utility Bar - Inverser l'ordre des éléments */
+[dir="rtl"] .bg-white.dark\:bg-gray-800 .flex.items-center.justify-between {
+    flex-direction: row-reverse !important;
+}
+
+/* ========================================
+   BREADCRUMBS RTL
+   ======================================== */
+
+/* Navigation breadcrumb - Inverser direction */
+[dir="rtl"] nav.flex.items-center {
+    flex-direction: row-reverse !important;
+    text-align: right !important;
+}
+
+/* Flèches breadcrumb - Rotation pour RTL */
+[dir="rtl"] nav.flex.items-center svg {
+    transform: scaleX(-1) !important;
+}
+
+/* ========================================
+   WELCOME SECTION RTL
+   ======================================== */
+
+/* Avatar et texte de bienvenue */
+[dir="rtl"] .flex.items-center.gap-4 {
+    flex-direction: row-reverse !important;
+}
+
+/* Icônes dans le texte de bienvenue */
+[dir="rtl"] p.flex.items-center.gap-2 {
+    flex-direction: row-reverse !important;
+    text-align: right !important;
+}
+
+/* ========================================
+   QUICK ACTIONS DROPDOWN RTL
+   ======================================== */
+
+/* Dropdown positionné à gauche en RTL */
+[dir="rtl"] .relative .absolute.right-0 {
+    right: auto !important;
+    left: 0 !important;
+}
+
+/* Items du dropdown en RTL */
+[dir="rtl"] .flex.items-center.gap-3 {
+    flex-direction: row-reverse !important;
+    text-align: right !important;
+}
+
+/* Icônes des quick actions - Marge à gauche */
+[dir="rtl"] .w-8.h-8.rounded-lg {
+    margin-right: 0 !important;
+    margin-left: 0.75rem !important;
+}
+
+/* ========================================
+   STATS CARDS RTL
+   ======================================== */
+
+/* Grid des stats - Maintenir l'ordre en RTL */
+[dir="rtl"] .grid.grid-cols-2,
+[dir="rtl"] .grid.lg\:grid-cols-4 {
+    direction: rtl !important;
+}
+
+/* Carte de stat individuelle */
+[dir="rtl"] .group.bg-white\/10 .flex.items-center.justify-between {
+    flex-direction: row-reverse !important;
+}
+
+/* Icône de stat - Alignement à droite */
+[dir="rtl"] .group.bg-white\/10 .w-12.h-12 {
+    margin-right: 0 !important;
+    margin-left: auto !important;
+}
+
+/* Texte de stat - Alignement à droite */
+[dir="rtl"] .text-white\/70,
+[dir="rtl"] .text-white\/50 {
+    text-align: right !important;
+}
+
+/* Badge de stat - Alignement */
+[dir="rtl"] .flex.items-center.gap-1.text-green-300 {
+    flex-direction: row-reverse !important;
+}
+
+/* ========================================
+   NOTIFICATIONS BADGE RTL
+   ======================================== */
+
+/* Badge de notification en haut à gauche en RTL */
+[dir="rtl"] .absolute.top-0.right-0 {
+    right: auto !important;
+    left: 0 !important;
+}
+
+/* Animation du badge */
+[dir="rtl"] .animate-ping {
+    transform-origin: center !important;
+}
+
+/* ========================================
+   USER MENU RTL
+   ======================================== */
+
+/* User menu dropdown - Position à gauche */
+[dir="rtl"] .relative .absolute.right-0.mt-2 {
+    right: auto !important;
+    left: 0 !important;
+}
+
+/* Informations utilisateur */
+[dir="rtl"] .px-4.py-3.border-b p {
+    text-align: right !important;
+    direction: rtl !important;
+}
+
+/* Items du menu utilisateur */
+[dir="rtl"] .flex.items-center.gap-3.px-4 {
+    flex-direction: row-reverse !important;
+    text-align: right !important;
+}
+
+/* Form de logout */
+[dir="rtl"] form button.w-full {
+    flex-direction: row-reverse !important;
+    text-align: right !important;
+}
+
+/* ========================================
+   MOBILE MENU BUTTON RTL
+   ======================================== */
+
+/* Bouton menu mobile - Position inversée */
+[dir="rtl"] .evon-mobile-menu-btn {
+    margin-right: 0 !important;
+    margin-left: 1rem !important;
+}
+
+/* Hamburger lines */
+[dir="rtl"] .evon-hamburger {
+    direction: ltr !important; /* Les lignes restent horizontales */
+}
+
+/* ========================================
+   HEADER ACTIONS RTL
+   ======================================== */
+
+/* Container des actions - Inverser ordre */
+[dir="rtl"] .flex.flex-wrap.items-center.gap-3 {
+    flex-direction: row-reverse !important;
+}
+
+/* Boutons d'action - Contenu inversé */
+[dir="rtl"] .flex.items-center.gap-2.px-4 {
+    flex-direction: row-reverse !important;
+}
+
+/* Texte dans les boutons - Alignement */
+[dir="rtl"] .hidden.sm\:inline {
+    margin-right: 0 !important;
+    margin-left: 0.5rem !important;
+}
+
+/* ========================================
+   RESPONSIVE RTL
+   ======================================== */
+
+/* Mobile - Ajustements spécifiques */
+@media (max-width: 640px) {
+    /* Stats en 2 colonnes sur mobile */
+    [dir="rtl"] .grid.grid-cols-2 {
+        gap: 0.75rem !important;
+    }
+    
+    /* Texte plus petit sur mobile */
+    [dir="rtl"] .text-2xl,
+    [dir="rtl"] .text-3xl {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* Tablet - Ajustements */
+@media (min-width: 641px) and (max-width: 1023px) {
+    /* Stats en 2 colonnes sur tablet */
+    [dir="rtl"] .grid.lg\:grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+/* Desktop - Full width stats */
+@media (min-width: 1024px) {
+    /* Stats en 4 colonnes sur desktop */
+    [dir="rtl"] .grid.lg\:grid-cols-4 {
+        grid-template-columns: repeat(4, 1fr) !important;
+    }
+}
+
+/* ========================================
+   ANIMATIONS RTL
+   ======================================== */
+
+/* Animation des blobs - Direction RTL */
+[dir="rtl"] .animate-blob {
+    animation-direction: reverse !important;
+}
+
+/* Hover effects - Inverser direction */
+[dir="rtl"] .group:hover {
+    transform: translateX(-2px) !important;
+}
+
+/* Scale effects - Maintenir centré */
+[dir="rtl"] .hover\:scale-105:hover {
+    transform-origin: center !important;
+}
+
+/* ========================================
+   TEXT ALIGNMENT RTL
+   ======================================== */
+
+/* Tous les titres en RTL */
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+    text-align: right !important;
+    direction: rtl !important;
+}
+
+/* Paragraphes en RTL */
+[dir="rtl"] p {
+    text-align: right !important;
+    direction: rtl !important;
+}
+
+/* Spans avec icônes */
+[dir="rtl"] span.flex {
+    flex-direction: row-reverse !important;
+}
+
+/* ========================================
+   GRID PATTERN RTL
+   ======================================== */
+
+/* Background pattern - Maintenir inchangé */
+[dir="rtl"] .bg-grid-white {
+    /* Le pattern reste le même en RTL */
+    background-position: center !important;
+}
+
+/* ========================================
+   Z-INDEX RTL
+   ======================================== */
+
+/* S'assurer que les dropdowns sont au-dessus */
+[dir="rtl"] .relative .absolute {
+    z-index: 50 !important;
+}
+
+/* Overlay au bon niveau */
+[dir="rtl"] .evon-mobile-sidebar-overlay {
+    z-index: 40 !important;
+}
+
+/* ========================================
+   ACCESSIBILITY RTL
+   ======================================== */
+
+/* Focus visible en RTL */
+[dir="rtl"] *:focus {
+    outline-offset: -2px !important;
+}
+
+/* Focus ring en RTL */
+[dir="rtl"] .focus\:ring-2:focus {
+    outline: none !important;
+}
+
+/* ========================================
+   DARK MODE RTL
+   ======================================== */
+
+/* Bordures en dark mode RTL */
+[dir="rtl"] .dark .border-gray-700 {
+    border-color: rgb(55 65 81) !important;
+}
+
+/* Background en dark mode RTL */
+[dir="rtl"] .dark .bg-gray-800 {
+    background-color: rgb(31 41 55) !important;
+}
+
+/* ========================================
+   PRINT MODE RTL
+   ======================================== */
+
+@media print {
+    /* Cacher les actions en impression */
+    [dir="rtl"] .flex.flex-wrap.items-center.gap-3 {
+        display: none !important;
+    }
+    
+    /* Garder seulement le titre */
+    [dir="rtl"] .relative.bg-gradient-to-br {
+        background: white !important;
+        color: black !important;
+    }
+}
+
+/* ========================================
+   UTILITY CLASSES RTL
+   ======================================== */
+
+/* Margin auto inversé */
+[dir="rtl"] .ml-auto {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+[dir="rtl"] .mr-auto {
+    margin-right: 0 !important;
+    margin-left: auto !important;
+}
+
+/* Padding inversé */
+[dir="rtl"] .pl-4 {
+    padding-left: 0 !important;
+    padding-right: 1rem !important;
+}
+
+[dir="rtl"] .pr-4 {
+    padding-right: 0 !important;
+    padding-left: 1rem !important;
+}
+
+/* ========================================
+   SCROLLBAR RTL
+   ======================================== */
+
+/* Scrollbar à gauche en RTL (pour les containers scrollables) */
+[dir="rtl"] *::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+}
+
+[dir="rtl"] *::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+
+[dir="rtl"] *::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.5) !important;
+    border-radius: 3px !important;
+}
+
+[dir="rtl"] .dark *::-webkit-scrollbar-thumb {
+    background-color: rgba(75, 85, 99, 0.5) !important;
+}
+
+/* ========================================
+   FINAL TOUCHES
+   ======================================== */
+
+/* S'assurer que tout le contenu respecte RTL */
+[dir="rtl"] #evon-app-header * {
+    direction: rtl !important;
+}
+
+/* Sauf les éléments qui doivent rester LTR (nombres, etc.) */
+[dir="rtl"] .text-3xl.font-bold,
+[dir="rtl"] .text-2xl.font-bold {
+    unicode-bidi: plaintext !important;
+}
+

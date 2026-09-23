@@ -1,0 +1,816 @@
+Cahier des charges Brief pour le développement de Evon Charge
+
+Evon Charge se veut être une application de gestion de bornes de recharge (CSMS : Charging Station Management System) connectée à un serveur OCPP via des API REST. Son but principal est de permettre une gestion intuitive et efficace des bornes, groupes de bornes, des partenaires, des intégrateurs, des transactions et utilisateurs.
+Le serveur OCPP est déjà développé, et il permet une connexion en API.
+Le serveur OCPP (Evon Server ) permet la création et la création de bornes, le déclenchement et l’arrêt des recharges directement en bornes connectées.
+L’application Evon charge propose des accès privés par les différents utilisateurs à savoir :
+Administrateurs
+Intégrateurs
+Opérateurs
+Clients
+L’interface peut être développée sur un UX/AI pour profiter de la richesses des éléments tout en respectant nos créations UX basées sur notre métier et notre besoin.
+Objectif principal :
+Fournir une solution complète et intuitive pour :
+Gérer efficacement les infrastructures de recharge (bornes, stations, groupes de bornes).
+Faciliter les paiements, les abonnements et le suivi des transactions.
+Offrir des outils d’analyse et de diagnostic pour maximiser l’efficacité des bornes.
+
+Objectifs principaux :
+Offrir une interface utilisateur intuitive pour les administrateurs, partenaires, et utilisateurs finaux.
+Intégrer des fonctionnalités avancées : gestion des abonnements, paiements, diagnostics à distance.
+Garantir une compatibilité multilingue et une configuration adaptée par région (langue, devise, fuseau horaire).
+
+UX Design en cours de finalisation : https://www.figma.com/design/AMidAelJBYoLIuYdFrPZKq/P%26G?node-id=183-87&p=f&t=zPpAFRCCb3iKP0Fj-0 
+Header : Logo, Left Menu, Expandable menu
+Pages : 
+Connexion
+Loging
+Password 
+Forgot password,
+Aide, Faq, Guide d’utilisation
+Raccourcies et paramètres
+Multi-langue Option, Dark, Light Mode,  Users, setting, LogOut, Aide
+Menu principal (Écran Admin)
+Gestion des Administrateurs
+Gestion des intégrateurs
+Gestion des Groupes
+Plan tarifaire de clients
+Gestion des abonnements 
+Partenaires/Opérateurs
+Gestion de points de charge (Bornes)
+Utilisateurs (EV, ou Clients)
+Transactions et paiements
+Transactions
+Demande de retrait
+Remboursement
+Rapports
+Paramètres
+Configuration
+Gestion de profil de configuration
+Morocco
+Langue : FR
+Devise : MAD
+Time : 24h
+Timezone : Casablanca +1
+France
+Langue : FR
+Devise ; EUR
+Time Format : 24h
+Timezone : Paris
+
+
+Gestion des administrateurs
+Une gestion des utilisateurs qui ont accès global à la console d’administration et toutes les données de la plateforme.
+Comme nous souhaitons ajouter une gestion de rôles pour limiter l’accès à certaines fonctionnalités, sans limitation de données de chaque section.
+Gestion des intégrateurs :
+Un administrateur peut tout voir et peut encaisser toutes transactions, sauf celles des intégrateurs qui possède l’option “Gestion des transactions et contrat partenaire”
+Un intégrateur ne peut voir que ses données, ses partenaires, bornes etc et ne peut encaisser que les transactions de ses bornes.
+Gestion des groupes de bornes/Clients :
+Un groupe est un élément qui regroupe toutes les bornes et les stations qui appartiennent à un opérateur ou un partenaire.
+Ce groupe est utilisé pour avoir une vue globale sur un ensemble de bornes, pour avoir des statistiques dédiées, un tarif unique, des paramètres spécifiques.
+Un groupe peut avoir plusieurs plans tarifaires appliqués selon leurs priorités.
+Fonctionnalités
+Permettre à l’administrateur, l'intégrateur et aux partenaires de créer, gérer et configurer des groupes de bornes.
+Associer une ou plusieurs bornes à un ou plusieurs groupes tout en appliquant des paramètres spécifiques (tarifs, priorités, etc.).
+Pages : 
+Dashboard :
+Détail de groupe Avec possibilité d'Édition
+Une section qui permet l’ajout et listing des groupes associés.
+Recherche & Liste des groupes
+Ajouter un group 
+Step 1 
+Type : Privé, Business
+Nom du groupe
+Step 2
+Adresse
+Ville
+Pays
+Email
+Page groupe, Liste & Recherche
+Nom, Type, Ville, Propriétaire ( Admin, Intégrateur, Partner), Plan, Nombre de bornes (12), Nombre de plans tarifaire appliqués (3, x ), Détails
+Page  Détails :
+Bloc Coordonnées 
+Nom
+Type (Privé ou Business)
+Propriétaire
+Bloc Info
+Coordonnées
+Nombre de bornes connectés : 23
+Blocs statistiques
+Abonnements actifs 
+Nombre de bornes Actifs : 
+Nombre Total de recharge : 12
+Recharge active : 3 
+Graphe des recharges (Quotidien, Mensuel,Trimestre, Année)
+Liste de Bornes du groupe
+Liste des bornes, (Nom de borne, ID, Etat, Détails)
+Ajouter une borne
+Liste des membres du groupe (Utilisateurs)
+Accès Publique (On/OFF) 
+Ajouter des membres
+Liste des membres
+Plan tarifaire appliqué aux clients : 
+Choisir un plan tarifaire (Charge to go)
+Choisir un plan d’abonnement
+
+Tarifs ou Plan tarifaire de recharge appliqués aux clients / Par groupe:
+Un plan tarifaire est une grille tarifaire qui s’applique à un groupe, à ses bornes et aux clients qui vont utiliser ces bornes.
+La configuration de prix se fait par plusieurs critères : À la min, au Kwh, à la recharge. Les critères de prix se configurent en cumulés comme un prix supplémentaire.
+Gestion de prix
+Fonctionnalités
+Configuration des tarifs (tarifs, horaires, puissance max, Définir le prix de Pick Time.).
+Page à créer 
+Liste des Prix
+Détail du prix
+Ajouter  un Prix avec plusieurs blocs éditable en Popup
+Affichage & Formulaire
+Liste plans tarifaires pour clients : 
+Nom du plan, Type (A la minute, Par kwh), Valeur (Prix/Kwh,Prix/min), Nombre de bornes du plan, Voir le détail du plan.
+Exemple : 
+
+Nom
+Contenance 
+Type
+Prix
+Nombre de bornes attachés
+
+
+Plan Tarifaire Malls ouest Paris 
+Tarifs,
+A la minute
+2DH/min
+15 groupes
+Voir Détail
+Modifier
+Plan O Communal Rive Gauche 
+Tarifs
+Kwh
+1,5DH /kwh
+15 groupes
+Voir Détail
+Modifier
+
+
+Ajouter un prix 
+Configuration de prix  (Bloc)
+Choix de Type en Tab : à la Minute | Par Kwh
+Spécifier le montant : 1.00 MAD / min ou Kwh
+Choisir la TVA (Liste)
+Priorité du plan : 0 1 2 30
+Ajouter un Tarif supplémentaire (Bloc)
+Choix de plage horaire de Pick time : Jour et Heure  : 16:00 - 18:00
+Type (a la Min,en Kwh)
+Prix 1,00 Kwh | MAD
+Taxe (Choisir la TVA)
+Ajouter un prix fix / par recharge 
+Prix fixe / Recharge : 10,00 dh
+Choisir la TVA : 
+Sauvegarder le plan tarifaire
+
+Gestion des abonnements
+Un abonnement est une formule de facturation qui s’applique à un groupe de bornes et des clients. Un abonnement peut être configuré à part et assigné à un groupe. Quand le client souscrit un abonnement spécifique, il peut utiliser toutes les bornes qui appartiennent aux groupes utilisant cet abonnement en question.
+Pages à créer  : 
+Liste
+Formulaire
+Détail (Aperçu avec edition)
+
+Liste des abonnements
+Exemple : 
+
+Nom
+Type
+Valeur
+Prix
+Cycle
+
+
+Plan Tarifaire Malls ouest Paris 
+Recharge
+20
+2DH
+1 mois
+Voir Détail
+Modifier
+Plan O Communal Rive Gauche 
+Kwh
+33 kwh
+1,5DH
+3 mois
+Voir Détail
+Modifier
+
+
+Durée
+10h
+
+
+
+
+
+
+
+
+Ajouter un plan d’abonnement
+Choisir le type ( basé sur le nombre de recharge, Khw/session, Durée/ session)
+Abonnement basé le nombre de recharges
+Spécifier le nombre de recharge : 10
+Activer la limite de Kwh / Session 
+Nombre de Kwh limite :  33kwh / Session
+Activer la limite de Durée par Session
+Durée max par Session :   60min/Session
+Basé sur le kWh consommé
+Quota Total de Kw :
+Activer la limite de Kwh / Session 
+Nombre de Kwh limite :  33kwh / Session
+Activer la limite de Durée par Session
+Durée max par Session :   60min/Session
+Basé sur le temps d'utilisation 
+Spécifier la durée globale de rechange : 10h
+Activer la limite de Kwh / Session 
+Nombre de Kwh limite :  33kwh / Session
+Activer la limite de Durée par Session
+Durée max par Session :   60min/Session
+Spécifier le montant l’abonnement
+Choisir la TVA
+la durée de l'abonnement : 1 mois, 3 mois, 6 mois, 12 mois
+Sauvegarder l’abonnement	
+Assigner des Bornes/Stations ou groupes de bornes  (Bloc)
+Choix de type d’ajout ( Par groupe de bornes, Par Bornes, Par Station)
+Glisser les éléments (Bornes, Station, Groupe de bornes)
+Vue D’un plan  tarifaire, (Afficher tous les éléments  et donner la possibilité de modifier un des blocs en Popup)
+
+Gestion des partenaires/Opérateurs
+Un Partenaire ou un opérateur est une entreprise qui s' inscrit sur notre plateforme soit en auto-manifestation, soit grâce à un intégrateur.
+Le partenaire ou l’opérateur est une utilisateur qui peut gérer son parc et son réseau de bornes de recharge, dans différents endroits et zones. cet utilisateur a la possibilité de monétiser ses bornes en proposant une utilisation publique ou privée, et en activant un paiement en ligne, abonnement ou un contrat privé.
+L'opérateur peut être inscrit et  géré par un intégrateur dans ce cas c’est à l'intégrateur de gérer la facturation et la monétisation des bornes.
+
+Pages à créer 
+Liste des partenaires/Opérateur
+Page Detail partenaire (Ecran  Admin)
+Page  Detail partenaire (Ecran Partenaire)
+Page Ajout ou édition de partenaire
+Liste des partenaires (Avec recherche, et recherche avancée)
+Nom du Partenaire
+Nom de contact
+Type de partenaire (Intégrateur, Propriétaire, Exploitant)
+Ville
+Nombre de bornes 
+Détails 
+Ajouter un partenaire/Opérateur
+Nom du Partenaire
+Devise (Can’t be changed later)
+Profil de configuration (Maroc)
+Nom de contact
+Type de partenaire (Partenaire, Propriétaire, Exploitant)
+Email
+Adresse
+Ville
+Pays 
+Code Postal
+Numéro de téléphone
+Sélectionner Profile Partenaire
+Mot de passe, Réinitialiser le mot de passe
+Détail Dashboard  Partenaire (Ecran Admin)
+Bloc informations (Editer popup)
+Nom du partenaire
+Nom de Contact
+Coordonnées mergés
+Solde (MAD)
+1240,00 MAD
+Transactions
+Abonnements actifs 
+Nombre de bornes Actifs 
+Nombre Total de recharge : 12
+Recharge active : 3 
+Graphe des recharges (Quotidien, Mensuel,trimestriel,Annuel)
+Paramètres
+Profil de Configuration de Partenaire
+Langue : FR
+Devise ; EUR (Non Éditable)
+Time Format : 24h
+Timezone : Paris UTC+1
+Collecte financière/ Méthodes de paiement  : ( choix important en radio comme les type de prix)
+Collecte de fonds par {Nom de l’intégrateur} ou {Evon Charge) 
+Collecte de fonds autonome (par le partenaire)
+
+Espace Partenaire (Écrans Partenaire) : 
+Un partenaire/Opérateur, peut avoir une visibilité limitée par rapport à l'administrateur ou l’intégrateur, dans le dashboard, ce dashboard contient toutes les informations :  ses groupes, ses bornes, ses stations, l’utilisation de ses bornes, son chiffre d'affaires, comme il peut avoir une visibilité sur l'état de ses bornes, et les rapports de fonctionnements, avec une possibilité d'exécuter des action à distance.
+
+Menu Partenaire : 
+Gestion des groupes
+Gestion des bornes
+Gestion des stations
+Utilisateurs
+Transactions
+Transactions
+Remboursement
+Demande de retrait
+Coordonnées bancaires
+Plan tarifaire 
+Plan tarifaire
+Abonnements
+Rapports
+Diagnostics
+Paramètres
+Dashboard  Partenaire (Ecran Partenaire)
+Bloc informations (Editer popup)
+Nom du partenaire
+Nom de Contact
+Coordonnées mergés
+Solde (MAD)
+1240,00 MAD
+Transactions : Voir Tout
+Abonnements actifs : Voir Tout
+Nombre de bornes Actifs : Voir Tout
+Nombre Total de recharge : 12
+Recharge active : 3 : Voir Tout
+Graphe des recharges (Quotidien, Mensuel,Trimestre, Année)
+
+Gestion des bornes :
+Cet espace permet la gestion et la connexion des points de charge/bornes de recharge.
+
+Fonctionnalités :
+Gestion de Stations de recharge (La station contient un ensemble de bornes)
+Ajouter une station,
+Permettre à l’administrateur et aux partenaires d’ajouter, configurer et surveiller leurs bornes.
+Connecteur, Localisation, 
+Filtrage des bornes par statut, emplacement ou partenaire.
+Commandes à distance pour démarrer/arrêter les sessions.
+Menu secondaire
+Bornes de recharges
+Groupes
+Stations
+Affichage / Formulaire  : 
+Liste/Affichage 
+Options et filtre  : Recherche, Recherche Avancée (Marque, Puissance, Partenaire, Actif/inactif, Connecté/Non Connecté) 
+Contenu
+Marque, Modèle
+Puissance maximale (11 kW, 22 kW, 50 kW,100 kW,150 Kw)
+Station  (ID Station, Nom de Station, Adresse, Localisation,)
+Nom de la borne
+ID de la borne
+Etat du point de recharge (Actif, inactif)
+Accessibilité (Publique, Privé)
+Etat : (Connecté, Non connecté)
+Action (Editer, Supprimer)
+Détail du point de recharge / Détaillé de la borne de recharge
+Menu : Détails | Informations | Sessions de recharges | Intégration | Générer un Url de paiement | Actions à distance
+Etat du point de recharge | Non Connecté 	 > Connecter
+Connecter  (Quand on clique sur connecter, Une popup de configuration s’affiche)
+Ajouter le numéro de série de la borne
+Veuillez utiliser cet URL pour connecter votre borne de recharge.
+URL : ws://serv.evonpower.com/station/
+
+
+Connection en cours
+Votre borne a bien été connecté
+Nom du Partenaire (Bloc)  Modification Désactivé
+Informations : (Bloc) Action (Editer)
+Marque, Modèle
+Puissance maximale (11 kW, 22 kW, 50 kW,100 kW,150 Kw)
+Connecteur (Type1, Type2,)
+Choisir une Station  (ID Station, Nom de Station)
+Nom de la borne
+ID de la borne
+Localisation
+Ville
+Etat du point de recharge (Actif, inactif)
+Accessibilité (Publique, Privé)
+Etat : (Connecté, Non connecté)
+Groupe de la borne
+Autres Actions (Bloc)
+Déclencher une recharge
+Arrêter une recharge
+Déblocage de connecteur
+Réinitialisation.
+Mise à jour des paramètres.
+Diagnostic
+Récupérer le log
+Ajouter/Éditer un point de recharge  / Borne de recharge
+Etat du point de recharge | Non Connecté 
+Connecter
+Ajouter le numéro de série
+Veuillez utiliser cet URL pour connecter votre borne de recharge.
+URL : ws://serv.evonpower.com/station/
+
+
+Connection en cours
+Votre borne a bien été connecté
+Choix de Partenaire (Bloc) > Choix irréversible
+Informations (Bloc)
+Marque, Modèle
+Puissance maximale (11 kW, 22 kW, 50 kW,100 kW,150 Kw)
+Connecteur (Type1, Type2,)
+Choisir une Station   (ID Station, Nom de Station, Adresse, Localisation,)
+Nom de la borne
+ID de la borne
+Localisation
+Ville
+Etat du point de recharge (Actif, inactif)
+Accessibilité (Publique, Privé)
+Etat de recharge
+Afficher dans la carte (Switcher)
+Actions à Distance (Bloc)
+Déclencher une recharge
+Arrêter une recharge
+Déblocage de connecteur
+Réinitialisation.
+Mise à jour des paramètres.
+Diagnostic
+Récupérer le log
+Voir  l’exemple dans le lien suivant : https://monta.com/fr/aide/ajoute-connecte-borne-recharge/ 
+
+Gestion des utilisateurs/Clients  :
+Page à créer 
+Ajout utilisateur (Ecran Admin)
+Home (Ecran Utilisateur)
+Informations (Ecran Utilisateur : Vue et édition)
+Transactions (Ecran Utilisateur
+Page de réservation (Écran Visiteur)
+Fonctionnalités
+Inscription, modification et suppression des utilisateurs, Group de bornes (Admin).
+Visualisation des profils et des tags associés.
+Possibilité pour les partenaires et à l’administrateur d’attribuer des tags aux clients.
+Ajout d’utilisateur (Écran Admin)
+Step 1
+Raison sociale
+Nom
+Prénom
+email
+Téléphone (Format international)
+Adresse
+Sélectionner la Ville
+Sélectionner le pays 
+Mot de passe, Envoyer Mot de passe
+Step 2 
+Sélectionner la Marque véhicule,
+Puissance de la recharge de la voiture
+Liste des utilisateurs/Membres/Guest (Écran Admin)
+Nom Prénom,  Raison social, Email, Téléphone, Voir Détails 
+Page de réservation/Paiement
+Step 1 : 
+Afficher le Nom de la borne
+Afficher L’Adresse de la borne
+Afficher la Puissance de la borne  > 22Kw
+Afficher Nom du partenaire
+Mentionner le type de Facturation (en Kwh) ou (à la minute)
+Choisir une durée de recharge : (Un Time Selector, par 10min) 
+Prix du Choix : 50 MAD
+Valider la recharge
+Step 2
+Nom (Champ)
+Prénom (Champ
+Email, Phone Number
+Adresse, Ville,
+Valider
+Stepe 3 
+Afficher  un récapitulatif 
+Informations de la carte bancaire
+Borne 22kw, Morocco Mall
+Avenue Imam Malik, 28
+Puissance : 22Kw
+Facturation à la minute
+
+Choisir la durée de recharge : 10min, 20min, 30min, 40min, 50min, 60min, 90min,2h, 2h30,
+Estimation de recharge : 33 KW
+Prix : 70,00 MAD
+
+
+Continuer>>
+Nom (Champ)
+Prénom (Champ
+Email, Phone Number
+Adresse, Ville,
+Souhaitez-vous vous inscrire ? (Oui/Non)
+Oui > Ajouter  un mot  de passe
+Valider
+Recap . 
+Estimation de recharge : 33 KW
+Prix : 70,00 MAD
+Nom, Prénom
+Adresse, email, 
+
+Numéro de carte
+Date  d’exp
+Cvv
+
+
+Inscription (Ecran Utilisateur)
+Step 1
+Raison sociale
+Nom
+Prénom
+email
+Téléphone (Format international)
+Adresse
+Sélectionner la Ville
+Sélectionner le pays 
+Sélectionner la Marque véhicule,
+Puissance de la recharge de la voiture
+Utilisateur Connecté
+Menu Utilisateur (Ecran Utilisateur) : 
+Home > recherche localisé, Liste des bornes disponibles
+Souscription
+Informations
+Transactions
+Home
+Recherche
+Carte Géo, avec des points de recharges
+Liste des bornes disponibles, scrollable
+Transactions et paiements (Admin):
+
+
+Menu secondaire 
+Transaction
+Factures
+Coordonnées bancaires
+Page Liste Transactions (Écran Admin)
+Header, Recherche, Filtre
+ID de Transaction
+Type de transaction (Commission Admin, Commission Partenaire, Achat, Recharge de wallet, Abonnement)
+Détails de la transaction 
+Montant de la Tva
+Montant de la transaction
+Montant TTC
+Statut
+: Détail >>
+Détail de la transaction
+ID Interne
+ID de Transaction
+Type de transaction (Commission Admin, Commission Partenaire, Achat, Recharge de wallet, Abonnement)
+Payeur
+Bénéficiaire
+Détails de la transaction 
+Montant de la Tva
+Montant de la transaction
+Montant TTC
+Statut de la transaction (Complète, En attente, Suspendu)
+Mode de paiement : (Wallet, Carte bancaire)
+
+
+Gestion des abonnements :
+Enregistrement de carte bancaire pour le débit automatique
+Abonnement à des groupes de bornes.
+Paiement mensuel ou prépayé.
+Intégration d'un wallet pour stocker les crédits des clients, des partenaires, et éventuellement des intégrateurs.
+Inspiration : https://monta.com/fr/aide/transactions-wallet-operateur/ 
+
+Gestion des intégrateurs
+Pages à créer 
+Liste des intégrateurs
+Page Détail intégrateur (Ecran  Admin)
+Page  Détail intégrateur (Ecran Partenaire)
+Page Ajout ou édition de partenaire
+Liste des partenaires (Avec recherche, et recherche avancée)
+Nom de l’intégrateur
+Nom de contact
+Ville
+Nombre de bornes 
+Détails 
+Ajouter un intégrateur 
+Nom du intégrateur
+Devise (Can’t be changed later)
+Profil de configuration (Maroc)
+Nom de contact
+Email
+Adresse
+Ville
+Pays 
+Code Postal
+Numéro de téléphone
+Sélectionner Profile Intégrateur
+Mot de passe, Réinitialiser le mot de passe
+Détail Dashboard  Intégrateur (Écran Admin)
+Bloc informations (Editer popup)
+Nom du Intégrateur
+Nom de Contact
+Coordonnées mergés
+Solde (MAD)
+1240,00 MAD
+Transactions
+Abonnements actifs 
+Nombre de bornes Actifs 
+Nombre Total de recharge : 12
+Recharge active : 3 
+Graphe des recharges (Quotidien, Mensuel,trimestriel,Annuel)
+Paramètres
+Profil de Configuration de Partenaire
+Langue : FR
+Devise ; EUR (Non Éditable)
+Time Format : 24h
+Timezone : Paris UTC+1
+Mode de paiement  : ( choix important en radio comme les type de prix)
+Paiement en ligne assurée par Evon Charge
+Collecte de fonds autonome (Si cette option est activée une liste de modes de paiement s’affichera.)
+CMI, Stripe
+Formulaire de CMI  
+Titre 
+Identifiant marchand (ClientId)
+Clé de hachage
+URL Gateway de paiement	
+
+Profil contrat Intégrateur : (Fonctionnalités Admin)
+Page à créer 
+Liste des profils de contrat intégrateur
+Détail profil
+Détail profil
+Tarifs : 
+Activer des frais de maintenance 
+Champ Montant 
+Choisir la TVA
+Facturation : Mensuel / Trimestriel, Annuelle
+Activer des frais par bornes actives
+Montant fix :  50
+Choisir la TVA
+Facturation : Mensuel / Trimestriel, Annuelle
+Activer des frais par transaction
+Montant fixe :  5
+Montant en commission : 5%
+Choisir la TVA 
+Tableau de bord (Admin) :
+
+
+Statistiques en temps réel pour les administrateurs :
+Revenus générés.
+Nombre de bonnes connectés 
+Nombre de recharge en cours
+5 dernières Transactions.
+Transactions
+Abonnements actifs 
+Nombre de bornes Actifs 
+Nombre Total de recharge : 12
+Recharge active : 3 
+Graphe des recharges (Quotidien, Mensuel,Trimestre, Année)
+
+Commandes OCPP Pour Administrateur et Partenaires :
+
+
+Permettre aux partenaires de gérer leurs bornes via des commandes distantes :
+Déclencher une recharge
+Arrêter une recharge
+Déblocage de connecteur
+Réinitialisation.
+Mise à jour des paramètres.
+Diagnostic
+Récupérer le log
+
+
+Modes de Consommation des clients : 
+
+Voici la description claire et structurée du fonctionnement des deux scénarios de paiement pour Evon Charge 👇
+
+⚙️ 1. Recharge Prépayée
+Principe :
+L’utilisateur choisit à l’avance un montant ou une durée de recharge avant de commencer la session. Le montant est immédiatement prélevé sur sa carte ou son wallet.
+Fonctionnement détaillé :
+L’utilisateur sélectionne une borne et indique le temps ou la puissance (ex. : 30 min ou 10 kWh).
+
+
+Le système calcule automatiquement le montant estimé selon le tarif du groupe de bornes.
+
+
+Le paiement est effectué avant le démarrage de la recharge.
+
+
+La borne démarre la session après confirmation du paiement.
+
+
+À la fin de la session, Evon Charge :
+
+
+vérifie la consommation réelle,
+
+
+compare avec le montant prépayé,
+
+
+rembourse automatiquement le crédit non utilisé (partie non consommée).
+
+
+Un reçu ou une facture est généré et envoyé à l’utilisateur.
+
+
+Avantages :
+Transparence pour le client (il connaît le montant maximum à payer).
+
+
+Aucun risque d’impayé pour le partenaire.
+
+
+Simplifie la gestion côté opérateur.
+
+
+
+⚙️ 2. Recharge Postpayée (à la consommation)
+Principe :
+L’utilisateur démarre sa recharge sans prépaiement. Le montant final est calculé à la fin selon la consommation réelle.
+Fonctionnement détaillé :
+L’utilisateur se connecte à une borne (via QR code ou application).
+
+
+Il démarre la recharge sans effectuer de paiement immédiat.
+
+
+Le serveur Evon Charge suit en temps réel la durée, la puissance et les kWh consommés.
+
+
+À la fin de la session, le système :
+
+
+calcule le montant exact selon les tarifs en vigueur (prix/min, prix/kWh, prix fixe, TVA, etc.),
+
+
+débite automatiquement la carte ou le wallet de l’utilisateur.
+
+
+L’utilisateur reçoit la facture détaillée correspondant à sa consommation.
+
+
+
+
+Priorités finales et ordre de déploiement
+Gestion des partenaires, groupes de bornes/Stations de bornes
+Gestion des bornes 
+Gestion des plans tarifaires pour clients
+Page de Paiement en ligne (QR).
+Gestion des clients/Utilisateurs 
+Transactions, statistiques et reporting
+Abonnements et wallet
+
+
+
+
+
+Notions importantes  : 
+
+
+Voici une explication détaillée pour clarifier la notion de retrait et de collecte de fonds dans le cadre de ton système, en distinguant bien les deux grandes options :
+
+Option 1 : L'admin collecte les fonds par défaut
+Scénario par défaut
+Collecte de fonds par l'admin :
+L'administrateur configure sa passerelle de paiement.
+→ Toutes les transactions (recharges, abonnements, commissions, etc.) sont directement créditées sur le compte bancaire de l'admin.
+→ L'admin est responsable de la gestion de l'argent collecté.
+Déclinaison avec retrait par intégrateur ou partenaire
+Cas où l'intégrateur peut retirer :
+Si l'admin définit que l'intégrateur est autorisé à effectuer des retraits :
+→ L'intégrateur pourra demander le retrait de toutes les transactions qui concernent ses bornes et ses partenaires.
+→ Dans ce cas, l'intégrateur est le seul autorisé à initier un retrait (le partenaire n'a pas cette possibilité).
+Cas où l'intégrateur délègue la possibilité de retrait au partenaire :
+Si l'intégrateur autorise le partenaire à retirer des fonds :
+→ Seul le partenaire pourra demander le retrait de l'argent collecté par l'admin.
+→ Dans ce cas, une demande de retrait est envoyée à l'admin.
+→ L'admin devra alors exécuter et valider le retrait manuellement (hors ligne) en y associant un numéro de transaction et une note explicative.
+
+Option 2 : L'intégrateur collecte les fonds
+Scénario par défaut
+Collecte de fonds par l'intégrateur :
+L'intégrateur configure sa propre passerelle de paiement et, par défaut, il reçoit directement les fonds issus des transactions de ses bornes et de ses partenaires.
+→ L'admin n'intervient pas directement dans le flux financier de l'intégrateur (l'admin perçoit uniquement ses commissions et frais selon le plan tarifaire appliqué aux intégrateurs).
+Gestion des retraits dans ce contexte
+Possibilité de retrait par le partenaire :
+L'intégrateur peut choisir d'autoriser ou non les partenaires à demander des retraits.
+→ Si cette option est activée, alors le partenaire peut demander le retrait de ses fonds auprès de l'intégrateur.
+Exécution des retraits :
+Dans ce cas, c'est l'intégrateur qui doit traiter les retraits :
+→ Il exécute le paiement hors ligne en validant la demande de retrait.
+→ Il doit ajouter un numéro de transaction et une note (pour trace et vérification).
+Rôle de l'admin dans l'option 2 :
+L'administrateur se contente de prélever ses commissions et frais sur les transactions de l'intégrateur, sans intervenir dans le processus de retrait des fonds collectés par l'intégrateur.
+
+Synthèse
+Collecte de fonds :
+Il s'agit du flux d'argent qui est crédité sur le compte de l'entité configurée (admin ou intégrateur).
+→ Dans l'option 1, l'argent est collecté par l'admin. → Dans l'option 2, l'argent est collecté par l'intégrateur.
+Retrait :
+C'est la demande et le processus de transfert de fonds du compte de l'entité collectrice (admin ou intégrateur) vers le compte bancaire de l'intégrateur ou du partenaire.
+→ Le retrait peut être initié par l'intégrateur ou le partenaire, en fonction des autorisations définies par l'admin ou l'intégrateur. → Le retrait est ensuite validé manuellement hors ligne par l'entité en charge de la collecte (admin ou intégrateur) en y ajoutant un numéro de transaction et une note pour référence.
+
+Cette distinction permet de gérer de manière flexible le flux financier dans ton système, tout en gardant une traçabilité des retraits et en respectant les rôles et autorisations de chaque acteur (admin, intégrateur, partenaire).
+
+
+Collecte financière : Ce terme désigne l’utilisateur et l'entreprise qui s’occupe de la facturation et la collecte de fonds. Cette option nous permet de définir l’utilisateur qui peut collecter l’argent des transactions effectuées dans les bornes.
+
+Un administrateur ou un intégrateur peut définir si la collecte de fonds se fait par L’intégrateur ou par le partenaire au moment de création du compte du partenaire.
+Si l’intégrateur collecte les fonds dans ce cas les transactions sont créditées directement dans la balance (To be collected) du compte de l’intégrateur.
+
+Si c’est le partenaire qui collecte les fonds, dans ce cas c’est lui verra le montant total des transactions dans sa balance et peut les retirer par une demande.
+
+Ceci nous oblige à ajouter une information importante avec chaque transaction (Collect_user et Collect_Statut, Collecte_date), ce qui donne la possibilité à un utilisateur de demander son retrait ou non.
+
+Ceci nous pousse à faire une différence entre une information de Total de transactions et une Balance qui contient le solde qu’on peut collecter ou retirer.
+
+
+Passerelle de paiement :  Evon charge propose un paiement en ligne par défaut pour tous ces utilisateurs et ses partenaires. mais  il donne aussi la possibilité aux intégrateurs d’installer leur  propre système de paiement à condition que Evon Charge puisse l'installer avec les modes de paiements disponibles.
+
+Cette fonctionnalité nous oblige à gérer les identifiants de paiement en ligne de chaque intégrateur a part. Par exemple, si on installe Stripe, nous allons utiliser les identifiants de Stipe de chaque intégrateur qui veut collecter ses propres transactions.
+
+Si un opérateur demande un retrait de ses fonds, la requête sera envoyé à Evon Charge Si c’est Evon Charge qui s’occupe de collecte de fonds, sinon il va être envoyé à l’intégrateur a  son intégrateur qui collecte les fonds. afin qu’il vire le montant total des transactions que le partenaire souhaite collecté. tout en ajoutant un ID, une date et une note de transaction, si la transaction est faite en hors ligne.
+
+
+Remboursement : Le remboursement peuvent être fait en 2 options soit en Wallet ou directement vers la carte bancaire avec laquelle le client a payé, en utilisant les API du payment gateway.
+
+
+
+

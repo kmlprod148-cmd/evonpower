@@ -1,0 +1,214 @@
+/* CSS optimisé pour le modèle 3D EvonPower */
+/* Centrage parfait et améliorations visuelles */
+
+.model-container {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border-radius: 1.5rem;
+    backdrop-filter: blur(20px);
+    border: 2px solid rgba(16, 185, 129, 0.3);
+    width: 400px;
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    
+    /* Centrage parfait du contenu */
+    text-align: center;
+}
+
+.model-container:hover {
+    border-color: rgba(16, 185, 129, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.6);
+}
+
+/* Conteneur de chargement centré */
+.model-loading {
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    /* Centrage parfait */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Canvas 3D centré */
+#3d-canvas {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 1rem;
+    
+    /* Centrage parfait du canvas */
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Animation de pulsation pour les points de chargement */
+@keyframes pulse {
+    0%, 100% { 
+        opacity: 1; 
+        transform: scale(1); 
+    }
+    50% { 
+        opacity: 0.5; 
+        transform: scale(1.2); 
+    }
+}
+
+/* Points de chargement animés */
+.loading-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.loading-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.loading-dot:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.loading-dot:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* Icône de batterie centrée */
+.battery-icon {
+    color: #f59e0b;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+/* Titre centré */
+.model-title {
+    color: #10b981;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+/* Description centrée */
+.model-description {
+    color: white;
+    font-size: 0.875rem;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .model-container {
+        width: 100%;
+        max-width: 350px;
+        height: 400px;
+    }
+    
+    .model-title {
+        font-size: 1.1rem;
+    }
+    
+    .model-description {
+        font-size: 0.8rem;
+    }
+    
+    .battery-icon {
+        font-size: 1.5rem;
+    }
+}
+
+/* Optimisations pour le rendu 3D */
+.model-container canvas {
+    /* Assurer que le canvas est bien centré */
+    display: block !important;
+    margin: 0 auto !important;
+    
+    /* Optimisations de performance */
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimize-contrast;
+    image-rendering: pixelated;
+}
+
+/* État de chargement */
+.model-container.loading {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+/* État chargé */
+.model-container.loaded {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+/* Transitions fluides */
+.model-container * {
+    transition: all 0.3s ease;
+}
+
+/* Amélioration de l'accessibilité */
+.model-container:focus-within {
+    outline: 2px solid #10b981;
+    outline-offset: 2px;
+}
+
+/* Support pour les thèmes sombres */
+@media (prefers-color-scheme: dark) {
+    .model-container {
+        background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+        border-color: rgba(16, 185, 129, 0.4);
+    }
+}
+
+/* Animation d'entrée */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.model-container {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Optimisations pour les écrans haute résolution */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .model-container {
+        border-width: 1px;
+    }
+    
+    #3d-canvas {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}

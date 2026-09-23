@@ -1,0 +1,625 @@
+/**
+ * EVON Animations Premium
+ * Animations et transitions fluides pour une UX moderne
+ * Version: 2.0
+ */
+
+/* ========================================
+   Variables d'Animation
+   ======================================== */
+:root {
+    --animation-duration-fast: 150ms;
+    --animation-duration-normal: 300ms;
+    --animation-duration-slow: 500ms;
+    --animation-easing: cubic-bezier(0.4, 0, 0.2, 1);
+    --animation-easing-in: cubic-bezier(0.4, 0, 1, 1);
+    --animation-easing-out: cubic-bezier(0, 0, 0.2, 1);
+    --animation-easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ========================================
+   Keyframes - Fade Animations
+   ======================================== */
+@keyframes evon-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes evon-fade-out {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes evon-fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes evon-fade-in-down {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes evon-fade-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes evon-fade-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ========================================
+   Keyframes - Scale Animations
+   ======================================== */
+@keyframes evon-scale-in {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes evon-scale-out {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+@keyframes evon-zoom-in {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes evon-bounce-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ========================================
+   Keyframes - Slide Animations
+   ======================================== */
+@keyframes evon-slide-in-up {
+    from {
+        transform: translateY(100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes evon-slide-in-down {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes evon-slide-in-left {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes evon-slide-in-right {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+/* ========================================
+   Keyframes - Rotate & Spin
+   ======================================== */
+@keyframes evon-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes evon-spin-reverse {
+    from {
+        transform: rotate(360deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes evon-rotate-in {
+    from {
+        opacity: 0;
+        transform: rotate(-90deg) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+/* ========================================
+   Keyframes - Pulse & Glow
+   ======================================== */
+@keyframes evon-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes evon-pulse-scale {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes evon-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(74, 207, 123, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(74, 207, 123, 0.8);
+    }
+}
+
+/* ========================================
+   Keyframes - Shimmer & Loading
+   ======================================== */
+@keyframes evon-shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+@keyframes evon-skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+@keyframes evon-progress {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* ========================================
+   Keyframes - Shake & Wobble
+   ======================================== */
+@keyframes evon-shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-5px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+@keyframes evon-wobble {
+    0%, 100% {
+        transform: translateX(0) rotate(0deg);
+    }
+    15% {
+        transform: translateX(-10px) rotate(-5deg);
+    }
+    30% {
+        transform: translateX(8px) rotate(3deg);
+    }
+    45% {
+        transform: translateX(-8px) rotate(-3deg);
+    }
+    60% {
+        transform: translateX(5px) rotate(2deg);
+    }
+    75% {
+        transform: translateX(-3px) rotate(-1deg);
+    }
+}
+
+@keyframes evon-bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-20px);
+    }
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ========================================
+   Classes Utilitaires d'Animation
+   ======================================== */
+.evon-animate-fade-in {
+    animation: evon-fade-in var(--animation-duration-normal) var(--animation-easing);
+}
+
+.evon-animate-fade-in-up {
+    animation: evon-fade-in-up var(--animation-duration-normal) var(--animation-easing);
+}
+
+.evon-animate-fade-in-down {
+    animation: evon-fade-in-down var(--animation-duration-normal) var(--animation-easing);
+}
+
+.evon-animate-fade-in-left {
+    animation: evon-fade-in-left var(--animation-duration-normal) var(--animation-easing);
+}
+
+.evon-animate-fade-in-right {
+    animation: evon-fade-in-right var(--animation-duration-normal) var(--animation-easing);
+}
+
+.evon-animate-scale-in {
+    animation: evon-scale-in var(--animation-duration-normal) var(--animation-easing);
+}
+
+.evon-animate-bounce-in {
+    animation: evon-bounce-in var(--animation-duration-slow) var(--animation-easing-bounce);
+}
+
+.evon-animate-slide-in-up {
+    animation: evon-slide-in-up var(--animation-duration-normal) var(--animation-easing);
+}
+
+.evon-animate-spin {
+    animation: evon-spin 1s linear infinite;
+}
+
+.evon-animate-pulse {
+    animation: evon-pulse 2s var(--animation-easing) infinite;
+}
+
+.evon-animate-pulse-scale {
+    animation: evon-pulse-scale 2s var(--animation-easing) infinite;
+}
+
+.evon-animate-glow {
+    animation: evon-glow 2s ease-in-out infinite;
+}
+
+.evon-animate-shake {
+    animation: evon-shake var(--animation-duration-slow) var(--animation-easing);
+}
+
+.evon-animate-bounce {
+    animation: evon-bounce 1s var(--animation-easing) infinite;
+}
+
+/* ========================================
+   Délais d'Animation (Stagger Effect)
+   ======================================== */
+.evon-animate-delay-1 {
+    animation-delay: 100ms;
+}
+
+.evon-animate-delay-2 {
+    animation-delay: 200ms;
+}
+
+.evon-animate-delay-3 {
+    animation-delay: 300ms;
+}
+
+.evon-animate-delay-4 {
+    animation-delay: 400ms;
+}
+
+.evon-animate-delay-5 {
+    animation-delay: 500ms;
+}
+
+.evon-animate-delay-6 {
+    animation-delay: 600ms;
+}
+
+/* ========================================
+   Transitions Globales
+   ======================================== */
+.evon-transition-all {
+    transition: all var(--animation-duration-normal) var(--animation-easing);
+}
+
+.evon-transition-colors {
+    transition: background-color var(--animation-duration-normal) var(--animation-easing),
+                border-color var(--animation-duration-normal) var(--animation-easing),
+                color var(--animation-duration-normal) var(--animation-easing);
+}
+
+.evon-transition-opacity {
+    transition: opacity var(--animation-duration-normal) var(--animation-easing);
+}
+
+.evon-transition-transform {
+    transition: transform var(--animation-duration-normal) var(--animation-easing);
+}
+
+.evon-transition-shadow {
+    transition: box-shadow var(--animation-duration-normal) var(--animation-easing);
+}
+
+/* Transition rapide */
+.evon-transition-fast {
+    transition-duration: var(--animation-duration-fast);
+}
+
+/* Transition lente */
+.evon-transition-slow {
+    transition-duration: var(--animation-duration-slow);
+}
+
+/* ========================================
+   Hover Effects
+   ======================================== */
+.evon-hover-lift {
+    transition: all var(--animation-duration-normal) var(--animation-easing);
+}
+
+.evon-hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.15);
+}
+
+.evon-hover-scale {
+    transition: transform var(--animation-duration-normal) var(--animation-easing);
+}
+
+.evon-hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.evon-hover-glow {
+    transition: all var(--animation-duration-normal) var(--animation-easing);
+}
+
+.evon-hover-glow:hover {
+    box-shadow: 0 0 20px rgba(74, 207, 123, 0.4);
+}
+
+.evon-hover-brightness {
+    transition: filter var(--animation-duration-normal) var(--animation-easing);
+}
+
+.evon-hover-brightness:hover {
+    filter: brightness(1.1);
+}
+
+.evon-hover-rotate {
+    transition: transform var(--animation-duration-normal) var(--animation-easing);
+}
+
+.evon-hover-rotate:hover {
+    transform: rotate(5deg);
+}
+
+/* ========================================
+   Loading States
+   ======================================== */
+.evon-skeleton {
+    background: linear-gradient(
+        90deg,
+        #f0f0f0 25%,
+        #e0e0e0 50%,
+        #f0f0f0 75%
+    );
+    background-size: 200% 100%;
+    animation: evon-skeleton-loading 1.5s ease-in-out infinite;
+}
+
+@media (prefers-color-scheme: dark) {
+    .evon-skeleton {
+        background: linear-gradient(
+            90deg,
+            #374151 25%,
+            #4b5563 50%,
+            #374151 75%
+        );
+    }
+}
+
+.evon-spinner {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(74, 207, 123, 0.2);
+    border-top-color: #4acf7b;
+    border-radius: 50%;
+    animation: evon-spin 0.8s linear infinite;
+}
+
+.evon-spinner-lg {
+    width: 40px;
+    height: 40px;
+    border-width: 4px;
+}
+
+.evon-spinner-sm {
+    width: 16px;
+    height: 16px;
+    border-width: 2px;
+}
+
+.evon-progress-bar {
+    position: relative;
+    height: 4px;
+    background: #e5e7eb;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.evon-progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, #4acf7b, #3ab56a);
+    animation: evon-progress 1.5s ease-in-out infinite;
+}
+
+/* ========================================
+   Scroll Animations
+   ======================================== */
+.evon-scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all var(--animation-duration-slow) var(--animation-easing);
+}
+
+.evon-scroll-reveal.evon-is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========================================
+   Page Transitions
+   ======================================== */
+.evon-page-enter {
+    animation: evon-fade-in-up var(--animation-duration-slow) var(--animation-easing);
+}
+
+.evon-page-exit {
+    animation: evon-fade-out var(--animation-duration-normal) var(--animation-easing);
+}
+
+/* ========================================
+   Notification Animations
+   ======================================== */
+.evon-notification-enter {
+    animation: evon-slide-in-right var(--animation-duration-normal) var(--animation-easing);
+}
+
+.evon-notification-exit {
+    animation: evon-fade-out var(--animation-duration-normal) var(--animation-easing);
+}
+
+/* ========================================
+   Modal Animations
+   ======================================== */
+.evon-modal-backdrop-enter {
+    animation: evon-fade-in var(--animation-duration-normal) var(--animation-easing);
+}
+
+.evon-modal-content-enter {
+    animation: evon-scale-in var(--animation-duration-normal) var(--animation-easing);
+}
+
+.evon-modal-backdrop-exit {
+    animation: evon-fade-out var(--animation-duration-normal) var(--animation-easing);
+}
+
+.evon-modal-content-exit {
+    animation: evon-scale-out var(--animation-duration-normal) var(--animation-easing);
+}
+
+/* ========================================
+   Performance Optimization
+   ======================================== */
+.evon-will-animate {
+    will-change: transform, opacity;
+}
+
+/* Désactiver les animations pour les utilisateurs qui préfèrent réduire le mouvement */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .evon-scroll-reveal {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

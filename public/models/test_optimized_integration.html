@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Modèle 3D Optimisé - EvonPower</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <style>
+        body { 
+            margin: 0; 
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        #container { 
+            width: 100vw; 
+            height: 100vh; 
+            position: relative;
+        }
+        .loading { 
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            color: white; 
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 2rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(10px);
+        }
+        .performance-info {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            max-width: 300px;
+        }
+        .controls {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+        .btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            margin: 0 0.25rem;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #059669;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="loading" id="loading">
+            <h3>Chargement du Modèle 3D</h3>
+            <div id="progress">Initialisation...</div>
+        </div>
+        
+        <div class="performance-info" id="performanceInfo">
+            <h4>Informations de Performance</h4>
+            <div id="fps">FPS: --</div>
+            <div id="memory">Mémoire: --</div>
+            <div id="polygons">Polygones: --</div>
+        </div>
+        
+        <div class="controls">
+            <button class="btn" onclick="toggleAutoRotate()">Rotation Auto</button>
+            <button class="btn" onclick="toggleWireframe()">Mode Fil</button>
+            <button class="btn" onclick="resetCamera()">Réinitialiser</button>
+        </div>
+    </div>
+    
+    <script>
+        // Configuration de performance
+        const config = {
+            antialias: false,
+            powerPreference: "high-performance",
+            stencil: false,
+            depth: true,
+            alpha: false
+        };
+        
+        let scene, camera, renderer, controls, model;
+        let autoRotate = true;
+        let wireframeMode = false;
+        let frameCount = 0;
+        let lastTime = performance.now();
+        
+        // Initialisation
+        function init() {
+            // Scène
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x000000);
+            scene.fog = new THREE.Fog(0x000000, 1, 100);
+            
+            // Caméra
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.set(0, 0, 5);
+            
+            // Rendu avec optimisations
+            renderer = new THREE.WebGLRenderer(config);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.shadowMap.enabled = false;
+            renderer.outputEncoding = THREE.sRGBEncoding;
+            renderer.toneMapping = THREE.ACESFilmicToneMapping;
+            renderer.toneMappingExposure = 1;
+            
+            document.getElementById("container").appendChild(renderer.domElement);
+            
+            // Éclairage optimisé
+            addLights();
+            
+            // Contrôles
+            addControls();
+            
+            // Charger le modèle
+            loadModel();
+            
+            // Démarrer la boucle de rendu
+            animate();
+            
+            // Gestion du redimensionnement
+            window.addEventListener("resize", onWindowResize);
+        }
+        
+        function addLights() {
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(10, 10, 5);
+            directionalLight.castShadow = false;
+            scene.add(directionalLight);
+            
+            const pointLight = new THREE.PointLight(0x10b981, 1, 100);
+            pointLight.position.set(-10, 10, -10);
+            scene.add(pointLight);
+        }
+        
+        function addControls() {
+            controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.enableZoom = true;
+            controls.enablePan = false;
+            controls.autoRotate = autoRotate;
+            controls.autoRotateSpeed = 0.5;
+            controls.maxDistance = 20;
+            controls.minDistance = 2;
+        }
+        
+        function loadModel() {
+            const loader = new THREE.GLTFLoader();
+            
+            loader.load(
+                "evon-charger-compressed.glb",
+                function (gltf) {
+                    model = gltf.scene;
+                    
+                    // Optimisations du modèle
+                    optimizeModel();
+                    
+                    // Centrer et redimensionner
+                    const box = new THREE.Box3().setFromObject(model);
+                    const center = box.getCenter(new THREE.Vector3());
+                    const size = box.getSize(new THREE.Vector3());
+                    
+                    const maxDim = Math.max(size.x, size.y, size.z);
+                    const scale = 3 / maxDim;
+                    
+                    model.scale.setScalar(scale);
+                    model.position.sub(center.multiplyScalar(scale));
+                    
+                    scene.add(model);
+                    
+                    // Masquer le chargement
+                    document.getElementById("loading").style.display = "none";
+                    
+                    // Afficher les informations de performance
+                    updatePerformanceInfo();
+                    
+                    console.log("✅ Modèle 3D optimisé chargé avec succès!");
+                },
+                function (progress) {
+                    if (progress.lengthComputable) {
+                        const percent = Math.round((progress.loaded / progress.total) * 100);
+                        document.getElementById("progress").textContent = `Chargement: ${percent}%`;
+                    }
+                },
+                function (error) {
+                    console.error("❌ Erreur de chargement:", error);
+                    document.getElementById("progress").textContent = "Erreur de chargement du modèle";
+                }
+            );
+        }
+        
+        function optimizeModel() {
+            if (!model) return;
+            
+            let totalPolygons = 0;
+            
+            model.traverse((child) => {
+                if (child.isMesh) {
+                    // Optimiser la géométrie
+                    if (child.geometry) {
+                        child.geometry.computeBoundingBox();
+                        child.geometry.computeBoundingSphere();
+                        
+                        // Compter les polygones
+                        if (child.geometry.attributes.position) {
+                            totalPolygons += child.geometry.attributes.position.count / 3;
+                        }
+                    }
+                    
+                    // Optimiser les matériaux
+                    if (child.material) {
+                        child.material.side = THREE.FrontSide;
+                        child.material.transparent = false;
+                        child.material.alphaTest = 0.5;
+                    }
+                    
+                    // Désactiver les ombres pour les performances
+                    child.castShadow = false;
+                    child.receiveShadow = false;
+                }
+            });
+            
+            // Stocker le nombre de polygones pour l'affichage
+            model.userData.totalPolygons = Math.round(totalPolygons);
+        }
+        
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            if (controls) {
+                controls.update();
+            }
+            
+            if (model && autoRotate) {
+                model.rotation.y += 0.005;
+            }
+            
+            renderer.render(scene, camera);
+            
+            // Mettre à jour les informations de performance
+            frameCount++;
+            const currentTime = performance.now();
+            if (currentTime - lastTime >= 1000) {
+                updatePerformanceInfo();
+                lastTime = currentTime;
+                frameCount = 0;
+            }
+        }
+        
+        function updatePerformanceInfo() {
+            const fps = frameCount;
+                                      const memory = performance.memory ? Math.round(performance.memory.usedJSHeapSize / 1024 / 1024) : "N/A";
+             const polygons = model ? model.userData.totalPolygons : "N/A";
+            
+            document.getElementById("fps").textContent = `FPS: ${fps}`;
+            document.getElementById("memory").textContent = `Mémoire: ${memory} MB`;
+            document.getElementById("polygons").textContent = `Polygones: ${polygons}`;
+        }
+        
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+        
+        // Contrôles utilisateur
+        function toggleAutoRotate() {
+            autoRotate = !autoRotate;
+            if (controls) {
+                controls.autoRotate = autoRotate;
+            }
+        }
+        
+        function toggleWireframe() {
+            wireframeMode = !wireframeMode;
+            if (model) {
+                model.traverse((child) => {
+                    if (child.isMesh && child.material) {
+                        child.material.wireframe = wireframeMode;
+                    }
+                });
+            }
+        }
+        
+        function resetCamera() {
+            if (controls) {
+                controls.reset();
+            }
+        }
+        
+        // Initialiser quand le DOM est prêt
+        document.addEventListener("DOMContentLoaded", init);
+    </script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Collapse repeated /public/public/* into /public/* before front controller handling
+    RewriteCond %{REQUEST_URI} ^/public/public/(.+)$
+    RewriteRule ^public/public/(.+)$ /public/$1 [R=301,L]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# Sécurité
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# Compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+</IfModule>
+
+# Cache des assets
+<IfModule mod_expires.c>
+    ExpiresActive on
+    
+    # CSS, JavaScript
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType application/x-javascript "access plus 1 year"
+    
+    # Images
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/ico "access plus 1 year"
+    ExpiresByType image/icon "access plus 1 year"
+    ExpiresByType text/ico "access plus 1 year"
+    ExpiresByType application/ico "access plus 1 year"
+    
+    # Fonts
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    
+    # HTML - pas de cache pour éviter les problèmes
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# Cache Control Headers
+<IfModule mod_headers.c>
+    # Assets avec hash (versioned)
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|otf)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+    
+    # HTML et autres fichiers
+    <FilesMatch "\.(html|htm|xml|txt)$">
+        Header set Cache-Control "public, max-age=3600"
+    </FilesMatch>
+</IfModule>
+
+# Protection contre les accès aux fichiers sensibles
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "\.(env|log|sql|md|txt)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Compression GZIP pour les modèles 3D et autres fichiers
+<IfModule mod_deflate.c>
+    # Activer la compression pour tous les types de fichiers
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+    
+    # Compression spécifique pour les modèles 3D
+    AddOutputFilterByType DEFLATE model/gltf-binary
+    AddOutputFilterByType DEFLATE application/octet-stream
+    
+    # Compression pour les fichiers GLB
+    <FilesMatch "\.glb$">
+        SetOutputFilter DEFLATE
+    </FilesMatch>
+    
+    # Compression pour les fichiers ZIP
+    <FilesMatch "\.zip$">
+        SetOutputFilter DEFLATE
+    </FilesMatch>
+</IfModule>
+
+# Cache et expiration pour les modèles 3D
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Cache long pour les modèles 3D (1 an)
+    ExpiresByType model/gltf-binary "access plus 1 year"
+    ExpiresByType application/octet-stream "access plus 1 year"
+    
+    # Cache pour les fichiers GLB
+    <FilesMatch "\.glb$">
+        ExpiresDefault "access plus 1 year"
+    </FilesMatch>
+    
+    # Cache pour les fichiers ZIP
+    <FilesMatch "\.zip$">
+        ExpiresDefault "access plus 1 month"
+    </FilesMatch>
+    
+    # Cache pour les autres ressources
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+</IfModule>
+
+# Headers de sécurité et performance
+<IfModule mod_headers.c>
+    # Headers de sécurité
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Headers de performance pour les modèles 3D
+    <FilesMatch "\.glb$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+    
+    # Headers pour les fichiers de test
+    <FilesMatch "test.*\.html$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+</IfModule>
+
+# Optimisations pour les gros fichiers
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Redirection pour les modèles 3D compressés
+    RewriteCond %{HTTP_ACCEPT_ENCODING} gzip
+    RewriteCond %{REQUEST_FILENAME} \.glb$
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^(.*)\.glb$ $1.glb [L]
+</IfModule>
+
+# Configuration pour les serveurs Nginx (commenté)
+# location ~* \.glb$ {
+#     gzip on;
+#     gzip_vary on;
+#     gzip_min_length 1024;
+#     gzip_types model/gltf-binary application/octet-stream;
+#     expires 1y;
+#     add_header Cache-Control "public, immutable";
+#     add_header Access-Control-Allow-Origin "*";
+# }

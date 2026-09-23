@@ -1,0 +1,547 @@
+/**
+ * ========================================
+ * MOBILE MENU PREMIUM - UX Moderne
+ * Menu compact avec animations fluides
+ * ========================================
+ */
+
+/* ========================================
+   1. BOUTON HAMBURGER ANIMÉ PREMIUM
+   ======================================== */
+
+/* Bouton hamburger premium */
+.evon-mobile-menu-btn {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-tap-highlight-color: transparent;
+    z-index: 60;
+}
+
+.evon-mobile-menu-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.evon-mobile-menu-btn:active {
+    transform: scale(0.95);
+}
+
+/* Hamburger container */
+.evon-hamburger {
+    position: relative;
+    width: 24px;
+    height: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Lignes du hamburger */
+.evon-hamburger-line {
+    width: 100%;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform-origin: center;
+}
+
+/* Animation quand le menu est ouvert */
+.menu-open .evon-hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-open .evon-hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+}
+
+.menu-open .evon-hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ========================================
+   2. SIDEBAR MOBILE PREMIUM
+   ======================================== */
+
+/* Sidebar mobile - Cachée par défaut */
+@media (max-width: 1023px) {
+    .evon-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 280px;
+        max-width: 85vw;
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* RTL - Sidebar depuis la droite */
+    [dir="rtl"] .evon-sidebar {
+        left: auto;
+        right: 0;
+        transform: translateX(100%);
+        box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Sidebar ouverte */
+    .sidebar-open .evon-sidebar {
+        transform: translateX(0) !important;
+    }
+    
+    /* Animation smooth */
+    .evon-sidebar * {
+        transition-property: opacity, transform;
+        transition-duration: 0.3s;
+        transition-timing-function: ease-out;
+    }
+}
+
+/* ========================================
+   3. OVERLAY BACKDROP PREMIUM
+   ======================================== */
+
+/* Overlay avec backdrop blur */
+.evon-mobile-sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 998;
+    cursor: pointer;
+}
+
+/* Overlay visible quand menu ouvert */
+.sidebar-open .evon-mobile-sidebar-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Animation de pulsation subtile */
+@keyframes overlayPulse {
+    0%, 100% {
+        background: rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        background: rgba(0, 0, 0, 0.55);
+    }
+}
+
+.sidebar-open .evon-mobile-sidebar-overlay {
+    animation: overlayPulse 3s ease-in-out infinite;
+}
+
+/* ========================================
+   4. BOTTOM NAVIGATION MODERNE
+   ======================================== */
+
+/* Bottom nav premium */
+.evon-mobile-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+    padding-bottom: max(8px, env(safe-area-inset-bottom));
+    z-index: 50;
+    box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.dark .evon-mobile-bottom-nav {
+    background: rgba(31, 41, 55, 0.95);
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Bottom nav content */
+.evon-mobile-bottom-nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* Bottom nav item */
+.evon-mobile-bottom-nav-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 12px;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    min-width: 64px;
+}
+
+.evon-mobile-bottom-nav-item:active {
+    transform: scale(0.92);
+}
+
+/* Item actif avec effet moderne */
+.evon-mobile-bottom-nav-item.active {
+    background: linear-gradient(135deg, #4acf7b 0%, #3ab56a 100%);
+    box-shadow: 0 4px 12px rgba(74, 207, 123, 0.4);
+}
+
+.evon-mobile-bottom-nav-item.active::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: #4acf7b;
+    border-radius: 0 0 3px 3px;
+}
+
+/* Icône */
+.evon-mobile-bottom-nav-icon {
+    width: 24px;
+    height: 24px;
+    color: #6b7280;
+    transition: all 0.3s ease;
+}
+
+.evon-mobile-bottom-nav-item.active .evon-mobile-bottom-nav-icon {
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Label */
+.evon-mobile-bottom-nav-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: #6b7280;
+    transition: all 0.3s ease;
+}
+
+.evon-mobile-bottom-nav-item.active .evon-mobile-bottom-nav-label {
+    color: white;
+    font-weight: 600;
+}
+
+/* ========================================
+   5. MENU BUTTON DANS BOTTOM NAV
+   ======================================== */
+
+/* Bouton menu central (FAB style) */
+.evon-bottom-nav-menu-btn {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    margin: -20px 0 0 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4acf7b 0%, #3ab56a 100%);
+    box-shadow: 0 8px 24px rgba(74, 207, 123, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.evon-bottom-nav-menu-btn:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 12px 32px rgba(74, 207, 123, 0.5);
+}
+
+.evon-bottom-nav-menu-btn:active {
+    transform: scale(0.95);
+}
+
+/* Icône hamburger dans FAB */
+.evon-bottom-nav-menu-btn .evon-hamburger {
+    width: 20px;
+    height: 15px;
+}
+
+.evon-bottom-nav-menu-btn .evon-hamburger-line {
+    background: white;
+}
+
+/* Animation rotation quand ouvert */
+.menu-open .evon-bottom-nav-menu-btn {
+    transform: rotate(90deg);
+}
+
+/* ========================================
+   6. ANIMATIONS D'ENTRÉE DES ITEMS
+   ======================================== */
+
+/* Animation stagger pour les items du menu */
+.sidebar-open .evon-nav-item {
+    animation: slideInFromLeft 0.4s ease-out backwards;
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* RTL animation */
+[dir="rtl"] .sidebar-open .evon-nav-item {
+    animation: slideInFromRight 0.4s ease-out backwards;
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Delay progressif pour effet cascade */
+.sidebar-open .evon-nav-item:nth-child(1) { animation-delay: 0.05s; }
+.sidebar-open .evon-nav-item:nth-child(2) { animation-delay: 0.1s; }
+.sidebar-open .evon-nav-item:nth-child(3) { animation-delay: 0.15s; }
+.sidebar-open .evon-nav-item:nth-child(4) { animation-delay: 0.2s; }
+.sidebar-open .evon-nav-item:nth-child(5) { animation-delay: 0.25s; }
+.sidebar-open .evon-nav-item:nth-child(6) { animation-delay: 0.3s; }
+.sidebar-open .evon-nav-item:nth-child(7) { animation-delay: 0.35s; }
+.sidebar-open .evon-nav-item:nth-child(8) { animation-delay: 0.4s; }
+
+/* ========================================
+   7. HEADER MOBILE COMPACT
+   ======================================== */
+
+/* Header mobile optimisé */
+@media (max-width: 1023px) {
+    #evon-app-header {
+        padding: 12px 16px;
+    }
+    
+    /* Réduire la taille du titre sur mobile */
+    #evon-app-header h1 {
+        font-size: 20px;
+        line-height: 1.2;
+    }
+    
+    /* Avatar plus petit */
+    #evon-app-header .w-14 {
+        width: 40px;
+        height: 40px;
+    }
+    
+    /* Stats cards en colonne sur mobile */
+    #evon-app-header .grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
+/* ========================================
+   8. SWIPE GESTURE SUPPORT
+   ======================================== */
+
+/* Touch-friendly zones */
+@media (max-width: 1023px) {
+    .evon-sidebar {
+        touch-action: pan-y;
+    }
+    
+    /* Zone de swipe pour fermer */
+    .evon-sidebar::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -20px;
+        width: 20px;
+        height: 100%;
+        cursor: pointer;
+    }
+    
+    [dir="rtl"] .evon-sidebar::before {
+        right: auto;
+        left: -20px;
+    }
+}
+
+/* ========================================
+   9. CONTENT PADDING POUR BOTTOM NAV
+   ======================================== */
+
+/* Ajouter padding au contenu pour le bottom nav */
+@media (max-width: 1023px) {
+    .evon-main {
+        padding-bottom: 80px;
+    }
+}
+
+/* ========================================
+   10. BADGE NOTIFICATIONS
+   ======================================== */
+
+/* Badge sur les items bottom nav */
+.evon-nav-badge-mobile {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    background: #ef4444;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+    animation: badgePop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes badgePop {
+    0% {
+        transform: scale(0);
+    }
+    70% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ========================================
+   11. DARK MODE OPTIMIZATIONS
+   ======================================== */
+
+.dark .evon-mobile-menu-btn {
+    background: rgba(55, 65, 81, 0.8);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .evon-mobile-bottom-nav-icon {
+    color: #9ca3af;
+}
+
+.dark .evon-mobile-bottom-nav-label {
+    color: #9ca3af;
+}
+
+/* ========================================
+   12. PERFORMANCE OPTIMIZATIONS
+   ======================================== */
+
+/* GPU acceleration */
+.evon-sidebar,
+.evon-mobile-sidebar-overlay,
+.evon-mobile-bottom-nav,
+.evon-hamburger-line {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* ========================================
+   13. ACCESSIBILITY
+   ======================================== */
+
+/* Focus states */
+.evon-mobile-menu-btn:focus,
+.evon-mobile-bottom-nav-item:focus,
+.evon-bottom-nav-menu-btn:focus {
+    outline: 2px solid #4acf7b;
+    outline-offset: 2px;
+}
+
+/* Screen reader text */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ========================================
+   14. LANDSCAPE MODE MOBILE
+   ======================================== */
+
+@media (max-width: 1023px) and (orientation: landscape) {
+    /* Sidebar plus étroite en landscape */
+    .evon-sidebar {
+        width: 240px;
+    }
+    
+    /* Bottom nav plus compact */
+    .evon-mobile-bottom-nav {
+        padding: 4px 0;
+    }
+    
+    .evon-mobile-bottom-nav-item {
+        padding: 6px 10px;
+    }
+    
+    /* Réduire padding du contenu */
+    .evon-main {
+        padding-bottom: 60px;
+    }
+}
+
+/* ========================================
+   15. TRÈS PETITS ÉCRANS (< 360px)
+   ======================================== */
+
+@media (max-width: 359px) {
+    .evon-sidebar {
+        width: 260px;
+    }
+    
+    .evon-mobile-bottom-nav-label {
+        font-size: 10px;
+    }
+    
+    .evon-mobile-bottom-nav-item {
+        min-width: 56px;
+        padding: 6px 8px;
+    }
+}
+
+/* ========================================
+   FIN DU FICHIER
+   ======================================== */

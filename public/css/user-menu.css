@@ -1,0 +1,294 @@
+/**
+ * EVON - User Menu Styles
+ * Modern, accessible, and performant styles for user menu component
+ */
+
+:root {
+    /* Spacing */
+    --user-menu-spacing: 0.75rem;
+    --user-menu-gap: 0.75rem;
+    
+    /* Timing */
+    --user-menu-transition-fast: 150ms;
+    --user-menu-transition-normal: 200ms;
+    --user-menu-transition-slow: 300ms;
+    
+    /* Animations */
+    --user-menu-easing: cubic-bezier(0.4, 0, 0.2, 1);
+    --user-menu-easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    /* Shadows */
+    --user-menu-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --user-menu-shadow-dark: 0 20px 25px -5px rgb(0 0 0 / 0.4), 0 8px 10px -6px rgb(0 0 0 / 0.3);
+    
+    /* Border Radius */
+    --user-menu-radius: 1rem;
+    --user-menu-radius-lg: 1.5rem;
+    
+    /* Avatar */
+    --user-menu-avatar-size: 2.25rem;
+    --user-menu-avatar-size-lg: 4rem;
+    
+    /* Status Indicator */
+    --user-menu-status-size: 0.75rem;
+    --user-menu-status-pulse-duration: 2s;
+}
+
+/* Dark Mode Variables */
+.dark {
+    --user-menu-shadow: var(--user-menu-shadow-dark);
+}
+
+/* Avatar Hover Effect */
+.user-menu-avatar {
+    position: relative;
+    transition: transform var(--user-menu-transition-normal) var(--user-menu-easing);
+}
+
+.user-menu-avatar:hover {
+    transform: scale(1.05);
+}
+
+/* Status Pulse Animation */
+@keyframes user-menu-pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.user-menu-status-pulse {
+    animation: user-menu-pulse var(--user-menu-status-pulse-duration) cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Ping Animation for Online Status */
+@keyframes user-menu-ping {
+    75%, 100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+.user-menu-ping {
+    animation: user-menu-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Menu Item Hover Effects */
+.user-menu-item {
+    position: relative;
+    transition: all var(--user-menu-transition-normal) var(--user-menu-easing);
+}
+
+.user-menu-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) scaleX(0);
+    width: 3px;
+    height: 60%;
+    background: currentColor;
+    border-radius: 0 2px 2px 0;
+    transition: transform var(--user-menu-transition-normal) var(--user-menu-easing);
+}
+
+.user-menu-item:hover::before {
+    transform: translateY(-50%) scaleX(1);
+}
+
+/* Icon Container Animations */
+.user-menu-icon {
+    transition: transform var(--user-menu-transition-normal) var(--user-menu-easing-bounce);
+}
+
+.user-menu-item:hover .user-menu-icon {
+    transform: scale(1.1) rotate(3deg);
+}
+
+.user-menu-item:active .user-menu-icon {
+    transform: scale(0.95);
+}
+
+/* Chevron Rotation */
+.user-menu-chevron {
+    transition: transform var(--user-menu-transition-normal) var(--user-menu-easing);
+}
+
+.user-menu-chevron.is-open {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Animation */
+@keyframes user-menu-dropdown-enter {
+    from {
+        opacity: 0;
+        transform: translateY(-0.5rem) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes user-menu-dropdown-exit {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-0.5rem) scale(0.95);
+    }
+}
+
+.user-menu-dropdown-enter {
+    animation: user-menu-dropdown-enter var(--user-menu-transition-normal) var(--user-menu-easing);
+}
+
+.user-menu-dropdown-exit {
+    animation: user-menu-dropdown-exit var(--user-menu-transition-fast) var(--user-menu-easing);
+}
+
+/* Backdrop Blur Support */
+@supports (backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px)) {
+    .user-menu-dropdown {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+}
+
+/* Focus Visible Styles */
+.user-menu-item:focus-visible,
+.user-menu-button:focus-visible {
+    outline: 2px solid var(--eco-green-500, #10b981);
+    outline-offset: 2px;
+    border-radius: var(--user-menu-radius);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .user-menu-ping,
+    .user-menu-status-pulse {
+        animation: none !important;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .user-menu-item {
+        border: 1px solid currentColor;
+    }
+    
+    .user-menu-dropdown {
+        border: 2px solid currentColor;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .user-menu-dropdown {
+        display: none !important;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    :root {
+        --user-menu-avatar-size: 2rem;
+        --user-menu-radius: 0.875rem;
+    }
+    
+    .user-menu-dropdown {
+        position: fixed !important;
+        right: 0.5rem;
+        left: 0.5rem;
+        width: auto !important;
+        max-width: none !important;
+    }
+}
+
+/* Accessibility - Screen Reader Only */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Loading State */
+.user-menu-loading {
+    opacity: 0.6;
+    pointer-events: none;
+    cursor: wait;
+}
+
+.user-menu-loading .user-menu-icon {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Glassmorphism Effect for Premium Look */
+.user-menu-glass {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+.dark .user-menu-glass {
+    background: rgba(31, 41, 55, 0.95);
+}
+
+/* Smooth Scroll */
+.user-menu-dropdown {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+.user-menu-dropdown::-webkit-scrollbar {
+    width: 6px;
+}
+
+.user-menu-dropdown::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.user-menu-dropdown::-webkit-scrollbar-thumb {
+    background: rgba(156, 163, 175, 0.5);
+    border-radius: 3px;
+}
+
+.user-menu-dropdown::-webkit-scrollbar-thumb:hover {
+    background: rgba(156, 163, 175, 0.7);
+}
+
+.dark .user-menu-dropdown::-webkit-scrollbar-thumb {
+    background: rgba(75, 85, 99, 0.5);
+}
+
+.dark .user-menu-dropdown::-webkit-scrollbar-thumb:hover {
+    background: rgba(75, 85, 99, 0.7);
+}
+

@@ -1,0 +1,143 @@
+<?php
+
+return [
+    // Reports
+    'reports' => 'Rapports',
+    'report' => 'Rapport',
+    'generate_report' => 'Générer un rapport',
+    'download_report' => 'Télécharger le rapport',
+    'export_report' => 'Exporter le rapport',
+    'print_report' => 'Imprimer le rapport',
+    'report_details' => 'Détails du rapport',
+    'report_list' => 'Liste des rapports',
+    'report_history' => 'Historique des rapports',
+    
+    // Report types
+    'financial_report' => 'Rapport financier',
+    'transaction_report' => 'Rapport de transactions',
+    'charging_report' => 'Rapport de recharge',
+    'user_report' => 'Rapport utilisateur',
+    'performance_report' => 'Rapport de performance',
+    'usage_report' => 'Rapport d\'utilisation',
+    'revenue_report' => 'Rapport de revenus',
+    'commission_report' => 'Rapport de commissions',
+    'activity_report' => 'Rapport d\'activité',
+    'audit_report' => 'Rapport d\'audit',
+    
+    // Report periods
+    'daily_report' => 'Rapport quotidien',
+    'weekly_report' => 'Rapport hebdomadaire',
+    'monthly_report' => 'Rapport mensuel',
+    'quarterly_report' => 'Rapport trimestriel',
+    'yearly_report' => 'Rapport annuel',
+    'custom_period' => 'Période personnalisée',
+    
+    // Report filters
+    'filter_by_date' => 'Filtrer par date',
+    'filter_by_type' => 'Filtrer par type',
+    'filter_by_user' => 'Filtrer par utilisateur',
+    'filter_by_location' => 'Filtrer par emplacement',
+    'filter_by_status' => 'Filtrer par statut',
+    'date_range' => 'Plage de dates',
+    'start_date' => 'Date de début',
+    'end_date' => 'Date de fin',
+    'all_dates' => 'Toutes les dates',
+    'today' => 'Aujourd\'hui',
+    'yesterday' => 'Hier',
+    'this_week' => 'Cette semaine',
+    'last_week' => 'Semaine dernière',
+    'this_month' => 'Ce mois',
+    'last_month' => 'Mois dernier',
+    'this_year' => 'Cette année',
+    'last_year' => 'Année dernière',
+    
+    // Report sections
+    'summary' => 'Résumé',
+    'details' => 'Détails',
+    'statistics' => 'Statistiques',
+    'charts' => 'Graphiques',
+    'tables' => 'Tableaux',
+    'graphs' => 'Graphiques',
+    'analytics' => 'Analyses',
+    'metrics' => 'Métriques',
+    
+    // Report metrics
+    'total_sessions' => 'Total des sessions',
+    'total_revenue' => 'Revenus totaux',
+    'average_session' => 'Session moyenne',
+    'peak_hours' => 'Heures de pointe',
+    'off_peak_hours' => 'Heures creuses',
+    'utilization_rate' => 'Taux d\'utilisation',
+    'success_rate' => 'Taux de réussite',
+    'error_rate' => 'Taux d\'erreur',
+    'customer_satisfaction' => 'Satisfaction client',
+    'response_time' => 'Temps de réponse',
+    
+    // Report actions
+    'create_report' => 'Créer un rapport',
+    'edit_report' => 'Modifier le rapport',
+    'delete_report' => 'Supprimer le rapport',
+    'schedule_report' => 'Programmer le rapport',
+    'share_report' => 'Partager le rapport',
+    'archive_report' => 'Archiver le rapport',
+    'restore_report' => 'Restaurer le rapport',
+    
+    // Report status
+    'draft' => 'Brouillon',
+    'generating' => 'En cours de génération',
+    'completed' => 'Terminé',
+    'failed' => 'Échoué',
+    'scheduled' => 'Programmé',
+    'archived' => 'Archivé',
+    
+    // Report formats
+    'pdf' => 'PDF',
+    'excel' => 'Excel',
+    'csv' => 'CSV',
+    'json' => 'JSON',
+    'xml' => 'XML',
+    'html' => 'HTML',
+    
+    // Report messages
+    'report_generated' => 'Rapport généré avec succès',
+    'report_scheduled' => 'Rapport programmé avec succès',
+    'report_deleted' => 'Rapport supprimé avec succès',
+    'report_archived' => 'Rapport archivé avec succès',
+    'report_restored' => 'Rapport restauré avec succès',
+    'report_shared' => 'Rapport partagé avec succès',
+    'report_generation_failed' => 'Échec de la génération du rapport',
+    'no_data_available' => 'Aucune donnée disponible',
+    'report_not_found' => 'Rapport non trouvé',
+    
+    // Report templates
+    'standard_report' => 'Rapport standard',
+    'detailed_report' => 'Rapport détaillé',
+    'summary_report' => 'Rapport de synthèse',
+    'executive_summary' => 'Résumé exécutif',
+    'technical_report' => 'Rapport technique',
+    'custom_report' => 'Rapport personnalisé',
+    
+    // Report delivery
+    'email_report' => 'Envoyer le rapport par e-mail',
+    'download_report' => 'Télécharger le rapport',
+    'view_online' => 'Voir en ligne',
+    'print_report' => 'Imprimer le rapport',
+    'save_report' => 'Sauvegarder le rapport',
+    
+    // Report scheduling
+    'schedule_daily' => 'Programmer quotidiennement',
+    'schedule_weekly' => 'Programmer hebdomadairement',
+    'schedule_monthly' => 'Programmer mensuellement',
+    'schedule_custom' => 'Programmer personnalisé',
+    'schedule_time' => 'Heure de programmation',
+    'schedule_recipients' => 'Destinataires programmés',
+    
+    // Report permissions
+    'view_reports' => 'Voir les rapports',
+    'create_reports' => 'Créer des rapports',
+    'edit_reports' => 'Modifier les rapports',
+    'delete_reports' => 'Supprimer les rapports',
+    'schedule_reports' => 'Programmer les rapports',
+    'share_reports' => 'Partager les rapports',
+    'export_reports' => 'Exporter les rapports',
+]; 

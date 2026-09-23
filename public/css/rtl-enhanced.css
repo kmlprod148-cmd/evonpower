@@ -1,0 +1,745 @@
+/**
+ * ========================================
+ * RTL ENHANCED - Support Arabe Premium
+ * Sidebar à droite + Layout complet RTL
+ * Version: 2.0
+ * ========================================
+ */
+
+/* ========================================
+   1. BASE RTL - Direction & Alignement
+   ======================================== */
+
+[dir="rtl"] {
+    direction: rtl !important;
+}
+
+/* Assurer que le body est en RTL */
+[dir="rtl"] body {
+    direction: rtl;
+}
+
+/* ========================================
+   1.5 MAIN LAYOUT RTL - Sidebar à droite
+   ======================================== */
+
+/* Container flex inversé pour sidebar à droite */
+[dir="rtl"] .evon-layout-wrapper,
+[dir="rtl"] .flex.min-h-screen {
+    flex-direction: row-reverse !important;
+}
+
+/* Sidebar positionné à droite */
+[dir="rtl"] aside.evon-sidebar,
+[dir="rtl"] .evon-sidebar {
+    left: auto !important;
+    right: 0 !important;
+    border-right: none !important;
+    border-left: 1px solid #e5e7eb !important;
+}
+
+.dark [dir="rtl"] aside.evon-sidebar,
+.dark [dir="rtl"] .evon-sidebar {
+    border-left-color: #374151 !important;
+}
+
+/* Main content - margin inversé */
+[dir="rtl"] .flex-1.flex.flex-col {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+/* ========================================
+   2. LAYOUT CENTRÉ - Mobile & Desktop
+   ======================================== */
+
+/* Main content - Centrage parfait */
+[dir="rtl"] .evon-main {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .evon-content {
+    direction: rtl;
+    text-align: right;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Page header centré */
+[dir="rtl"] .evon-page-header {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .evon-page-title,
+[dir="rtl"] .evon-page-subtitle {
+    text-align: right;
+}
+
+/* ========================================
+   3. SIDEBAR RTL - Position inversée
+   ======================================== */
+
+[dir="rtl"] .evon-sidebar {
+    left: auto !important;
+    right: 0 !important;
+}
+
+/* Sidebar items */
+[dir="rtl"] .evon-nav-item {
+    direction: rtl;
+    text-align: right;
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .evon-nav-icon {
+    margin-right: 0 !important;
+    margin-left: 12px !important;
+}
+
+[dir="rtl"] .evon-nav-label {
+    text-align: right;
+}
+
+/* Sidebar mobile transform */
+[dir="rtl"] aside.-translate-x-full {
+    transform: translateX(100%) !important;
+}
+
+[dir="rtl"] aside.translate-x-0 {
+    transform: translateX(0) !important;
+}
+
+/* Sidebar overlay position */
+[dir="rtl"] .evon-mobile-sidebar-overlay {
+    left: 0;
+    right: 0;
+}
+
+/* ========================================
+   4. HEADER RTL - Inversé proprement
+   ======================================== */
+
+[dir="rtl"] .evon-header {
+    direction: rtl;
+}
+
+[dir="rtl"] .evon-header-utilities {
+    flex-direction: row-reverse;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+/* Avatar et user info */
+[dir="rtl"] .evon-header-avatar {
+    margin-left: 12px;
+    margin-right: 0;
+}
+
+/* Dropdowns position */
+[dir="rtl"] .dropdown-menu {
+    left: auto !important;
+    right: 0 !important;
+}
+
+/* ========================================
+   5. STATS CARDS - Centrage RTL
+   ======================================== */
+
+[dir="rtl"] .evon-stats-grid {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .evon-stat-card {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .evon-stat-card-header {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .evon-stat-card-icon {
+    margin-left: 12px;
+    margin-right: 0;
+}
+
+[dir="rtl"] .evon-stat-card-label,
+[dir="rtl"] .evon-stat-card-value,
+[dir="rtl"] .evon-stat-card-change {
+    text-align: right;
+}
+
+/* ========================================
+   6. FORMS RTL - Inputs alignés
+   ======================================== */
+
+[dir="rtl"] input,
+[dir="rtl"] textarea,
+[dir="rtl"] select,
+[dir="rtl"] .input-field,
+[dir="rtl"] .select-field,
+[dir="rtl"] .textarea-field {
+    direction: rtl;
+    text-align: right;
+    padding-right: 16px;
+    padding-left: 16px;
+}
+
+[dir="rtl"] label {
+    text-align: right;
+    display: block;
+}
+
+[dir="rtl"] .form-group {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Icons dans les inputs */
+[dir="rtl"] .input-icon-left {
+    left: auto;
+    right: 12px;
+}
+
+[dir="rtl"] .input-icon-right {
+    right: auto;
+    left: 12px;
+}
+
+/* ========================================
+   7. BUTTONS RTL - Icônes inversées
+   ======================================== */
+
+[dir="rtl"] .btn-primary,
+[dir="rtl"] .btn-secondary {
+    direction: rtl;
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] button svg {
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+[dir="rtl"] a svg {
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+/* Button groups */
+[dir="rtl"] .flex.gap-3,
+[dir="rtl"] .flex.gap-4 {
+    flex-direction: row-reverse;
+}
+
+/* ========================================
+   8. TABLES RTL - Alignement correct
+   ======================================== */
+
+[dir="rtl"] .evon-table-container {
+    direction: rtl;
+}
+
+[dir="rtl"] .evon-table {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .evon-table-head-cell,
+[dir="rtl"] .evon-table-cell {
+    text-align: right;
+}
+
+/* Table responsive mobile */
+[dir="rtl"] .evon-table td::before {
+    float: right;
+    margin-left: 12px;
+    margin-right: 0;
+}
+
+/* ========================================
+   9. CHARTS RTL - Graphiques inversés
+   ======================================== */
+
+[dir="rtl"] .evon-chart-card {
+    direction: rtl;
+}
+
+[dir="rtl"] .evon-chart-header {
+    direction: rtl;
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .evon-chart-title {
+    text-align: right;
+}
+
+[dir="rtl"] canvas {
+    direction: ltr; /* Keep canvas LTR for proper rendering */
+}
+
+/* ========================================
+   10. ALERTS RTL - Notifications
+   ======================================== */
+
+[dir="rtl"] .evon-alert,
+[dir="rtl"] .evon-alert-success,
+[dir="rtl"] .evon-alert-warning,
+[dir="rtl"] .evon-alert-danger,
+[dir="rtl"] .evon-alert-info {
+    direction: rtl;
+    text-align: right;
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .evon-alert-icon {
+    margin-right: 0;
+    margin-left: 12px;
+}
+
+/* ========================================
+   11. MODALS RTL - Centrage parfait
+   ======================================== */
+
+[dir="rtl"] .evon-modal-panel {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .evon-modal-header,
+[dir="rtl"] .evon-modal-footer {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .evon-modal-close {
+    left: 20px;
+    right: auto;
+}
+
+/* ========================================
+   12. BOTTOM NAVIGATION RTL - Mobile
+   ======================================== */
+
+[dir="rtl"] .evon-mobile-bottom-nav {
+    direction: rtl;
+}
+
+[dir="rtl"] .evon-mobile-bottom-nav-content {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .evon-mobile-bottom-nav-item {
+    direction: rtl;
+}
+
+[dir="rtl"] .evon-mobile-bottom-nav-label {
+    text-align: center; /* Keep centered for icons */
+}
+
+/* ========================================
+   13. DASHBOARD HERO RTL
+   ======================================== */
+
+[dir="rtl"] .dashboard-hero {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .dashboard-hero .flex {
+    flex-direction: row-reverse;
+}
+
+/* SVG graphics - keep LTR */
+[dir="rtl"] .dashboard-hero svg {
+    direction: ltr;
+}
+
+/* ========================================
+   14. FLEXBOX RTL - Inversions
+   ======================================== */
+
+[dir="rtl"] .flex {
+    direction: rtl;
+}
+
+[dir="rtl"] .flex-row {
+    flex-direction: row-reverse !important;
+}
+
+[dir="rtl"] .flex-row-reverse {
+    flex-direction: row !important;
+}
+
+[dir="rtl"] .justify-start {
+    justify-content: flex-end !important;
+}
+
+[dir="rtl"] .justify-end {
+    justify-content: flex-start !important;
+}
+
+[dir="rtl"] .items-start {
+    align-items: flex-end !important;
+}
+
+[dir="rtl"] .items-end {
+    align-items: flex-start !important;
+}
+
+/* ========================================
+   15. SPACING RTL - Marges & Padding
+   ======================================== */
+
+/* Margin Left -> Right */
+[dir="rtl"] .ml-1 { margin-left: 0 !important; margin-right: 0.25rem !important; }
+[dir="rtl"] .ml-2 { margin-left: 0 !important; margin-right: 0.5rem !important; }
+[dir="rtl"] .ml-3 { margin-left: 0 !important; margin-right: 0.75rem !important; }
+[dir="rtl"] .ml-4 { margin-left: 0 !important; margin-right: 1rem !important; }
+[dir="rtl"] .ml-5 { margin-left: 0 !important; margin-right: 1.25rem !important; }
+[dir="rtl"] .ml-6 { margin-left: 0 !important; margin-right: 1.5rem !important; }
+[dir="rtl"] .ml-8 { margin-left: 0 !important; margin-right: 2rem !important; }
+[dir="rtl"] .ml-10 { margin-left: 0 !important; margin-right: 2.5rem !important; }
+[dir="rtl"] .ml-12 { margin-left: 0 !important; margin-right: 3rem !important; }
+
+/* Margin Right -> Left */
+[dir="rtl"] .mr-1 { margin-right: 0 !important; margin-left: 0.25rem !important; }
+[dir="rtl"] .mr-2 { margin-right: 0 !important; margin-left: 0.5rem !important; }
+[dir="rtl"] .mr-3 { margin-right: 0 !important; margin-left: 0.75rem !important; }
+[dir="rtl"] .mr-4 { margin-right: 0 !important; margin-left: 1rem !important; }
+[dir="rtl"] .mr-5 { margin-right: 0 !important; margin-left: 1.25rem !important; }
+[dir="rtl"] .mr-6 { margin-right: 0 !important; margin-left: 1.5rem !important; }
+[dir="rtl"] .mr-8 { margin-right: 0 !important; margin-left: 2rem !important; }
+[dir="rtl"] .mr-10 { margin-right: 0 !important; margin-left: 2.5rem !important; }
+[dir="rtl"] .mr-12 { margin-right: 0 !important; margin-left: 3rem !important; }
+
+/* Padding Left -> Right */
+[dir="rtl"] .pl-1 { padding-left: 0 !important; padding-right: 0.25rem !important; }
+[dir="rtl"] .pl-2 { padding-left: 0 !important; padding-right: 0.5rem !important; }
+[dir="rtl"] .pl-3 { padding-left: 0 !important; padding-right: 0.75rem !important; }
+[dir="rtl"] .pl-4 { padding-left: 0 !important; padding-right: 1rem !important; }
+[dir="rtl"] .pl-5 { padding-left: 0 !important; padding-right: 1.25rem !important; }
+[dir="rtl"] .pl-6 { padding-left: 0 !important; padding-right: 1.5rem !important; }
+[dir="rtl"] .pl-8 { padding-left: 0 !important; padding-right: 2rem !important; }
+[dir="rtl"] .pl-10 { padding-left: 0 !important; padding-right: 2.5rem !important; }
+[dir="rtl"] .pl-12 { padding-left: 0 !important; padding-right: 3rem !important; }
+
+/* Padding Right -> Left */
+[dir="rtl"] .pr-1 { padding-right: 0 !important; padding-left: 0.25rem !important; }
+[dir="rtl"] .pr-2 { padding-right: 0 !important; padding-left: 0.5rem !important; }
+[dir="rtl"] .pr-3 { padding-right: 0 !important; padding-left: 0.75rem !important; }
+[dir="rtl"] .pr-4 { padding-right: 0 !important; padding-left: 1rem !important; }
+[dir="rtl"] .pr-5 { padding-right: 0 !important; padding-left: 1.25rem !important; }
+[dir="rtl"] .pr-6 { padding-right: 0 !important; padding-left: 1.5rem !important; }
+[dir="rtl"] .pr-8 { padding-right: 0 !important; padding-left: 2rem !important; }
+[dir="rtl"] .pr-10 { padding-right: 0 !important; padding-left: 2.5rem !important; }
+[dir="rtl"] .pr-12 { padding-right: 0 !important; padding-left: 3rem !important; }
+
+/* Auto margins */
+[dir="rtl"] .ml-auto { margin-left: 0 !important; margin-right: auto !important; }
+[dir="rtl"] .mr-auto { margin-right: 0 !important; margin-left: auto !important; }
+
+/* Space between */
+[dir="rtl"] .space-x-1 > * + * { margin-left: 0 !important; margin-right: 0.25rem !important; }
+[dir="rtl"] .space-x-2 > * + * { margin-left: 0 !important; margin-right: 0.5rem !important; }
+[dir="rtl"] .space-x-3 > * + * { margin-left: 0 !important; margin-right: 0.75rem !important; }
+[dir="rtl"] .space-x-4 > * + * { margin-left: 0 !important; margin-right: 1rem !important; }
+[dir="rtl"] .space-x-5 > * + * { margin-left: 0 !important; margin-right: 1.25rem !important; }
+[dir="rtl"] .space-x-6 > * + * { margin-left: 0 !important; margin-right: 1.5rem !important; }
+[dir="rtl"] .space-x-8 > * + * { margin-left: 0 !important; margin-right: 2rem !important; }
+
+/* ========================================
+   16. POSITIONS RTL - Left <-> Right
+   ======================================== */
+
+[dir="rtl"] .left-0 { left: auto !important; right: 0 !important; }
+[dir="rtl"] .left-2 { left: auto !important; right: 0.5rem !important; }
+[dir="rtl"] .left-4 { left: auto !important; right: 1rem !important; }
+[dir="rtl"] .left-auto { left: 0 !important; right: auto !important; }
+
+[dir="rtl"] .right-0 { right: auto !important; left: 0 !important; }
+[dir="rtl"] .right-2 { right: auto !important; left: 0.5rem !important; }
+[dir="rtl"] .right-4 { right: auto !important; left: 1rem !important; }
+[dir="rtl"] .right-auto { right: 0 !important; left: auto !important; }
+
+/* Inset */
+[dir="rtl"] .inset-x-0 {
+    left: 0 !important;
+    right: 0 !important;
+}
+
+/* ========================================
+   17. BORDERS RTL
+   ======================================== */
+
+[dir="rtl"] .border-l { border-left: none !important; border-right: 1px solid !important; }
+[dir="rtl"] .border-l-2 { border-left: none !important; border-right: 2px solid !important; }
+[dir="rtl"] .border-l-4 { border-left: none !important; border-right: 4px solid !important; }
+
+[dir="rtl"] .border-r { border-right: none !important; border-left: 1px solid !important; }
+[dir="rtl"] .border-r-2 { border-right: none !important; border-left: 2px solid !important; }
+[dir="rtl"] .border-r-4 { border-right: none !important; border-left: 4px solid !important; }
+
+/* ========================================
+   18. BORDER RADIUS RTL
+   ======================================== */
+
+[dir="rtl"] .rounded-l {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-right-radius: 0.25rem !important;
+    border-bottom-right-radius: 0.25rem !important;
+}
+
+[dir="rtl"] .rounded-r {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-top-left-radius: 0.25rem !important;
+    border-bottom-left-radius: 0.25rem !important;
+}
+
+[dir="rtl"] .rounded-l-lg {
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    border-top-right-radius: 0.5rem !important;
+    border-bottom-right-radius: 0.5rem !important;
+}
+
+[dir="rtl"] .rounded-r-lg {
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    border-top-left-radius: 0.5rem !important;
+    border-bottom-left-radius: 0.5rem !important;
+}
+
+/* ========================================
+   19. TEXT ALIGNMENT RTL
+   ======================================== */
+
+[dir="rtl"] .text-left { text-align: right !important; }
+[dir="rtl"] .text-right { text-align: left !important; }
+[dir="rtl"] .text-center { text-align: center !important; }
+
+/* ========================================
+   20. FLOATS RTL
+   ======================================== */
+
+[dir="rtl"] .float-left { float: right !important; }
+[dir="rtl"] .float-right { float: left !important; }
+
+/* ========================================
+   21. TRANSFORMS RTL - Animations
+   ======================================== */
+
+[dir="rtl"] .translate-x-full { transform: translateX(-100%) !important; }
+[dir="rtl"] .-translate-x-full { transform: translateX(100%) !important; }
+
+/* ========================================
+   22. MOBILE RESPONSIVE RTL
+   ======================================== */
+
+@media (max-width: 1023px) {
+    /* Header mobile RTL */
+    [dir="rtl"] .evon-header {
+        flex-direction: row-reverse;
+    }
+    
+    /* Content mobile centré */
+    [dir="rtl"] .evon-content {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: right !important;
+    }
+    
+    /* Stats grid mobile */
+    [dir="rtl"] .evon-stats-grid {
+        direction: rtl;
+    }
+    
+    /* Forms mobile */
+    [dir="rtl"] .form-group {
+        width: 100%;
+    }
+    
+    [dir="rtl"] input,
+    [dir="rtl"] select,
+    [dir="rtl"] textarea {
+        width: 100% !important;
+        text-align: right !important;
+    }
+    
+    /* Buttons mobile */
+    [dir="rtl"] .btn-primary,
+    [dir="rtl"] .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Table mobile RTL */
+    [dir="rtl"] .evon-table tr {
+        direction: rtl;
+    }
+    
+    [dir="rtl"] .evon-table td {
+        text-align: right !important;
+    }
+    
+    /* Bottom nav RTL */
+    [dir="rtl"] .evon-mobile-bottom-nav {
+        direction: rtl;
+    }
+    
+    /* Sidebar mobile RTL */
+    [dir="rtl"] .evon-sidebar {
+        right: 0;
+        left: auto;
+    }
+    
+    [dir="rtl"] .evon-sidebar.-translate-x-full {
+        transform: translateX(100%);
+    }
+}
+
+/* ========================================
+   23. TYPOGRAPHY RTL - Police arabe
+   ======================================== */
+
+[dir="rtl"] {
+    font-family: 'Tajawal', 'Cairo', 'Arial', sans-serif;
+    font-feature-settings: "liga" 0;
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+    font-weight: 700;
+    letter-spacing: 0;
+}
+
+/* ========================================
+   24. ICONS RTL - SVG Flip
+   ======================================== */
+
+/* Flip arrows and chevrons */
+[dir="rtl"] .icon-arrow-left {
+    transform: scaleX(-1);
+}
+
+[dir="rtl"] .icon-arrow-right {
+    transform: scaleX(-1);
+}
+
+/* Keep certain icons not flipped */
+[dir="rtl"] .icon-no-flip {
+    transform: none !important;
+}
+
+/* ========================================
+   25. BREADCRUMBS RTL
+   ======================================== */
+
+[dir="rtl"] .breadcrumb {
+    flex-direction: row-reverse;
+}
+
+[dir="rtl"] .breadcrumb-item + .breadcrumb-item::before {
+    content: "\\" !important;
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+/* ========================================
+   26. DROPDOWN RTL
+   ======================================== */
+
+[dir="rtl"] .dropdown-menu {
+    text-align: right;
+}
+
+[dir="rtl"] .dropdown-item {
+    text-align: right;
+    padding-right: 1rem;
+    padding-left: 3rem;
+}
+
+/* ========================================
+   27. PAGINATION RTL
+   ======================================== */
+
+[dir="rtl"] .pagination {
+    flex-direction: row-reverse;
+}
+
+/* ========================================
+   28. TOOLTIPS RTL
+   ======================================== */
+
+[dir="rtl"] .tooltip {
+    direction: rtl;
+    text-align: right;
+}
+
+/* ========================================
+   29. UTILITIES RTL
+   ======================================== */
+
+/* Force LTR dans RTL */
+[dir="rtl"] .force-ltr {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+/* Force RTL dans LTR */
+[dir="ltr"] .force-rtl {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+/* ========================================
+   30. APP HEADER COMPONENT RTL
+   ======================================== */
+
+[dir="rtl"] .app-header {
+    direction: rtl;
+}
+
+[dir="rtl"] .app-header .flex {
+    flex-direction: row-reverse;
+}
+
+/* ========================================
+   31. PERFORMANCE RTL
+   ======================================== */
+
+[dir="rtl"] * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================================
+   32. PRINT RTL
+   ======================================== */
+
+@media print {
+    [dir="rtl"] {
+        direction: rtl;
+        text-align: right;
+    }
+    
+    [dir="rtl"] .evon-sidebar {
+        display: none;
+    }
+    
+    [dir="rtl"] .evon-content {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+

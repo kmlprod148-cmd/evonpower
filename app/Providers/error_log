@@ -1,0 +1,40 @@
+[22-Mar-2025 05:55:32 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\ServiceProvider" not found in /home/evonpower/devcharge.evonpower.com/app/Providers/RepositoryServiceProvider.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Providers/RepositoryServiceProvider.php on line 19
+[22-Mar-2025 05:55:33 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\ServiceProvider" not found in /home/evonpower/devcharge.evonpower.com/app/Providers/AppServiceProvider.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Providers/AppServiceProvider.php on line 7
+[22-Mar-2025 05:55:40 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\ServiceProvider" not found in /home/evonpower/devcharge.evonpower.com/app/Providers/RepositoryServiceProvider.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Providers/RepositoryServiceProvider.php on line 19
+[22-Mar-2025 05:55:41 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\ServiceProvider" not found in /home/evonpower/devcharge.evonpower.com/app/Providers/AppServiceProvider.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Providers/AppServiceProvider.php on line 7
+[22-Mar-2025 05:55:48 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\ServiceProvider" not found in /home/evonpower/devcharge.evonpower.com/app/Providers/RepositoryServiceProvider.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Providers/RepositoryServiceProvider.php on line 19
+[22-Mar-2025 05:55:51 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\ServiceProvider" not found in /home/evonpower/devcharge.evonpower.com/app/Providers/AppServiceProvider.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Providers/AppServiceProvider.php on line 7
+[22-Mar-2025 05:55:58 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\ServiceProvider" not found in /home/evonpower/devcharge.evonpower.com/app/Providers/RepositoryServiceProvider.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Providers/RepositoryServiceProvider.php on line 19
+[22-Mar-2025 05:56:01 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\ServiceProvider" not found in /home/evonpower/devcharge.evonpower.com/app/Providers/AppServiceProvider.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Providers/AppServiceProvider.php on line 7
+[22-Mar-2025 05:56:10 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\ServiceProvider" not found in /home/evonpower/devcharge.evonpower.com/app/Providers/RepositoryServiceProvider.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Providers/RepositoryServiceProvider.php on line 19
+[22-Mar-2025 05:56:14 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\ServiceProvider" not found in /home/evonpower/devcharge.evonpower.com/app/Providers/AppServiceProvider.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/evonpower/devcharge.evonpower.com/app/Providers/AppServiceProvider.php on line 7

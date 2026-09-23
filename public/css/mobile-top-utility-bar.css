@@ -1,0 +1,400 @@
+/**
+ * Mobile Top Utility Bar - Optimisation pour appareils mobiles
+ * Respecte les bonnes pratiques UI/UX :
+ * - Taille minimale des boutons tactiles : 48x48px (Google) / 44x44px (Apple)
+ * - Espacement suffisant entre les éléments
+ * - Adaptation responsive intelligente
+ */
+
+/* ========================================
+   CONTENEUR PRINCIPAL DE LA TOP BAR
+   ======================================== */
+.bg-white.dark\:bg-gray-800.border-b {
+    transition: all 0.3s ease;
+}
+
+/* Amélioration du conteneur sur mobile */
+@media (max-width: 768px) {
+    .bg-white.dark\:bg-gray-800.border-b .max-w-7xl {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+    
+    .bg-white.dark\:bg-gray-800.border-b .flex.items-center.justify-between {
+        height: auto;
+        min-height: 3.5rem; /* 56px */
+        padding: 0.5rem 0;
+        gap: 0.5rem;
+    }
+}
+
+/* ========================================
+   HEADER SEARCH - MOBILE OPTIMISATION
+   ======================================== */
+.evon-header-search {
+    max-width: 100%;
+}
+
+/* Sur très petit écran, on cache complètement la recherche desktop */
+@media (max-width: 640px) {
+    .evon-header-search.hidden.md\:flex {
+        display: none !important;
+    }
+}
+
+/* ========================================
+   UTILITIES CONTAINER (Language, Theme, Notifications, User)
+   ======================================== */
+.evon-header-utilities {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+/* Mobile : Ajustement des gaps et tailles */
+@media (max-width: 768px) {
+    .evon-header-utilities {
+        gap: 0.375rem; /* 6px */
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .evon-header-utilities {
+        gap: 0.25rem; /* 4px */
+    }
+}
+
+/* ========================================
+   BOUTONS HEADER - TAILLE TACTILE OPTIMALE
+   ======================================== */
+.evon-header-button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem; /* 40px */
+    min-height: 2.5rem; /* 40px */
+    padding: 0.5rem;
+    border-radius: 0.75rem;
+    background-color: transparent;
+    color: #4B5563;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+
+/* Mobile : Augmentation de la zone tactile */
+@media (max-width: 768px) {
+    .evon-header-button {
+        min-width: 2.75rem; /* 44px - Apple iOS minimum */
+        min-height: 2.75rem; /* 44px */
+        padding: 0.625rem;
+        border-radius: 0.875rem;
+    }
+}
+
+/* États interactifs */
+.evon-header-button:hover {
+    background-color: rgba(243, 244, 246, 1);
+    transform: scale(1.05);
+}
+
+.evon-header-button:active {
+    transform: scale(0.95);
+    background-color: rgba(229, 231, 235, 1);
+}
+
+/* Dark mode */
+.dark .evon-header-button {
+    color: #9CA3AF;
+}
+
+.dark .evon-header-button:hover {
+    background-color: rgba(55, 65, 81, 1);
+}
+
+.dark .evon-header-button:active {
+    background-color: rgba(75, 85, 99, 1);
+}
+
+/* Focus visible pour l'accessibilité */
+.evon-header-button:focus-visible {
+    outline: 2px solid #6366F1;
+    outline-offset: 2px;
+}
+
+/* ========================================
+   NOTIFICATION BADGE
+   ======================================== */
+.evon-notification-badge {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+    display: block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background-color: #EF4444;
+    border: 2px solid white;
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.dark .evon-notification-badge {
+    border-color: #1F2937;
+}
+
+/* Mobile : Badge plus visible */
+@media (max-width: 768px) {
+    .evon-notification-badge {
+        width: 0.625rem; /* 10px */
+        height: 0.625rem; /* 10px */
+        top: 0.375rem;
+        right: 0.375rem;
+    }
+}
+
+/* ========================================
+   LANGUAGE SWITCHER - MOBILE OPTIMIZATION
+   ======================================== */
+/* Le composant language-switch devrait avoir un bouton avec classe .evon-header-button */
+[x-data*="languageOpen"] button {
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+}
+
+@media (max-width: 768px) {
+    [x-data*="languageOpen"] button {
+        min-width: 2.75rem;
+        min-height: 2.75rem;
+    }
+    
+    /* Cacher le texte, garder uniquement l'icône sur mobile */
+    [x-data*="languageOpen"] button span:not(.flag-icon) {
+        display: none;
+    }
+}
+
+/* ========================================
+   THEME SWITCHER - MOBILE OPTIMIZATION
+   ======================================== */
+[x-data*="darkMode"] button,
+[x-data*="theme"] button {
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+}
+
+@media (max-width: 768px) {
+    [x-data*="darkMode"] button,
+    [x-data*="theme"] button {
+        min-width: 2.75rem;
+        min-height: 2.75rem;
+    }
+}
+
+/* ========================================
+   USER MENU - MOBILE OPTIMIZATION
+   ======================================== */
+[x-data*="userMenuOpen"] > button,
+.evon-header-utilities > div:last-child button {
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+}
+
+@media (max-width: 768px) {
+    [x-data*="userMenuOpen"] > button,
+    .evon-header-utilities > div:last-child button {
+        min-width: 2.75rem;
+        min-height: 2.75rem;
+    }
+    
+    /* Sur très petit écran, cacher le nom d'utilisateur, garder uniquement l'avatar */
+    [x-data*="userMenuOpen"] > button span:not(.avatar),
+    .evon-header-utilities > div:last-child button span.hidden.sm\:inline {
+        display: none !important;
+    }
+}
+
+/* ========================================
+   MOBILE SEARCH BUTTON
+   ======================================== */
+.mobile-search-trigger {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    background-color: rgba(243, 244, 246, 0.5);
+}
+
+.dark .mobile-search-trigger {
+    background-color: rgba(55, 65, 81, 0.5);
+}
+
+.mobile-search-trigger:hover {
+    background-color: rgba(229, 231, 235, 1);
+}
+
+.dark .mobile-search-trigger:hover {
+    background-color: rgba(75, 85, 99, 1);
+}
+
+@media (max-width: 768px) {
+    .mobile-search-trigger {
+        min-width: 3rem; /* 48px - Google Material minimum */
+        min-height: 3rem; /* 48px */
+    }
+}
+
+/* ========================================
+   DROPDOWNS - MOBILE RESPONSIVE
+   ======================================== */
+.evon-header-utilities [x-show] {
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+@media (max-width: 640px) {
+    .evon-header-utilities [x-show] {
+        position: fixed !important;
+        left: 1rem !important;
+        right: 1rem !important;
+        top: auto !important;
+        bottom: auto !important;
+        margin-top: 0.5rem;
+        max-width: calc(100vw - 2rem);
+        width: auto !important;
+        transform-origin: top center;
+    }
+    
+    /* Ajustement pour RTL */
+    [dir="rtl"] .evon-header-utilities [x-show] {
+        left: 1rem !important;
+        right: 1rem !important;
+    }
+}
+
+/* ========================================
+   ANIMATIONS ET TRANSITIONS
+   ======================================== */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .5;
+    }
+}
+
+/* Smooth transitions pour tous les boutons */
+.evon-header-utilities button,
+.evon-header-button {
+    transition: transform 0.15s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+/* ========================================
+   AMÉLIORATION DE LA LISIBILITÉ
+   ======================================== */
+@media (max-width: 768px) {
+    /* S'assurer que les icônes ont une taille visible */
+    .evon-header-button svg {
+        width: 1.25rem; /* 20px */
+        height: 1.25rem; /* 20px */
+        flex-shrink: 0;
+    }
+}
+
+/* ========================================
+   RESPONSIVE BREAKPOINTS CUSTOM
+   ======================================== */
+
+/* Très petits écrans (320px - 375px) - iPhone SE, petits Android */
+@media (max-width: 375px) {
+    .evon-header-utilities {
+        gap: 0.125rem; /* 2px - minimal mais fonctionnel */
+    }
+    
+    .evon-header-button {
+        min-width: 2.5rem; /* 40px */
+        min-height: 2.5rem;
+        padding: 0.5rem;
+        border-radius: 0.625rem;
+    }
+    
+    .evon-header-button svg {
+        width: 1.125rem; /* 18px */
+        height: 1.125rem;
+    }
+}
+
+/* Petits écrans (376px - 480px) - Smartphones standard */
+@media (min-width: 376px) and (max-width: 480px) {
+    .evon-header-utilities {
+        gap: 0.25rem; /* 4px */
+    }
+}
+
+/* Écrans moyens (481px - 768px) - Grands smartphones, petites tablettes */
+@media (min-width: 481px) and (max-width: 768px) {
+    .evon-header-utilities {
+        gap: 0.5rem; /* 8px */
+    }
+}
+
+/* ========================================
+   ACCESSIBILITÉ AMÉLIORÉE
+   ======================================== */
+
+/* Indicateur de focus pour navigation au clavier */
+.evon-header-button:focus,
+.evon-header-utilities button:focus {
+    outline: 2px solid #6366F1;
+    outline-offset: 2px;
+}
+
+/* Mode contraste élevé */
+@media (prefers-contrast: high) {
+    .evon-header-button {
+        border: 1px solid currentColor;
+    }
+    
+    .evon-notification-badge {
+        border-width: 3px;
+    }
+}
+
+/* Réduction de mouvement pour utilisateurs sensibles */
+@media (prefers-reduced-motion: reduce) {
+    .evon-header-button,
+    .evon-notification-badge {
+        transition: none;
+        animation: none;
+    }
+}
+
+/* ========================================
+   SAFE AREAS POUR NOTCH (iPhone X+)
+   ======================================== */
+@supports (padding: max(0px)) {
+    .bg-white.dark\:bg-gray-800.border-b .max-w-7xl {
+        padding-left: max(0.75rem, env(safe-area-inset-left));
+        padding-right: max(0.75rem, env(safe-area-inset-right));
+    }
+}
+
+/* ========================================
+   OPTIMISATION DES PERFORMANCES
+   ======================================== */
+
+/* Hardware acceleration pour les animations */
+.evon-header-button,
+.evon-notification-badge {
+    will-change: transform;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+/* Désactiver will-change après interaction */
+.evon-header-button:not(:hover):not(:active) {
+    will-change: auto;
+}
+
